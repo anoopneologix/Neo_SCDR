@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="DeleteCalendarEvents" List="113" Url="_catalogs/wp">
+    <File Path="DeleteCalendarEvents\DeleteCalendarEvents.webpart" Url="SCDR_DeleteCalendarEvents.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

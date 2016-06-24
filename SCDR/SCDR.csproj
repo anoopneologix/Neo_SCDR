@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CEA6B2CF-8BDC-4053-ADE1-0D63C1A3F66A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SCDR</RootNamespace>
+    <AssemblyName>SCDR</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetOfficeVersion>15.0</TargetOfficeVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{C1CDDADD-2546-481F-9697-4EA41081F2FC};{14822709-B5A1-4724-98CA-57A101D1B079};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <SandboxedSolution>False</SandboxedSolution>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.SharePoint.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SharePoint.Client\v4.0_15.0.0.0__71e9bce111e9429c\Microsoft.SharePoint.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SharePoint.Client.Runtime, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.SharePoint" />
+    <Reference Include="Microsoft.SharePoint.Client.ServerRuntime" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdminForms\AddBanner\AddBanner.ascx.cs">
+      <DependentUpon>AddBanner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddBanner\AddBanner.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddBanner.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddBlogPostAr\AddBlogPostAr.ascx.cs">
+      <DependentUpon>AddBlogPostAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddBlogPostAr\AddBlogPostAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddBlogPostAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddBlogPost\AddBlogPost.ascx.cs">
+      <DependentUpon>AddBlogPost.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddBlogPost\AddBlogPost.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddBlogPost.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddCalendarEvents\AddCalendarEvents.ascx.cs">
+      <DependentUpon>AddCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddCalendarEvents\AddCalendarEvents.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddDepartment\AddDepartment.ascx.cs">
+      <DependentUpon>AddDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddDepartment\AddDepartment.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddImageGallery\AddImageGallery.ascx.cs">
+      <DependentUpon>AddImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddImageGallery\AddImageGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddInitiatives\AddInitiatives.ascx.cs">
+      <DependentUpon>AddInitiatives.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddInitiatives\AddInitiatives.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddInitiatives.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddNewAtSCDR\AddNewAtSCDR.ascx.cs">
+      <DependentUpon>AddNewAtSCDR.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddNewAtSCDR\AddNewAtSCDR.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddNewAtSCDR.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddNews\AddNews.ascx.cs">
+      <DependentUpon>AddNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddNews\AddNews.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddVenue\AddVenue.ascx.cs">
+      <DependentUpon>AddVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddVenue\AddVenue.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddVideoGallery\AddVideoGallery.ascx.cs">
+      <DependentUpon>AddVideoGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddVideoGallery\AddVideoGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddVideoGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.ascx.cs">
+      <DependentUpon>DeleteCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\DeleteImageGallery\DeleteImageGallery.ascx.cs">
+      <DependentUpon>DeleteImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\DeleteImageGallery\DeleteImageGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DeleteImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditCalendarEvents\EditCalendarEvents.ascx.cs">
+      <DependentUpon>EditCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditCalendarEvents\EditCalendarEvents.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditDepartment\EditDepartment.ascx.cs">
+      <DependentUpon>EditDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditDepartment\EditDepartment.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditImageGallery\EditImageGallery.ascx.cs">
+      <DependentUpon>EditImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditImageGallery\EditImageGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditVenue\EditVenue.ascx.cs">
+      <DependentUpon>EditVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditVenue\EditVenue.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewDepartment\ViewDepartment.ascx.cs">
+      <DependentUpon>ViewDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewDepartment\ViewDepartment.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewVenue\ViewVenue.ascx.cs">
+      <DependentUpon>ViewVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewVenue\ViewVenue.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewVenue.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BannerImageSliderAr\BannerImageSliderAr.ascx.cs">
+      <DependentUpon>BannerImageSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BannerImageSliderAr\BannerImageSliderAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BannerImageSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BannerImageSlider\BannerImageSlider.ascx.cs">
+      <DependentUpon>BannerImageSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="BannerImageSlider\BannerImageSlider.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BannerImageSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarControlAr\CalendarControlAr.ascx.cs">
+      <DependentUpon>CalendarControlAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarControlAr\CalendarControlAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarControlAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarControl\CalendarControl.ascx.cs">
+      <DependentUpon>CalendarControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CalendarControl\CalendarControl.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CalendarControl.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentUserDetails\CurrentUserDetails.ascx.cs">
+      <DependentUpon>CurrentUserDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CurrentUserDetails\CurrentUserDetails.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CurrentUserDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EventSliderAr\EventSliderAr.ascx.cs">
+      <DependentUpon>EventSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EventSliderAr\EventSliderAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EventSlider\EventSlider.ascx.cs">
+      <DependentUpon>EventSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="EventSlider\EventSlider.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageGalleryAr\ImageGalleryAr.ascx.cs">
+      <DependentUpon>ImageGalleryAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageGalleryAr\ImageGalleryAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageGalleryAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageGallery\ImageGallery.ascx.cs">
+      <DependentUpon>ImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ImageGallery\ImageGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Gallery\ImageGalleryCreate\ImageGalleryCreate.ascx.cs">
+      <DependentUpon>ImageGalleryCreate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Gallery\ImageGalleryCreate\ImageGalleryCreate.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageGalleryCreate.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Gallery\ImageGalleryUpload\ImageGalleryUpload.ascx.cs">
+      <DependentUpon>ImageGalleryUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Image_Gallery\ImageGalleryUpload\ImageGalleryUpload.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ImageGalleryUpload.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InitiativesSliderAr\InitiativesSliderAr.ascx.cs">
+      <DependentUpon>InitiativesSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InitiativesSliderAr\InitiativesSliderAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InitiativesSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InitiativesSlider\InitiativesSlider.ascx.cs">
+      <DependentUpon>InitiativesSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InitiativesSlider\InitiativesSlider.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InitiativesSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAr\LoginAr.ascx.cs">
+      <DependentUpon>LoginAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginAr\LoginAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginEn\LoginEn.ascx.cs">
+      <DependentUpon>LoginEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="LoginEn\LoginEn.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoginEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuListItem\MenuListItem.ascx.cs">
+      <DependentUpon>MenuListItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="MenuListItem\MenuListItem.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MenuListItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAtSCDRAr\NewAtSCDRAr.ascx.cs">
+      <DependentUpon>NewAtSCDRAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAtSCDRAr\NewAtSCDRAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewAtSCDRAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAtSCDR\NewAtSCDR.ascx.cs">
+      <DependentUpon>NewAtSCDR.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewAtSCDR\NewAtSCDR.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NewAtSCDR.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\AddNewsDetailsAr\AddNewsDetailsAr.ascx.cs">
+      <DependentUpon>AddNewsDetailsAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\AddNewsDetailsAr\AddNewsDetailsAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddNewsDetailsAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\LatestNewsAr\LatestNewsAr.ascx.cs">
+      <DependentUpon>LatestNewsAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\LatestNewsAr\LatestNewsAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LatestNewsAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\PressReleasesListAr\PressReleasesListAr.ascx.cs">
+      <DependentUpon>PressReleasesListAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\PressReleasesListAr\PressReleasesListAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PressReleasesListAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\ShowNewsItemAr\ShowNewsItemAr.ascx.cs">
+      <DependentUpon>ShowNewsItemAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="NewsAr\ShowNewsItemAr\ShowNewsItemAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowNewsItemAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\AddNewsDetails\AddNewsDetails.ascx.cs">
+      <DependentUpon>AddNewsDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\AddNewsDetails\AddNewsDetails.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddNewsDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\LatestNews\LatestNews.ascx.cs">
+      <DependentUpon>LatestNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\LatestNews\LatestNews.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LatestNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\PressReleasesList\PressReleasesList.ascx.cs">
+      <DependentUpon>PressReleasesList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\PressReleasesList\PressReleasesList.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PressReleasesList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\ShowNewsItem\ShowNewsItem.ascx.cs">
+      <DependentUpon>ShowNewsItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="News\ShowNewsItem\ShowNewsItem.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ShowNewsItem.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerImageSliderAr\PartnerImageSliderAr.ascx.cs">
+      <DependentUpon>PartnerImageSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerImageSliderAr\PartnerImageSliderAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartnerImageSliderAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerImageSlider\PartnerImageSlider.ascx.cs">
+      <DependentUpon>PartnerImageSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="PartnerImageSlider\PartnerImageSlider.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PartnerImageSlider.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RatingandFeedbackAr\RatingandFeedbackAr.ascx.cs">
+      <DependentUpon>RatingandFeedbackAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RatingandFeedbackAr\RatingandFeedbackAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingandFeedbackAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RatingAndFeedBack\RatingAndFeedBack.ascx.cs">
+      <DependentUpon>RatingAndFeedBack.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="RatingAndFeedBack\RatingAndFeedBack.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RatingAndFeedBack.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
+      <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGallery\VideoGallery.ascx.cs">
+      <DependentUpon>VideoGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="VideoGallery\VideoGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VideoGallery.ascx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="AdminForms\AddBanner\AddBanner.webpart" />
+    <None Include="AdminForms\AddBanner\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{8cd77937-affd-49e8-b493-db3935e321fc}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddBlogPostAr\AddBlogPostAr.webpart" />
+    <None Include="AdminForms\AddBlogPostAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{86e27bbb-f96f-4b41-9be9-c6e99244f886}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddBlogPost\AddBlogPost.webpart" />
+    <None Include="AdminForms\AddBlogPost\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{928d9990-5534-4570-a58b-678be9f68b97}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddCalendarEvents\AddCalendarEvents.webpart" />
+    <None Include="AdminForms\AddCalendarEvents\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{de1ae19c-6249-48a5-aa91-81ae845d540c}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddDepartment\AddDepartment.webpart" />
+    <None Include="AdminForms\AddDepartment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a903c89d-376f-4bc0-a786-8e8d1b8cbe05}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddImageGallery\AddImageGallery.webpart" />
+    <None Include="AdminForms\AddImageGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{13fcca70-d5e5-41c6-9e4b-779ac2496d11}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddInitiatives\AddInitiatives.webpart" />
+    <None Include="AdminForms\AddInitiatives\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{61cd24ba-8945-4c2d-979d-36c63d6080e6}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddNewAtSCDR\AddNewAtSCDR.webpart" />
+    <None Include="AdminForms\AddNewAtSCDR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7b12ae75-cccf-4d84-a347-a90f3591f33a}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddNews\AddNews.webpart" />
+    <None Include="AdminForms\AddNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{53ebad47-3af2-4270-b075-ea25beb28d59}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddVenue\AddVenue.webpart" />
+    <None Include="AdminForms\AddVenue\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1a7f1c0d-fa46-40f7-9357-5784dc880dfd}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddVideoGallery\AddVideoGallery.webpart" />
+    <None Include="AdminForms\AddVideoGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ff2bbd39-0182-4074-89cb-8d798e06e274}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.webpart" />
+    <None Include="AdminForms\DeleteCalendarEvents\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{592ec603-39ef-4211-942e-926686a4d033}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\DeleteImageGallery\DeleteImageGallery.webpart" />
+    <None Include="AdminForms\DeleteImageGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{127df450-4d75-441c-914a-e71d05aae40a}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\EditCalendarEvents\EditCalendarEvents.webpart" />
+    <None Include="AdminForms\EditCalendarEvents\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7e4683e8-a33a-45a0-92ea-fcf0843fc451}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\EditDepartment\EditDepartment.webpart" />
+    <None Include="AdminForms\EditDepartment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f36f3a83-a0e7-4587-aba1-d9ee25deee9b}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\EditImageGallery\EditImageGallery.webpart" />
+    <None Include="AdminForms\EditImageGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5b1ab812-a18c-4ae9-9b2f-a138ebe58fc8}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\EditVenue\EditVenue.webpart" />
+    <None Include="AdminForms\EditVenue\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{9bbe9218-cf34-47fd-acc7-769127653eef}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewDepartment\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6e509091-f2ae-4585-8327-01b46f305cc3}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewDepartment\ViewDepartment.webpart" />
+    <None Include="AdminForms\ViewVenue\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{19325824-065e-4092-9e11-f9ca06cd0d0b}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewVenue\ViewVenue.webpart" />
+    <None Include="BannerImageSliderAr\BannerImageSliderAr.webpart" />
+    <None Include="BannerImageSliderAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1eda339e-9315-47ba-8b10-73a79b27439e}</SharePointProjectItemId>
+    </None>
+    <None Include="BannerImageSlider\BannerImageSlider.webpart" />
+    <None Include="BannerImageSlider\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e81332d9-12a9-418e-add8-f307aa5e8705}</SharePointProjectItemId>
+    </None>
+    <None Include="CalendarControlAr\CalendarControlAr.webpart" />
+    <None Include="CalendarControlAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e007d42a-8cf2-4896-8da1-4b4acc7a15ee}</SharePointProjectItemId>
+    </None>
+    <None Include="CalendarControl\CalendarControl.webpart" />
+    <None Include="CalendarControl\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a17a9d72-826f-40a8-9df6-751240200e72}</SharePointProjectItemId>
+    </None>
+    <None Include="CurrentUserDetails\CurrentUserDetails.webpart" />
+    <None Include="CurrentUserDetails\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{835aa08f-317d-4da1-beae-d10f0e930fc5}</SharePointProjectItemId>
+    </None>
+    <None Include="EventSliderAr\EventSliderAr.webpart" />
+    <None Include="EventSliderAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cbe4d1c5-553d-4ddb-b506-0bd9cc2dd000}</SharePointProjectItemId>
+    </None>
+    <None Include="EventSlider\EventSlider.webpart" />
+    <None Include="EventSlider\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c5c4d2a5-9d3e-464e-951f-753ca0b75053}</SharePointProjectItemId>
+    </None>
+    <None Include="Features\SCDR\SCDR.feature">
+      <FeatureId>{c5ea1ba6-225f-42a2-b21b-168ce636440f}</FeatureId>
+    </None>
+    <None Include="ImageGalleryAr\ImageGalleryAr.webpart" />
+    <None Include="ImageGalleryAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f08c1ca8-beb1-42d6-84cc-e7bebfb5670f}</SharePointProjectItemId>
+    </None>
+    <None Include="ImageGallery\ImageGallery.webpart" />
+    <None Include="ImageGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f3efcff1-9207-44f1-91de-8a1e9eb5f874}</SharePointProjectItemId>
+    </None>
+    <None Include="Image_Gallery\ImageGalleryCreate\ImageGalleryCreate.webpart" />
+    <None Include="Image_Gallery\ImageGalleryCreate\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6a58a45d-dc7d-4266-a34a-27dde5f3f901}</SharePointProjectItemId>
+    </None>
+    <None Include="Image_Gallery\ImageGalleryUpload\ImageGalleryUpload.webpart" />
+    <None Include="Image_Gallery\ImageGalleryUpload\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e0cc2317-9f98-41f9-ba6a-474cb2b559c1}</SharePointProjectItemId>
+    </None>
+    <None Include="InitiativesSliderAr\InitiativesSliderAr.webpart" />
+    <None Include="InitiativesSliderAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dbd474ae-9aaf-47ad-9a9f-55f89a3ccb2f}</SharePointProjectItemId>
+    </None>
+    <None Include="InitiativesSlider\InitiativesSlider.webpart" />
+    <None Include="InitiativesSlider\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{6f3c339f-03b2-406d-aa00-657690b0c957}</SharePointProjectItemId>
+    </None>
+    <None Include="key.snk" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{a18fb6fe-c84f-434d-b057-241419505682}</SharePointProjectItemId>
+    </None>
+    <None Include="LoginAr\LoginAr.webpart" />
+    <None Include="LoginAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{f2dce9f9-e34a-4eff-994c-52f910a93c44}</SharePointProjectItemId>
+    </None>
+    <None Include="LoginEn\LoginEn.webpart" />
+    <None Include="LoginEn\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ec283aed-c816-406e-a2b7-786286f801d0}</SharePointProjectItemId>
+    </None>
+    <None Include="MenuListItem\MenuListItem.webpart" />
+    <None Include="MenuListItem\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{08cfe736-917e-4f20-b0a4-a9c0761a32f2}</SharePointProjectItemId>
+    </None>
+    <None Include="NewAtSCDRAr\NewAtSCDRAr.webpart" />
+    <None Include="NewAtSCDRAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1ec4c388-fce6-47c2-8515-024c472b3e8a}</SharePointProjectItemId>
+    </None>
+    <None Include="NewAtSCDR\NewAtSCDR.webpart" />
+    <None Include="NewAtSCDR\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{dae69cea-1cb6-4d12-a7dc-fc1d88720665}</SharePointProjectItemId>
+    </None>
+    <None Include="NewsAr\AddNewsDetailsAr\AddNewsDetailsAr.webpart" />
+    <None Include="NewsAr\AddNewsDetailsAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{7d91c930-52aa-44f7-88d0-0b09471e2786}</SharePointProjectItemId>
+    </None>
+    <None Include="NewsAr\LatestNewsAr\LatestNewsAr.webpart" />
+    <None Include="NewsAr\LatestNewsAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{52c5c770-06a4-4dd3-a949-3b813d2ede10}</SharePointProjectItemId>
+    </None>
+    <None Include="NewsAr\PressReleasesListAr\PressReleasesListAr.webpart" />
+    <None Include="NewsAr\PressReleasesListAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ae196f10-b7dc-4884-823c-be078de190ed}</SharePointProjectItemId>
+    </None>
+    <None Include="NewsAr\ShowNewsItemAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{e9147ffe-01e5-42a1-a9cf-4519673161fc}</SharePointProjectItemId>
+    </None>
+    <None Include="NewsAr\ShowNewsItemAr\ShowNewsItemAr.webpart" />
+    <None Include="News\AddNewsDetails\AddNewsDetails.webpart" />
+    <None Include="News\AddNewsDetails\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5ee4696b-c550-425d-8b03-dc245bb89aea}</SharePointProjectItemId>
+    </None>
+    <None Include="News\LatestNews\LatestNews.webpart" />
+    <None Include="News\LatestNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{5f4d73b1-d758-4e9c-b0b4-5deaf937a6e3}</SharePointProjectItemId>
+    </None>
+    <None Include="News\PressReleasesList\PressReleasesList.webpart" />
+    <None Include="News\PressReleasesList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b6c31e7e-4102-4c43-9ac7-48c3f408aef4}</SharePointProjectItemId>
+    </None>
+    <None Include="News\ShowNewsItem\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d392320e-bbe2-436d-9f83-a2884724b600}</SharePointProjectItemId>
+    </None>
+    <None Include="News\ShowNewsItem\ShowNewsItem.webpart" />
+    <None Include="Package\Package.package">
+      <PackageId>{d68f5bac-dedd-4089-925f-33f82249765b}</PackageId>
+    </None>
+    <None Include="Package\Package.Template.xml">
+      <DependentUpon>Package.package</DependentUpon>
+    </None>
+    <None Include="PartnerImageSliderAr\PartnerImageSliderAr.webpart" />
+    <None Include="PartnerImageSliderAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{16ed6b51-2b72-419d-bf57-6600d611204e}</SharePointProjectItemId>
+    </None>
+    <None Include="PartnerImageSlider\PartnerImageSlider.webpart" />
+    <None Include="PartnerImageSlider\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{18d53edb-2766-415c-8547-4db8a8f67c84}</SharePointProjectItemId>
+    </None>
+    <None Include="RatingandFeedbackAr\RatingandFeedbackAr.webpart" />
+    <None Include="RatingandFeedbackAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c27e9d8d-e3f9-4579-9f2e-ddd75a3c389b}</SharePointProjectItemId>
+    </None>
+    <None Include="RatingAndFeedBack\RatingAndFeedBack.webpart" />
+    <None Include="RatingAndFeedBack\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{4b5a19f0-0ee5-4150-bf38-2ab2103d2943}</SharePointProjectItemId>
+    </None>
+    <None Include="VideoGalleryAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{3958bdb5-da70-4d20-b197-af2f4c879d9d}</SharePointProjectItemId>
+    </None>
+    <None Include="VideoGalleryAr\VideoGalleryAr.webpart" />
+    <None Include="VideoGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{aaf00cca-6b18-4c20-850c-69faa61dec01}</SharePointProjectItemId>
+    </None>
+    <None Include="VideoGallery\VideoGallery.webpart" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="AdminForms\AddBanner\AddBanner.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddBanner.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddBanner\Elements.xml" />
+    <Content Include="AdminForms\AddBlogPostAr\AddBlogPostAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddBlogPostAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddBlogPostAr\Elements.xml" />
+    <Content Include="AdminForms\AddBlogPost\AddBlogPost.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddBlogPost.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddBlogPost\Elements.xml" />
+    <Content Include="AdminForms\AddCalendarEvents\AddCalendarEvents.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddCalendarEvents.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddCalendarEvents\Elements.xml" />
+    <Content Include="AdminForms\AddDepartment\AddDepartment.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddDepartment.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddDepartment\Elements.xml" />
+    <Content Include="AdminForms\AddImageGallery\AddImageGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddImageGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddImageGallery\Elements.xml" />
+    <Content Include="AdminForms\AddInitiatives\AddInitiatives.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddInitiatives.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddInitiatives\Elements.xml" />
+    <Content Include="AdminForms\AddNewAtSCDR\AddNewAtSCDR.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddNewAtSCDR.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddNewAtSCDR\Elements.xml" />
+    <Content Include="AdminForms\AddNews\AddNews.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddNews.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddNews\Elements.xml" />
+    <Content Include="AdminForms\AddVenue\AddVenue.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddVenue.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddVenue\Elements.xml" />
+    <Content Include="AdminForms\AddVideoGallery\AddVideoGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddVideoGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddVideoGallery\Elements.xml" />
+    <Content Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>DeleteCalendarEvents.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\DeleteCalendarEvents\Elements.xml" />
+    <Content Include="AdminForms\DeleteImageGallery\DeleteImageGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>DeleteImageGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\DeleteImageGallery\Elements.xml" />
+    <Content Include="AdminForms\EditCalendarEvents\EditCalendarEvents.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EditCalendarEvents.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\EditCalendarEvents\Elements.xml" />
+    <Content Include="AdminForms\EditDepartment\EditDepartment.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EditDepartment.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\EditDepartment\Elements.xml" />
+    <Content Include="AdminForms\EditImageGallery\EditImageGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EditImageGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\EditImageGallery\Elements.xml" />
+    <Content Include="AdminForms\EditVenue\EditVenue.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EditVenue.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\EditVenue\Elements.xml" />
+    <Content Include="AdminForms\ViewDepartment\Elements.xml" />
+    <Content Include="AdminForms\ViewDepartment\ViewDepartment.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewDepartment.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\ViewVenue\Elements.xml" />
+    <Content Include="AdminForms\ViewVenue\ViewVenue.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewVenue.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="BannerImageSliderAr\BannerImageSliderAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>BannerImageSliderAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="BannerImageSliderAr\Elements.xml" />
+    <Content Include="BannerImageSlider\BannerImageSlider.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>BannerImageSlider.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="BannerImageSlider\Elements.xml" />
+    <Content Include="CalendarControlAr\CalendarControlAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CalendarControlAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="CalendarControlAr\Elements.xml" />
+    <Content Include="CalendarControl\CalendarControl.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CalendarControl.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="CalendarControl\Elements.xml" />
+    <Content Include="CurrentUserDetails\CurrentUserDetails.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CurrentUserDetails.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="CurrentUserDetails\Elements.xml" />
+    <Content Include="EventSliderAr\Elements.xml" />
+    <Content Include="EventSliderAr\EventSliderAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EventSliderAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="EventSlider\Elements.xml" />
+    <Content Include="EventSlider\EventSlider.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EventSlider.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="Features\SCDR\SCDR.Template.xml">
+      <DependentUpon>SCDR.feature</DependentUpon>
+    </Content>
+    <Content Include="ImageGalleryAr\Elements.xml" />
+    <Content Include="ImageGalleryAr\ImageGalleryAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ImageGalleryAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="ImageGallery\Elements.xml" />
+    <Content Include="ImageGallery\ImageGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ImageGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="Image_Gallery\ImageGalleryCreate\Elements.xml" />
+    <Content Include="Image_Gallery\ImageGalleryCreate\ImageGalleryCreate.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ImageGalleryCreate.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="Image_Gallery\ImageGalleryUpload\Elements.xml" />
+    <Content Include="Image_Gallery\ImageGalleryUpload\ImageGalleryUpload.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ImageGalleryUpload.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="InitiativesSliderAr\Elements.xml" />
+    <Content Include="InitiativesSliderAr\InitiativesSliderAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>InitiativesSliderAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="InitiativesSlider\Elements.xml" />
+    <Content Include="InitiativesSlider\InitiativesSlider.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>InitiativesSlider.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="Layouts\SCDR\css\bootstrap-datetimepicker.css" />
+    <Content Include="Layouts\SCDR\css\datepicker.min.css" />
+    <Content Include="Layouts\SCDR\css\datepicker3.min.css" />
+    <Content Include="Layouts\SCDR\css\editor.css" />
+    <Content Include="Layouts\SCDR\css\PressPagination.css" />
+    <Content Include="Layouts\SCDR\images\default.png" />
+    <Content Include="Layouts\SCDR\images\star.png" />
+    <Content Include="Layouts\SCDR\js\base64.js" />
+    <Content Include="Layouts\SCDR\js\bootstrap-datetimepicker.js" />
+    <Content Include="Layouts\SCDR\js\canvas2image.js" />
+    <Content Include="Layouts\SCDR\js\editor.js" />
+    <Content Include="Layouts\SCDR\js\html2canvas.js" />
+    <Content Include="Layouts\SCDR\js\jquery-ui.min.js" />
+    <Content Include="Layouts\SCDR\js\jquery.validate.min.js" />
+    <Content Include="Layouts\SCDR\js\jspdf.min.js" />
+    <Content Include="Layouts\SCDR\js\moment.js" />
+    <Content Include="LoginAr\Elements.xml" />
+    <Content Include="LoginAr\LoginAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LoginAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="LoginEn\Elements.xml" />
+    <Content Include="LoginEn\LoginEn.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LoginEn.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="MenuListItem\Elements.xml" />
+    <Content Include="MenuListItem\MenuListItem.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>MenuListItem.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewAtSCDRAr\Elements.xml" />
+    <Content Include="NewAtSCDRAr\NewAtSCDRAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>NewAtSCDRAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewAtSCDR\Elements.xml" />
+    <Content Include="NewAtSCDR\NewAtSCDR.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>NewAtSCDR.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewsAr\AddNewsDetailsAr\AddNewsDetailsAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddNewsDetailsAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewsAr\AddNewsDetailsAr\Elements.xml" />
+    <Content Include="NewsAr\LatestNewsAr\Elements.xml" />
+    <Content Include="NewsAr\LatestNewsAr\LatestNewsAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LatestNewsAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewsAr\PressReleasesListAr\Elements.xml" />
+    <Content Include="NewsAr\PressReleasesListAr\PressReleasesListAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>PressReleasesListAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="NewsAr\ShowNewsItemAr\Elements.xml" />
+    <Content Include="NewsAr\ShowNewsItemAr\ShowNewsItemAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ShowNewsItemAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="News\AddNewsDetails\AddNewsDetails.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddNewsDetails.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="News\AddNewsDetails\Elements.xml" />
+    <Content Include="Layouts\SCDR\js\bootstrap-datepicker.min.js" />
+    <Content Include="News\LatestNews\Elements.xml" />
+    <Content Include="News\LatestNews\LatestNews.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>LatestNews.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="News\PressReleasesList\Elements.xml" />
+    <Content Include="News\PressReleasesList\PressReleasesList.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>PressReleasesList.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="News\ShowNewsItem\Elements.xml" />
+    <Content Include="News\ShowNewsItem\ShowNewsItem.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ShowNewsItem.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="PartnerImageSliderAr\Elements.xml" />
+    <Content Include="PartnerImageSliderAr\PartnerImageSliderAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>PartnerImageSliderAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="PartnerImageSlider\Elements.xml" />
+    <Content Include="PartnerImageSlider\PartnerImageSlider.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>PartnerImageSlider.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="RatingandFeedbackAr\Elements.xml" />
+    <Content Include="RatingandFeedbackAr\RatingandFeedbackAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>RatingandFeedbackAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="RatingAndFeedBack\Elements.xml" />
+    <Content Include="RatingAndFeedBack\RatingAndFeedBack.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>RatingAndFeedBack.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="VideoGalleryAr\Elements.xml" />
+    <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>VideoGalleryAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="VideoGallery\Elements.xml" />
+    <Content Include="VideoGallery\VideoGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>VideoGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+</Project>

@@ -1,0 +1,152 @@
+﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
+<%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
+<%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
+<%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
+<%@ Import Namespace="Microsoft.SharePoint" %> 
+<%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditCalendarEvents.ascx.cs" Inherits="SCDR.AdminForms.EditCalendarEvents.EditCalendarEvents" %>
+<!-- Include Bootstrap Datepicker -->
+        <link rel="stylesheet" href="../../_layouts/15/SCDR/css/datepicker.min.css" />
+        <link rel="stylesheet" href="../../_layouts/15/SCDR/css/datepicker3.min.css" />
+<link href="../../_layouts/15/SCDR/css/bootstrap-datetimepicker.css" rel="stylesheet" />
+<div class="col-md-12 col-sm-12 col-xs-12">
+        <!-- Form Begins -->
+        <div class="form-horizontal">
+            
+                <div class="form-group">
+       <label  class="col-sm-3 control-label">Select Language : </label>
+    <div class="col-sm-9">
+        <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="Arabic" Checked="true" ID="rbArabic" runat="server" OnCheckedChanged="rbArabic_CheckedChanged" />
+          <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="English" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged" />
+    </div>
+  </div>
+       
+            <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Date : </label>
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtEventDate" ClientIDMode="Static" runat="server" AutoPostBack="true" class="form-control" OnTextChanged="txtEventDate_TextChanged" ></asp:TextBox>
+  </div>
+          <div class="col-sm-3">
+          <asp:RequiredFieldValidator  ControlToValidate="txtEventDate" ValidationGroup="chk" ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      </div>
+  </div>
+            
+             <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Name : </label>
+                 <div class="col-sm-6">
+                     <asp:DropDownList AutoPostBack="true" ID="ddlEventName" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged"></asp:DropDownList>   </div>
+                 </div>
+                   
+            <div id="divContent" runat="server">
+                <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Venue : </label>
+    <div class="col-sm-6">
+        <asp:DropDownList CausesValidation="true" runat="server" class="form-control" ID="ddlEventVenue">
+
+        </asp:DropDownList>
+    
+  </div>
+        <div class="col-sm-3">
+         <asp:RequiredFieldValidator InitialValue="0"  ControlToValidate="ddlEventVenue" ValidationGroup="chk" ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="Please select a Venue"></asp:RequiredFieldValidator>
+      </div>
+  </div>
+                <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Time : </label>
+ 
+         <div class="col-sm-2">
+                  <asp:TextBox ID="txtEventStartTime" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+             </div>
+           <div class="col-sm-2">
+               <center>
+                <label  class="control-label">to </label></center>
+               </div>
+         <div class="col-sm-2">
+      <asp:TextBox ID="txtEventEndTime" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+             </div>
+                  <div class="col-sm-3">
+          <asp:RequiredFieldValidator Display="Dynamic"  ControlToValidate="txtEventStartTime" ValidationGroup="chk" ID="RequiredFieldValidator5" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+           <asp:RequiredFieldValidator Display="Dynamic"   ControlToValidate="txtEventEndTime" ValidationGroup="chk" ID="RequiredFieldValidator6" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      </div>
+ 
+  </div>
+                <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Description : </label>
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtEventDescription"  ClientIDMode="Static"  TextMode="MultiLine" runat="server" class="form-control"></asp:TextBox>
+  </div>
+         <div class="col-sm-3">
+          <asp:RequiredFieldValidator  ControlToValidate="txtEventDescription" ValidationGroup="chk" ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      </div>
+  </div>
+                <div class="form-group">
+    <label  class="col-sm-3 control-label">Department : </label>
+    <div class="col-sm-6">
+      <asp:DropDownList CausesValidation="true" ID="ddlDepartment" runat="server"></asp:DropDownList>
+  </div>
+                 <div class="col-sm-3">
+          <asp:RequiredFieldValidator InitialValue="0"  ControlToValidate="ddlDepartment" ValidationGroup="chk" ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      </div>
+  </div>
+                 <div class="form-group">
+    <label  class="col-sm-3 control-label">Saved Image : </label>
+    <div class="col-sm-6">
+    <asp:Image ID="imgEvent" Width="100px" Height="100px" runat="server" /> </div>
+                 <div class="col-sm-3">
+             </div>
+  </div>
+                  <div class="form-group">
+                         <label  class="col-sm-3 control-label">Do you want to update current image? : </label>
+   <div class="col-sm-9">
+    <label><input id="chkYes" type="radio" name="chkImage" value="Yes"> Yes</label>
+    <label><input id="chkNo" type="radio" checked="checked" name="chkImage" value="No"> No</label>
+       </div>
+                      </div>
+ <div class="form-group" id="divEventPicture">
+    <label class="col-sm-3 control-label">Choose an Image:</label>
+      <div class="col-sm-9">
+     <asp:FileUpload ID="fuEventImage" runat="server" />
+          </div>
+  </div>
+                <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+        <asp:Button ID="btnSubmit" ValidationGroup="chk" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
+             <asp:Button ID="btnCancel" Text="cancel" class="btn btn-danger" runat="server" OnClick="btnCancel_Click" />
+    </div>
+  </div>
+                   </div>
+    
+            </div>
+    <!-- Form Ends -->
+    </div>
+ <!-- datetime picker script-->
+<script type="text/javascript" src="../../_layouts/15/SCDR/js/moment.js"></script>
+<script type="text/javascript" src="../../_layouts/15/SCDR/js/bootstrap-datepicker.min.js" ></script>
+<script type="text/javascript" src="../../_layouts/15/SCDR/js/bootstrap-datetimepicker.js"></script>
+
+   <script type="text/javascript">
+       $(document).ready(function () {
+           $('#txtEventDate')
+               .datepicker({
+                   format: 'dd/MM/yyyy',
+                   todayHighlight: true
+               });
+
+                       $('#txtEventStartTime').datetimepicker({
+                           format: 'LT'
+                       });
+                       $('#txtEventEndTime').datetimepicker({
+                           format: 'LT'
+                       });
+                       $("#divEventPicture").hide();
+                       $("input[name='chkImage']").click(function () {
+                           if ($("#chkYes").is(":checked")) {
+                               $("#divEventPicture").show();
+                           } else {
+                               $("#divEventPicture").hide();
+                           }
+                       });
+
+            
+       });
+    </script>

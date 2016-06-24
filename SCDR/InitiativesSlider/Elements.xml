@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="InitiativesSlider" List="113" Url="_catalogs/wp">
+    <File Path="InitiativesSlider\InitiativesSlider.webpart" Url="SCDR_InitiativesSlider.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>
