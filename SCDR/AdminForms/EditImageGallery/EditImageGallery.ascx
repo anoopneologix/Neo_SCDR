@@ -26,16 +26,16 @@
     <div class="form-group">
     <label  class="col-sm-3 control-label">Title : </label>
     <div class="col-sm-6">
-        <asp:TextBox ID="txtTitle" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtTitle" MaxLength="250"  CssClass="form-control" runat="server"></asp:TextBox>
   </div>  <div class="col-sm-3">
-       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="chk" ForeColor="Red" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>  
-       <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtTitle" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator>
+       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>  
+         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtTitle" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
           </div>
   </div>
           <div class="form-group">
     <label  class="col-sm-3 control-label">Rank : </label>
     <div class="col-sm-6">
-        <asp:TextBox ID="txtRanking" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtRanking" MaxLength="5" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
   </div>
             <div class="col-sm-3">
           <asp:Label ID="lblRankError" CssClass="control-label" runat="server"></asp:Label>

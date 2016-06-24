@@ -29,7 +29,7 @@
   <div class="form-group">
     <label  class="col-sm-3 control-label">Category Name : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtGroupName"  AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtGroupName_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtGroupName" MaxLength="250"  AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtGroupName_TextChanged"></asp:TextBox>
   
          </div> <div class="col-sm-3">
         <asp:Label ID="lblGrpError" ClientIDMode="Static" CssClass="control-label" runat="server"></asp:Label>
@@ -39,7 +39,7 @@
      <div class="form-group">
     <label  class="col-sm-3 control-label">Rank : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtRanking" AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtRanking"  MaxLength="5" AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
      </div>  <div class="col-sm-3">
           <asp:Label ID="lblRankError" ClientIDMode="Static" CssClass="control-label" runat="server"></asp:Label>
          <span style="color:red" id="errmsg"></span> 
@@ -50,7 +50,7 @@
      <div class="form-group">
     <label  class="col-sm-3 control-label">Title : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtTitle" runat="server" class="required form-control"></asp:TextBox>
+      <asp:TextBox ID="txtTitle" MaxLength="250" runat="server" class="required form-control"></asp:TextBox>
         </div> <div class="col-sm-3">
             <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" Display="Dynamic" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtTitle" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>

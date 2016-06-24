@@ -188,7 +188,7 @@
 
         });
         function ShowAlert() {
-            alert("No Events on Today");
+            alert("No events were found");
         }
 
         $(document).ready(function () {

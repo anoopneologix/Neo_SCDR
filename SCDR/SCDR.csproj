@@ -457,6 +457,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>RatingAndFeedBack.ascx</DependentUpon>
     </Compile>
+    <Compile Include="SearchAr\SearchAr.ascx.cs">
+      <DependentUpon>SearchAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchAr\SearchAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEn\SearchEn.ascx.cs">
+      <DependentUpon>SearchEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchEn\SearchEn.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchEn.ascx</DependentUpon>
+    </Compile>
     <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
       <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
     </Compile>
@@ -683,6 +699,14 @@
     <None Include="RatingAndFeedBack\RatingAndFeedBack.webpart" />
     <None Include="RatingAndFeedBack\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{4b5a19f0-0ee5-4150-bf38-2ab2103d2943}</SharePointProjectItemId>
+    </None>
+    <None Include="SearchAr\SearchAr.webpart" />
+    <None Include="SearchAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{df569420-2337-4f53-9fe6-b49d3c432c82}</SharePointProjectItemId>
+    </None>
+    <None Include="SearchEn\SearchEn.webpart" />
+    <None Include="SearchEn\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{0172df6d-a696-44af-90de-d25ab982864c}</SharePointProjectItemId>
     </None>
     <None Include="VideoGalleryAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3958bdb5-da70-4d20-b197-af2f4c879d9d}</SharePointProjectItemId>
@@ -959,6 +983,16 @@
     <Content Include="RatingAndFeedBack\RatingAndFeedBack.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>RatingAndFeedBack.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchAr\Elements.xml" />
+    <Content Include="SearchAr\SearchAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SearchAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchEn\Elements.xml" />
+    <Content Include="SearchEn\SearchEn.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SearchEn.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="VideoGalleryAr\Elements.xml" />
     <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">

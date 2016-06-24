@@ -192,6 +192,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             this.txtTitle = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtTitle";
+            @__ctrl.MaxLength = 250;
             @__ctrl.CssClass = "form-control";
             return @__ctrl;
         }
@@ -207,6 +208,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             @__ctrl.ID = "RequiredFieldValidator2";
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtTitle";
             @__ctrl.ErrorMessage = "Required Field";
             return @__ctrl;
@@ -224,9 +226,10 @@ namespace SCDR.AdminForms.EditImageGallery {
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationExpression = "([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\\u0600-\\u06FF])*";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\\u0600-\\u06FF\'., ]{0,250}$";
             @__ctrl.ControlToValidate = "txtTitle";
-            @__ctrl.ErrorMessage = "Special characters not allowed";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
             return @__ctrl;
         }
         
@@ -239,6 +242,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             this.txtRanking = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtRanking";
+            @__ctrl.MaxLength = 5;
             @__ctrl.AutoPostBack = true;
             @__ctrl.CssClass = "form-control";
             @__ctrl.TextChanged -= new System.EventHandler(this.txtRanking_TextChanged);
@@ -509,7 +513,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
             @__ctrl2 = this.@__BuildControlRequiredFieldValidator2();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("  \r\n       "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("  \r\n         "));
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl3;
             @__ctrl3 = this.@__BuildControlRegularExpressionValidator2();
             @__parser.AddParsedSubObject(@__ctrl3);

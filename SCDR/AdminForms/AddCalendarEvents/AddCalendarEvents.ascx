@@ -24,7 +24,7 @@
   <div class="form-group">
     <label  class="col-sm-3 control-label">Event Name : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtEventName" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtEventName" MaxLength="250" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
       <div class="col-sm-3">
           <asp:RequiredFieldValidator  ControlToValidate="txtEventName" ValidationGroup="chk" ID="req1" runat="server" ForeColor="Red" ErrorMessage="Please enter event name"></asp:RequiredFieldValidator>

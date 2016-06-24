@@ -180,6 +180,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtGroupName";
+            @__ctrl.MaxLength = 250;
             @__ctrl.AutoPostBack = true;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
@@ -251,6 +252,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtRanking";
+            @__ctrl.MaxLength = 5;
             @__ctrl.AutoPostBack = true;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
@@ -301,6 +303,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtTitle";
+            @__ctrl.MaxLength = 250;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
             return @__ctrl;
         }

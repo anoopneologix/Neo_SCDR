@@ -812,7 +812,7 @@ namespace SCDR.CalendarControlAr {
 
         });
         function ShowAlert() {
-            alert(""No Events on Today"");
+            alert(""لا يوجد أحداث تم العثور عليها"");
         }
 
         $(document).ready(function () {

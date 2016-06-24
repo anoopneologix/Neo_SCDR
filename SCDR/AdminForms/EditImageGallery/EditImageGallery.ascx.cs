@@ -306,7 +306,7 @@ namespace SCDR.AdminForms.EditImageGallery
                                     {
                                         formClear();
                                         string sMessage = "successfully completed";
-                                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='EditImageGallery.aspx';</script>", false);
 
                                     }
 
@@ -318,7 +318,7 @@ namespace SCDR.AdminForms.EditImageGallery
                                     oWeb.AllowUnsafeUpdates = false;
                                     formClear();
                                     string sMessage = "successfully completed";
-                                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='EditImageGallery.aspx';</script>", false);
 
                                 }
 

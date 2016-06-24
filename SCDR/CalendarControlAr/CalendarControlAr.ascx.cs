@@ -396,7 +396,7 @@ namespace SCDR.CalendarControlAr
                             }
                             else
                             {
-                                string sMessage = "Event Details Currently Unavailable";
+                                string sMessage = "حاول مرة اخرى";
                                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
 
                             }
