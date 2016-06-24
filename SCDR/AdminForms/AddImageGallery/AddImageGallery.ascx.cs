@@ -278,6 +278,16 @@ namespace SCDR.AdminForms.AddImageGallery
 
         }
 
+        protected void rbArabic_CheckedChanged(object sender, EventArgs e)
+        {
+            formClear();
+        }
+
+        protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
+        {
+            formClear();
+        }
+
        
     }
 }
