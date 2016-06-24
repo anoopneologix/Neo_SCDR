@@ -8,9 +8,9 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchEn.ascx.cs" Inherits="SCDR.SearchEn.SearchEn" %>
 <!--Code Begins-->
 <div class="search_outer">
-    <button class="search_btn">
+    <a class="search_btn">
         <i class="fa"></i>
-    </button>
+    </a>
     <span class="input_outer"><span
         class="col-md-12 col-sm-12 col-xs-12">
         <asp:LinkButton ID="btnSearch" runat="server"><i class="fa fa-search"></i></asp:LinkButton>

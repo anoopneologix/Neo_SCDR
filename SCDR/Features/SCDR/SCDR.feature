@@ -52,5 +52,7 @@
     <projectItemReference itemId="9bbe9218-cf34-47fd-acc7-769127653eef" />
     <projectItemReference itemId="f2dce9f9-e34a-4eff-994c-52f910a93c44" />
     <projectItemReference itemId="ec283aed-c816-406e-a2b7-786286f801d0" />
+    <projectItemReference itemId="0172df6d-a696-44af-90de-d25ab982864c" />
+    <projectItemReference itemId="df569420-2337-4f53-9fe6-b49d3c432c82" />
   </projectItems>
 </feature>

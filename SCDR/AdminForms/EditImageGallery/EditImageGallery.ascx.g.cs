@@ -113,6 +113,10 @@ namespace SCDR.AdminForms.EditImageGallery {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.HiddenField hfListItemId;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -140,6 +144,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbArabic = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
             @__ctrl.Text = "Arabic";
@@ -157,6 +162,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbEnglish = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
             @__ctrl.Text = "English";
@@ -174,6 +180,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.DropDownList @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.DropDownList();
             this.ddlCategoryName = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "ddlCategoryName";
             @__ctrl.CssClass = "form-control";
@@ -282,7 +289,7 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Image @__BuildControl__control5() {
+        private global::System.Web.UI.WebControls.Image @__BuildControl__control6() {
             global::System.Web.UI.WebControls.Image @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Image();
             @__ctrl.TemplateControl = this;
@@ -290,14 +297,14 @@ namespace SCDR.AdminForms.EditImageGallery {
             @__ctrl.Width = new System.Web.UI.WebControls.Unit(100D, global::System.Web.UI.WebControls.UnitType.Pixel);
             @__ctrl.Height = new System.Web.UI.WebControls.Unit(100D, global::System.Web.UI.WebControls.UnitType.Pixel);
             @__ctrl.ID = "imgAttachments";
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control5);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control6);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBinding__control5(object sender, System.EventArgs e) {
+        public void @__DataBinding__control6(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.Image dataBindingExpressionBuilderTarget;
             System.Web.UI.IDataItemContainer Container;
             dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.Image)(sender));
@@ -308,11 +315,11 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control4(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control5(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                      "));
             global::System.Web.UI.WebControls.Image @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control5();
+            @__ctrl1 = this.@__BuildControl__control6();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                  "));
         }
@@ -320,10 +327,10 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control3() {
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control4() {
             global::System.Web.UI.WebControls.TemplateField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control4), null);
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control5), null);
             @__ctrl.HeaderText = "Image";
             return @__ctrl;
         }
@@ -331,7 +338,7 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.CheckBox @__BuildControl__control8() {
+        private global::System.Web.UI.WebControls.CheckBox @__BuildControl__control9() {
             global::System.Web.UI.WebControls.CheckBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.CheckBox();
             @__ctrl.TemplateControl = this;
@@ -343,11 +350,11 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control7(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control8(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       "));
             global::System.Web.UI.WebControls.CheckBox @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control8();
+            @__ctrl1 = this.@__BuildControl__control9();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
         }
@@ -355,7 +362,7 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control9(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control10(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
         }
@@ -363,11 +370,11 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control6() {
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control7() {
             global::System.Web.UI.WebControls.TemplateField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control7), null);
-            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control9));
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control8), null);
+            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control10));
             @__ctrl.HeaderText = "Manage";
             return @__ctrl;
         }
@@ -375,12 +382,12 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control2(System.Web.UI.WebControls.DataControlFieldCollection @__ctrl) {
+        private void @__BuildControl__control3(System.Web.UI.WebControls.DataControlFieldCollection @__ctrl) {
             global::System.Web.UI.WebControls.TemplateField @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control3();
+            @__ctrl1 = this.@__BuildControl__control4();
             @__ctrl.Add(@__ctrl1);
             global::System.Web.UI.WebControls.TemplateField @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control6();
+            @__ctrl2 = this.@__BuildControl__control7();
             @__ctrl.Add(@__ctrl2);
         }
         
@@ -394,7 +401,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "gdvAttachments";
             @__ctrl.AutoGenerateColumns = false;
-            this.@__BuildControl__control2(@__ctrl.Columns);
+            this.@__BuildControl__control3(@__ctrl.Columns);
             return @__ctrl;
         }
         
@@ -408,7 +415,6 @@ namespace SCDR.AdminForms.EditImageGallery {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpImage";
             @__ctrl.Text = "Yes";
-            @__ctrl.Checked = true;
             @__ctrl.ID = "rbYes";
             return @__ctrl;
         }
@@ -502,6 +508,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.HtmlControls.HtmlGenericControl @__ctrl;
             @__ctrl = new global::System.Web.UI.HtmlControls.HtmlGenericControl("div");
             this.divDetails = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ID = "divDetails";
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label\">Title " +
@@ -577,8 +584,128 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.HiddenField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.HiddenField();
             this.lblUrl = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ID = "lblUrl";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
+            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"form-group\">\r\n       <label  class=\"col-sm-3 control-label\">Sel" +
+                        "ect Language : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
+            @__ctrl1 = this.@__BuildControlrbArabic();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
+            @__ctrl2 = this.@__BuildControlrbEnglish();
+            @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
+                        "ontrol-label\">Category Name : </label>\r\n    <div class=\"col-sm-6\">\r\n        "));
+            global::System.Web.UI.WebControls.DropDownList @__ctrl3;
+            @__ctrl3 = this.@__BuildControlddlCategoryName();
+            @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n          \r\n    "));
+            global::System.Web.UI.HtmlControls.HtmlGenericControl @__ctrl4;
+            @__ctrl4 = this.@__BuildControldivDetails();
+            @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl5;
+            @__ctrl5 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl5);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n              "));
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control12() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "rbArabic";
+            @__ctrl.EventName = "CheckedChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control13() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "rbEnglish";
+            @__ctrl.EventName = "CheckedChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control14() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "ddlCategoryName";
+            @__ctrl.EventName = "SelectedIndexChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control15() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "txtRanking";
+            @__ctrl.EventName = "TextChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.PostBackTrigger @__BuildControl__control16() {
+            global::System.Web.UI.PostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.PostBackTrigger();
+            @__ctrl.ControlID = "btnSubmit";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control11(System.Web.UI.UpdatePanelTriggerCollection @__ctrl) {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl1;
+            @__ctrl1 = this.@__BuildControl__control12();
+            @__ctrl.Add(@__ctrl1);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl2;
+            @__ctrl2 = this.@__BuildControl__control13();
+            @__ctrl.Add(@__ctrl2);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl3;
+            @__ctrl3 = this.@__BuildControl__control14();
+            @__ctrl.Add(@__ctrl3);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl4;
+            @__ctrl4 = this.@__BuildControl__control15();
+            @__ctrl.Add(@__ctrl4);
+            global::System.Web.UI.PostBackTrigger @__ctrl5;
+            @__ctrl5 = this.@__BuildControl__control16();
+            @__ctrl.Add(@__ctrl5);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.UpdatePanel @__BuildControlUpdatePanel1() {
+            global::System.Web.UI.UpdatePanel @__ctrl;
+            @__ctrl = new global::System.Web.UI.UpdatePanel();
+            this.UpdatePanel1 = @__ctrl;
+            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ID = "UpdatePanel1";
+            @__ctrl.UpdateMode = global::System.Web.UI.UpdatePanelUpdateMode.Conditional;
+            this.@__BuildControl__control11(@__ctrl.Triggers);
             return @__ctrl;
         }
         
@@ -609,21 +736,21 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control11() {
+        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control18() {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl;
             @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(3, 2);
             @__ctrl.TemplateControl = this;
             @__ctrl.SetStaticString(0, "\r\n  <div class=\"col-xs-6 col-md-3\">\r\n    <a id=\"thubUrl\" href=\'");
             @__ctrl.SetStaticString(1, "\'  class=\"thumbnail thumbLink\">\r\n      <img  src=\'");
             @__ctrl.SetStaticString(2, "\' class=\"thumbImage\">\r\n    </a></div>\r\n                ");
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control11);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control18);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBind__control11(object sender, System.EventArgs e) {
+        public void @__DataBind__control18(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.RepeaterItem Container;
             System.Web.UI.DataBoundLiteralControl target;
             target = ((System.Web.UI.DataBoundLiteralControl)(sender));
@@ -635,9 +762,9 @@ namespace SCDR.AdminForms.EditImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control10(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control17(System.Web.UI.Control @__ctrl) {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control11();
+            @__ctrl1 = this.@__BuildControl__control18();
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(@__ctrl1);
         }
@@ -649,7 +776,7 @@ namespace SCDR.AdminForms.EditImageGallery {
             global::System.Web.UI.WebControls.Repeater @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Repeater();
             this.repThumbnail = @__ctrl;
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control10));
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control17));
             @__ctrl.ID = "repThumbnail";
             return @__ctrl;
         }
@@ -675,29 +802,10 @@ namespace SCDR.AdminForms.EditImageGallery {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.AdminForms.EditImageGallery.EditImageGallery @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!-- Form Begins -->\r\n<div class=\"form-horizontal\">\r\n    <div class=\"form-group" +
-                        "\">\r\n       <label  class=\"col-sm-3 control-label\">Select Language : </label>\r\n  " +
-                        "  <div class=\"col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
-            @__ctrl1 = this.@__BuildControlrbArabic();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!-- Form Begins -->\r\n<div class=\"form-horizontal\">\r\n    "));
+            global::System.Web.UI.UpdatePanel @__ctrl1;
+            @__ctrl1 = this.@__BuildControlUpdatePanel1();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
-            @__ctrl2 = this.@__BuildControlrbEnglish();
-            @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
-                        "ontrol-label\">Category Name : </label>\r\n    <div class=\"col-sm-6\">\r\n        "));
-            global::System.Web.UI.WebControls.DropDownList @__ctrl3;
-            @__ctrl3 = this.@__BuildControlddlCategoryName();
-            @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n\r\n    "));
-            global::System.Web.UI.HtmlControls.HtmlGenericControl @__ctrl4;
-            @__ctrl4 = this.@__BuildControldivDetails();
-            @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl5;
-            @__ctrl5 = this.@__BuildControllblUrl();
-            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 </div>
 
@@ -712,22 +820,22 @@ namespace SCDR.AdminForms.EditImageGallery {
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl6;
-            @__ctrl6 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl2;
+            @__ctrl2 = this.@__BuildControlhfListItemId();
+            @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl7;
-            @__ctrl7 = this.@__BuildControlhfSubsiteName();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl3;
+            @__ctrl3 = this.@__BuildControlhfSubsiteName();
+            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl8;
-            @__ctrl8 = this.@__BuildControlrepThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.Repeater @__ctrl4;
+            @__ctrl4 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        \r\n      \r\n     " +
                         "     "));
-            global::System.Web.UI.WebControls.Button @__ctrl9;
-            @__ctrl9 = this.@__BuildControlbtnSaveThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl9);
+            global::System.Web.UI.WebControls.Button @__ctrl5;
+            @__ctrl5 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n\r\n<!-- Modal Script-->\r\n<script" +
                         " type=\"text/javascript\">\r\n   \r\n    function openModal() {\r\n        $(document).r" +
                         "eady(function () {\r\n            $(\'#ModalTumbnail\').modal(\'show\');\r\n        });\r" +
@@ -776,7 +884,13 @@ namespace SCDR.AdminForms.EditImageGallery {
                         "peg,.png.\');\r\n                        // setTimeout();\r\n                        " +
                         "return false;\r\n                        event.preventDefault();\r\n                " +
                         "    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n               \r\n       " +
-                        "     }\r\n\r\n        }\r\n    }\r\n\r\n</script>"));
+                        "     }\r\n\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n<!-- Panel Refresh-->\r\n <script type=" +
+                        "\"text/javascript\"> \r\n     // if you use jQuery, you can load them when dom is re" +
+                        "ad.\r\n     $(document).ready(function () {\r\n         var prm = Sys.WebForms.PageR" +
+                        "equestManager.getInstance();    \r\n         prm.add_initializeRequest(InitializeR" +
+                        "equest);\r\n         prm.add_endRequest(EndRequest);\r\n\r\n     });        \r\n\r\n     f" +
+                        "unction InitializeRequest(sender, args) {\r\n      \r\n     }\r\n\r\n     function EndRe" +
+                        "quest(sender, args) {\r\n     }\r\n     </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

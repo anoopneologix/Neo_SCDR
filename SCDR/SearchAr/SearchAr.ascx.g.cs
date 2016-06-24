@@ -86,9 +86,9 @@ namespace SCDR.SearchAr {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.SearchAr.SearchAr @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--Code Begins-->\r\n<div class=\"search_outer\">\r\n    <button class=\"search_btn\">" +
-                        "\r\n        <i class=\"fa\"></i>\r\n    </button>\r\n    <span class=\"input_outer\"><span" +
-                        "\r\n        class=\"col-md-12 col-sm-12 col-xs-12\">\r\n        "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--Code Begins-->\r\n<div class=\"search_outer\">\r\n    <a class=\"search_btn\">\r\n   " +
+                        "     <i class=\"fa\"></i>\r\n    </a>\r\n    <span class=\"input_outer\"><span\r\n        " +
+                        "class=\"col-md-12 col-sm-12 col-xs-12\">\r\n        "));
             global::System.Web.UI.WebControls.LinkButton @__ctrl1;
             @__ctrl1 = this.@__BuildControlbtnSearch();
             @__parser.AddParsedSubObject(@__ctrl1);
