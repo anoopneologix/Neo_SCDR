@@ -170,8 +170,8 @@ namespace SCDR.NewsAr.ShowNewsItemAr {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.NewsAr.ShowNewsItemAr.ShowNewsItemAr @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--news page content begins-->\r\n<div class=\"newsbutons\">\r\n                    " +
-                        "        "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--news page content begins-->\r\n<div class=\"newsbutons news_read\">\r\n          " +
+                        "                  "));
             global::System.Web.UI.HtmlControls.HtmlGenericControl @__ctrl1;
             @__ctrl1 = this.@__BuildControldivNewsDate();
             @__parser.AddParsedSubObject(@__ctrl1);

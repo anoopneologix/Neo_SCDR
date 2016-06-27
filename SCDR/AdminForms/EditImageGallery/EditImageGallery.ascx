@@ -30,7 +30,7 @@
         <asp:DropDownList ID="ddlCategoryName" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlCategoryName_SelectedIndexChanged"></asp:DropDownList>
   </div>
   </div>
-          
+           
     <div id="divDetails" runat="server">
     <div class="form-group">
     <label  class="col-sm-3 control-label">Title : </label>
@@ -44,7 +44,7 @@
           <div class="form-group">
     <label  class="col-sm-3 control-label">Rank : </label>
     <div class="col-sm-6">
-        <asp:TextBox ID="txtRanking" MaxLength="5" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtRanking" ClientIDMode="Static" MaxLength="5" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
   </div>
             <div class="col-sm-3">
           <asp:Label ID="lblRankError" CssClass="control-label" runat="server"></asp:Label>
@@ -84,6 +84,10 @@
           <asp:RadioButton GroupName="grpImage" Checked="true" Text="No" ID="rbNo" runat="server" />
     </div>
   </div>
+        </div>
+               </ContentTemplate>
+</asp:UpdatePanel>  
+            <div id="divOuter" runat="server">
 <div class="form-group">
        <label  class="col-sm-3 control-label">Upload  Images : </label>
     <div class="col-sm-6">
@@ -105,8 +109,7 @@
   </div>
           </div>
       <asp:HiddenField ID="lblUrl" ClientIDMode="Static" runat="server" ></asp:HiddenField>
-              </ContentTemplate>
-</asp:UpdatePanel>
+        
 </div>
 
 <!-- Form Ends -->
@@ -171,7 +174,7 @@
 
 <!--upload script-->
 <script>
-    $(document).ready(function () {
+    $(function () {
         $('#lblImageError').hide();
         $("input[name$=fuThumbnailImage]").change(function () {
             $('#lblImageError').hide();
@@ -273,5 +276,18 @@
      }
 
      function EndRequest(sender, args) {
-     }
+         $('#lblImageError').hide();
+         $("input[name$=fuThumbnailImage]").change(function () {
+             $('#lblImageError').hide();
+         });
+         //called when key is pressed in textbox
+         $("#txtRanking").keypress(function (e) {
+             //if the letter is not digit then display error and don't type anything
+             if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                 //display error message
+                 $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                 return false;
+             }
+         });
+         }
      </script>

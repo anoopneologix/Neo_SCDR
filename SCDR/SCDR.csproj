@@ -200,6 +200,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditVenue.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.ascx.cs">
+      <DependentUpon>ViewCalendarEvents.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewCalendarEvents.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\ViewDepartment\ViewDepartment.ascx.cs">
       <DependentUpon>ViewDepartment.ascx</DependentUpon>
     </Compile>
@@ -207,6 +215,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewDepartment.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewImageGallery\ViewImageGallery.ascx.cs">
+      <DependentUpon>ViewImageGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewImageGallery\ViewImageGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewImageGallery.ascx</DependentUpon>
     </Compile>
     <Compile Include="AdminForms\ViewVenue\ViewVenue.ascx.cs">
       <DependentUpon>ViewVenue.ascx</DependentUpon>
@@ -559,10 +575,18 @@
     <None Include="AdminForms\EditVenue\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9bbe9218-cf34-47fd-acc7-769127653eef}</SharePointProjectItemId>
     </None>
+    <None Include="AdminForms\ViewCalendarEvents\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d2e5f5bc-c783-4d65-841e-b7bb6e4f83e8}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.webpart" />
     <None Include="AdminForms\ViewDepartment\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6e509091-f2ae-4585-8327-01b46f305cc3}</SharePointProjectItemId>
     </None>
     <None Include="AdminForms\ViewDepartment\ViewDepartment.webpart" />
+    <None Include="AdminForms\ViewImageGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{2fa991ae-f3d4-49af-9fcc-2fb3438b56ea}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewImageGallery\ViewImageGallery.webpart" />
     <None Include="AdminForms\ViewVenue\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{19325824-065e-4092-9e11-f9ca06cd0d0b}</SharePointProjectItemId>
     </None>
@@ -804,10 +828,20 @@
       <LastGenOutput>EditVenue.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\EditVenue\Elements.xml" />
+    <Content Include="AdminForms\ViewCalendarEvents\Elements.xml" />
+    <Content Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewCalendarEvents.ascx.g.cs</LastGenOutput>
+    </Content>
     <Content Include="AdminForms\ViewDepartment\Elements.xml" />
     <Content Include="AdminForms\ViewDepartment\ViewDepartment.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>ViewDepartment.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\ViewImageGallery\Elements.xml" />
+    <Content Include="AdminForms\ViewImageGallery\ViewImageGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewImageGallery.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\ViewVenue\Elements.xml" />
     <Content Include="AdminForms\ViewVenue\ViewVenue.ascx">

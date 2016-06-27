@@ -13,6 +13,12 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <!-- Form Begins -->
         <div class="form-horizontal">
+              <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
+                    <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
+                </Triggers>
+                <ContentTemplate>
                 <div class="form-group">
        <label  class="col-sm-3 control-label">Select Language : </label>
     <div class="col-sm-9">
@@ -20,21 +26,20 @@
           <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="English" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged" />
     </div>
   </div>
-
+</ContentTemplate>
+                  </asp:UpdatePanel>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Event Name : </label>
     <div class="col-sm-6">
       <asp:TextBox ID="txtEventName" MaxLength="250" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
       <div class="col-sm-3">
-          <asp:RequiredFieldValidator  ControlToValidate="txtEventName" ValidationGroup="chk" ID="req1" runat="server" ForeColor="Red" ErrorMessage="Please enter event name"></asp:RequiredFieldValidator>
-      </div>
+          <asp:RequiredFieldValidator Display="Dynamic"  ControlToValidate="txtEventName" ValidationGroup="chk" ID="req1" runat="server" ForeColor="Red" ErrorMessage="Please enter event name"></asp:RequiredFieldValidator>
+     <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtEventName" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+            </div>
   </div>
             <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                <Triggers>
-                    <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
-                    <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
-                </Triggers>
+            
                 <ContentTemplate>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Event Venue : </label>
@@ -139,9 +144,10 @@
             <div class="form-group">
     <label  class="col-sm-3 control-label">Upload Photo : </label>
     <div class="col-sm-6">
-        <asp:FileUpload ID="fuCalendarEvent" runat="server" />
+        <asp:FileUpload ID="fuCalendarEvent" accept="image/jpeg,image/jpg,image/png,image/JPEG,image/PNG,image/JPG" runat="server" />
    </div>
                   <div class="col-sm-3">
+                          <span style="color:red" id="lblImageError"></span>
           <asp:RequiredFieldValidator  ControlToValidate="fuCalendarEvent" ValidationGroup="chk" ID="RequiredFieldValidator3" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationExpression="^.*\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$"
     ControlToValidate="fuCalendarEvent" ValidationGroup="chk" runat="server" ForeColor="Red" ErrorMessage="Please select a valid image file of type .jpg,.jpeg,.png."
@@ -150,7 +156,7 @@
   </div>
               <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-        <asp:Button ID="btnSubmit" ValidationGroup="chk" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click"  />
+        <asp:Button ID="btnSubmit" OnClientClick="return validateFormat(event);" ValidationGroup="chk" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click"  />
              <asp:Button ID="btnCancel" Text="cancel" class="btn btn-danger" runat="server" OnClick="btnCancel_Click"  />
     </div>
   </div>
@@ -193,3 +199,86 @@
            }
        });
     </script>
+
+<!--fileupload Script-->
+<script>
+    $(document).ready(function () {
+        $('#lblImageError').hide();
+        $("input[name$=fuCalendarEvent]").change(function () {
+            $('#lblImageError').hide();
+        });
+
+
+    });
+</script>
+
+<!--fileupload Script-->
+<script type="text/javascript">
+    function validateFormat(event) {
+        if (Page_ClientValidate()) {
+            $('#lblGrpError').text(' ');
+            $('#lblRankError').text(' ');
+            var ext = $("input[name$=fuCalendarEvent]").get(0).files.length;
+            if (ext > 0) {
+                var names = [];
+                for (var i = 0; i < ext; ++i) {
+                    names.push($("input[name$=fuCalendarEvent]").get(0).files[i].name);
+                }
+                var x = 0;
+                for (i = 0; i < names.length; i++) {
+                    var str = names[i];
+                    //  /^[-\sa-zA-Z]+$/
+                    if (/^[-_a-zA-Z0-9.\u0600-\u06FF ]+$/.test(str) == false) {
+
+                        x = 1;
+                    }
+                    if (x == 1) {
+                        $('#lblImageError').show();
+                        $('#lblImageError').text('Special characters except - and _ are not allowed in filename. Please select a valid image file of type .jpg,.jpeg,.png.');
+                        // setTimeout();
+                        return false;
+                        break;
+                        event.preventDefault();
+                    }
+
+                }
+                if (x == 0) {
+
+                    var ext = [];
+                    for (i = 0; i < names.length; i++) {
+
+                        ext.push(names[i].substr(names[i].indexOf(".") + 1).toLowerCase());
+
+                    }
+                    var valid_filetype = ["jpg", "jpeg", "png", "PNG", "JPEG", "JPG"];
+
+                    var i, j, result = [];
+                    for (i = 0; i < valid_filetype.length; i++) {
+                        for (j = 0; j < ext.length; j++) {
+                            if (ext[j].indexOf(valid_filetype[i]) != -1) {
+                                result.push(ext[j]);
+                            }
+                        }
+                    }
+
+                    if (result.length < ext.length) {
+                        //   break;
+                        $('#lblImageError').show();
+                        $('#lblImageError').text('Invalid File Found. Please select a valid image file of type .jpg,.jpeg,.png.');
+                        // setTimeout();
+                        return false;
+                        event.preventDefault();
+                    }
+
+
+
+                }
+
+            } else {
+                event.preventDefault();
+            }
+
+        }
+    }
+
+</script>

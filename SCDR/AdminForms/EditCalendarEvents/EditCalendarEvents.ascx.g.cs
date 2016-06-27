@@ -109,6 +109,10 @@ namespace SCDR.AdminForms.EditCalendarEvents {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -386,6 +390,24 @@ namespace SCDR.AdminForms.EditCalendarEvents {
             this.fuEventImage = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "fuEventImage";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("accept", "image/jpeg,image/jpg,image/png,image/JPEG,image/PNG,image/JPG");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator1() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator1 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator1";
+            @__ctrl.ValidationExpression = "^.*\\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$";
+            @__ctrl.ControlToValidate = "fuEventImage";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Please select a valid image file of type .jpg,.jpeg,.png.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             return @__ctrl;
         }
         
@@ -400,6 +422,7 @@ namespace SCDR.AdminForms.EditCalendarEvents {
             @__ctrl.ID = "btnSubmit";
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.Text = "submit";
+            @__ctrl.OnClientClick = "return validateFormat(event);";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
             @__ctrl.Click -= new System.EventHandler(this.btnSubmit_Click);
             @__ctrl.Click += new System.EventHandler(this.btnSubmit_Click);
@@ -499,20 +522,25 @@ namespace SCDR.AdminForms.EditCalendarEvents {
                       </div>
  <div class=""form-group"" id=""divEventPicture"">
     <label class=""col-sm-3 control-label"">Choose an Image:</label>
-      <div class=""col-sm-9"">
+      <div class=""col-sm-6"">
      "));
             global::System.Web.UI.WebControls.FileUpload @__ctrl12;
             @__ctrl12 = this.@__BuildControlfuEventImage();
             @__parser.AddParsedSubObject(@__ctrl12);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          </div>\r\n  </div>\r\n                <div class=\"form-group\">\r\n    <div " +
-                        "class=\"col-sm-offset-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl13;
-            @__ctrl13 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          </div>\r\n     <div class=\"col-md-3\">\r\n            <span style=\"color:r" +
+                        "ed\" id=\"lblImageError\"></span>\r\n           "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl13;
+            @__ctrl13 = this.@__BuildControlRegularExpressionValidator1();
             @__parser.AddParsedSubObject(@__ctrl13);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     </div>\r\n  </div>\r\n                <div class=\"form-group\">\r\n    <div class" +
+                        "=\"col-sm-offset-3 col-sm-9\">\r\n        "));
             global::System.Web.UI.WebControls.Button @__ctrl14;
-            @__ctrl14 = this.@__BuildControlbtnCancel();
+            @__ctrl14 = this.@__BuildControlbtnSubmit();
             @__parser.AddParsedSubObject(@__ctrl14);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
+            global::System.Web.UI.WebControls.Button @__ctrl15;
+            @__ctrl15 = this.@__BuildControlbtnCancel();
+            @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n                   "));
             return @__ctrl;
         }
@@ -562,42 +590,58 @@ namespace SCDR.AdminForms.EditCalendarEvents {
             global::System.Web.UI.HtmlControls.HtmlGenericControl @__ctrl6;
             @__ctrl6 = this.@__BuildControldivContent();
             @__parser.AddParsedSubObject(@__ctrl6);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-    
-            </div>
-    <!-- Form Ends -->
-    </div>
- <!-- datetime picker script-->
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/moment.js""></script>
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/bootstrap-datepicker.min.js"" ></script>
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/bootstrap-datetimepicker.js""></script>
-
-   <script type=""text/javascript"">
-       $(document).ready(function () {
-           $('#txtEventDate')
-               .datepicker({
-                   format: 'dd/MM/yyyy',
-                   todayHighlight: true
-               });
-
-                       $('#txtEventStartTime').datetimepicker({
-                           format: 'LT'
-                       });
-                       $('#txtEventEndTime').datetimepicker({
-                           format: 'LT'
-                       });
-                       $(""#divEventPicture"").hide();
-                       $(""input[name='chkImage']"").click(function () {
-                           if ($(""#chkYes"").is("":checked"")) {
-                               $(""#divEventPicture"").show();
-                           } else {
-                               $(""#divEventPicture"").hide();
-                           }
-                       });
-
-            
-       });
-    </script>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    \r\n            </div>\r\n    <!-- Form Ends -->\r\n    </div>\r\n <!-- datetime pi" +
+                        "cker script-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/mo" +
+                        "ment.js\"></script>\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/j" +
+                        "s/bootstrap-datepicker.min.js\" ></script>\r\n<script type=\"text/javascript\" src=\"." +
+                        "./../_layouts/15/SCDR/js/bootstrap-datetimepicker.js\"></script>\r\n\r\n   <script ty" +
+                        "pe=\"text/javascript\">\r\n       $(document).ready(function () {\r\n           $(\'#tx" +
+                        "tEventDate\')\r\n               .datepicker({\r\n                   format: \'dd/MM/yy" +
+                        "yy\',\r\n                   todayHighlight: true\r\n               });\r\n\r\n           " +
+                        "            $(\'#txtEventStartTime\').datetimepicker({\r\n                          " +
+                        " format: \'LT\'\r\n                       });\r\n                       $(\'#txtEventEn" +
+                        "dTime\').datetimepicker({\r\n                           format: \'LT\'\r\n             " +
+                        "          });\r\n                       $(\"#divEventPicture\").hide();\r\n           " +
+                        "            $(\"input[name=\'chkImage\']\").click(function () {\r\n                   " +
+                        "        if ($(\"#chkYes\").is(\":checked\")) {\r\n                               $(\"#d" +
+                        "ivEventPicture\").show();\r\n                           } else {\r\n                 " +
+                        "              $(\"#divEventPicture\").hide();\r\n                           }\r\n     " +
+                        "                  });\r\n\r\n            \r\n       });\r\n    </script>\r\n\r\n<!--fileuplo" +
+                        "ad Script-->\r\n<script>\r\n    $(document).ready(function () {\r\n        $(\'#lblImag" +
+                        "eError\').hide();\r\n        $(\"input[name$=fuEventImage]\").change(function () {\r\n " +
+                        "           $(\'#lblImageError\').hide();\r\n        });\r\n\r\n\r\n    });\r\n</script>\r\n\r\n<" +
+                        "!--fileupload Script-->\r\n<script type=\"text/javascript\">\r\n    function validateF" +
+                        "ormat(event) {\r\n        if (Page_ClientValidate()) {\r\n            $(\'#lblGrpErro" +
+                        "r\').text(\' \');\r\n            $(\'#lblRankError\').text(\' \');\r\n            var ext =" +
+                        " $(\"input[name$=fuEventImage]\").get(0).files.length;\r\n            if (ext > 0) {" +
+                        "\r\n                var names = [];\r\n                for (var i = 0; i < ext; ++i)" +
+                        " {\r\n                    names.push($(\"input[name$=fuEventImage]\").get(0).files[i" +
+                        "].name);\r\n                }\r\n                var x = 0;\r\n                for (i " +
+                        "= 0; i < names.length; i++) {\r\n                    var str = names[i];\r\n        " +
+                        "            //  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-" +
+                        "\\u06FF ]+$/.test(str) == false) {\r\n\r\n                        x = 1;\r\n           " +
+                        "         }\r\n                    if (x == 1) {\r\n                        $(\'#lblIm" +
+                        "ageError\').show();\r\n                        $(\'#lblImageError\').text(\'Special ch" +
+                        "aracters except - and _ are not allowed in filename. Please select a valid image" +
+                        " file of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n   " +
+                        "                     return false;\r\n                        break;\r\n            " +
+                        "            event.preventDefault();\r\n                    }\r\n\r\n                }\r" +
+                        "\n                if (x == 0) {\r\n\r\n                    var ext = [];\r\n           " +
+                        "         for (i = 0; i < names.length; i++) {\r\n\r\n                        ext.pus" +
+                        "h(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                " +
+                        "    }\r\n                    var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"J" +
+                        "PEG\", \"JPG\"];\r\n\r\n                    var i, j, result = [];\r\n                   " +
+                        " for (i = 0; i < valid_filetype.length; i++) {\r\n                        for (j =" +
+                        " 0; j < ext.length; j++) {\r\n                            if (ext[j].indexOf(valid" +
+                        "_filetype[i]) != -1) {\r\n                                result.push(ext[j]);\r\n  " +
+                        "                          }\r\n                        }\r\n                    }\r\n\r" +
+                        "\n                    if (result.length < ext.length) {\r\n                        " +
+                        "//   break;\r\n                        $(\'#lblImageError\').show();\r\n              " +
+                        "          $(\'#lblImageError\').text(\'Invalid File Found. Please select a valid im" +
+                        "age file of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n" +
+                        "                        return false;\r\n                        event.preventDefa" +
+                        "ult();\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n" +
+                        "               \r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

@@ -160,6 +160,7 @@
 
         });
 </script>
+<!--fileupload Script-->
 <script type="text/javascript">
     function validateFormat(event) {
         if (Page_ClientValidate()) {
@@ -229,7 +230,7 @@
         }
     
 </script>
-<!--fileupload Script-->
+
 <!-- Panel Refresh-->
  <script type="text/javascript"> 
      // if you use jQuery, you can load them when dom is read.

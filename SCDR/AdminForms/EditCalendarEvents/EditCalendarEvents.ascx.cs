@@ -86,13 +86,21 @@ namespace SCDR.AdminForms.EditCalendarEvents
                         using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[DlistName];
-                            SPListItemCollection oItems = oList.GetItems();
-                            DataTable dtDepartment = ConvertSPListToDataTable(oItems);
-                            ddlDepartment.DataSource = dtDepartment;
-                            ddlDepartment.DataValueField = "ID"; // List field holding value 
-                            ddlDepartment.DataTextField = "Title"; // List field holding name to be displayed on page 
-                            ddlDepartment.DataBind();
-                            ddlDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='Status' /><Value Type='Text'>Active</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+                            if (oItems != null)
+                            {
+                                if (oItems.Count > 0)
+                                {
+                                    DataTable dtDepartment = ConvertSPListToDataTable(oItems);
+                                    ddlDepartment.DataSource = dtDepartment;
+                                    ddlDepartment.DataValueField = "ID"; // List field holding value 
+                                    ddlDepartment.DataTextField = "Title"; // List field holding name to be displayed on page 
+                                    ddlDepartment.DataBind();
+                                    ddlDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+                                }
+                            }
                         }
                     }
                 });
@@ -172,7 +180,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
                 divContent.Visible = false;
                 //divContent1.Visible = false;
                 BindEventVenue();
-
+             //   BindDepartment();
             }
         }
         public void BindEvents(string txt)
@@ -219,6 +227,13 @@ namespace SCDR.AdminForms.EditCalendarEvents
                                     ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
 
                                 }
+                            }
+                            else
+                            {
+                                formClear();
+                                string sMessage = "No events were found!";
+                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+
                             }
 
                         }
@@ -431,7 +446,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
             txtEventStartTime.Text = "";
             txtEventEndTime.Text = "";
             txtEventDescription.Text = "";
-            ddlDepartment.SelectedIndex = 0;
+        //    ddlDepartment.SelectedIndex = 0;
            divContent.Visible=false;
            //divContent1.Visible = false;
         }
@@ -491,16 +506,22 @@ namespace SCDR.AdminForms.EditCalendarEvents
                                    dt.Columns.Add(colEndDateTime);
                                    foreach (SPListItem li in oItems)
                                    {
-                                       DateTime eventDate = DateTime.Parse(li["EventDate"].ToString());
-                                       string eventTime = li["EventTime"].ToString();
-                                       string[] eventTimes = eventTime.Split('-');
-                                       string eventStartDateTime = eventDate.Date.ToString("dd/MM/yyyy") + " " + eventTimes[0].Trim();
-                                       string eventEndDateTime = eventDate.Date.ToString("dd/MM/yyyy") + " " + eventTimes[1].Trim();
-                                       DataRow dr = dt.NewRow();
-                                       dr["EventStartTime"] = GetDateTimeFromString(eventStartDateTime);
-                                       dr["EventEndTime"] = GetDateTimeFromString(eventEndDateTime);
-                                       dr["EventVenue"] = li["EventVenue"].ToString();
-                                       dt.Rows.Add(dr);
+                                       if ( Convert.ToInt32(li["ID"].ToString()) == Convert.ToInt32( ddlEventName.SelectedValue.ToString()))
+                                       {
+                                       }
+                                       else
+                                       {
+                                           DateTime eventDate = DateTime.Parse(li["EventDate"].ToString());
+                                           string eventTime = li["EventTime"].ToString();
+                                           string[] eventTimes = eventTime.Split('-');
+                                           string eventStartDateTime = eventDate.Date.ToString("dd/MM/yyyy") + " " + eventTimes[0].Trim();
+                                           string eventEndDateTime = eventDate.Date.ToString("dd/MM/yyyy") + " " + eventTimes[1].Trim();
+                                           DataRow dr = dt.NewRow();
+                                           dr["EventStartTime"] = GetDateTimeFromString(eventStartDateTime);
+                                           dr["EventEndTime"] = GetDateTimeFromString(eventEndDateTime);
+                                           dr["EventVenue"] = li["EventVenue"].ToString();
+                                           dt.Rows.Add(dr);
+                                       }
 
                                    }
                                    DateTime dtStartTime = GetDateTimeFromString(eventStartTime);

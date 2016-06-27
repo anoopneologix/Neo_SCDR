@@ -7,7 +7,7 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ShowNewsItem.ascx.cs" Inherits="SCDR.News.ShowNewsItem.ShowNewsItem" %>
 <!--news page content begins-->
-<div class="newsbutons">
+<div class="newsbutons news_read">
                             <div id="divNewsDate" runat="server" class="newsright font_resize">     
                             </div>
                             <div class="newsleft"></div>

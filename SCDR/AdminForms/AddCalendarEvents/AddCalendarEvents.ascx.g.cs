@@ -49,11 +49,19 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtEventName;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.RequiredFieldValidator req1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExp1;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -156,6 +164,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbArabic = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
             @__ctrl.AutoPostBack = true;
@@ -174,6 +183,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbEnglish = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
             @__ctrl.AutoPostBack = true;
@@ -187,82 +197,18 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtEventName() {
-            global::System.Web.UI.WebControls.TextBox @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.TextBox();
-            this.txtEventName = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "txtEventName";
-            @__ctrl.MaxLength = 250;
-            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlreq1() {
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
-            this.req1 = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ControlToValidate = "txtEventName";
-            @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ID = "req1";
-            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
-            @__ctrl.ErrorMessage = "Please enter event name";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.DropDownList @__BuildControlddlEventVenue() {
-            global::System.Web.UI.WebControls.DropDownList @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.DropDownList();
-            this.ddlEventVenue = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.CausesValidation = true;
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
-            @__ctrl.ID = "ddlEventVenue";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator1() {
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
-            this.RequiredFieldValidator1 = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.InitialValue = "0";
-            @__ctrl.ControlToValidate = "ddlEventVenue";
-            @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ID = "RequiredFieldValidator1";
-            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
-            @__ctrl.ErrorMessage = "Please select a Venue";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label\">Event Ve" +
-                        "nue : </label>\r\n    <div class=\"col-sm-6\">\r\n        "));
-            global::System.Web.UI.WebControls.DropDownList @__ctrl1;
-            @__ctrl1 = this.@__BuildControlddlEventVenue();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                <div class=\"form-group\">\r\n       <label  class=\"col-sm-3 contro" +
+                        "l-label\">Select Language : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
+            @__ctrl1 = this.@__BuildControlrbArabic();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     \r\n  </div>\r\n        <div class=\"col-sm-3\">\r\n           "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
-            @__ctrl2 = this.@__BuildControlRequiredFieldValidator1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
+            @__ctrl2 = this.@__BuildControlrbEnglish();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      </div>\r\n  </div>\r\n                    "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n"));
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -302,13 +248,126 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.UpdatePanel @__BuildControlUpdatePanel2() {
+            global::System.Web.UI.UpdatePanel @__ctrl;
+            @__ctrl = new global::System.Web.UI.UpdatePanel();
+            this.UpdatePanel2 = @__ctrl;
+            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ID = "UpdatePanel2";
+            this.@__BuildControl__control3(@__ctrl.Triggers);
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtEventName() {
+            global::System.Web.UI.WebControls.TextBox @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.TextBox();
+            this.txtEventName = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "txtEventName";
+            @__ctrl.MaxLength = 250;
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlreq1() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.req1 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ControlToValidate = "txtEventName";
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.ID = "req1";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Please enter event name";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegExp1() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegExp1 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegExp1";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\\u0600-\\u06FF\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtEventName";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.DropDownList @__BuildControlddlEventVenue() {
+            global::System.Web.UI.WebControls.DropDownList @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.DropDownList();
+            this.ddlEventVenue = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.CausesValidation = true;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            @__ctrl.ID = "ddlEventVenue";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator1() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.InitialValue = "0";
+            @__ctrl.ControlToValidate = "ddlEventVenue";
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.ID = "RequiredFieldValidator1";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Please select a Venue";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control6(System.Web.UI.Control @__ctrl) {
+            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label\">Event Ve" +
+                        "nue : </label>\r\n    <div class=\"col-sm-6\">\r\n        "));
+            global::System.Web.UI.WebControls.DropDownList @__ctrl1;
+            @__ctrl1 = this.@__BuildControlddlEventVenue();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     \r\n  </div>\r\n        <div class=\"col-sm-3\">\r\n           "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
+            @__ctrl2 = this.@__BuildControlRequiredFieldValidator1();
+            @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      </div>\r\n  </div>\r\n                    "));
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.UpdatePanel @__BuildControlUpdatePanel1() {
             global::System.Web.UI.UpdatePanel @__ctrl;
             @__ctrl = new global::System.Web.UI.UpdatePanel();
             this.UpdatePanel1 = @__ctrl;
-            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control6));
             @__ctrl.ID = "UpdatePanel1";
-            this.@__BuildControl__control3(@__ctrl.Triggers);
             return @__ctrl;
         }
         
@@ -500,7 +559,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control7() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control8() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "0";
@@ -511,7 +570,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control8() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control9() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "1";
@@ -522,7 +581,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control9() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control10() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "2";
@@ -533,15 +592,15 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control6(System.Web.UI.WebControls.ListItemCollection @__ctrl) {
+        private void @__BuildControl__control7(System.Web.UI.WebControls.ListItemCollection @__ctrl) {
             global::System.Web.UI.WebControls.ListItem @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control7();
+            @__ctrl1 = this.@__BuildControl__control8();
             @__ctrl.Add(@__ctrl1);
             global::System.Web.UI.WebControls.ListItem @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control8();
+            @__ctrl2 = this.@__BuildControl__control9();
             @__ctrl.Add(@__ctrl2);
             global::System.Web.UI.WebControls.ListItem @__ctrl3;
-            @__ctrl3 = this.@__BuildControl__control9();
+            @__ctrl3 = this.@__BuildControl__control10();
             @__ctrl.Add(@__ctrl3);
         }
         
@@ -554,14 +613,14 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             this.ddlFrequency = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "ddlFrequency";
-            this.@__BuildControl__control6(@__ctrl.Items);
+            this.@__BuildControl__control7(@__ctrl.Items);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control11() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control12() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "0";
@@ -572,7 +631,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control12() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control13() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "1";
@@ -583,7 +642,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control13() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control14() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "2";
@@ -594,7 +653,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control14() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control15() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "3";
@@ -605,7 +664,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control15() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control16() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "4";
@@ -616,7 +675,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control16() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control17() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "5";
@@ -627,7 +686,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control17() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control18() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "6";
@@ -638,7 +697,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control18() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control19() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "7";
@@ -649,7 +708,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control19() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control20() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "8";
@@ -660,7 +719,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control20() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control21() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "9";
@@ -671,7 +730,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control21() {
+        private global::System.Web.UI.WebControls.ListItem @__BuildControl__control22() {
             global::System.Web.UI.WebControls.ListItem @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.ListItem();
             @__ctrl.Value = "10";
@@ -682,39 +741,39 @@ namespace SCDR.AdminForms.AddCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control10(System.Web.UI.WebControls.ListItemCollection @__ctrl) {
+        private void @__BuildControl__control11(System.Web.UI.WebControls.ListItemCollection @__ctrl) {
             global::System.Web.UI.WebControls.ListItem @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control11();
+            @__ctrl1 = this.@__BuildControl__control12();
             @__ctrl.Add(@__ctrl1);
             global::System.Web.UI.WebControls.ListItem @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control12();
+            @__ctrl2 = this.@__BuildControl__control13();
             @__ctrl.Add(@__ctrl2);
             global::System.Web.UI.WebControls.ListItem @__ctrl3;
-            @__ctrl3 = this.@__BuildControl__control13();
+            @__ctrl3 = this.@__BuildControl__control14();
             @__ctrl.Add(@__ctrl3);
             global::System.Web.UI.WebControls.ListItem @__ctrl4;
-            @__ctrl4 = this.@__BuildControl__control14();
+            @__ctrl4 = this.@__BuildControl__control15();
             @__ctrl.Add(@__ctrl4);
             global::System.Web.UI.WebControls.ListItem @__ctrl5;
-            @__ctrl5 = this.@__BuildControl__control15();
+            @__ctrl5 = this.@__BuildControl__control16();
             @__ctrl.Add(@__ctrl5);
             global::System.Web.UI.WebControls.ListItem @__ctrl6;
-            @__ctrl6 = this.@__BuildControl__control16();
+            @__ctrl6 = this.@__BuildControl__control17();
             @__ctrl.Add(@__ctrl6);
             global::System.Web.UI.WebControls.ListItem @__ctrl7;
-            @__ctrl7 = this.@__BuildControl__control17();
+            @__ctrl7 = this.@__BuildControl__control18();
             @__ctrl.Add(@__ctrl7);
             global::System.Web.UI.WebControls.ListItem @__ctrl8;
-            @__ctrl8 = this.@__BuildControl__control18();
+            @__ctrl8 = this.@__BuildControl__control19();
             @__ctrl.Add(@__ctrl8);
             global::System.Web.UI.WebControls.ListItem @__ctrl9;
-            @__ctrl9 = this.@__BuildControl__control19();
+            @__ctrl9 = this.@__BuildControl__control20();
             @__ctrl.Add(@__ctrl9);
             global::System.Web.UI.WebControls.ListItem @__ctrl10;
-            @__ctrl10 = this.@__BuildControl__control20();
+            @__ctrl10 = this.@__BuildControl__control21();
             @__ctrl.Add(@__ctrl10);
             global::System.Web.UI.WebControls.ListItem @__ctrl11;
-            @__ctrl11 = this.@__BuildControl__control21();
+            @__ctrl11 = this.@__BuildControl__control22();
             @__ctrl.Add(@__ctrl11);
         }
         
@@ -727,7 +786,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             this.ddlOccurance = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "ddlOccurance";
-            this.@__BuildControl__control10(@__ctrl.Items);
+            this.@__BuildControl__control11(@__ctrl.Items);
             return @__ctrl;
         }
         
@@ -740,6 +799,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             this.fuCalendarEvent = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "fuCalendarEvent";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("accept", "image/jpeg,image/jpg,image/png,image/JPEG,image/PNG,image/JPG");
             return @__ctrl;
         }
         
@@ -786,6 +846,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             this.btnSubmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSubmit";
+            @__ctrl.OnClientClick = "return validateFormat(event);";
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.Text = "submit";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
@@ -823,27 +884,24 @@ namespace SCDR.AdminForms.AddCalendarEvents {
 <div class=""col-md-12 col-sm-12 col-xs-12"">
     <!-- Form Begins -->
         <div class=""form-horizontal"">
-                <div class=""form-group"">
-       <label  class=""col-sm-3 control-label"">Select Language : </label>
-    <div class=""col-sm-9"">
-        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
-            @__ctrl1 = this.@__BuildControlrbArabic();
+              "));
+            global::System.Web.UI.UpdatePanel @__ctrl1;
+            @__ctrl1 = this.@__BuildControlUpdatePanel2();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
-            @__ctrl2 = this.@__BuildControlrbEnglish();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label\">Event Na" +
+                        "me : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl2;
+            @__ctrl2 = this.@__BuildControltxtEventName();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3" +
-                        " control-label\">Event Name : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl3;
-            @__ctrl3 = this.@__BuildControltxtEventName();
-            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n      <div class=\"col-sm-3\">\r\n          "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl4;
-            @__ctrl4 = this.@__BuildControlreq1();
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl3;
+            @__ctrl3 = this.@__BuildControlreq1();
+            @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl4;
+            @__ctrl4 = this.@__BuildControlRegExp1();
             @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      </div>\r\n  </div>\r\n            "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            </div>\r\n  </div>\r\n            "));
             global::System.Web.UI.UpdatePanel @__ctrl5;
             @__ctrl5 = this.@__BuildControlUpdatePanel1();
             @__parser.AddParsedSubObject(@__ctrl5);
@@ -924,7 +982,8 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             global::System.Web.UI.WebControls.FileUpload @__ctrl20;
             @__ctrl20 = this.@__BuildControlfuCalendarEvent();
             @__parser.AddParsedSubObject(@__ctrl20);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n   </div>\r\n                  <div class=\"col-sm-3\">\r\n          "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n   </div>\r\n                  <div class=\"col-sm-3\">\r\n                          " +
+                        "<span style=\"color:red\" id=\"lblImageError\"></span>\r\n          "));
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl21;
             @__ctrl21 = this.@__BuildControlRequiredFieldValidator3();
             @__parser.AddParsedSubObject(@__ctrl21);
@@ -941,48 +1000,59 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             global::System.Web.UI.WebControls.Button @__ctrl24;
             @__ctrl24 = this.@__BuildControlbtnCancel();
             @__parser.AddParsedSubObject(@__ctrl24);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-    </div>
-  </div>
-</div>
-        <!-- Form Ends -->
-    </div>
- <!-- datetime picker script-->
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/moment.js""></script>
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/bootstrap-datepicker.min.js"" ></script>
-<script type=""text/javascript"" src=""../../_layouts/15/SCDR/js/bootstrap-datetimepicker.js""></script>
-   <script type=""text/javascript"">
-       $(document).ready(function () {
-           $('#txtEventDate')
-               .datepicker({
-                   format: 'dd/MM/yyyy',
-                   todayHighlight: true
-               });
-           $('#txtEventStartTime').datetimepicker({
-               format: 'LT'
-           });
-           $('#txtEventEndTime').datetimepicker({
-               format: 'LT'
-           });
-       });
-       var rbName = $(""input[type=radio][name$=chkRecurring]:checked"").val();
-       if (rbName == ""rbYes"")
-       {
-           $(""#divEventRecurring"").show();
-       }
-       else
-       {
-           $(""#divEventRecurring"").hide();
-       }
-      
-       $(""input[name$=chkRecurring]"").click(function () {
-             if ($(""#rbYes"").is("":checked"")) {
-               $(""#divEventRecurring"").show();
-           } else {
-               $(""#divEventRecurring"").hide();
-           }
-       });
-    </script>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n</div>\r\n        <!-- Form Ends -->\r\n    </div>\r\n <!-- dat" +
+                        "etime picker script-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SC" +
+                        "DR/js/moment.js\"></script>\r\n<script type=\"text/javascript\" src=\"../../_layouts/1" +
+                        "5/SCDR/js/bootstrap-datepicker.min.js\" ></script>\r\n<script type=\"text/javascript" +
+                        "\" src=\"../../_layouts/15/SCDR/js/bootstrap-datetimepicker.js\"></script>\r\n   <scr" +
+                        "ipt type=\"text/javascript\">\r\n       $(document).ready(function () {\r\n           " +
+                        "$(\'#txtEventDate\')\r\n               .datepicker({\r\n                   format: \'dd" +
+                        "/MM/yyyy\',\r\n                   todayHighlight: true\r\n               });\r\n       " +
+                        "    $(\'#txtEventStartTime\').datetimepicker({\r\n               format: \'LT\'\r\n     " +
+                        "      });\r\n           $(\'#txtEventEndTime\').datetimepicker({\r\n               for" +
+                        "mat: \'LT\'\r\n           });\r\n       });\r\n       var rbName = $(\"input[type=radio][" +
+                        "name$=chkRecurring]:checked\").val();\r\n       if (rbName == \"rbYes\")\r\n       {\r\n " +
+                        "          $(\"#divEventRecurring\").show();\r\n       }\r\n       else\r\n       {\r\n    " +
+                        "       $(\"#divEventRecurring\").hide();\r\n       }\r\n      \r\n       $(\"input[name$=" +
+                        "chkRecurring]\").click(function () {\r\n             if ($(\"#rbYes\").is(\":checked\")" +
+                        ") {\r\n               $(\"#divEventRecurring\").show();\r\n           } else {\r\n      " +
+                        "         $(\"#divEventRecurring\").hide();\r\n           }\r\n       });\r\n    </script" +
+                        ">\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n    $(document).ready(function () {\r\n  " +
+                        "      $(\'#lblImageError\').hide();\r\n        $(\"input[name$=fuCalendarEvent]\").cha" +
+                        "nge(function () {\r\n            $(\'#lblImageError\').hide();\r\n        });\r\n\r\n\r\n   " +
+                        " });\r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script type=\"text/javascript\">\r\n  " +
+                        "  function validateFormat(event) {\r\n        if (Page_ClientValidate()) {\r\n      " +
+                        "      $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').text(\' \');\r\n " +
+                        "           var ext = $(\"input[name$=fuCalendarEvent]\").get(0).files.length;\r\n   " +
+                        "         if (ext > 0) {\r\n                var names = [];\r\n                for (v" +
+                        "ar i = 0; i < ext; ++i) {\r\n                    names.push($(\"input[name$=fuCalen" +
+                        "darEvent]\").get(0).files[i].name);\r\n                }\r\n                var x = 0" +
+                        ";\r\n                for (i = 0; i < names.length; i++) {\r\n                    var" +
+                        " str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n                    " +
+                        "if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n                 " +
+                        "       x = 1;\r\n                    }\r\n                    if (x == 1) {\r\n       " +
+                        "                 $(\'#lblImageError\').show();\r\n                        $(\'#lblIma" +
+                        "geError\').text(\'Special characters except - and _ are not allowed in filename. P" +
+                        "lease select a valid image file of type .jpg,.jpeg,.png.\');\r\n                   " +
+                        "     // setTimeout();\r\n                        return false;\r\n                  " +
+                        "      break;\r\n                        event.preventDefault();\r\n                 " +
+                        "   }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n                    " +
+                        "var ext = [];\r\n                    for (i = 0; i < names.length; i++) {\r\n\r\n     " +
+                        "                   ext.push(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCa" +
+                        "se());\r\n\r\n                    }\r\n                    var valid_filetype = [\"jpg\"" +
+                        ", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, result " +
+                        "= [];\r\n                    for (i = 0; i < valid_filetype.length; i++) {\r\n      " +
+                        "                  for (j = 0; j < ext.length; j++) {\r\n                          " +
+                        "  if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                              " +
+                        "  result.push(ext[j]);\r\n                            }\r\n                        }" +
+                        "\r\n                    }\r\n\r\n                    if (result.length < ext.length) {" +
+                        "\r\n                        //   break;\r\n                        $(\'#lblImageError" +
+                        "\').show();\r\n                        $(\'#lblImageError\').text(\'Invalid File Found" +
+                        ". Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n                " +
+                        "        // setTimeout();\r\n                        return false;\r\n               " +
+                        "         event.preventDefault();\r\n                    }\r\n\r\n\r\n\r\n                }" +
+                        "\r\n\r\n            } else {\r\n                event.preventDefault();\r\n            }" +
+                        "\r\n\r\n        }\r\n    }\r\n\r\n</script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

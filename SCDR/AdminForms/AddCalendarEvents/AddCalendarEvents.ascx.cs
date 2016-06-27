@@ -591,11 +591,13 @@ namespace SCDR.AdminForms.AddCalendarEvents
 
         protected void rbArabic_CheckedChanged(object sender, EventArgs e)
         {
+            
             BindEventVenue();
         }
 
         protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
         {
+            
             BindEventVenue();
         }
     }
