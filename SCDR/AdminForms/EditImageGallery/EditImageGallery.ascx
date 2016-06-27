@@ -8,6 +8,15 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditImageGallery.ascx.cs" Inherits="SCDR.AdminForms.EditImageGallery.EditImageGallery" %>
 <!-- Form Begins -->
 <div class="form-horizontal">
+    <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
+            <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
+             <asp:AsyncPostBackTrigger ControlID="ddlCategoryName" EventName="SelectedIndexChanged" />
+             <asp:AsyncPostBackTrigger ControlID="txtRanking" EventName="TextChanged" />
+            <asp:PostBackTrigger ControlID="btnSubmit" />
+        </Triggers>
+        <ContentTemplate>
     <div class="form-group">
        <label  class="col-sm-3 control-label">Select Language : </label>
     <div class="col-sm-9">
@@ -21,21 +30,21 @@
         <asp:DropDownList ID="ddlCategoryName" CssClass="form-control" AutoPostBack="true" runat="server" OnSelectedIndexChanged="ddlCategoryName_SelectedIndexChanged"></asp:DropDownList>
   </div>
   </div>
-
+          
     <div id="divDetails" runat="server">
     <div class="form-group">
     <label  class="col-sm-3 control-label">Title : </label>
     <div class="col-sm-6">
-        <asp:TextBox ID="txtTitle" CssClass="form-control" runat="server"></asp:TextBox>
+        <asp:TextBox ID="txtTitle" MaxLength="250"  CssClass="form-control" runat="server"></asp:TextBox>
   </div>  <div class="col-sm-3">
-       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="chk" ForeColor="Red" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>  
-       <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtTitle" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator>
+       <asp:RequiredFieldValidator ID="RequiredFieldValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>  
+         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtTitle" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
           </div>
   </div>
           <div class="form-group">
     <label  class="col-sm-3 control-label">Rank : </label>
     <div class="col-sm-6">
-        <asp:TextBox ID="txtRanking" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
+        <asp:TextBox ID="txtRanking" MaxLength="5" AutoPostBack="true" CssClass="form-control" runat="server" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
   </div>
             <div class="col-sm-3">
           <asp:Label ID="lblRankError" CssClass="control-label" runat="server"></asp:Label>
@@ -71,7 +80,7 @@
   <div class="form-group">
        <label  class="col-sm-3 control-label">Do you want to update current thumbnail : </label>
     <div class="col-sm-9">
-        <asp:RadioButton GroupName="grpImage" Text="Yes" Checked="true" ID="rbYes" runat="server" />
+        <asp:RadioButton GroupName="grpImage" Text="Yes"  ID="rbYes" runat="server" />
           <asp:RadioButton GroupName="grpImage" Checked="true" Text="No" ID="rbNo" runat="server" />
     </div>
   </div>
@@ -96,6 +105,8 @@
   </div>
           </div>
       <asp:HiddenField ID="lblUrl" ClientIDMode="Static" runat="server" ></asp:HiddenField>
+              </ContentTemplate>
+</asp:UpdatePanel>
 </div>
 
 <!-- Form Ends -->
@@ -246,3 +257,21 @@
     }
 
 </script>
+
+<!-- Panel Refresh-->
+ <script type="text/javascript"> 
+     // if you use jQuery, you can load them when dom is read.
+     $(document).ready(function () {
+         var prm = Sys.WebForms.PageRequestManager.getInstance();    
+         prm.add_initializeRequest(InitializeRequest);
+         prm.add_endRequest(EndRequest);
+
+     });        
+
+     function InitializeRequest(sender, args) {
+      
+     }
+
+     function EndRequest(sender, args) {
+     }
+     </script>

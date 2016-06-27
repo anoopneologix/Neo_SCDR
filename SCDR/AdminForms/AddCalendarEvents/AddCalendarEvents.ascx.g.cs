@@ -193,6 +193,7 @@ namespace SCDR.AdminForms.AddCalendarEvents {
             this.txtEventName = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtEventName";
+            @__ctrl.MaxLength = 250;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;

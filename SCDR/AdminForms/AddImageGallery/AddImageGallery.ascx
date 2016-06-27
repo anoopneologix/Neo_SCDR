@@ -10,27 +10,36 @@
 
 <!-- Form Begins -->
 <div class="form-horizontal">
+      <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="txtGroupName" EventName="TextChanged" />
+             <asp:AsyncPostBackTrigger ControlID="txtRanking" EventName="TextChanged" />
+             <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
+             <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
+        </Triggers>
+        <ContentTemplate>
       <div class="form-group">
        <label  class="col-sm-3 control-label">Select Language : </label>
     <div class="col-sm-9">
-        <asp:RadioButton GroupName="grpLanguage" Text="Arabic" Checked="true" ID="rbArabic" runat="server" />
-          <asp:RadioButton GroupName="grpLanguage" Text="English" ID="rbEnglish" runat="server" />
+        <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="Arabic" Checked="true" ID="rbArabic" runat="server" OnCheckedChanged="rbArabic_CheckedChanged" />
+          <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="English" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged" />
     </div>
   </div>
- 
+  
   <div class="form-group">
     <label  class="col-sm-3 control-label">Category Name : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtGroupName" AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtGroupName_TextChanged"></asp:TextBox>
-    </div> <div class="col-sm-3">
+      <asp:TextBox ID="txtGroupName" MaxLength="250"  AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtGroupName_TextChanged"></asp:TextBox>
+  
+         </div> <div class="col-sm-3">
         <asp:Label ID="lblGrpError" ClientIDMode="Static" CssClass="control-label" runat="server"></asp:Label>
     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" Display="Dynamic" ValidationGroup="chk" ForeColor="Red" ControlToValidate="txtGroupName" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>     
- <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtGroupName" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator> </div>
+ <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtGroupName" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator> </div>
        </div> 
      <div class="form-group">
     <label  class="col-sm-3 control-label">Rank : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtRanking" AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtRanking"  MaxLength="5" AutoPostBack="true"  ClientIDMode="Static" runat="server" class="required form-control" OnTextChanged="txtRanking_TextChanged"></asp:TextBox>
      </div>  <div class="col-sm-3">
           <asp:Label ID="lblRankError" ClientIDMode="Static" CssClass="control-label" runat="server"></asp:Label>
          <span style="color:red" id="errmsg"></span> 
@@ -41,12 +50,16 @@
      <div class="form-group">
     <label  class="col-sm-3 control-label">Title : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtTitle" runat="server" class="required form-control"></asp:TextBox>
+      <asp:TextBox ID="txtTitle" MaxLength="250" runat="server" class="required form-control"></asp:TextBox>
         </div> <div class="col-sm-3">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
-    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtTitle" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" Display="Dynamic" ControlToValidate="txtTitle" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationGroup="chk" ForeColor="Red" Display="Dynamic" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtTitle" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+       
              </div>
   </div>
+            </ContentTemplate>
+    </asp:UpdatePanel>
+
 <div class="form-group">
        <label  class="col-sm-3 control-label">Upload Images : </label>
     <div class="col-sm-6">
@@ -115,7 +128,6 @@
         }
  
 </script>
-
 <script>
   
     $(document).ready(function () {
@@ -136,21 +148,15 @@
     });
 
 </script>
+<!-- Modal Script-->
+<!--fileupload Script-->
 <script>
     $(document).ready(function () {
         $('#lblImageError').hide();
         $("input[name$=fuThumbnailImage]").change(function () {
             $('#lblImageError').hide();
         });
-        //called when key is pressed in textbox
-        $("#txtRanking").keypress(function (e) {
-            //if the letter is not digit then display error and don't type anything
-            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
-                //display error message
-                $("#errmsg").html("Digits Only").show().fadeOut("slow");
-                return false;
-            }
-        });
+      
 
         });
 </script>
@@ -223,4 +229,32 @@
         }
     
 </script>
+<!--fileupload Script-->
+<!-- Panel Refresh-->
+ <script type="text/javascript"> 
+     // if you use jQuery, you can load them when dom is read.
+     $(document).ready(function () {
+         var prm = Sys.WebForms.PageRequestManager.getInstance();    
+         prm.add_initializeRequest(InitializeRequest);
+         prm.add_endRequest(EndRequest);
 
+     });        
+
+     function InitializeRequest(sender, args) {
+      
+     }
+
+     function EndRequest(sender, args) {
+
+         //called when key is pressed in textbox
+         $("#txtRanking").keypress(function (e) {
+             //if the letter is not digit then display error and don't type anything
+             if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                 //display error message
+                 $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                 return false;
+             }
+         });
+     }
+     </script>
+<!-- Panel Refresh-->

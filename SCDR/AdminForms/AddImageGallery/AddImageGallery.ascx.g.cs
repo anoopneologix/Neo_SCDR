@@ -89,6 +89,10 @@ namespace SCDR.AdminForms.AddImageGallery {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.FileUpload fuThumbnailImage;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -136,11 +140,15 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbArabic = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
+            @__ctrl.AutoPostBack = true;
             @__ctrl.Text = "Arabic";
             @__ctrl.Checked = true;
             @__ctrl.ID = "rbArabic";
+            @__ctrl.CheckedChanged -= new System.EventHandler(this.rbArabic_CheckedChanged);
+            @__ctrl.CheckedChanged += new System.EventHandler(this.rbArabic_CheckedChanged);
             return @__ctrl;
         }
         
@@ -151,10 +159,14 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RadioButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbEnglish = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "grpLanguage";
+            @__ctrl.AutoPostBack = true;
             @__ctrl.Text = "English";
             @__ctrl.ID = "rbEnglish";
+            @__ctrl.CheckedChanged -= new System.EventHandler(this.rbEnglish_CheckedChanged);
+            @__ctrl.CheckedChanged += new System.EventHandler(this.rbEnglish_CheckedChanged);
             return @__ctrl;
         }
         
@@ -165,8 +177,10 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
             this.txtGroupName = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtGroupName";
+            @__ctrl.MaxLength = 250;
             @__ctrl.AutoPostBack = true;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
@@ -182,6 +196,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.Label @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Label();
             this.lblGrpError = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "lblGrpError";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
@@ -196,6 +211,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
             this.RequiredFieldValidator2 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RequiredFieldValidator2";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
@@ -213,14 +229,16 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
             this.RegExp1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RegExp1";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ValidationExpression = "([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\\u0600-\\u06FF])*";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\\u0600-\\u06FF\'., ]{0,250}$";
             @__ctrl.ControlToValidate = "txtGroupName";
-            @__ctrl.ErrorMessage = "Special characters not allowed";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
             return @__ctrl;
         }
         
@@ -231,8 +249,10 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
             this.txtRanking = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtRanking";
+            @__ctrl.MaxLength = 5;
             @__ctrl.AutoPostBack = true;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
@@ -248,6 +268,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.Label @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Label();
             this.lblRankError = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "lblRankError";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
@@ -262,6 +283,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
             this.RequiredFieldValidator3 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RequiredFieldValidator3";
             @__ctrl.ValidationGroup = "chk";
@@ -278,8 +300,10 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
             this.txtTitle = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtTitle";
+            @__ctrl.MaxLength = 250;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "required form-control");
             return @__ctrl;
         }
@@ -291,10 +315,12 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
             this.RequiredFieldValidator1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RequiredFieldValidator1";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.ValidationGroup = "chk";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtTitle";
             @__ctrl.ErrorMessage = "Required Field";
             return @__ctrl;
@@ -307,14 +333,151 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
             this.RegularExpressionValidator2 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RegularExpressionValidator2";
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationExpression = "([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\\u0600-\\u06FF])*";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\\u0600-\\u06FF\'., ]{0,250}$";
             @__ctrl.ControlToValidate = "txtTitle";
-            @__ctrl.ErrorMessage = "Special characters not allowed";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
+            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      <div class=\"form-group\">\r\n       <label  class=\"col-sm-3 control-label\">S" +
+                        "elect Language : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
+            @__ctrl1 = this.@__BuildControlrbArabic();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
+            @__ctrl2 = this.@__BuildControlrbEnglish();
+            @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  \r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm" +
+                        "-3 control-label\">Category Name : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl3;
+            @__ctrl3 = this.@__BuildControltxtGroupName();
+            @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n         </div> <div class=\"col-sm-3\">\r\n        "));
+            global::System.Web.UI.WebControls.Label @__ctrl4;
+            @__ctrl4 = this.@__BuildControllblGrpError();
+            @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
+            @__ctrl5 = this.@__BuildControlRequiredFieldValidator2();
+            @__parser.AddParsedSubObject(@__ctrl5);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("     \r\n "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl6;
+            @__ctrl6 = this.@__BuildControlRegExp1();
+            @__parser.AddParsedSubObject(@__ctrl6);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(" </div>\r\n       </div> \r\n     <div class=\"form-group\">\r\n    <label  class=\"col-sm" +
+                        "-3 control-label\">Rank : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl7;
+            @__ctrl7 = this.@__BuildControltxtRanking();
+            @__parser.AddParsedSubObject(@__ctrl7);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     </div>  <div class=\"col-sm-3\">\r\n          "));
+            global::System.Web.UI.WebControls.Label @__ctrl8;
+            @__ctrl8 = this.@__BuildControllblRankError();
+            @__parser.AddParsedSubObject(@__ctrl8);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n         <span style=\"color:red\" id=\"errmsg\"></span> \r\n         "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl9;
+            @__ctrl9 = this.@__BuildControlRequiredFieldValidator3();
+            @__parser.AddParsedSubObject(@__ctrl9);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n \r\n    </div>\r\n  </div> \r\n     <div class=\"form-group\">\r\n    <label  class=\"col" +
+                        "-sm-3 control-label\">Title : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl10;
+            @__ctrl10 = this.@__BuildControltxtTitle();
+            @__parser.AddParsedSubObject(@__ctrl10);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div> <div class=\"col-sm-3\">\r\n            "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl11;
+            @__ctrl11 = this.@__BuildControlRequiredFieldValidator1();
+            @__parser.AddParsedSubObject(@__ctrl11);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl12;
+            @__ctrl12 = this.@__BuildControlRegularExpressionValidator2();
+            @__parser.AddParsedSubObject(@__ctrl12);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       \r\n             </div>\r\n  </div>\r\n            "));
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control4() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "txtGroupName";
+            @__ctrl.EventName = "TextChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control5() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "txtRanking";
+            @__ctrl.EventName = "TextChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control6() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "rbArabic";
+            @__ctrl.EventName = "CheckedChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control7() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "rbEnglish";
+            @__ctrl.EventName = "CheckedChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control3(System.Web.UI.UpdatePanelTriggerCollection @__ctrl) {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl1;
+            @__ctrl1 = this.@__BuildControl__control4();
+            @__ctrl.Add(@__ctrl1);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl2;
+            @__ctrl2 = this.@__BuildControl__control5();
+            @__ctrl.Add(@__ctrl2);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl3;
+            @__ctrl3 = this.@__BuildControl__control6();
+            @__ctrl.Add(@__ctrl3);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl4;
+            @__ctrl4 = this.@__BuildControl__control7();
+            @__ctrl.Add(@__ctrl4);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.UpdatePanel @__BuildControlUpdatePanel1() {
+            global::System.Web.UI.UpdatePanel @__ctrl;
+            @__ctrl = new global::System.Web.UI.UpdatePanel();
+            this.UpdatePanel1 = @__ctrl;
+            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ID = "UpdatePanel1";
+            this.@__BuildControl__control3(@__ctrl.Triggers);
             return @__ctrl;
         }
         
@@ -424,21 +587,21 @@ namespace SCDR.AdminForms.AddImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control3() {
+        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control9() {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl;
             @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(3, 2);
             @__ctrl.TemplateControl = this;
             @__ctrl.SetStaticString(0, "\r\n  <div class=\"col-xs-6 col-md-3\">\r\n    <a id=\"thubUrl\" href=\'");
             @__ctrl.SetStaticString(1, "\'  class=\"thumbnail thumbLink\">\r\n      <img  src=\'");
             @__ctrl.SetStaticString(2, "\' class=\"thumbImage\">\r\n    </a></div>\r\n                ");
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control3);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control9);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBind__control3(object sender, System.EventArgs e) {
+        public void @__DataBind__control9(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.RepeaterItem Container;
             System.Web.UI.DataBoundLiteralControl target;
             target = ((System.Web.UI.DataBoundLiteralControl)(sender));
@@ -450,9 +613,9 @@ namespace SCDR.AdminForms.AddImageGallery {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control8(System.Web.UI.Control @__ctrl) {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control3();
+            @__ctrl1 = this.@__BuildControl__control9();
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(@__ctrl1);
         }
@@ -464,7 +627,7 @@ namespace SCDR.AdminForms.AddImageGallery {
             global::System.Web.UI.WebControls.Repeater @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Repeater();
             this.repThumbnail = @__ctrl;
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control8));
             @__ctrl.ID = "repThumbnail";
             return @__ctrl;
         }
@@ -492,82 +655,33 @@ namespace SCDR.AdminForms.AddImageGallery {
         private void @__BuildControlTree(global::SCDR.AdminForms.AddImageGallery.AddImageGallery @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--Validation Scripts-->\r\n\r\n<!-- Form Begins -->\r\n<div class=\"form-horizontal\"" +
-                        ">\r\n      <div class=\"form-group\">\r\n       <label  class=\"col-sm-3 control-label\"" +
-                        ">Select Language : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
-            @__ctrl1 = this.@__BuildControlrbArabic();
+                        ">\r\n      "));
+            global::System.Web.UI.UpdatePanel @__ctrl1;
+            @__ctrl1 = this.@__BuildControlUpdatePanel1();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
-            @__ctrl2 = this.@__BuildControlrbEnglish();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 control-label\">Uploa" +
+                        "d Images : </label>\r\n    <div class=\"col-sm-6\">\r\n        "));
+            global::System.Web.UI.WebControls.FileUpload @__ctrl2;
+            @__ctrl2 = this.@__BuildControlfuThumbnailImage();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n \r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-" +
-                        "3 control-label\">Category Name : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl3;
-            @__ctrl3 = this.@__BuildControltxtGroupName();
-            @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div> <div class=\"col-sm-3\">\r\n        "));
-            global::System.Web.UI.WebControls.Label @__ctrl4;
-            @__ctrl4 = this.@__BuildControllblGrpError();
-            @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
-            @__ctrl5 = this.@__BuildControlRequiredFieldValidator2();
-            @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("     \r\n "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl6;
-            @__ctrl6 = this.@__BuildControlRegExp1();
-            @__parser.AddParsedSubObject(@__ctrl6);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(" </div>\r\n       </div> \r\n     <div class=\"form-group\">\r\n    <label  class=\"col-sm" +
-                        "-3 control-label\">Rank : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl7;
-            @__ctrl7 = this.@__BuildControltxtRanking();
-            @__parser.AddParsedSubObject(@__ctrl7);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     </div>  <div class=\"col-sm-3\">\r\n          "));
-            global::System.Web.UI.WebControls.Label @__ctrl8;
-            @__ctrl8 = this.@__BuildControllblRankError();
-            @__parser.AddParsedSubObject(@__ctrl8);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n         <span style=\"color:red\" id=\"errmsg\"></span> \r\n         "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl9;
-            @__ctrl9 = this.@__BuildControlRequiredFieldValidator3();
-            @__parser.AddParsedSubObject(@__ctrl9);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n \r\n    </div>\r\n  </div> \r\n     <div class=\"form-group\">\r\n    <label  class=\"col" +
-                        "-sm-3 control-label\">Title : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl10;
-            @__ctrl10 = this.@__BuildControltxtTitle();
-            @__parser.AddParsedSubObject(@__ctrl10);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div> <div class=\"col-sm-3\">\r\n            "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl11;
-            @__ctrl11 = this.@__BuildControlRequiredFieldValidator1();
-            @__parser.AddParsedSubObject(@__ctrl11);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl12;
-            @__ctrl12 = this.@__BuildControlRegularExpressionValidator2();
-            @__parser.AddParsedSubObject(@__ctrl12);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"" +
-                        "col-sm-3 control-label\">Upload Images : </label>\r\n    <div class=\"col-sm-6\">\r\n  " +
-                        "      "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl13;
-            @__ctrl13 = this.@__BuildControlfuThumbnailImage();
-            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n    <div class=\"col-sm-3\">\r\n       <span style=\"color:red\" id=\"lblI" +
                         "mageError\"></span>\r\n    "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl14;
-            @__ctrl14 = this.@__BuildControlRequiredFieldValidator4();
-            @__parser.AddParsedSubObject(@__ctrl14);
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl3;
+            @__ctrl3 = this.@__BuildControlRequiredFieldValidator4();
+            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("  \r\n         "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl15;
-            @__ctrl15 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl15);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl4;
+            @__ctrl4 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n \r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-off" +
                         "set-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl16;
-            @__ctrl16 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl16);
+            global::System.Web.UI.WebControls.Button @__ctrl5;
+            @__ctrl5 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n      "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl17;
-            @__ctrl17 = this.@__BuildControllblUrl();
-            @__parser.AddParsedSubObject(@__ctrl17);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl6;
+            @__ctrl6 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 </div>
 
@@ -582,76 +696,83 @@ namespace SCDR.AdminForms.AddImageGallery {
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl18;
-            @__ctrl18 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl18);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl7;
+            @__ctrl7 = this.@__BuildControlhfListItemId();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl19;
-            @__ctrl19 = this.@__BuildControlhfSubsiteName();
-            @__parser.AddParsedSubObject(@__ctrl19);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl8;
+            @__ctrl8 = this.@__BuildControlhfSubsiteName();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl20;
-            @__ctrl20 = this.@__BuildControlrepThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl20);
+            global::System.Web.UI.WebControls.Repeater @__ctrl9;
+            @__ctrl9 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        \r\n      \r\n     " +
                         "     "));
-            global::System.Web.UI.WebControls.Button @__ctrl21;
-            @__ctrl21 = this.@__BuildControlbtnSaveThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl21);
+            global::System.Web.UI.WebControls.Button @__ctrl10;
+            @__ctrl10 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl10);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n<!-- Modal Script-->\r\n<script t" +
                         "ype=\"text/javascript\">\r\n   \r\n    function openModal() {\r\n        $(document).rea" +
                         "dy(function () {\r\n         //   $(\'#ModalTumbnail\').modal(\'show\');\r\n            " +
                         "$(\'#ModalTumbnail\').modal({\r\n                backdrop: \'static\',\r\n              " +
-                        "  keyboard: false\r\n            });\r\n        });\r\n        }\r\n \r\n</script>\r\n\r\n<scr" +
-                        "ipt>\r\n  \r\n    $(document).ready(function () {\r\n        var _fhref = $(\'.thumbLin" +
-                        "k:first\').attr(\'href\');\r\n        $(\"#lblUrl\").val(_fhref);\r\n        $(document)." +
-                        "on(\'click\', \'.thumbLink\', function (e) {\r\n            e.preventDefault();\r\n     " +
-                        "       _this = $(this);\r\n            _href = _this.attr(\'href\');\r\n            $(" +
-                        "\"#lblUrl\").val(_href);\r\n        })\r\n            /*.on(\'click\', \'.thumbImage\', fu" +
-                        "nction (e) {\r\n            e.preventDefault();\r\n            _this = $(this);\r\n   " +
-                        "         _href = _this.parent().attr(\'href\');\r\n            $(\"#lblUrl\").val(_hre" +
-                        "f);\r\n        })*/\r\n    });\r\n\r\n</script>\r\n<script>\r\n    $(document).ready(functio" +
-                        "n () {\r\n        $(\'#lblImageError\').hide();\r\n        $(\"input[name$=fuThumbnailI" +
-                        "mage]\").change(function () {\r\n            $(\'#lblImageError\').hide();\r\n        }" +
-                        ");\r\n        //called when key is pressed in textbox\r\n        $(\"#txtRanking\").ke" +
-                        "ypress(function (e) {\r\n            //if the letter is not digit then display err" +
-                        "or and don\'t type anything\r\n            if (e.which != 8 && e.which != 0 && (e.w" +
-                        "hich < 48 || e.which > 57)) {\r\n                //display error message\r\n        " +
-                        "        $(\"#errmsg\").html(\"Digits Only\").show().fadeOut(\"slow\");\r\n              " +
-                        "  return false;\r\n            }\r\n        });\r\n\r\n        });\r\n</script>\r\n<script t" +
-                        "ype=\"text/javascript\">\r\n    function validateFormat(event) {\r\n        if (Page_C" +
-                        "lientValidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lb" +
-                        "lRankError\').text(\' \');\r\n            var ext = $(\"input[name$=fuThumbnailImage]\"" +
-                        ").get(0).files.length;\r\n            if (ext > 0) {\r\n                var names = " +
-                        "[];\r\n                for (var i = 0; i < ext; ++i) {\r\n                    names." +
-                        "push($(\"input[name$=fuThumbnailImage]\").get(0).files[i].name);\r\n                " +
-                        "}\r\n                var x = 0;\r\n                for (i = 0; i < names.length; i++" +
-                        ") {\r\n                    var str = names[i];\r\n                    //  /^[-\\sa-zA" +
-                        "-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == f" +
-                        "alse) {\r\n\r\n                        x = 1;\r\n                    }\r\n              " +
-                        "      if (x == 1) {\r\n                        $(\'#lblImageError\').show();\r\n      " +
-                        "                  $(\'#lblImageError\').text(\'Special characters except - and _ ar" +
-                        "e not allowed in filename. Please select a valid image file of type .jpg,.jpeg,." +
-                        "png.\');\r\n                        // setTimeout();\r\n                        retur" +
-                        "n false;\r\n                        break;\r\n                        event.preventD" +
-                        "efault();\r\n                    }\r\n\r\n                }\r\n                if (x == " +
-                        "0) {\r\n                  \r\n                    var ext = [];\r\n                   " +
-                        " for (i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names[" +
-                        "i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n " +
-                        "                   var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"J" +
-                        "PG\"];\r\n\r\n                    var i, j, result = [];\r\n                    for (i " +
-                        "= 0; i < valid_filetype.length; i++) {\r\n                        for (j = 0; j < " +
-                        "ext.length; j++) {\r\n                            if (ext[j].indexOf(valid_filetyp" +
-                        "e[i]) != -1) {\r\n                                result.push(ext[j]);\r\n          " +
-                        "                  }\r\n                        }\r\n                    }\r\n\r\n       " +
-                        "             if (result.length < ext.length) {\r\n                        //   bre" +
-                        "ak;\r\n                        $(\'#lblImageError\').show();\r\n                      " +
-                        "  $(\'#lblImageError\').text(\'Invalid File Found. Please select a valid image file" +
-                        " of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n        " +
-                        "                return false;\r\n                        event.preventDefault();\r\n" +
-                        "                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n        " +
-                        "        event.preventDefault();\r\n            }\r\n\r\n            }\r\n        }\r\n    " +
-                        "\r\n</script>\r\n\r\n"));
+                        "  keyboard: false\r\n            });\r\n        });\r\n        }\r\n \r\n</script>\r\n<scrip" +
+                        "t>\r\n  \r\n    $(document).ready(function () {\r\n        var _fhref = $(\'.thumbLink:" +
+                        "first\').attr(\'href\');\r\n        $(\"#lblUrl\").val(_fhref);\r\n        $(document).on" +
+                        "(\'click\', \'.thumbLink\', function (e) {\r\n            e.preventDefault();\r\n       " +
+                        "     _this = $(this);\r\n            _href = _this.attr(\'href\');\r\n            $(\"#" +
+                        "lblUrl\").val(_href);\r\n        })\r\n            /*.on(\'click\', \'.thumbImage\', func" +
+                        "tion (e) {\r\n            e.preventDefault();\r\n            _this = $(this);\r\n     " +
+                        "       _href = _this.parent().attr(\'href\');\r\n            $(\"#lblUrl\").val(_href)" +
+                        ";\r\n        })*/\r\n    });\r\n\r\n</script>\r\n<!-- Modal Script-->\r\n<!--fileupload Scri" +
+                        "pt-->\r\n<script>\r\n    $(document).ready(function () {\r\n        $(\'#lblImageError\'" +
+                        ").hide();\r\n        $(\"input[name$=fuThumbnailImage]\").change(function () {\r\n    " +
+                        "        $(\'#lblImageError\').hide();\r\n        });\r\n      \r\n\r\n        });\r\n</scrip" +
+                        "t>\r\n<script type=\"text/javascript\">\r\n    function validateFormat(event) {\r\n     " +
+                        "   if (Page_ClientValidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n     " +
+                        "       $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"input[name$=fuThu" +
+                        "mbnailImage]\").get(0).files.length;\r\n            if (ext > 0) {\r\n               " +
+                        " var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n             " +
+                        "       names.push($(\"input[name$=fuThumbnailImage]\").get(0).files[i].name);\r\n   " +
+                        "             }\r\n                var x = 0;\r\n                for (i = 0; i < name" +
+                        "s.length; i++) {\r\n                    var str = names[i];\r\n                    /" +
+                        "/  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.t" +
+                        "est(str) == false) {\r\n\r\n                        x = 1;\r\n                    }\r\n " +
+                        "                   if (x == 1) {\r\n                        $(\'#lblImageError\').sh" +
+                        "ow();\r\n                        $(\'#lblImageError\').text(\'Special characters exce" +
+                        "pt - and _ are not allowed in filename. Please select a valid image file of type" +
+                        " .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n                " +
+                        "        return false;\r\n                        break;\r\n                        e" +
+                        "vent.preventDefault();\r\n                    }\r\n\r\n                }\r\n            " +
+                        "    if (x == 0) {\r\n                  \r\n                    var ext = [];\r\n      " +
+                        "              for (i = 0; i < names.length; i++) {\r\n\r\n                        ex" +
+                        "t.push(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n           " +
+                        "         }\r\n                    var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG" +
+                        "\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, result = [];\r\n              " +
+                        "      for (i = 0; i < valid_filetype.length; i++) {\r\n                        for" +
+                        " (j = 0; j < ext.length; j++) {\r\n                            if (ext[j].indexOf(" +
+                        "valid_filetype[i]) != -1) {\r\n                                result.push(ext[j])" +
+                        ";\r\n                            }\r\n                        }\r\n                   " +
+                        " }\r\n\r\n                    if (result.length < ext.length) {\r\n                   " +
+                        "     //   break;\r\n                        $(\'#lblImageError\').show();\r\n         " +
+                        "               $(\'#lblImageError\').text(\'Invalid File Found. Please select a val" +
+                        "id image file of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout" +
+                        "();\r\n                        return false;\r\n                        event.preven" +
+                        "tDefault();\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } els" +
+                        "e {\r\n                event.preventDefault();\r\n            }\r\n\r\n            }\r\n  " +
+                        "      }\r\n    \r\n</script>\r\n<!--fileupload Script-->\r\n<!-- Panel Refresh-->\r\n <scr" +
+                        "ipt type=\"text/javascript\"> \r\n     // if you use jQuery, you can load them when " +
+                        "dom is read.\r\n     $(document).ready(function () {\r\n         var prm = Sys.WebFo" +
+                        "rms.PageRequestManager.getInstance();    \r\n         prm.add_initializeRequest(In" +
+                        "itializeRequest);\r\n         prm.add_endRequest(EndRequest);\r\n\r\n     });        \r" +
+                        "\n\r\n     function InitializeRequest(sender, args) {\r\n      \r\n     }\r\n\r\n     funct" +
+                        "ion EndRequest(sender, args) {\r\n\r\n         //called when key is pressed in textb" +
+                        "ox\r\n         $(\"#txtRanking\").keypress(function (e) {\r\n             //if the let" +
+                        "ter is not digit then display error and don\'t type anything\r\n             if (e." +
+                        "which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {\r\n               " +
+                        "  //display error message\r\n                 $(\"#errmsg\").html(\"Digits Only\").sho" +
+                        "w().fadeOut(\"slow\");\r\n                 return false;\r\n             }\r\n         }" +
+                        ");\r\n     }\r\n     </script>\r\n<!-- Panel Refresh-->\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

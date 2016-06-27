@@ -134,6 +134,7 @@ namespace SCDR.AdminForms.AddVenue {
             this.txtVenueAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtVenueAr";
+            @__ctrl.MaxLength = 250;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl !important;");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
@@ -183,6 +184,7 @@ namespace SCDR.AdminForms.AddVenue {
             this.txtVenueEn = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtVenueEn";
+            @__ctrl.MaxLength = 250;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;

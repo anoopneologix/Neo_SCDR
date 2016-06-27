@@ -12,7 +12,7 @@
   <div class="form-group">
     <label  class="col-sm-3 control-label">Venue name (Arabic) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtVenueAr" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtVenueAr" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
             <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtVenueAr" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
  <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
@@ -23,7 +23,7 @@
               <div class="form-group">
     <label  class="col-sm-3 control-label">Venue name (English) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtVenueEn" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtVenueEn" MaxLength="250" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
           <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtVenueEn" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
  <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ValidationExpression="^[0-9a-zA-Z ]+$" 
