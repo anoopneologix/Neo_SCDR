@@ -271,7 +271,8 @@ namespace SCDR.CalendarControl
                     dr["EventVenue"] = li["EventVenue"].ToString();
                     DateTime dtEventDate = Convert.ToDateTime(li["EventDate"]);
                     dr["EventDate"] = dtEventDate.ToString("dd/MM/yyyy");
-                    dr["EventTime"] = li["EventTime"].ToString();
+                  
+                    dr["EventTime"] = li["EventTime"].ToString().Replace(" ", String.Empty);
                     dr["Department"] = li["Department"].ToString();
                     string liDescription = li["Description"].ToString();
                     dr["Description"] = Regex.Replace(liDescription, "<.*?>", string.Empty);

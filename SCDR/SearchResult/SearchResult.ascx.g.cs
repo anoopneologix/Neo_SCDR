@@ -77,7 +77,7 @@ namespace SCDR.SearchResult {
             Container = ((System.Web.UI.WebControls.RepeaterItem)(target.BindingContainer));
             target.SetDataBoundString(0, global::System.Convert.ToString(Eval("PageUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
             target.SetDataBoundString(1, global::System.Convert.ToString(Eval("Title"), global::System.Globalization.CultureInfo.CurrentCulture));
-            target.SetDataBoundString(2, global::System.Convert.ToString(Eval("Description"), global::System.Globalization.CultureInfo.CurrentCulture));
+            target.SetDataBoundString(2, global::System.Convert.ToString(Eval("Content"), global::System.Globalization.CultureInfo.CurrentCulture));
             target.SetDataBoundString(3, global::System.Convert.ToString(Eval("PageUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
         }
         
