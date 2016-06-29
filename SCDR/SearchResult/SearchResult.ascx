@@ -14,7 +14,7 @@
            <div class="newsrelease">
                   <h4 class="inti_subhead font_resize"><a href='<%# Eval("PageUrl") %>'><%# Eval("Title") %></a></h4>
             <p class="releasecontent font_resize">
-       <div class="content_limit"> <%# Eval("Description") %> </div> </p>
+       <div class="content_limit"> <%# Eval("Content") %> </div> </p>
     <a  href='<%# Eval("PageUrl") %>' class="newsread font_resize">read more</a>
        </div> 
     
