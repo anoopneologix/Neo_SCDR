@@ -221,11 +221,11 @@ namespace SCDR.LoginEn {
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
                           
                     </div>
-                    <div class=""checkbox clearfix"">
+                   <!-- <div class=""checkbox clearfix"">
                         <label class=""chklabel"">
                             <input type=""checkbox"">Remember me</label>
                         <a href=""#"" class=""forgot"">Forgot Password?</a>
-                    </div>
+                    </div>-->
                     "));
             global::System.Web.UI.WebControls.Button @__ctrl4;
             @__ctrl4 = this.@__BuildControlbtnSignin();

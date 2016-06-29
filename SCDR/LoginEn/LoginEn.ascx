@@ -35,11 +35,11 @@
                             <asp:TextBox ID="pwd" TextMode="Password" runat="server" ClientIDMode="Static" class="form-control frm-pwd"></asp:TextBox>
                           
                     </div>
-                    <div class="checkbox clearfix">
+                   <!-- <div class="checkbox clearfix">
                         <label class="chklabel">
                             <input type="checkbox">Remember me</label>
                         <a href="#" class="forgot">Forgot Password?</a>
-                    </div>
+                    </div>-->
                     <asp:Button ID="btnSignin" class="btn btn-default btn-theme btn-submit" runat="server" Text="Submit" />
                   
                 </div>
