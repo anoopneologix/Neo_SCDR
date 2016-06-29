@@ -502,6 +502,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchEn.ascx</DependentUpon>
     </Compile>
+    <Compile Include="SearchResultList\SearchResultList.ascx.cs">
+      <DependentUpon>SearchResultList.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResultList\SearchResultList.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchResultList.ascx</DependentUpon>
+    </Compile>
     <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
       <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
     </Compile>
@@ -744,6 +752,10 @@
     <None Include="SearchEn\SearchEn.webpart" />
     <None Include="SearchEn\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0172df6d-a696-44af-90de-d25ab982864c}</SharePointProjectItemId>
+    </None>
+    <None Include="SearchResultList\SearchResultList.webpart" />
+    <None Include="SearchResultList\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{794fd42c-a952-4804-9821-f4067c4743da}</SharePointProjectItemId>
     </None>
     <None Include="SharePointProjectItem.spdata">
       <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
@@ -1044,6 +1056,11 @@
     <Content Include="SearchEn\SearchEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchEn.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchResultList\Elements.xml" />
+    <Content Include="SearchResultList\SearchResultList.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SearchResultList.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="VideoGalleryAr\Elements.xml" />
     <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">
