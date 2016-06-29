@@ -109,8 +109,8 @@
                     <div class="event-options-wrapper">
                         <a href="javascript:;" class="event-option" onClick="printSelectedDiv(event);" data-toggle="tooltip" title="Print"><i class="fa fa-print"></i></a>
                          <a href="javascript:;" class="event-option" onClick="emailSelectedDiv(event);" title="Send event as Email"><i class="fa fa-envelope"></i></a>
-                        <a href="javascript:;" class="event-option" onClick="downloadSelectedDiv(event);" title="Download as PDF"><i class="fa fa-file-pdf-o"></i></a>
-                     <!--   <a href="javascript:;" class="event-option" title="Add event to outlook calendar"><i class="fa fa-calendar"></i></a>-->
+                        <a href="javascript:;" class="event-option" onClick="downloadSelectedDiv(event);"  title="Download as PDF"><i class="fa fa-file-pdf-o"></i></a>
+                     <!--   <a href="javascript:;" onClick="downloadSelectedDiv(event);" class="event-option" title="Add event to outlook calendar"><i class="fa fa-calendar"></i></a>-->
                     </div>
                     <!-- /.event-options-wrapper -->
                 </div>
@@ -444,7 +444,7 @@
         }, 500);
     }
 
-    function downloadSelectedDiv(event) {
+  /*  function downloadSelectedDiv(event) {
       var contents = $(event.target).closest(".event-view-wrapper");
 
         html2canvas(contents, {
@@ -466,7 +466,38 @@
             }
         });
     
+    }*/
+
+    function downloadSelectedDiv(event) {
+        var contents = $(event.target).closest(".event-view-wrapper");
+        var scaleBy = 5;
+        var w = 1000;
+        var h = 1000;
+        var canvas = document.createElement('canvas');
+        canvas.width = w * scaleBy;
+        canvas.height = h * scaleBy;
+        canvas.style.width = w + 'px';
+        canvas.style.height = h + 'px';
+        var context = canvas.getContext('2d');
+        context.scale(scaleBy, scaleBy);
+
+        html2canvas(contents, {
+            onrendered: function (canvas) {
+                theCanvas = canvas;
+                document.body.appendChild(canvas);
+
+                var imgData = canvas;
+                var doc = new jsPDF();
+
+                doc.setFontSize(100);
+                doc.addImage(imgData, 'JPEG', 40, 40);
+                doc.save('testing.pdf');
+                document.body.removeChild(canvas);
+            }
+        });
+
     }
+
 
     //popup send event as email
     function emailSelectedDiv(event) {
@@ -486,7 +517,11 @@
 
     }
 
- </script>    
+ </script>   
+
+
+ 
+ 
 <!-- Panel Refresh-->
  <script type="text/javascript"> 
      // if you use jQuery, you can load them when dom is read.
@@ -547,7 +582,8 @@
 
                });
 
-        
+       
+
          
 
      }

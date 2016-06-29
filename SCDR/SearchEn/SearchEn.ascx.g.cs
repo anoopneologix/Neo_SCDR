@@ -64,6 +64,8 @@ namespace SCDR.SearchEn {
             @__ctrl.ID = "btnSearch";
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("<i class=\"fa fa-search\"></i>"));
+            @__ctrl.Click -= new System.EventHandler(this.btnSearch_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnSearch_Click);
             return @__ctrl;
         }
         
@@ -76,6 +78,7 @@ namespace SCDR.SearchEn {
             this.txtSearch = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtSearch";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.CssClass = "form-control";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("placeholder", "Search");
             return @__ctrl;
@@ -92,7 +95,7 @@ namespace SCDR.SearchEn {
             global::System.Web.UI.WebControls.LinkButton @__ctrl1;
             @__ctrl1 = this.@__BuildControlbtnSearch();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       \r\n   "));
             global::System.Web.UI.WebControls.TextBox @__ctrl2;
             @__ctrl2 = this.@__BuildControltxtSearch();
             @__parser.AddParsedSubObject(@__ctrl2);

@@ -527,7 +527,7 @@ namespace SCDR.CalendarControlAr {
                         <a href=""javascript:;"" class=""event-option"" onClick=""printSelectedDiv(event);""  data-toggle=""tooltip"" title=""Print""><i class=""fa fa-print""></i></a>
                       <a href=""javascript:;"" class=""event-option"" onClick=""emailSelectedDiv(event);"" title=""Send event as Email""><i class=""fa fa-envelope""></i></a>
                         <a href=""javascript:;"" class=""event-option"" onClick=""downloadSelectedDiv(event);"" title=""Download as PDF""><i class=""fa fa-file-pdf-o""></i></a>
-                      <!--  <a href=""javascript:;"" class=""event-option"" title=""Add event to outlook calendar""><i class=""fa fa-calendar""></i></a>-->
+                      <!--  <a href=""javascript:;"" onClick=""downloadSelectedDiv(event);"" class=""event-option"" title=""Add event to outlook calendar""><i class=""fa fa-calendar""></i></a>-->
                     </div>
                     <!-- /.event-options-wrapper -->
                 </div>
@@ -957,51 +957,63 @@ namespace SCDR.CalendarControlAr {
                     "ble);\r\n        frameDoc.document.write(\'</body></html>\');\r\n        frameDoc.docu" +
                     "ment.close();\r\n        setTimeout(function () {\r\n            window.frames[\"fram" +
                     "e1\"].focus();\r\n            window.frames[\"frame1\"].print();\r\n            frame1." +
-                    "remove();\r\n        }, 500);\r\n    }\r\n    function downloadSelectedDiv(event) {\r\n " +
-                    "       var contents = $(event.target).closest(\".event-view-wrapper\");\r\n\r\n       " +
-                    " html2canvas(contents, {\r\n            onrendered: function (canvas) {\r\n         " +
-                    "       theCanvas = canvas;\r\n                document.body.appendChild(canvas);\r\n" +
-                    "\r\n                var imgData = canvas;\r\n                var doc = new jsPDF();\r" +
-                    "\n\r\n                doc.setFontSize(40);\r\n                doc.addImage(imgData, \'" +
-                    "PNG\', 20, 20);\r\n                doc.save(\'Event.pdf\');\r\n                // Conve" +
-                    "rt and download as image \r\n                // Canvas2Image.saveAsPNG(canvas);\r\n " +
-                    "               //  $(\"#img-out\").append(canvas);\r\n                // Clean up \r\n" +
-                    "                document.body.removeChild(canvas);\r\n            }\r\n        });\r\n" +
-                    "\r\n\r\n    }\r\n\r\n    //popup send event as email\r\n    function emailSelectedDiv(even" +
-                    "t) {\r\n        $div = $(event.target).closest(\".event-view-wrapper\");\r\n        va" +
-                    "r textTitle = $div.children(\".event-name\").text();\r\n        var textDate = $div." +
-                    "children(\".event-expand-details\").children(\".event-details-container\").children(" +
-                    "\".event-info-wrapper\").children(\".event-info:nth-child(2)\").find(\'span\').text();" +
-                    "\r\n        var textTime = $div.children(\".event-expand-details\").children(\".event" +
-                    "-details-container\").children(\".event-info-wrapper\").children(\".event-info:nth-c" +
-                    "hild(3)\").find(\'span\').text();\r\n        var url = window.location.href;\r\n       " +
-                    " var formattedBody = \"\\nEvent Date : \" + textDate + \"\\n\\nEvent Time : \" + textTi" +
-                    "me + \"\\n\\nFor more details, visit \" + url;\r\n\r\n        var mailToLink = \"mailto:?" +
-                    "\";\r\n        var mailContent = \"Subject=\" + textTitle + \"&\";\r\n        mailContent" +
-                    " += \"body=\" + encodeURIComponent(formattedBody);\r\n\r\n        $(event.target).attr" +
-                    "(\"href\", mailToLink + mailContent);\r\n        window.location = $(event.target).a" +
-                    "ttr(\'href\');\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n </script>    \r\n<!-- Panel Refresh-->\r\n <scri" +
-                    "pt type=\"text/javascript\">\r\n     // if you use jQuery, you can load them when do" +
-                    "m is read.\r\n     $(document).ready(function () {\r\n         var prm = Sys.WebForm" +
-                    "s.PageRequestManager.getInstance();\r\n         prm.add_initializeRequest(Initiali" +
-                    "zeRequest);\r\n         prm.add_endRequest(EndRequest);\r\n\r\n     });\r\n\r\n     functi" +
-                    "on InitializeRequest(sender, args) {\r\n\r\n     }\r\n\r\n     function EndRequest(sende" +
-                    "r, args) {\r\n         //calendar script\r\n\r\n         $(function () {\r\n            " +
-                    " $(\".kalendar\").ionCalendar({\r\n                 lang: \"en\",\r\n                 //" +
-                    "years: \"1915-1995\",\r\n                 onClick: function (date) {\r\n              " +
-                    "       //  dispevent();\r\n                 }\r\n             });\r\n          /*   va" +
-                    "r today = new Date();\r\n             var dd = today.getDate();\r\n             var " +
-                    "mm = today.getMonth() + 1;\r\n             var yyyy = today.getFullYear();\r\n      " +
-                    "       var today = mm + \'/\' + dd + \'/\' + yyyy;\r\n             $(\".date\").val(toda" +
-                    "y);*/\r\n\r\n             $(\'#date_pair .date\').datepicker({\r\n                 forma" +
-                    "t: \'m/d/yyyy\',\r\n                 autoclose: true,\r\n             });\r\n           " +
-                    "  $(\'#date_pair\').datepair();\r\n\r\n             dispevent();\r\n             day_row" +
-                    "s();\r\n             day_four_rows();\r\n         });\r\n\r\n\r\n         //date picker\r\n\r" +
-                    "\n         $(\'#txtStartDate\')\r\n             .datepicker({\r\n                 forma" +
-                    "t: \'dd/MM/yyyy\',\r\n                 todayHighlight: true,\r\n\r\n             });\r\n  " +
-                    "       $(\'#txtEndDate\')\r\n           .datepicker({\r\n               format: \'dd/MM" +
-                    "/yyyy\',\r\n               todayHighlight: true,\r\n\r\n           });\r\n\r\n        \r\n\r\n\r" +
-                    "\n     }\r\n   </script>");
+                    "remove();\r\n        }, 500);\r\n    }\r\n /*   function downloadSelectedDiv(event) {\r" +
+                    "\n        var contents = $(event.target).closest(\".event-view-wrapper\");\r\n\r\n     " +
+                    "   html2canvas(contents, {\r\n            onrendered: function (canvas) {\r\n       " +
+                    "         theCanvas = canvas;\r\n                document.body.appendChild(canvas);" +
+                    "\r\n\r\n                var imgData = canvas;\r\n                var doc = new jsPDF()" +
+                    ";\r\n\r\n                doc.setFontSize(40);\r\n                doc.addImage(imgData," +
+                    " \'PNG\', 20, 20);\r\n                doc.save(\'Event.pdf\');\r\n                // Con" +
+                    "vert and download as image \r\n                // Canvas2Image.saveAsPNG(canvas);\r" +
+                    "\n                //  $(\"#img-out\").append(canvas);\r\n                // Clean up " +
+                    "\r\n                document.body.removeChild(canvas);\r\n            }\r\n        });" +
+                    "\r\n\r\n\r\n    }*/\r\n\r\n    function downloadSelectedDiv(event) {\r\n        var contents" +
+                    " = $(event.target).closest(\".event-view-wrapper\");\r\n        var scaleBy = 5;\r\n  " +
+                    "      var w = 1000;\r\n        var h = 1000;\r\n        var canvas = document.create" +
+                    "Element(\'canvas\');\r\n        canvas.width = w * scaleBy;\r\n        canvas.height =" +
+                    " h * scaleBy;\r\n        canvas.style.width = w + \'px\';\r\n        canvas.style.heig" +
+                    "ht = h + \'px\';\r\n        var context = canvas.getContext(\'2d\');\r\n        context." +
+                    "scale(scaleBy, scaleBy);\r\n\r\n        html2canvas(contents, {\r\n            onrende" +
+                    "red: function (canvas) {\r\n                theCanvas = canvas;\r\n                d" +
+                    "ocument.body.appendChild(canvas);\r\n\r\n                var imgData = canvas;\r\n    " +
+                    "            var doc = new jsPDF();\r\n\r\n                doc.setFontSize(100);\r\n   " +
+                    "             doc.addImage(imgData, \'JPEG\', 40, 40);\r\n                doc.save(\'t" +
+                    "esting.pdf\');\r\n                document.body.removeChild(canvas);\r\n            }" +
+                    "\r\n        });\r\n\r\n    }\r\n\r\n\r\n    //popup send event as email\r\n    function emailS" +
+                    "electedDiv(event) {\r\n        $div = $(event.target).closest(\".event-view-wrapper" +
+                    "\");\r\n        var textTitle = $div.children(\".event-name\").text();\r\n        var t" +
+                    "extDate = $div.children(\".event-expand-details\").children(\".event-details-contai" +
+                    "ner\").children(\".event-info-wrapper\").children(\".event-info:nth-child(2)\").find(" +
+                    "\'span\').text();\r\n        var textTime = $div.children(\".event-expand-details\").c" +
+                    "hildren(\".event-details-container\").children(\".event-info-wrapper\").children(\".e" +
+                    "vent-info:nth-child(3)\").find(\'span\').text();\r\n        var url = window.location" +
+                    ".href;\r\n        var formattedBody = \"\\nEvent Date : \" + textDate + \"\\n\\nEvent Ti" +
+                    "me : \" + textTime + \"\\n\\nFor more details, visit \" + url;\r\n\r\n        var mailToL" +
+                    "ink = \"mailto:?\";\r\n        var mailContent = \"Subject=\" + textTitle + \"&\";\r\n    " +
+                    "    mailContent += \"body=\" + encodeURIComponent(formattedBody);\r\n\r\n        $(eve" +
+                    "nt.target).attr(\"href\", mailToLink + mailContent);\r\n        window.location = $(" +
+                    "event.target).attr(\'href\');\r\n\r\n    }\r\n\r\n\r\n\r\n\r\n\r\n\r\n </script>    \r\n\r\n \r\n<!-- Pane" +
+                    "l Refresh-->\r\n <script type=\"text/javascript\">\r\n     // if you use jQuery, you c" +
+                    "an load them when dom is read.\r\n     $(document).ready(function () {\r\n         v" +
+                    "ar prm = Sys.WebForms.PageRequestManager.getInstance();\r\n         prm.add_initia" +
+                    "lizeRequest(InitializeRequest);\r\n         prm.add_endRequest(EndRequest);\r\n\r\n   " +
+                    "  });\r\n\r\n     function InitializeRequest(sender, args) {\r\n\r\n     }\r\n\r\n     funct" +
+                    "ion EndRequest(sender, args) {\r\n         //calendar script\r\n\r\n         $(functio" +
+                    "n () {\r\n             $(\".kalendar\").ionCalendar({\r\n                 lang: \"en\",\r" +
+                    "\n                 //years: \"1915-1995\",\r\n                 onClick: function (dat" +
+                    "e) {\r\n                     //  dispevent();\r\n                 }\r\n             })" +
+                    ";\r\n          /*   var today = new Date();\r\n             var dd = today.getDate()" +
+                    ";\r\n             var mm = today.getMonth() + 1;\r\n             var yyyy = today.ge" +
+                    "tFullYear();\r\n             var today = mm + \'/\' + dd + \'/\' + yyyy;\r\n            " +
+                    " $(\".date\").val(today);*/\r\n\r\n             $(\'#date_pair .date\').datepicker({\r\n  " +
+                    "               format: \'m/d/yyyy\',\r\n                 autoclose: true,\r\n         " +
+                    "    });\r\n             $(\'#date_pair\').datepair();\r\n\r\n             dispevent();\r\n" +
+                    "             day_rows();\r\n             day_four_rows();\r\n         });\r\n\r\n\r\n     " +
+                    "    //date picker\r\n\r\n         $(\'#txtStartDate\')\r\n             .datepicker({\r\n  " +
+                    "               format: \'dd/MM/yyyy\',\r\n                 todayHighlight: true,\r\n\r\n" +
+                    "             });\r\n         $(\'#txtEndDate\')\r\n           .datepicker({\r\n         " +
+                    "      format: \'dd/MM/yyyy\',\r\n               todayHighlight: true,\r\n\r\n           " +
+                    "});\r\n\r\n       \r\n\r\n\r\n     }\r\n   </script>");
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

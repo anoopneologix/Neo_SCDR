@@ -41,6 +41,14 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Office.Server, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Server.Search, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.Office.Server.Search.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.SharePoint.Client, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.SharePoint.Client\v4.0_15.0.0.0__71e9bce111e9429c\Microsoft.SharePoint.Client.dll</HintPath>
@@ -49,10 +57,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Client.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.SharePoint.Security, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Common Files\microsoft shared\Web Server Extensions\15\ISAPI\Microsoft.SharePoint.Security.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.DynamicData" />
@@ -489,6 +502,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchEn.ascx</DependentUpon>
     </Compile>
+    <Compile Include="SearchResult\SearchResult.ascx.cs">
+      <DependentUpon>SearchResult.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResult\SearchResult.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchResult.ascx</DependentUpon>
+    </Compile>
     <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
       <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
     </Compile>
@@ -731,6 +752,10 @@
     <None Include="SearchEn\SearchEn.webpart" />
     <None Include="SearchEn\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0172df6d-a696-44af-90de-d25ab982864c}</SharePointProjectItemId>
+    </None>
+    <None Include="SearchResult\SearchResult.webpart" />
+    <None Include="SearchResult\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{1dd0764e-3bc6-4fc5-9bc2-3c7919b5968b}</SharePointProjectItemId>
     </None>
     <None Include="VideoGalleryAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3958bdb5-da70-4d20-b197-af2f4c879d9d}</SharePointProjectItemId>
@@ -1027,6 +1052,11 @@
     <Content Include="SearchEn\SearchEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchEn.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchResult\Elements.xml" />
+    <Content Include="SearchResult\SearchResult.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SearchResult.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="VideoGalleryAr\Elements.xml" />
     <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">

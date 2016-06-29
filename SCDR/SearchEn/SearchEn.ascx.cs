@@ -1,17 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Web.UI.WebControls.WebParts;
+using Microsoft.SharePoint;
+using System.Data;
+using System.Web.UI;
+using Microsoft.Office.Server.Search.Query;
+using Microsoft.Office.Server.Search.Administration;
+using System.Linq;
 
 namespace SCDR.SearchEn
 {
     [ToolboxItemAttribute(false)]
     public partial class SearchEn : WebPart
     {
-        // Uncomment the following SecurityPermission attribute only when doing Performance Profiling on a farm solution
-        // using the Instrumentation method, and then remove the SecurityPermission attribute when the code is ready
-        // for production. Because the SecurityPermission attribute bypasses the security check for callers of
-        // your constructor, it's not recommended for production purposes.
-        // [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Assert, UnmanagedCode = true)]
         public SearchEn()
         {
         }
@@ -24,6 +25,35 @@ namespace SCDR.SearchEn
 
         protected void Page_Load(object sender, EventArgs e)
         {
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            if(txtSearch.Text!="")
+            {
+                Page.Response.Redirect("SearchResult.aspx?kw=" + txtSearch.Text.Trim());
+            }
+            /*   SPSecurity.RunWithElevatedPrivileges(delegate()
+              {
+                  DataTable dt = new DataTable();
+              using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                  {
+                      using (SPWeb oWeb = oSite.OpenWeb())
+                      {
+                          KeywordQuery keywordQuery = new KeywordQuery(oSite);
+                          keywordQuery.QueryText = txtSearch.Text.Trim();
+                          keywordQuery.ResultsProvider = SearchProvider.Default;
+                          keywordQuery.KeywordInclusion = KeywordInclusion.AllKeywords;
+
+                          SearchExecutor searchExecutor = new SearchExecutor();
+                          ResultTableCollection resultTableCollection = searchExecutor.ExecuteQuery(keywordQuery);
+                          var resultTable = resultTableCollection.Filter("TableType", KnownTableTypes.RelevantResults);
+                          var result = resultTable.FirstOrDefault();
+                          DataTable dataTable = result.Table;
+                      }
+                  }
+
+              });*/
         }
     }
 }

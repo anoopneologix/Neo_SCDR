@@ -77,8 +77,8 @@ namespace SCDR.AdminForms.ViewVenue
                         {
                             SPList oList = oWeb.Lists[VenueListName];
                             SPListItemCollection oItems = oList.GetItems();
-                            DataTable dtDepartment = ConvertSPListToDataTable(oItems);
-                            gdvVenue.DataSource = dtDepartment;
+                            DataTable dtVenue = ConvertSPListToDataTable(oItems);
+                            gdvVenue.DataSource = dtVenue;
                             gdvVenue.DataBind();
                         }
                     }
