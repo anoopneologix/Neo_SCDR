@@ -2,7 +2,6 @@
 <ProjectItem Type="Microsoft.VisualStudio.SharePoint.WebPart" SupportedTrustLevels="All" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
   <Files>
     <ProjectItemFile Source="Elements.xml" Target="SearchResult\" Type="ElementManifest" />
-    <ProjectItemFile Source="SearchResult.webpart" Target="SearchResult\" Type="ElementFile" />
   </Files>
   <SafeControls>
     <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="SCDR.SearchResult" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />

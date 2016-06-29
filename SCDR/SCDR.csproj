@@ -502,14 +502,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchEn.ascx</DependentUpon>
     </Compile>
-    <Compile Include="SearchResult\SearchResult.ascx.cs">
-      <DependentUpon>SearchResult.ascx</DependentUpon>
-    </Compile>
-    <Compile Include="SearchResult\SearchResult.ascx.g.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SearchResult.ascx</DependentUpon>
-    </Compile>
     <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
       <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
     </Compile>
@@ -753,9 +745,8 @@
     <None Include="SearchEn\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0172df6d-a696-44af-90de-d25ab982864c}</SharePointProjectItemId>
     </None>
-    <None Include="SearchResult\SearchResult.webpart" />
-    <None Include="SearchResult\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{1dd0764e-3bc6-4fc5-9bc2-3c7919b5968b}</SharePointProjectItemId>
+    <None Include="SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
     </None>
     <None Include="VideoGalleryAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3958bdb5-da70-4d20-b197-af2f4c879d9d}</SharePointProjectItemId>
@@ -898,6 +889,7 @@
       <LastGenOutput>CurrentUserDetails.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="CurrentUserDetails\Elements.xml" />
+    <Content Include="Elements.xml" />
     <Content Include="EventSliderAr\Elements.xml" />
     <Content Include="EventSliderAr\EventSliderAr.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
@@ -1052,11 +1044,6 @@
     <Content Include="SearchEn\SearchEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchEn.ascx.g.cs</LastGenOutput>
-    </Content>
-    <Content Include="SearchResult\Elements.xml" />
-    <Content Include="SearchResult\SearchResult.ascx">
-      <Generator>SharePointWebPartCodeGenerator</Generator>
-      <LastGenOutput>SearchResult.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="VideoGalleryAr\Elements.xml" />
     <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">
