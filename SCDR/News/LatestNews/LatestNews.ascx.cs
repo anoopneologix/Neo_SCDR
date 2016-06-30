@@ -100,7 +100,7 @@ namespace SCDR.News.LatestNews
                                 {
                                     for (int i = 0; i < dtNewsList.Rows.Count; i++)
                                     {
-                                        string pageUrl = oWeb.Url + "/SitePages/News-Content.aspx?NewsID=" + dtNewsList.Rows[i]["ID"].ToString();
+                                        string pageUrl = oWeb.Url + "/SitePages/News-Content.aspx?NewsID=" + dtNewsList.Rows[i]["NewsID"].ToString();
                                         string thumbnailUrl = dtNewsList.Rows[i]["ThumbnailUrl"].ToString();
                                         int index = thumbnailUrl.IndexOf(",");
                                         if (index > 0)

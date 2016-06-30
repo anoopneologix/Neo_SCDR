@@ -15,7 +15,7 @@ namespace SCDR.News.ShowNewsItem
     [ToolboxItemAttribute(false)]
     public partial class ShowNewsItem : WebPart
     {
-        string SpListItemId = string.Empty;
+        
         public ShowNewsItem()
         {
         }
@@ -45,6 +45,7 @@ namespace SCDR.News.ShowNewsItem
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
+                string SpListItemId = string.Empty;
                 SpListItemId = HttpContext.Current.Request.QueryString["NewsID"];
                 if (SpListItemId != "")
                 {
@@ -61,11 +62,11 @@ namespace SCDR.News.ShowNewsItem
 
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                     /*   using (SPWeb oWeb = oSite.OpenWeb())
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[ListName];
                             SPQuery query = new SPQuery();
-                            query.Query = @"<Where><Eq><FieldRef Name='NewsID' /><Value Type='Text'>" + SpListItemId + "</Value></Eq></Where>";
+                            query.Query = @"<Where><Eq><FieldRef Name='NewsID' /><Value Type='Integer'>" + ItemId + "</Value></Eq></Where>";
                             SPListItemCollection oItems = oList.GetItems(query);
                             if (oItems.Count > 0)
                             {
@@ -100,8 +101,12 @@ namespace SCDR.News.ShowNewsItem
                                     repMainSlider.DataBind();
                                 }
                             }
-                        }*/
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                            else
+                            {
+                                Page.Response.Redirect("Home.aspx");
+                            }
+                        }
+                     /*   using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList list = oWeb.Lists[ListName];
                             int intId = Convert.ToInt32(ItemId);
@@ -135,7 +140,7 @@ namespace SCDR.News.ShowNewsItem
                                 repMainSlider.DataBind();
 
                             
-                        }
+                        }*/
                     }
                 });
             }

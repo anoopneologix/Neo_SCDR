@@ -45,7 +45,7 @@ namespace SCDR.NewsAr.PressReleasesListAr
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                this.GetCustomersPageWise(1);
+                this.GetNewsPageWise(1);
             }
         }
 
@@ -68,7 +68,7 @@ namespace SCDR.NewsAr.PressReleasesListAr
                 foreach (DataRow dr in dtSPList.Rows)
                 {
                     dr["PageIndex"] = pageIndex;
-                    dr["PageID"] = siteUrl + "/SitePages/News-Content.aspx?NewsID=" + dr["ID"];
+                    dr["PageID"] = siteUrl + "/SitePages/News-Content.aspx?NewsID=" + dr["NewsID"];
                  //   dr["PageID"] = siteUrl + "/SitePages/News-Content.aspx?NewsID=" + dr["NewsID"];
                     string imgUrl = dr["ThumbnailUrl"].ToString();
                     int index = imgUrl.IndexOf(",");
@@ -95,7 +95,7 @@ namespace SCDR.NewsAr.PressReleasesListAr
             }
         }
 
-        private void GetCustomersPageWise(int pageIndex)
+        private void GetNewsPageWise(int pageIndex)
         {
             try
             {
@@ -154,7 +154,7 @@ namespace SCDR.NewsAr.PressReleasesListAr
         protected void Page_Changed(object sender, EventArgs e)
         {
             int pageIndex = int.Parse((sender as LinkButton).CommandArgument);
-            this.GetCustomersPageWise(pageIndex);
+            this.GetNewsPageWise(pageIndex);
         }
     }
 }
