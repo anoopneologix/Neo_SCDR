@@ -6,3 +6,19 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchResultList.ascx.cs" Inherits="SCDR.SearchResultList.SearchResultList" %>
+<section class="container resiazable">
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <asp:Repeater ID="rptrSearchResult" runat="server">
+        <ItemTemplate>
+           <div class="newsrelease">
+                  <h4 class="inti_subhead font_resize"><a href='<%# Eval("PageUrl") %>'><%# Eval("Title") %></a></h4>
+            <p class="releasecontent font_resize">
+       <div class="content_limit"> <%# Eval("Content") %> </div> </p>
+    <a  href='<%# Eval("PageUrl") %>' class="newsread font_resize">read more</a>
+       </div> 
+    
+        </ItemTemplate>
+    </asp:Repeater>
+    </div>
+    </section>

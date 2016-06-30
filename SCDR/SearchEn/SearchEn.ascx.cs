@@ -29,9 +29,13 @@ namespace SCDR.SearchEn
 
         protected void btnSearch_Click(object sender, EventArgs e)
         {
-            if(txtSearch.Text!="")
+            using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
             {
-                Page.Response.Redirect("SearchResult.aspx?kw=" + txtSearch.Text.Trim());
+                string siteUrl = oSite.Url;
+                if (txtSearch.Text != "")
+                {
+                    Page.Response.Redirect(siteUrl+"/en/SitePages/SearchResult.aspx?kw=" + txtSearch.Text.Trim());
+                }
             }
             /*   SPSecurity.RunWithElevatedPrivileges(delegate()
               {
