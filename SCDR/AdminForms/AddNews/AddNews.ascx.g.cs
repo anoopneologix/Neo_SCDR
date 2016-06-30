@@ -41,6 +41,18 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RadioButton rbArabic;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RadioButton rbEnglish;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RadioButton rbBoth;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtNewsHeading;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -101,10 +113,6 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.HiddenField lblUrlAr;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.HiddenField hfListItemId;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -117,20 +125,58 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Repeater repthumbnailAr;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnSaveThumbnail;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnContinue;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
         public static implicit operator global::System.Web.UI.TemplateControl(AddNews target) 
         {
             return target == null ? null : target.TemplateControl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RadioButton @__BuildControlrbArabic() {
+            global::System.Web.UI.WebControls.RadioButton @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
+            this.rbArabic = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.GroupName = "grpLanguage";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Text = "Arabic";
+            @__ctrl.ID = "rbArabic";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RadioButton @__BuildControlrbEnglish() {
+            global::System.Web.UI.WebControls.RadioButton @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
+            this.rbEnglish = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.GroupName = "grpLanguage";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Text = "English";
+            @__ctrl.ID = "rbEnglish";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RadioButton @__BuildControlrbBoth() {
+            global::System.Web.UI.WebControls.RadioButton @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
+            this.rbBoth = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.GroupName = "grpLanguage";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Text = "Both";
+            @__ctrl.Checked = true;
+            @__ctrl.ID = "rbBoth";
+            return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -211,6 +257,7 @@ namespace SCDR.AdminForms.AddNews {
             this.txtNewsHeadingAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtNewsHeadingAr";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;
@@ -225,6 +272,7 @@ namespace SCDR.AdminForms.AddNews {
             this.txtNewsDateAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtNewsDateAr";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;
@@ -239,6 +287,7 @@ namespace SCDR.AdminForms.AddNews {
             this.txtNewsLocationAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtNewsLocationAr";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;
@@ -253,6 +302,7 @@ namespace SCDR.AdminForms.AddNews {
             this.txtNewsDescriptionAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtNewsDescriptionAr";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.TextMode = global::System.Web.UI.WebControls.TextBoxMode.MultiLine;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
@@ -322,6 +372,7 @@ namespace SCDR.AdminForms.AddNews {
             this.btnSubmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSubmit";
+            @__ctrl.OnClientClick = "if ( ! UserConfirmation()) return false;";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.Text = "submit";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
@@ -338,18 +389,6 @@ namespace SCDR.AdminForms.AddNews {
             @__ctrl = new global::System.Web.UI.WebControls.HiddenField();
             this.lblUrl = @__ctrl;
             @__ctrl.ID = "lblUrl";
-            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.HiddenField @__BuildControllblUrlAr() {
-            global::System.Web.UI.WebControls.HiddenField @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.HiddenField();
-            this.lblUrlAr = @__ctrl;
-            @__ctrl.ID = "lblUrlAr";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             return @__ctrl;
         }
@@ -381,48 +420,35 @@ namespace SCDR.AdminForms.AddNews {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<h3>Select Thumbnail for English News</h3>\r\n            "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control4() {
+        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control3() {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl;
-            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(5, 4);
+            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(3, 2);
             @__ctrl.TemplateControl = this;
             @__ctrl.SetStaticString(0, "\r\n  <div class=\"col-xs-6 col-md-3\">\r\n    <a id=\"thubUrl\" href=\'");
             @__ctrl.SetStaticString(1, "\'  class=\"thumbnail thumbLink\">\r\n      <img  src=\'");
-            @__ctrl.SetStaticString(2, "\' class=\"thumbImage\">\r\n    </a>\r\n       <a style=\"display:none\" id=\"thubUrlAr\" hr" +
-                    "ef=\'");
-            @__ctrl.SetStaticString(3, "\'  class=\"thumbnail thumbLinkAr\">\r\n      <img style=\"display:none\"  src=\'");
-            @__ctrl.SetStaticString(4, "\' class=\"thumbImage\">\r\n    </a>\r\n  </div>\r\n                ");
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control4);
+            @__ctrl.SetStaticString(2, "\' class=\"thumbImage\">\r\n    </a>\r\n      \r\n  </div>\r\n                ");
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control3);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBind__control4(object sender, System.EventArgs e) {
+        public void @__DataBind__control3(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.RepeaterItem Container;
             System.Web.UI.DataBoundLiteralControl target;
             target = ((System.Web.UI.DataBoundLiteralControl)(sender));
             Container = ((System.Web.UI.WebControls.RepeaterItem)(target.BindingContainer));
             target.SetDataBoundString(0, global::System.Convert.ToString(Eval("ImageUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
             target.SetDataBoundString(1, global::System.Convert.ToString(Eval("ImageUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
-            target.SetDataBoundString(2, global::System.Convert.ToString(Eval("ImageUrlAr"), global::System.Globalization.CultureInfo.CurrentCulture));
-            target.SetDataBoundString(3, global::System.Convert.ToString(Eval("ImageUrlAr"), global::System.Globalization.CultureInfo.CurrentCulture));
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control3(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control4();
+            @__ctrl1 = this.@__BuildControl__control3();
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(@__ctrl1);
         }
@@ -430,7 +456,7 @@ namespace SCDR.AdminForms.AddNews {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control5(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control4(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("<hr>"));
         }
@@ -442,67 +468,9 @@ namespace SCDR.AdminForms.AddNews {
             global::System.Web.UI.WebControls.Repeater @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Repeater();
             this.repThumbnail = @__ctrl;
-            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control3));
-            @__ctrl.FooterTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control5));
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.FooterTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control4));
             @__ctrl.ID = "repThumbnail";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control6(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<h3>Select Thumbnail for Arabic News</h3>\r\n            "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control8() {
-            global::System.Web.UI.DataBoundLiteralControl @__ctrl;
-            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(3, 2);
-            @__ctrl.TemplateControl = this;
-            @__ctrl.SetStaticString(0, "\r\n  <div class=\"col-xs-6 col-md-3\">\r\n    <a  id=\"thubUrlAr\" href=\'");
-            @__ctrl.SetStaticString(1, "\'  class=\"thumbnail thumbLinkAr\">\r\n      <img  src=\'");
-            @__ctrl.SetStaticString(2, "\' class=\"thumbImage\">\r\n    </a>\r\n      \r\n  </div>\r\n                ");
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control8);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBind__control8(object sender, System.EventArgs e) {
-            System.Web.UI.WebControls.RepeaterItem Container;
-            System.Web.UI.DataBoundLiteralControl target;
-            target = ((System.Web.UI.DataBoundLiteralControl)(sender));
-            Container = ((System.Web.UI.WebControls.RepeaterItem)(target.BindingContainer));
-            target.SetDataBoundString(0, global::System.Convert.ToString(Eval("ImageUrlAr"), global::System.Globalization.CultureInfo.CurrentCulture));
-            target.SetDataBoundString(1, global::System.Convert.ToString(Eval("ImageUrlAr"), global::System.Globalization.CultureInfo.CurrentCulture));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control7(System.Web.UI.Control @__ctrl) {
-            global::System.Web.UI.DataBoundLiteralControl @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control8();
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(@__ctrl1);
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Repeater @__BuildControlrepthumbnailAr() {
-            global::System.Web.UI.WebControls.Repeater @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Repeater();
-            this.repthumbnailAr = @__ctrl;
-            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control6));
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control7));
-            @__ctrl.ID = "repthumbnailAr";
             return @__ctrl;
         }
         
@@ -525,19 +493,6 @@ namespace SCDR.AdminForms.AddNews {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnContinue() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnContinue = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnContinue";
-            @__ctrl.Text = "Continue";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.AdminForms.AddNews.AddNews @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
@@ -549,9 +504,29 @@ namespace SCDR.AdminForms.AddNews {
 <link href=""../../_layouts/15/SCDR/css/editor.css"" rel=""stylesheet"" />
 <div class=""col-md-12 col-sm-12 col-xs-12"">
  <!-- Nav tabs -->
-  <ul class=""nav nav-tabs"" role=""tablist"">
-    <li role=""presentation"" class=""active""><a href=""#english"" aria-controls=""english"" role=""tab"" data-toggle=""tab"">English</a></li>
-    <li role=""presentation""><a href=""#arabic"" aria-controls=""arabic"" role=""tab"" data-toggle=""tab"">Arabic</a></li>
+    <table>
+        <tr>
+            <td>Select Language : </td>
+            <td>
+                 "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
+            @__ctrl1 = this.@__BuildControlrbArabic();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                 "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
+            @__ctrl2 = this.@__BuildControlrbEnglish();
+            @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl3;
+            @__ctrl3 = this.@__BuildControlrbBoth();
+            @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
+            </td>
+        </tr>
+    </table>
+  <ul id=""myTabs"" class=""nav nav-tabs"" role=""tablist"">
+    <li role=""presentation"" id=""panelEn"" ><a href=""#english"" data-toggle=""tab"" aria-controls=""english"" role=""tab"" >English</a></li>
+    <li role=""presentation"" id=""panelAr"" ><a href=""#arabic"" data-toggle=""tab"" aria-controls=""arabic"" role=""tab"" >Arabic</a></li>
     </ul>
 
  <!-- Tab panes -->
@@ -564,29 +539,29 @@ namespace SCDR.AdminForms.AddNews {
     <label  class=""col-sm-3 control-label"">Heading : </label>
     <div class=""col-sm-9"">
       "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl1;
-            @__ctrl1 = this.@__BuildControltxtNewsHeading();
-            @__parser.AddParsedSubObject(@__ctrl1);
+            global::System.Web.UI.WebControls.TextBox @__ctrl4;
+            @__ctrl4 = this.@__BuildControltxtNewsHeading();
+            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 con" +
                         "trol-label\">Date : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl2;
-            @__ctrl2 = this.@__BuildControltxtNewsdate();
-            @__parser.AddParsedSubObject(@__ctrl2);
+            global::System.Web.UI.WebControls.TextBox @__ctrl5;
+            @__ctrl5 = this.@__BuildControltxtNewsdate();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
                         "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl3;
-            @__ctrl3 = this.@__BuildControltxtNewsLocation();
-            @__parser.AddParsedSubObject(@__ctrl3);
+            global::System.Web.UI.WebControls.TextBox @__ctrl6;
+            @__ctrl6 = this.@__BuildControltxtNewsLocation();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
                         "ontrol-label\">Description : </label>\r\n    <div class=\"col-sm-9\" id=\"divNewsDescr" +
                         "iption\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl4;
-            @__ctrl4 = this.@__BuildControltxtNewsDescription();
-            @__parser.AddParsedSubObject(@__ctrl4);
+            global::System.Web.UI.WebControls.TextBox @__ctrl7;
+            @__ctrl7 = this.@__BuildControltxtNewsDescription();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n            "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl5;
-            @__ctrl5 = this.@__BuildControlhfNewsDescription();
-            @__parser.AddParsedSubObject(@__ctrl5);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl8;
+            @__ctrl8 = this.@__BuildControlhfNewsDescription();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 </div>
         <!-- Form Ends -->
@@ -598,60 +573,57 @@ namespace SCDR.AdminForms.AddNews {
     <label  class=""col-sm-3 control-label"">Heading : </label>
     <div class=""col-sm-9"">
       "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl6;
-            @__ctrl6 = this.@__BuildControltxtNewsHeadingAr();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.TextBox @__ctrl9;
+            @__ctrl9 = this.@__BuildControltxtNewsHeadingAr();
+            @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 con" +
                         "trol-label\">Date : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl7;
-            @__ctrl7 = this.@__BuildControltxtNewsDateAr();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.TextBox @__ctrl10;
+            @__ctrl10 = this.@__BuildControltxtNewsDateAr();
+            @__parser.AddParsedSubObject(@__ctrl10);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
                         "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl8;
-            @__ctrl8 = this.@__BuildControltxtNewsLocationAr();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.TextBox @__ctrl11;
+            @__ctrl11 = this.@__BuildControltxtNewsLocationAr();
+            @__parser.AddParsedSubObject(@__ctrl11);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
                         "ontrol-label\">Description : </label>\r\n    <div class=\"col-sm-9\" id=\"divNewsDescr" +
                         "iptionAr\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl9;
-            @__ctrl9 = this.@__BuildControltxtNewsDescriptionAr();
-            @__parser.AddParsedSubObject(@__ctrl9);
+            global::System.Web.UI.WebControls.TextBox @__ctrl12;
+            @__ctrl12 = this.@__BuildControltxtNewsDescriptionAr();
+            @__parser.AddParsedSubObject(@__ctrl12);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n      "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl10;
-            @__ctrl10 = this.@__BuildControlhfNewsDescriptionAr();
-            @__parser.AddParsedSubObject(@__ctrl10);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl13;
+            @__ctrl13 = this.@__BuildControlhfNewsDescriptionAr();
+            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n</div>\r\n        <!-- Form Ends -->\r\n    </div> \r\n    </div>\r\n    <div class" +
                         "=\"form-horizontal\">\r\n      <div class=\"form-group\">\r\n       <label  class=\"col-s" +
                         "m-3 control-label\">Is there Images to upload : </label>\r\n    <div class=\"col-sm-" +
                         "9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl11;
-            @__ctrl11 = this.@__BuildControlrbYes();
-            @__parser.AddParsedSubObject(@__ctrl11);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl14;
+            @__ctrl14 = this.@__BuildControlrbYes();
+            @__parser.AddParsedSubObject(@__ctrl14);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl12;
-            @__ctrl12 = this.@__BuildControlrbNo();
-            @__parser.AddParsedSubObject(@__ctrl12);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl15;
+            @__ctrl15 = this.@__BuildControlrbNo();
+            @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 " +
                         "control-label\">Upload News Images : </label>\r\n    <div class=\"col-sm-9\">\r\n      " +
                         "  "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl13;
-            @__ctrl13 = this.@__BuildControlfuThumbnailImage();
-            @__parser.AddParsedSubObject(@__ctrl13);
+            global::System.Web.UI.WebControls.FileUpload @__ctrl16;
+            @__ctrl16 = this.@__BuildControlfuThumbnailImage();
+            @__parser.AddParsedSubObject(@__ctrl16);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-offset" +
                         "-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl14;
-            @__ctrl14 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl14);
+            global::System.Web.UI.WebControls.Button @__ctrl17;
+            @__ctrl17 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl17);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl15;
-            @__ctrl15 = this.@__BuildControllblUrl();
-            @__parser.AddParsedSubObject(@__ctrl15);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl16;
-            @__ctrl16 = this.@__BuildControllblUrlAr();
-            @__parser.AddParsedSubObject(@__ctrl16);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl18;
+            @__ctrl18 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl18);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
+      
             </div>
     </div>
 </div>
@@ -660,120 +632,125 @@ namespace SCDR.AdminForms.AddNews {
   <div class=""modal-dialog modal-lg"">
     <div class=""modal-content"">
           <div class=""modal-header"">
-        <button type=""button"" class=""close"" data-dismiss=""modal"" aria-label=""Close""><span aria-hidden=""true"">&times;</span></button>
+      
         <h4 class=""modal-title"" id=""myModalLabel"">Choose a Thumbnail</h4>
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl17;
-            @__ctrl17 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl17);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl18;
-            @__ctrl18 = this.@__BuildControlhfListItemIdAr();
-            @__parser.AddParsedSubObject(@__ctrl18);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n        <div class=\"col-md-12\">\r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl19;
-            @__ctrl19 = this.@__BuildControlrepThumbnail();
+            global::System.Web.UI.WebControls.HiddenField @__ctrl19;
+            @__ctrl19 = this.@__BuildControlhfListItemId();
             @__parser.AddParsedSubObject(@__ctrl19);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            </div>\r\n        <div class=\"clear\"></div>\r\n        <div class=\"col-" +
-                        "md-12\">\r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl20;
-            @__ctrl20 = this.@__BuildControlrepthumbnailAr();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl20;
+            @__ctrl20 = this.@__BuildControlhfListItemIdAr();
             @__parser.AddParsedSubObject(@__ctrl20);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            </div>\r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n   " +
-                        "     \r\n      \r\n          "));
-            global::System.Web.UI.WebControls.Button @__ctrl21;
-            @__ctrl21 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n     \r\n        "));
+            global::System.Web.UI.WebControls.Repeater @__ctrl21;
+            @__ctrl21 = this.@__BuildControlrepThumbnail();
             @__parser.AddParsedSubObject(@__ctrl21);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-        </div>
-    </div>
-  </div>
-</div>
-<!--alert div begins-->
- <div id=""ModalAlert"" class=""modal fade bs-example-modal-lg"" tabindex=""-1"" role=""dialog"" aria-labelledby=""myLargeModalLabel"">
-  <div class=""modal-dialog modal-lg"">
-    <div class=""modal-content"">
-          <div class=""modal-header"">
-        <h4 class=""modal-title"" id=""myModalAlert"">Warning!</h4>
-      </div>
-         <div class=""modal-body"">
-             <div class=""row"">
-           <div class=""col-md-12"">
-  <p>
-  You are about to submit the news without contents on both language
-  </p></div>
-</div>
-      </div>
-      <div class=""modal-footer"">
-          "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n       \r\n        \r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n" +
+                        "        \r\n      \r\n          "));
             global::System.Web.UI.WebControls.Button @__ctrl22;
-            @__ctrl22 = this.@__BuildControlbtnContinue();
+            @__ctrl22 = this.@__BuildControlbtnSaveThumbnail();
             @__parser.AddParsedSubObject(@__ctrl22);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          <button ID=\"btnCancel\">Cancel</button>\r\n        \r\n        </div>\r\n   " +
-                        " </div>\r\n  </div>\r\n</div>\r\n<!--alert div ends-->\r\n    <!-- datetime picker scrip" +
-                        "t-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/bootstrap-da" +
-                        "tepicker.min.js\" ></script>\r\n                 <script type=\"text/javascript\">\r\n " +
-                        "                   $(document).ready(function () {\r\n                        $(\'#" +
-                        "txtNewsdate\')\r\n                            .datepicker({\r\n                      " +
-                        "          format: \'dd/MM/yyyy\',\r\n                                todayHighlight:" +
-                        "true\r\n                            });\r\n                     /*   $.fn.datepicker" +
-                        ".dates[\'ar-tn\'] = {\r\n                            days: [\"الأحد\", \"الاثنين\", \"الث" +
-                        "لاثاء\", \"الأربعاء\", \"الخميس\", \"الجمعة\", \"السبت\", \"الأحد\"],\r\n                    " +
-                        "        daysShort: [\"أحد\", \"اثنين\", \"ثلاثاء\", \"أربعاء\", \"خميس\", \"جمعة\", \"سبت\", \"" +
-                        "أحد\"],\r\n                            daysMin: [\"ح\", \"ن\", \"ث\", \"ع\", \"خ\", \"ج\", \"س\"," +
-                        " \"ح\"],\r\n                            months: [\"جانفي\", \"فيفري\", \"مارس\", \"أفريل\", " +
-                        "\"ماي\", \"جوان\", \"جويليه\", \"أوت\", \"سبتمبر\", \"أكتوبر\", \"نوفمبر\", \"ديسمبر\"],\r\n      " +
-                        "                      monthsShort: [\"جانفي\", \"فيفري\", \"مارس\", \"أفريل\", \"ماي\", \"ج" +
-                        "وان\", \"جويليه\", \"أوت\", \"سبتمبر\", \"أكتوبر\", \"نوفمبر\", \"ديسمبر\"],\r\n               " +
-                        "             today: \"هذا اليوم\",\r\n                            rtl: true\r\n       " +
-                        "                 };*/\r\n                        $(\'#txtNewsDateAr\')\r\n            " +
-                        "                .datepicker({\r\n                              /*  language: \'ar-t" +
-                        "n\',*/\r\n                                format: \'dd/MM/yyyy\',\r\n                  " +
-                        "              todayHighlight:true\r\n                            });\r\n            " +
-                        "        });\r\n        </script>\r\n\r\n<!-- Modal Script-->\r\n<script type=\"text/javas" +
-                        "cript\">\r\n   \r\n    function openModal() {\r\n        $(document).ready(function () " +
-                        "{\r\n            $(\'#ModalTumbnail\').modal(\'show\');\r\n        });\r\n        }\r\n \r\n</" +
-                        "script>\r\n\r\n<!-- Style for Thumbnail Highlight-->\r\n<style>\r\n.highLightthumbLink\r\n" +
-                        "{\r\n    border:1px solid red;\r\n}\r\n.highLightthumbLinkAr\r\n{\r\n    border:1px solid " +
-                        "red;\r\n}\r\n</style>\r\n\r\n<!-- Thumbnail select script-->\r\n<script>\r\n  \r\n    $(docume" +
-                        "nt).ready(function () {\r\n        var addclass = \'highLightthumbLink\';\r\n        v" +
-                        "ar addclassAr = \'highLightthumbLinkAr\';\r\n        var $cols = $(document).on(\'cli" +
-                        "ck\', \'.thumbLink\', function (e) {\r\n            e.preventDefault();\r\n            " +
-                        "$cols.removeClass(addclass);\r\n            $(this).addClass(addclass);\r\n         " +
-                        "   _this = $(this);\r\n            _href = _this.attr(\'href\');\r\n            $(\"#lb" +
-                        "lUrl\").val(_href);\r\n        });\r\n        var $colsAr = $(document).on(\'click\', \'" +
-                        ".thumbLinkAr\', function (e) {\r\n            e.preventDefault();\r\n            $col" +
-                        "sAr.removeClass(addclassAr);\r\n            $(this).addClass(addclassAr);\r\n       " +
-                        "     _this = $(this);\r\n            _href = _this.attr(\'href\');\r\n            $(\"#" +
-                        "lblUrlAr\").val(_href);\r\n        });\r\n\r\n            \r\n    });\r\n\r\n</script>\r\n\r\n<!-" +
-                        "- RichtextBox --->\r\n <script>\r\n     $(document).ready(function () {\r\n         $(" +
-                        "\"#txtNewsDescription\").Editor();\r\n         $(\".Editor-editor\")\r\n           .blur" +
-                        "(function () {\r\n               var content = $(\"#txtNewsDescription\").Editor(\"ge" +
-                        "tText\");\r\n               $(\"#hfNewsDescription\").val(content);\r\n           });\r\n" +
-                        "         $(\"#txtNewsDescriptionAr\").Editor();\r\n         $(\".Editor-editor\")\r\n   " +
-                        "        .blur(function () {\r\n               var content = $(\"#txtNewsDescription" +
-                        "Ar\").Editor(\"getText\");\r\n               $(\"#hfNewsDescriptionAr\").val(content);\r" +
-                        "\n           });\r\n     });\r\n</script>\r\n\r\n<!--Submit/Validation Query-->\r\n<script>" +
-                        "\r\n  \r\n        $(document).ready(function () {\r\n            $(\'#btnSubmit\').click" +
-                        "(function (e) {\r\n                var txtHead = $(\'#txtNewsHeading\');\r\n          " +
-                        "      var txtHeadAr = $(\'#txtNewsHeadingAr\');\r\n                var txtDate = $(\'" +
-                        "#txtNewsdate\');\r\n                var txtDateAr = $(\'#txtNewsDateAr\');\r\n         " +
-                        "       var txtLocation = $(\'#txtNewsLocation\');\r\n                var txtLocation" +
-                        "Ar = $(\'#txtNewsLocationAr\');\r\n                var txtDescription = $(\'#hfNewsDe" +
-                        "scription\');\r\n                var txtDescriptionAr = $(\'#hfNewsDescriptionAr\');\r" +
-                        "\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n             " +
-                        "       && txtHeadAr.val() != null && txtHeadAr.val() != \'\'\r\n                    " +
-                        "&& txtDate.val() != null && txtDate.val() != \'\'\r\n                    && txtDateA" +
-                        "r.val() != null && txtDateAr.val() != \'\'\r\n                    && txtLocation.val" +
-                        "() != null && txtLocation.val() != \'\'\r\n                    && txtLocationAr.val(" +
-                        ") != null && txtLocationAr.val() != \'\'\r\n                    && txtDescription.va" +
-                        "l() != null && txtDescription.val() != \'\'\r\n                    && txtDescription" +
-                        "Ar.val() != null && txtDescriptionAr.val() != \'\') {\r\n\r\n\r\n                }\r\n    " +
-                        "            else {\r\n                    e.preventDefault();\r\n                   " +
-                        " $(\'#ModalAlert\').modal(\'show\');\r\n\r\n                }\r\n            });\r\n        " +
-                        "});\r\n  \r\n</script>\r\n\r\n"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n    <!-- datetime picker script" +
+                        "-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/bootstrap-dat" +
+                        "epicker.min.js\" ></script>\r\n\r\n <script type=\"text/javascript\">\r\n                " +
+                        "    $(document).ready(function () {\r\n                        $(\'#txtNewsdate\')\r\n" +
+                        "                            .datepicker({\r\n                                forma" +
+                        "t: \'dd/MM/yyyy\',\r\n                                todayHighlight:true\r\n         " +
+                        "                   });\r\n                     /*   $.fn.datepicker.dates[\'ar-tn\']" +
+                        " = {\r\n                            days: [\"الأحد\", \"الاثنين\", \"الثلاثاء\", \"الأربع" +
+                        "اء\", \"الخميس\", \"الجمعة\", \"السبت\", \"الأحد\"],\r\n                            daysSho" +
+                        "rt: [\"أحد\", \"اثنين\", \"ثلاثاء\", \"أربعاء\", \"خميس\", \"جمعة\", \"سبت\", \"أحد\"],\r\n       " +
+                        "                     daysMin: [\"ح\", \"ن\", \"ث\", \"ع\", \"خ\", \"ج\", \"س\", \"ح\"],\r\n       " +
+                        "                     months: [\"جانفي\", \"فيفري\", \"مارس\", \"أفريل\", \"ماي\", \"جوان\", " +
+                        "\"جويليه\", \"أوت\", \"سبتمبر\", \"أكتوبر\", \"نوفمبر\", \"ديسمبر\"],\r\n                     " +
+                        "       monthsShort: [\"جانفي\", \"فيفري\", \"مارس\", \"أفريل\", \"ماي\", \"جوان\", \"جويليه\"," +
+                        " \"أوت\", \"سبتمبر\", \"أكتوبر\", \"نوفمبر\", \"ديسمبر\"],\r\n                            to" +
+                        "day: \"هذا اليوم\",\r\n                            rtl: true\r\n                      " +
+                        "  };*/\r\n                        $(\'#txtNewsDateAr\')\r\n                           " +
+                        " .datepicker({\r\n                              /*  language: \'ar-tn\',*/\r\n        " +
+                        "                        format: \'dd/MM/yyyy\',\r\n                                t" +
+                        "odayHighlight:true\r\n                            });\r\n                    });\r\n  " +
+                        "      </script>\r\n\r\n<!-- Modal Script-->\r\n<script type=\"text/javascript\">\r\n   \r\n " +
+                        "   function openModal() {\r\n        $(document).ready(function () {\r\n            " +
+                        "//   $(\'#ModalTumbnail\').modal(\'show\');\r\n            $(\'#ModalTumbnail\').modal({" +
+                        "\r\n                backdrop: \'static\',\r\n                keyboard: false\r\n        " +
+                        "    });\r\n        });\r\n    }\r\n</script>\r\n\r\n<!-- Style for Thumbnail Highlight-->\r" +
+                        "\n<style>\r\n.highLightthumbLink\r\n{\r\n    border:1px solid red;\r\n}\r\n\r\n</style>\r\n\r\n<!" +
+                        "-- Thumbnail select script-->\r\n<script>\r\n  \r\n    $(document).ready(function () {" +
+                        "\r\n        var _fhref = $(\'.thumbLink:first\').attr(\'href\');\r\n        $(\"#lblUrl\")" +
+                        ".val(_fhref);\r\n     \r\n        var addclass = \'highLightthumbLink\';\r\n    \r\n      " +
+                        "  var $cols = $(document).on(\'click\', \'.thumbLink\', function (e) {\r\n            " +
+                        "e.preventDefault();\r\n            $cols.removeClass(addclass);\r\n            $(thi" +
+                        "s).addClass(addclass);\r\n            _this = $(this);\r\n            _href = _this." +
+                        "attr(\'href\');\r\n            $(\"#lblUrl\").val(_href);\r\n       \r\n        });\r\n   \r\n" +
+                        "\r\n            \r\n    });\r\n\r\n</script>\r\n\r\n<!-- RichtextBox --->\r\n <script>\r\n     $" +
+                        "(document).ready(function () {\r\n         $(\"#txtNewsDescription\").Editor();\r\n   " +
+                        "      $(\".Editor-editor\")\r\n           .blur(function () {\r\n               var co" +
+                        "ntent = $(\"#txtNewsDescription\").Editor(\"getText\");\r\n               $(\"#hfNewsDe" +
+                        "scription\").val(content);\r\n           });\r\n         $(\"#txtNewsDescriptionAr\").E" +
+                        "ditor();\r\n         $(\".Editor-editor\")\r\n           .blur(function () {\r\n        " +
+                        "       var content = $(\"#txtNewsDescriptionAr\").Editor(\"getText\");\r\n            " +
+                        "   $(\"#hfNewsDescriptionAr\").val(content);\r\n           });\r\n     });\r\n</script>\r" +
+                        "\n\r\n<!--Submit/Validation Query-->\r\n<script>\r\n  \r\n    function UserConfirmation()" +
+                        " {\r\n                var txtHead = $(\'#txtNewsHeading\');\r\n                var txt" +
+                        "HeadAr = $(\'#txtNewsHeadingAr\');\r\n                var txtDate = $(\'#txtNewsdate\'" +
+                        ");\r\n                var txtDateAr = $(\'#txtNewsDateAr\');\r\n                var tx" +
+                        "tLocation = $(\'#txtNewsLocation\');\r\n                var txtLocationAr = $(\'#txtN" +
+                        "ewsLocationAr\');\r\n                var txtDescription = $(\'#hfNewsDescription\');\r" +
+                        "\n                var txtDescriptionAr = $(\'#hfNewsDescriptionAr\');\r\n            " +
+                        "    if (txtHead.val() != null && txtHead.val() != \'\'\r\n                    && txt" +
+                        "HeadAr.val() != null && txtHeadAr.val() != \'\'\r\n                    && txtDate.va" +
+                        "l() != null && txtDate.val() != \'\'\r\n                    && txtDateAr.val() != nu" +
+                        "ll && txtDateAr.val() != \'\'\r\n                    && txtLocation.val() != null &&" +
+                        " txtLocation.val() != \'\'\r\n                    && txtLocationAr.val() != null && " +
+                        "txtLocationAr.val() != \'\'\r\n                    && txtDescription.val() != null &" +
+                        "& txtDescription.val() != \'\'\r\n                    && txtDescriptionAr.val() != n" +
+                        "ull && txtDescriptionAr.val() != \'\') {\r\n                    return true;\r\n\r\n    " +
+                        "            }\r\n                else {\r\n                    return confirm(\"You a" +
+                        "re about to submit the news without contents on both language. Do you want to co" +
+                        "ntinue?\");\r\n\r\n                }\r\n         \r\n        }\r\n  \r\n</script>\r\n\r\n<!--Lang" +
+                        "uage Selection for Panel Update-->\r\n<script>\r\n    $(document).ready(function () " +
+                        "{\r\n\r\n        function ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").rem" +
+                        "oveClass(\'active\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n           " +
+                        " $(\"#panelEn\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#pane" +
+                        "lEn\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\")." +
+                        "removeClass(\'disabled\');\n            $(\"#panelAr\").addClass(\'active\');\n         " +
+                        "   $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\"" +
+                        ").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").fin" +
+                        "d(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active" +
+                        " in\');\r\n            $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        " +
+                        "function EnglishLanguage() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n" +
+                        "            $(\"#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'" +
+                        "a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').remov" +
+                        "eAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-" +
+                        "expanded\", \"false\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n       " +
+                        "     $(\"#panelEn\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(" +
+                        "\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-exp" +
+                        "anded\", \"false\");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"tr" +
+                        "ue\");\r\n            $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\"" +
+                        ").removeClass(\'active in\');\r\n        }\r\n        function BothLanguage() {\r\n     " +
+                        "       $(\"#panelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(" +
+                        "\'disabled\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n  " +
+                        "          $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n       " +
+                        "     $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#pan" +
+                        "elAr\").removeClass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\')" +
+                        ";\n            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $" +
+                        "(\"#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#pan" +
+                        "elAr\").find(\'a\').attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addC" +
+                        "lass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        " +
+                        "}\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();" +
+                        "\r\n        if (rbName == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n   " +
+                        "     else if (rbName == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage" +
+                        "();\r\n        }\r\n        else if (rbName == \"rbArabic\") {\r\n            ArabicLang" +
+                        "uage();\r\n        }\r\n\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r" +
+                        "\n            if ($(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLangu" +
+                        "age();\r\n\r\n            } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n           \r\n" +
+                        "                ArabicLanguage();\r\n               \r\n            }\r\n            e" +
+                        "lse if ($(\"#rbBoth\").is(\":checked\")) {\r\n                BothLanguage();\r\n       " +
+                        "     }\r\n        });\r\n    });\r\n    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

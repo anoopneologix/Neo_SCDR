@@ -12,6 +12,7 @@ using System.IO;
 using System.Text;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 
 namespace SCDR.AdminForms.AddNews
@@ -56,6 +57,242 @@ namespace SCDR.AdminForms.AddNews
             
         }
 
+        public int GetNewsId()
+        {
+            int newsid=0;
+            try
+            {
+                  using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                  {
+                      int lastItemIdEn = -1;
+                      int lastItemIdAr = -1;
+                     
+                      using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                      {
+                          SPList list = oWeb.Lists[ListName];
+                          SPQuery query = new SPQuery();
+                          query.RowLimit = 1;
+                          query.Query = "<OrderBy><FieldRef Name='ID' Ascending='FALSE' /></OrderBy>";
+                          SPListItem maxItem = list.GetItems(query).Cast<SPListItem>().FirstOrDefault();
+                         
+                          if (maxItem != null)
+                          {
+                              lastItemIdEn = maxItem.ID;
+                          } 
+                      }
+                      using (SPWeb oWeb = oSite.OpenWeb("ar/"))
+                      {
+                          SPList list = oWeb.Lists[ListName];
+                          SPQuery query = new SPQuery();
+                          query.RowLimit = 1;
+                          query.Query = "<OrderBy><FieldRef Name='ID' Ascending='FALSE' /></OrderBy>";
+                          SPListItem maxItem = list.GetItems(query).Cast<SPListItem>().FirstOrDefault();
+
+                          if (maxItem != null)
+                          {
+                              lastItemIdAr = maxItem.ID;
+                          }
+                      }
+                      if(lastItemIdAr>=lastItemIdEn)
+                      {
+                          newsid = lastItemIdAr;
+                      }
+                      else
+                      {
+                          newsid = lastItemIdEn;
+                      }
+                   
+
+                  }
+                  return newsid;
+            }
+            catch
+            {
+                return newsid;
+            }
+
+        }
+
+        public void SaveToEnglishNewsList(string fileName, byte[] fileContents, int newsId)
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+              {
+                  using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                  {
+
+                      using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                      {
+                          SPList list = oWeb.Lists[ListName];
+                          SPListItem item = list.Items.Add();
+                          item["NewsID"] = newsId;
+                          item["Title"] = txtNewsHeading.Text;
+                          item["Date"] = txtNewsdate.Text;
+                          item["Location"] = txtNewsLocation.Text;
+                          item["Description"] = hfNewsDescription.Value.ToString();
+                          SPAttachmentCollection attach = item.Attachments;
+                          attach.Add(fileName, fileContents);
+                          oWeb.AllowUnsafeUpdates = true;
+                          item.Update();
+                          oWeb.AllowUnsafeUpdates = false;
+                          SpListItemId = item.ID;
+                      }
+                  }
+              });
+            }
+            catch
+            {
+
+            }
+        }
+        public void SaveToArabicNewsList(string fileName, byte[] fileContents, int newsId)
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+              {
+                  using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                  {
+
+                      using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
+                      {
+                          SPList listAr = oWebAr.Lists[ListName];
+                          SPListItem itemAr = listAr.Items.Add();
+                          itemAr["NewsID"] = newsId;
+                          itemAr["Title"] = txtNewsHeadingAr.Text;
+                          itemAr["Date"] = txtNewsDateAr.Text;
+                          itemAr["Location"] = txtNewsLocationAr.Text;
+                          itemAr["Description"] = hfNewsDescriptionAr.Value.ToString();
+                          SPAttachmentCollection attachAr = itemAr.Attachments;
+                          attachAr.Add(fileName, fileContents);
+                          oWebAr.AllowUnsafeUpdates = true;
+                          itemAr.Update();
+                          oWebAr.AllowUnsafeUpdates = false;
+                          SpListItemIdAr = itemAr.ID;
+                      }
+                  }
+              });
+            }
+            catch
+            { }
+        }
+
+        public void UpdateDefaultThumbnailToEnglishNewsList()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+              {
+                  using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                  {
+                      using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                      {
+                          SPList list = oWeb.Lists[ListName];
+                          SPListItem item = list.GetItemById(SpListItemId);
+                          string thumbnailUrl = oWeb.Url + "/_layouts/15/SCDR/images/default.png";
+                          item["ThumbnailUrl"] = thumbnailUrl;
+                          oWeb.AllowUnsafeUpdates = true;
+                          item.Update();
+                          oWeb.AllowUnsafeUpdates = false;
+                      }
+                  }
+              });
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        public void UpdateDefaultThumbnailToArabicNewsList()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
+                        {
+                            SPList listAr = oWebAr.Lists[ListName];
+                            SPListItem itemAr = listAr.GetItemById(SpListItemIdAr);
+                            string thumbnailUrl = oWebAr.Url + "/_layouts/15/SCDR/images/default.png";
+                            itemAr["ThumbnailUrl"] = thumbnailUrl;
+                            oWebAr.AllowUnsafeUpdates = true;
+                            itemAr.Update();
+                            oWebAr.AllowUnsafeUpdates = false;
+                        }
+                    }
+                });
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        public void UpdateThumbnailToEnglishNewsList()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                 {
+                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                     {
+                         using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                         {
+                             SPList list = oWeb.Lists[ListName];
+                             SPListItem item = list.GetItemById(Convert.ToInt32(hfListItemId.Value));
+                             item["ThumbnailUrl"] = lblUrl.Value.ToString();
+                             oWeb.AllowUnsafeUpdates = true;
+                             item.Update();
+                             oWeb.AllowUnsafeUpdates = false;
+                         }
+                     }
+                 });
+            }
+            catch { }
+
+        }
+        public void UpdateThumbnailToArabicNewsList()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
+                        {
+                            SPList listAr = oWebAr.Lists[ListName];
+                            SPListItem itemAr = listAr.GetItemById(Convert.ToInt32(hfListItemIdAr.Value));
+                            string engThumbnailUrl = lblUrl.Value.ToString();
+                            if (engThumbnailUrl.Contains("/en/"))
+                            {
+
+                                string arUrl = engThumbnailUrl.Replace("/en/", "/ar/");
+                                string arThumbnailUrl = arUrl.Replace("/" + hfListItemId.Value + "/", "/" + hfListItemIdAr.Value + "/");
+                                itemAr["ThumbnailUrl"] = arThumbnailUrl;
+                            }
+                            else
+                            {
+                                itemAr["ThumbnailUrl"] = engThumbnailUrl;
+                            }
+                           
+                            oWebAr.AllowUnsafeUpdates = true;
+                            itemAr.Update();
+                            oWebAr.AllowUnsafeUpdates = false;
+                        }
+                    }
+                });
+            }
+            catch { }
+
+        }
+
         //function for add items to list
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
@@ -65,121 +302,79 @@ namespace SCDR.AdminForms.AddNews
               {
                   using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                   {
-                    
-                      Guid newsId = Guid.NewGuid();
-                      string directoryPath = System.Web.HttpContext.Current.Server.MapPath(string.Format("~/{0}/", "TempfileUpload"));
-                      if (!Directory.Exists(directoryPath))
-                      {
-                          Directory.CreateDirectory(directoryPath);
-                      }
+
+
+                      byte[] fileContents = new byte[16 * 1024];
+                      string fileName = string.Empty;
+                      int newsId = GetNewsId();
                       if (fuThumbnailImage.HasFile)
                       {
 
                           foreach (HttpPostedFile postedFile in fuThumbnailImage.PostedFiles)
                           {
-                              string fileName = Path.GetFileName(fuThumbnailImage.PostedFile.FileName);
-                              fuThumbnailImage.PostedFile.SaveAs(System.Web.HttpContext.Current.Server.MapPath("~/TempfileUpload/") + fileName);
-                          }
-                      }
-                      string[] filesPath = Directory.GetFiles(System.Web.HttpContext.Current.Server.MapPath("~/SampleFiles/"));
-                      List<ListItem> files = new List<ListItem>();
-                      foreach (string path in filesPath)
-                      {
-                          files.Add(new ListItem(Path.GetFileName(path)));
-                      }
-                      using (SPWeb oWeb = oSite.OpenWeb("en/"))
-                      {
-                          SPList list = oWeb.Lists[ListName];
-                          SPListItem item = list.Items.Add();
-                          item["NewsID"] = newsId.ToString();
-                          item["Title"] = txtNewsHeading.Text;
-                          item["Date"] = txtNewsdate.Text;
-                          item["Location"] = txtNewsLocation.Text;
-                          item["Description"] = hfNewsDescription.Value.ToString();
-                          if(fuThumbnailImage.HasFile)
-                          {
-                              
-                         foreach (HttpPostedFile postedFile in fuThumbnailImage.PostedFiles)
-                          {
 
                               Stream fs = postedFile.InputStream;
-                              byte[] fileContents = new byte[fs.Length];
+                              fileContents = new byte[fs.Length];
                               fs.Read(fileContents, 0, (int)fs.Length);
                               fs.Close();
-                              SPAttachmentCollection attach = item.Attachments;
-                              string fileName = Path.GetFileName(postedFile.FileName);
-                              attach.Add(fileName, fileContents);
-
+                              fileName = Path.GetFileName(postedFile.FileName);
                           }
-                          }
-                          
-                          oWeb.AllowUnsafeUpdates = true;
-                          item.Update();
-                          oWeb.AllowUnsafeUpdates = false;
-                          SpListItemId = item.ID;
                       }
-                      using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
+                      if (rbBoth.Checked)
                       {
-                          SPList listAr = oWebAr.Lists[ListName];
-                          SPListItem itemAr = listAr.Items.Add();
-                          itemAr["NewsID"] = newsId.ToString();
-                          itemAr["Title"] = txtNewsHeadingAr.Text;
-                          itemAr["Date"] = txtNewsDateAr.Text;
-                          itemAr["Location"] = txtNewsLocationAr.Text;
-                          itemAr["Description"] = hfNewsDescriptionAr.Value.ToString();
-                          if (fuThumbnailImage.HasFile)
-                          {
-                            
-                         foreach (HttpPostedFile postedFileAr in fuThumbnailImage.PostedFiles)
-                              {
+                          SaveToEnglishNewsList(fileName, fileContents, newsId);
+                          SaveToArabicNewsList(fileName, fileContents, newsId);
 
-                                  Stream fsAr = postedFileAr.InputStream;
-                                  byte[] fileContentsAr = new byte[fsAr.Length];
-                                  fsAr.Read(fileContentsAr, 0, (int)fsAr.Length);
-                                  fsAr.Close();
-                                  SPAttachmentCollection attachAr = itemAr.Attachments;
-                                  string fileNameAr = Path.GetFileName(postedFileAr.FileName);
-                                  attachAr.Add(fileNameAr, fileContentsAr);
-                              }
-                          }
-                          oWebAr.AllowUnsafeUpdates = true;
-                          itemAr.Update();
-                          oWebAr.AllowUnsafeUpdates = false;
-                          SpListItemIdAr = itemAr.ID;
-                      }
                           if (rbYes.Checked)
                           {
-                              BindThumbnailImages();
+                              BindEnglishThumbnailImages();
                               ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
                           }
                           else if (rbNo.Checked)
                           {
-                              using (SPWeb oWeb = oSite.OpenWeb("en/"))
-                              {
-                                  SPList list = oWeb.Lists[ListName];
-                                  SPListItem item = list.GetItemById(SpListItemId);
-                                  string thumbnailUrl = oWeb.Url + "/_layouts/15/SCDR/images/default.png";
-                                  item["ThumbnailUrl"] = thumbnailUrl;
-                                  oWeb.AllowUnsafeUpdates = true;
-                                  item.Update();
-                                  oWeb.AllowUnsafeUpdates = false;
-                              }
-                              using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
-                              {
-                                  SPList listAr = oWebAr.Lists[ListName];
-                                  SPListItem itemAr = listAr.GetItemById(SpListItemIdAr);
-                                  string thumbnailUrl = oWebAr.Url + "/_layouts/15/SCDR/images/default.png";
-                                  itemAr["ThumbnailUrl"] = thumbnailUrl;
-                                  oWebAr.AllowUnsafeUpdates = true;
-                                  itemAr.Update();
-                                  oWebAr.AllowUnsafeUpdates = false;
-                              }
-                                      formClear();
-                                      string sMessage = "successfully completed";
-                                      ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                              UpdateDefaultThumbnailToEnglishNewsList();
+                              UpdateDefaultThumbnailToArabicNewsList();
+                              formClear();
+                              string sMessage = "successfully completed";
+                              ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
                           }
-                      
+                      }
+                      else if(rbEnglish.Checked)
+                      {
+                          SaveToEnglishNewsList(fileName, fileContents, newsId);
+                          if (rbYes.Checked)
+                          {
+                              BindEnglishThumbnailImages();
+                              ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+                          }
+                          else if (rbNo.Checked)
+                          {
+                              UpdateDefaultThumbnailToEnglishNewsList();
+                              formClear();
+                              string sMessage = "successfully completed";
+                              ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                          }
+                      }
+                      else if (rbArabic.Checked)
+                      {
+                          SaveToArabicNewsList(fileName, fileContents, newsId);
+                          if (rbYes.Checked)
+                          {
+                              BindArabicThumbnailImages();
+                              ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+                          }
+                          else if (rbNo.Checked)
+                          {
+                              UpdateDefaultThumbnailToArabicNewsList();
+                              formClear();
+                              string sMessage = "successfully completed";
+                              ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                          }
+                      }
+
 
                   }
               });
@@ -199,44 +394,32 @@ namespace SCDR.AdminForms.AddNews
         {
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                 {
-                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
-                     {
-                         using (SPWeb oWeb = oSite.OpenWeb("en/"))
-                         {
-                             SPList list = oWeb.Lists[ListName];
-                             SPListItem item = list.GetItemById(Convert.ToInt32(hfListItemId.Value));
-                             item["ThumbnailUrl"] = lblUrl.Value.ToString();
-                             oWeb.AllowUnsafeUpdates = true;
-                             item.Update();
-                             oWeb.AllowUnsafeUpdates = false;
-                         }
-                         using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
-                         {
-                             SPList listAr = oWebAr.Lists[ListName];
-                             SPListItem itemAr = listAr.GetItemById(Convert.ToInt32(hfListItemIdAr.Value));
-                             string engThumbnailUrl = lblUrl.Value.ToString();
-                             StringBuilder arThumbnailUrl = new StringBuilder(engThumbnailUrl);
-                             arThumbnailUrl.Replace("/en/", "/ar/");
-                             itemAr["ThumbnailUrl"] = arThumbnailUrl;
-                             oWebAr.AllowUnsafeUpdates = true;
-                             itemAr.Update();
-                             oWebAr.AllowUnsafeUpdates = false;
-                         }
-                         formClear();
-                         string sMessage = "successfully completed";
-                         ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                if (rbBoth.Checked)
+                {
+                    UpdateThumbnailToEnglishNewsList();
+                    UpdateThumbnailToArabicNewsList();
+                }
+                else if (rbEnglish.Checked)
+                {
+                    UpdateThumbnailToEnglishNewsList();
+                }
+                else if (rbArabic.Checked)
+                {
+                    UpdateThumbnailToArabicNewsList();
+                }
 
-                     }
-                 });
+                formClear();
+                string sMessage = "successfully completed";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+
+
             }
             catch { }
 
         }
 
-         //function for binding uploaded images to pop up modal
-        public void BindThumbnailImages()
+        //function for binding uploaded English News  images to pop up modal
+        public void BindEnglishThumbnailImages()
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
              {
@@ -248,6 +431,7 @@ namespace SCDR.AdminForms.AddNews
                          SPList list = oWeb.Lists[ListName];
                          SPListItem item = list.GetItemById(SpListItemId);
                          hfListItemId.Value = SpListItemId.ToString();
+                         hfListItemIdAr.Value = SpListItemIdAr.ToString();
                          SPAttachmentCollection docs = item.Attachments;
                          DataTable dt = new DataTable();
                          DataColumn dcImageUrl = new DataColumn("ImageUrl", typeof(string));
@@ -265,31 +449,44 @@ namespace SCDR.AdminForms.AddNews
 
                          }
                      }
-                     using (SPWeb oWebAr = oSite.OpenWeb("ar/"))
-                     {
-                         SPList listAr = oWebAr.Lists[ListName];
-                         SPListItem itemAr = listAr.GetItemById(SpListItemIdAr);
-                         hfListItemIdAr.Value = SpListItemIdAr.ToString();
-                         SPAttachmentCollection docs = itemAr.Attachments;
-                         DataTable dt = new DataTable();
-                         DataColumn dcImageUrlAr = new DataColumn("ImageUrlAr", typeof(string));
-                         dt.Columns.Add(dcImageUrlAr);
-                         if (docs.Count > 0)
-                         {
-                             foreach (string fileName in itemAr.Attachments)
-                             {
-                                 DataRow dr = dt.NewRow();
-                                 dr["ImageUrlAr"] = SPUrlUtility.CombineUrl(itemAr.Attachments.UrlPrefix, fileName);
-                                 dt.Rows.Add(dr);
-                             }
-
-                             repthumbnailAr.DataSource = dt;
-                             repthumbnailAr.DataBind();
-                         }
-                     }
-                 
+                    
                  }
              });
+        }
+
+        //function for binding uploaded Arabic News images to pop up modal
+        public void BindArabicThumbnailImages()
+        {
+            SPSecurity.RunWithElevatedPrivileges(delegate()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                {
+
+                    using (SPWeb oWeb = oSite.OpenWeb("ar/"))
+                    {
+                        SPList list = oWeb.Lists[ListName];
+                        SPListItem item = list.GetItemById(SpListItemIdAr);
+                        hfListItemIdAr.Value = SpListItemIdAr.ToString();
+                        SPAttachmentCollection docs = item.Attachments;
+                        DataTable dt = new DataTable();
+                        DataColumn dcImageUrl = new DataColumn("ImageUrl", typeof(string));
+                        dt.Columns.Add(dcImageUrl);
+                        if (docs.Count > 0)
+                        {
+                            foreach (string fileName in item.Attachments)
+                            {
+                                DataRow dr = dt.NewRow();
+                                dr["ImageUrl"] = SPUrlUtility.CombineUrl(item.Attachments.UrlPrefix, fileName);
+                                dt.Rows.Add(dr);
+                            }
+                            repThumbnail.DataSource = dt;
+                            repThumbnail.DataBind();
+
+                        }
+                    }
+
+                }
+            });
         }
 
          //function for clearing the controls in form

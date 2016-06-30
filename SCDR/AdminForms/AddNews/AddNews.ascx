@@ -14,9 +14,19 @@
 <link href="../../_layouts/15/SCDR/css/editor.css" rel="stylesheet" />
 <div class="col-md-12 col-sm-12 col-xs-12">
  <!-- Nav tabs -->
-  <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#english" aria-controls="english" role="tab" data-toggle="tab">English</a></li>
-    <li role="presentation"><a href="#arabic" aria-controls="arabic" role="tab" data-toggle="tab">Arabic</a></li>
+    <table>
+        <tr>
+            <td>Select Language : </td>
+            <td>
+                 <asp:RadioButton GroupName="grpLanguage" ClientIDMode="Static" Text="Arabic"  ID="rbArabic" runat="server" />
+                 <asp:RadioButton GroupName="grpLanguage" ClientIDMode="Static"  Text="English" ID="rbEnglish" runat="server" />
+                <asp:RadioButton GroupName="grpLanguage" ClientIDMode="Static"  Text="Both" Checked="true" ID="rbBoth" runat="server" />
+            </td>
+        </tr>
+    </table>
+  <ul id="myTabs" class="nav nav-tabs" role="tablist">
+    <li role="presentation" id="panelEn" ><a href="#english" data-toggle="tab" aria-controls="english" role="tab" >English</a></li>
+    <li role="presentation" id="panelAr" ><a href="#arabic" data-toggle="tab" aria-controls="arabic" role="tab" >Arabic</a></li>
     </ul>
 
  <!-- Tab panes -->
@@ -59,25 +69,25 @@
   <div class="form-group">
     <label  class="col-sm-3 control-label">Heading : </label>
     <div class="col-sm-9">
-      <asp:TextBox ID="txtNewsHeadingAr" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtNewsHeadingAr" style="direction:rtl" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Date : </label>
     <div class="col-sm-9">
-      <asp:TextBox ID="txtNewsDateAr"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtNewsDateAr" style="direction:rtl"   ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Location : </label>
     <div class="col-sm-9">
-      <asp:TextBox ID="txtNewsLocationAr" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtNewsLocationAr" style="direction:rtl"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Description : </label>
     <div class="col-sm-9" id="divNewsDescriptionAr">
-      <asp:TextBox ID="txtNewsDescriptionAr"  ClientIDMode="Static"  TextMode="MultiLine" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtNewsDescriptionAr" style="direction:rtl"   ClientIDMode="Static"  TextMode="MultiLine" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
       <asp:HiddenField ID="hfNewsDescriptionAr" ClientIDMode="Static" runat="server" ></asp:HiddenField>
@@ -102,11 +112,11 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-        <asp:Button ID="btnSubmit" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnSubmit"  OnClientClick="if ( ! UserConfirmation()) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
     </div>
   </div>
        <asp:HiddenField ID="lblUrl" ClientIDMode="Static" runat="server" ></asp:HiddenField>
-          <asp:HiddenField ID="lblUrlAr" ClientIDMode="Static" runat="server" ></asp:HiddenField>
+      
             </div>
     </div>
 </div>
@@ -115,47 +125,29 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
           <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      
         <h4 class="modal-title" id="myModalLabel">Choose a Thumbnail</h4>
       </div>
          <div class="modal-body">
              <asp:HiddenField ID="hfListItemId" ClientIDMode="Static" runat="server" />
                 <asp:HiddenField ID="hfListItemIdAr" ClientIDMode="Static" runat="server" />
     <div class="row">
-        <div class="col-md-12">
+     
         <asp:Repeater ID="repThumbnail" runat="server">
-            <HeaderTemplate>
-<h3>Select Thumbnail for English News</h3>
-            </HeaderTemplate>
+          
             <ItemTemplate>
   <div class="col-xs-6 col-md-3">
     <a id="thubUrl" href='<%# Eval("ImageUrl") %>'  class="thumbnail thumbLink">
       <img  src='<%# Eval("ImageUrl") %>' class="thumbImage">
     </a>
-       <a style="display:none" id="thubUrlAr" href='<%# Eval("ImageUrlAr") %>'  class="thumbnail thumbLinkAr">
-      <img style="display:none"  src='<%# Eval("ImageUrlAr") %>' class="thumbImage">
-    </a>
+      
   </div>
                 </ItemTemplate>
             <FooterTemplate><hr></FooterTemplate>
             </asp:Repeater>
-            </div>
-        <div class="clear"></div>
-        <div class="col-md-12">
-        <asp:Repeater ID="repthumbnailAr" runat="server">
-            <HeaderTemplate>
-<h3>Select Thumbnail for Arabic News</h3>
-            </HeaderTemplate>
-            <ItemTemplate>
-  <div class="col-xs-6 col-md-3">
-    <a  id="thubUrlAr" href='<%# Eval("ImageUrlAr") %>'  class="thumbnail thumbLinkAr">
-      <img  src='<%# Eval("ImageUrlAr") %>' class="thumbImage">
-    </a>
-      
-  </div>
-                </ItemTemplate>
-            </asp:Repeater>
-            </div>
+  
+       
+        
 </div>
       </div>
       <div class="modal-footer">
@@ -166,33 +158,11 @@
     </div>
   </div>
 </div>
-<!--alert div begins-->
- <div id="ModalAlert" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-          <div class="modal-header">
-        <h4 class="modal-title" id="myModalAlert">Warning!</h4>
-      </div>
-         <div class="modal-body">
-             <div class="row">
-           <div class="col-md-12">
-  <p>
-  You are about to submit the news without contents on both language
-  </p></div>
-</div>
-      </div>
-      <div class="modal-footer">
-          <asp:Button ID="btnContinue" runat="server" Text="Continue" />
-          <button ID="btnCancel">Cancel</button>
-        
-        </div>
-    </div>
-  </div>
-</div>
-<!--alert div ends-->
+
     <!-- datetime picker script-->
 <script type="text/javascript" src="../../_layouts/15/SCDR/js/bootstrap-datepicker.min.js" ></script>
-                 <script type="text/javascript">
+
+ <script type="text/javascript">
                     $(document).ready(function () {
                         $('#txtNewsdate')
                             .datepicker({
@@ -222,10 +192,13 @@
    
     function openModal() {
         $(document).ready(function () {
-            $('#ModalTumbnail').modal('show');
+            //   $('#ModalTumbnail').modal('show');
+            $('#ModalTumbnail').modal({
+                backdrop: 'static',
+                keyboard: false
+            });
         });
-        }
- 
+    }
 </script>
 
 <!-- Style for Thumbnail Highlight-->
@@ -234,18 +207,18 @@
 {
     border:1px solid red;
 }
-.highLightthumbLinkAr
-{
-    border:1px solid red;
-}
+
 </style>
 
 <!-- Thumbnail select script-->
 <script>
   
     $(document).ready(function () {
+        var _fhref = $('.thumbLink:first').attr('href');
+        $("#lblUrl").val(_fhref);
+     
         var addclass = 'highLightthumbLink';
-        var addclassAr = 'highLightthumbLinkAr';
+    
         var $cols = $(document).on('click', '.thumbLink', function (e) {
             e.preventDefault();
             $cols.removeClass(addclass);
@@ -253,15 +226,9 @@
             _this = $(this);
             _href = _this.attr('href');
             $("#lblUrl").val(_href);
+       
         });
-        var $colsAr = $(document).on('click', '.thumbLinkAr', function (e) {
-            e.preventDefault();
-            $colsAr.removeClass(addclassAr);
-            $(this).addClass(addclassAr);
-            _this = $(this);
-            _href = _this.attr('href');
-            $("#lblUrlAr").val(_href);
-        });
+   
 
             
     });
@@ -289,8 +256,7 @@
 <!--Submit/Validation Query-->
 <script>
   
-        $(document).ready(function () {
-            $('#btnSubmit').click(function (e) {
+    function UserConfirmation() {
                 var txtHead = $('#txtNewsHeading');
                 var txtHeadAr = $('#txtNewsHeadingAr');
                 var txtDate = $('#txtNewsdate');
@@ -307,16 +273,88 @@
                     && txtLocationAr.val() != null && txtLocationAr.val() != ''
                     && txtDescription.val() != null && txtDescription.val() != ''
                     && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '') {
-
+                    return true;
 
                 }
                 else {
-                    e.preventDefault();
-                    $('#ModalAlert').modal('show');
+                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
 
                 }
-            });
-        });
+         
+        }
   
 </script>
 
+<!--Language Selection for Panel Update-->
+<script>
+    $(document).ready(function () {
+
+        function ArabicLanguage()
+        {
+            $("#panelEn").removeClass('active');
+            $("#panelEn").addClass('disabled');
+            $("#panelEn").find('a').removeAttr("data-toggle", "tab");
+            $("#panelEn").find('a').removeAttr("aria-expanded", "true");
+            $("#panelAr").removeClass('disabled');
+            $("#panelAr").addClass('active');
+            $("#panelAr").find('a').attr("data-toggle", "tab");
+            $("#panelAr").find('a').removeAttr("aria-expanded", "false");
+            $("#panelAr").find('a').attr("aria-expanded", "true");
+            $("#arabic").addClass('active in');
+            $("#english").removeClass('active in');
+        }
+        function EnglishLanguage() {
+            $("#panelAr").removeClass('active');
+            $("#panelAr").addClass('disabled');
+            $("#panelAr").find('a').removeAttr("data-toggle", "tab");
+            $("#panelAr").find('a').removeAttr("aria-expanded", "true");
+            $("#panelAr").find('a').attr("aria-expanded", "false");
+            $("#panelEn").removeClass('disabled');
+            $("#panelEn").addClass('active');
+            $("#panelEn").find('a').attr("data-toggle", "tab");
+            $("#panelEn").find('a').removeAttr("aria-expanded", "false");
+            $("#panelEn").find('a').attr("aria-expanded", "true");
+            $("#english").addClass('active in');
+            $("#arabic").removeClass('active in');
+        }
+        function BothLanguage() {
+            $("#panelEn").addClass('active');
+            $("#panelEn").removeClass('disabled');
+            $("#panelEn").find('a').attr("data-toggle", "tab");
+            $("#panelEn").find('a').removeAttr("aria-expanded", "false");
+            $("#panelEn").find('a').attr("aria-expanded", "true");
+            $("#panelAr").removeClass('active');
+            $("#panelAr").removeClass('disabled');
+            $("#panelAr").find('a').attr("data-toggle", "tab");
+            $("#panelAr").find('a').removeAttr("aria-expanded", "true");
+            $("#panelAr").find('a').attr("aria-expanded", "false");
+            $("#english").addClass('active in');
+            $("#arabic").removeClass('active in');
+        }
+        var rbName = $("input[type=radio][name$=grpLanguage]:checked").val();
+        if (rbName == "rbBoth") {
+            BothLanguage();
+        }
+        else if (rbName == "rbEnglish") {
+           
+            EnglishLanguage();
+        }
+        else if (rbName == "rbArabic") {
+            ArabicLanguage();
+        }
+
+        $("input[name$=grpLanguage]").click(function () {
+            if ($("#rbEnglish").is(":checked")) {
+                EnglishLanguage();
+
+            } else if ($("#rbArabic").is(":checked")) {
+           
+                ArabicLanguage();
+               
+            }
+            else if ($("#rbBoth").is(":checked")) {
+                BothLanguage();
+            }
+        });
+    });
+    </script>
