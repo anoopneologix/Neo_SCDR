@@ -106,13 +106,20 @@
   </div>
 <div class="form-group" id="uploadImages">
        <label  class="col-sm-3 control-label">Upload News Images : </label>
-    <div class="col-sm-9">
-        <asp:FileUpload ID="fuThumbnailImage" AllowMultiple="true" runat="server" />
+    <div class="col-sm-6">
+        <asp:FileUpload ID="fuThumbnailImage" AllowMultiple="true" accept="image/jpeg,image/jpg,image/png,image/JPEG,image/PNG,image/JPG" runat="server" />
     </div>
+     <div class="col-sm-3">
+                          <span style="color:red" id="lblImageError"></span>
+         
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationExpression="^.*\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$"
+    ControlToValidate="fuThumbnailImage" runat="server" ForeColor="Red" ErrorMessage="Please select a valid image file of type .jpg,.jpeg,.png."
+    Display="Dynamic" />
+                       </div>
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-        <asp:Button ID="btnSubmit"  OnClientClick="if ( ! UserConfirmation()) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnSubmit"  OnClientClick="if ( ! UserConfirmation(event)) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
     </div>
   </div>
        <asp:HiddenField ID="lblUrl" ClientIDMode="Static" runat="server" ></asp:HiddenField>
@@ -256,7 +263,7 @@
 <!--Submit/Validation Query-->
 <script>
   
-    function UserConfirmation() {
+    function UserConfirmation(event) {
         var rbName = $("input[type=radio][name$=grpLanguage]:checked").val();
         var txtHead = $('#txtNewsHeading');
         var txtHeadAr = $('#txtNewsHeadingAr');
@@ -266,35 +273,147 @@
         var txtLocationAr = $('#txtNewsLocationAr');
         var txtDescription = $('#hfNewsDescription');
         var txtDescriptionAr = $('#hfNewsDescriptionAr');
+        var fileLength = $("input[name$=fuThumbnailImage]").get(0).files.length;
+        var rbImageName = $("input[type=radio][name$=grpImage]:checked").val();
+       
         if (rbName == "rbBoth") {
-               if (txtHead.val() != null && txtHead.val() != ''
-                && txtHeadAr.val() != null && txtHeadAr.val() != ''
-                && txtDate.val() != null && txtDate.val() != ''
-                && txtDateAr.val() != null && txtDateAr.val() != ''
-                && txtLocation.val() != null && txtLocation.val() != ''
-                && txtLocationAr.val() != null && txtLocationAr.val() != ''
-                && txtDescription.val() != null && txtDescription.val() != ''
-                && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '') {
-                return true;
+            if (rbImageName == "rbYes") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                 && txtHeadAr.val() != null && txtHeadAr.val() != ''
+                 && txtDate.val() != null && txtDate.val() != ''
+                 && txtDateAr.val() != null && txtDateAr.val() != ''
+                 && txtLocation.val() != null && txtLocation.val() != ''
+                 && txtLocationAr.val() != null && txtLocationAr.val() != ''
+                 && txtDescription.val() != null && txtDescription.val() != ''
+                 && txtDescriptionAr.val() != null && txtDescriptionAr.val() != ''
+                 && fileLength > 0) {
+                    var x = validateFormat(event);
+                    if(x==true)
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                 
+                }
+                else {
+                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
+                  
 
+                }
+            }
+            else
+            {
+                alert("All fields are mandatory");
+                return false;
+                event.preventDefault();
+            }
+
+            if (rbImageName == "rbNo") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                 && txtHeadAr.val() != null && txtHeadAr.val() != ''
+                 && txtDate.val() != null && txtDate.val() != ''
+                 && txtDateAr.val() != null && txtDateAr.val() != ''
+                 && txtLocation.val() != null && txtLocation.val() != ''
+                 && txtLocationAr.val() != null && txtLocationAr.val() != ''
+                 && txtDescription.val() != null && txtDescription.val() != ''
+                 && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '')
+                 {
+                    return true;
+                }
+                else {
+                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
+
+
+                }
             }
             else {
-                return alert("You are about to submit the news without contents on both language. Do you want to continue?");
+                alert("All fields are mandatory");
+                return false;
+                event.preventDefault();
+            }
+       
+            
 
             }
-        }
+              
+        
         else if (rbName == "rbEnglish")
         {
-            if (txtHead.val() != null && txtHead.val() != ''
-                && txtDate.val() != null && txtDate.val() != ''
-                && txtLocation.val() != null && txtLocation.val() != ''
-                && txtDescription.val() != null && txtDescription.val() != '') {
-                return true;
+            if (rbImageName == "rbYes") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                    && txtDate.val() != null && txtDate.val() != ''
+                    && txtLocation.val() != null && txtLocation.val() != ''
+                    && txtDescription.val() != null && txtDescription.val() != ''
+                    && fileLength > 0) {
+                    var x = validateFormat(event);
+                    if (x == true) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
 
+                }
+                else {
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
+                }
             }
-            else {
-                return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
+            if (rbImageName == "rbNo") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                    && txtDate.val() != null && txtDate.val() != ''
+                    && txtLocation.val() != null && txtLocation.val() != ''
+                    && txtDescription.val() != null && txtDescription.val() != '') {
+                    return true;
 
+                }
+                else {
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
+                }
+            }
+
+        }
+        else if (rbName == "rbArabic") {
+            if (rbImageName == "rbYes") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                    && txtDate.val() != null && txtDate.val() != ''
+                    && txtLocation.val() != null && txtLocation.val() != ''
+                    && txtDescription.val() != null && txtDescription.val() != ''
+                    && fileLength > 0) {
+                    var x = validateFormat(event);
+                    if (x == true) {
+                        return true;
+                    }
+                    else {
+                        return false;
+                    }
+
+                }
+                else {
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
+                }
+            }
+            if (rbImageName == "rbNo") {
+                if (txtHead.val() != null && txtHead.val() != ''
+                    && txtDate.val() != null && txtDate.val() != ''
+                    && txtLocation.val() != null && txtLocation.val() != ''
+                    && txtDescription.val() != null && txtDescription.val() != '') {
+                    return true;
+
+                }
+                else {
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
+                }
             }
 
         }
@@ -303,6 +422,93 @@
   
 </script>
 
+<!--fileupload Script-->
+<script>
+    $(document).ready(function () {
+        $('#lblImageError').hide();
+        $("input[name$=fuThumbnailImage]").change(function () {
+            $('#lblImageError').hide();
+        });
+
+
+    });
+</script>
+
+<!--fileupload Script-->
+<script type="text/javascript">
+    function validateFormat(event) {
+        if (Page_ClientValidate()) {
+            $('#lblGrpError').text(' ');
+            $('#lblRankError').text(' ');
+            var ext = $("input[name$=fuThumbnailImage]").get(0).files.length;
+            if (ext > 0) {
+                var names = [];
+                for (var i = 0; i < ext; ++i) {
+                    names.push($("input[name$=fuThumbnailImage]").get(0).files[i].name);
+                }
+                var x = 0;
+                for (i = 0; i < names.length; i++) {
+                    var str = names[i];
+                    //  /^[-\sa-zA-Z]+$/
+                    if (/^[-_a-zA-Z0-9.\u0600-\u06FF ]+$/.test(str) == false) {
+
+                        x = 1;
+                    }
+                    if (x == 1) {
+                        $('#lblImageError').show();
+                        $('#lblImageError').text('Special characters except - and _ are not allowed in filename. Please select a valid image file of type .jpg,.jpeg,.png.');
+                        // setTimeout();
+                        return false;
+                        break;
+                        event.preventDefault();
+                    }
+
+                }
+                if (x == 0) {
+
+                    var ext = [];
+                    for (i = 0; i < names.length; i++) {
+
+                        ext.push(names[i].substr(names[i].indexOf(".") + 1).toLowerCase());
+
+                    }
+                    var valid_filetype = ["jpg", "jpeg", "png", "PNG", "JPEG", "JPG"];
+
+                    var i, j, result = [];
+                    for (i = 0; i < valid_filetype.length; i++) {
+                        for (j = 0; j < ext.length; j++) {
+                            if (ext[j].indexOf(valid_filetype[i]) != -1) {
+                                result.push(ext[j]);
+                            }
+                        }
+                    }
+
+                    if (result.length < ext.length) {
+                        //   break;
+                        $('#lblImageError').show();
+                        $('#lblImageError').text('Invalid File Found. Please select a valid image file of type .jpg,.jpeg,.png.');
+                        // setTimeout();
+                        return false;
+                        event.preventDefault();
+                    }
+                    else
+                    {
+                        return true;
+                    }
+
+
+
+                }
+
+            } else {
+                return false;
+                event.preventDefault();
+            }
+
+        }
+    }
+
+</script>
 
 <script>
     $(document).ready(function () {

@@ -105,6 +105,10 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -362,6 +366,24 @@ namespace SCDR.AdminForms.AddNews {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "fuThumbnailImage";
             @__ctrl.AllowMultiple = true;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("accept", "image/jpeg,image/jpg,image/png,image/JPEG,image/PNG,image/JPG");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator1() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator1 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator1";
+            @__ctrl.ValidationExpression = "^.*\\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$";
+            @__ctrl.ControlToValidate = "fuThumbnailImage";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Please select a valid image file of type .jpg,.jpeg,.png.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             return @__ctrl;
         }
         
@@ -374,7 +396,7 @@ namespace SCDR.AdminForms.AddNews {
             this.btnSubmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSubmit";
-            @__ctrl.OnClientClick = "if ( ! UserConfirmation()) return false;";
+            @__ctrl.OnClientClick = "if ( ! UserConfirmation(event)) return false;";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.Text = "submit";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
@@ -611,19 +633,24 @@ namespace SCDR.AdminForms.AddNews {
             @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\" id=\"uploadImages\">\r\n       <label" +
                         "  class=\"col-sm-3 control-label\">Upload News Images : </label>\r\n    <div class=\"" +
-                        "col-sm-9\">\r\n        "));
+                        "col-sm-6\">\r\n        "));
             global::System.Web.UI.WebControls.FileUpload @__ctrl16;
             @__ctrl16 = this.@__BuildControlfuThumbnailImage();
             @__parser.AddParsedSubObject(@__ctrl16);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-offset" +
-                        "-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl17;
-            @__ctrl17 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n     <div class=\"col-sm-3\">\r\n                          <span style=" +
+                        "\"color:red\" id=\"lblImageError\"></span>\r\n         \r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl17;
+            @__ctrl17 = this.@__BuildControlRegularExpressionValidator1();
             @__parser.AddParsedSubObject(@__ctrl17);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl18;
-            @__ctrl18 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                       </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div c" +
+                        "lass=\"col-sm-offset-3 col-sm-9\">\r\n        "));
+            global::System.Web.UI.WebControls.Button @__ctrl18;
+            @__ctrl18 = this.@__BuildControlbtnSubmit();
             @__parser.AddParsedSubObject(@__ctrl18);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl19;
+            @__ctrl19 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl19);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
       
             </div>
@@ -639,22 +666,22 @@ namespace SCDR.AdminForms.AddNews {
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl19;
-            @__ctrl19 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl19);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.HiddenField @__ctrl20;
-            @__ctrl20 = this.@__BuildControlhfListItemIdAr();
+            @__ctrl20 = this.@__BuildControlhfListItemId();
             @__parser.AddParsedSubObject(@__ctrl20);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n     \r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl21;
-            @__ctrl21 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl21;
+            @__ctrl21 = this.@__BuildControlhfListItemIdAr();
             @__parser.AddParsedSubObject(@__ctrl21);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n     \r\n        "));
+            global::System.Web.UI.WebControls.Repeater @__ctrl22;
+            @__ctrl22 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl22);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n       \r\n        \r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n" +
                         "        \r\n      \r\n          "));
-            global::System.Web.UI.WebControls.Button @__ctrl22;
-            @__ctrl22 = this.@__BuildControlbtnSaveThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl22);
+            global::System.Web.UI.WebControls.Button @__ctrl23;
+            @__ctrl23 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl23);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n    <!-- datetime picker script" +
                         "-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/bootstrap-dat" +
                         "epicker.min.js\" ></script>\r\n\r\n <script type=\"text/javascript\">\r\n                " +
@@ -696,79 +723,170 @@ namespace SCDR.AdminForms.AddNews {
                         "ditor();\r\n         $(\".Editor-editor\")\r\n           .blur(function () {\r\n        " +
                         "       var content = $(\"#txtNewsDescriptionAr\").Editor(\"getText\");\r\n            " +
                         "   $(\"#hfNewsDescriptionAr\").val(content);\r\n           });\r\n     });\r\n</script>\r" +
-                        "\n\r\n<!--Submit/Validation Query-->\r\n<script>\r\n  \r\n    function UserConfirmation()" +
-                        " {\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val()" +
-                        ";\r\n        var txtHead = $(\'#txtNewsHeading\');\r\n        var txtHeadAr = $(\'#txtN" +
-                        "ewsHeadingAr\');\r\n        var txtDate = $(\'#txtNewsdate\');\r\n        var txtDateAr" +
-                        " = $(\'#txtNewsDateAr\');\r\n        var txtLocation = $(\'#txtNewsLocation\');\r\n     " +
-                        "   var txtLocationAr = $(\'#txtNewsLocationAr\');\r\n        var txtDescription = $(" +
-                        "\'#hfNewsDescription\');\r\n        var txtDescriptionAr = $(\'#hfNewsDescriptionAr\')" +
-                        ";\r\n        if (rbName == \"rbBoth\") {\r\n               if (txtHead.val() != null &" +
-                        "& txtHead.val() != \'\'\r\n                && txtHeadAr.val() != null && txtHeadAr.v" +
-                        "al() != \'\'\r\n                && txtDate.val() != null && txtDate.val() != \'\'\r\n   " +
-                        "             && txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n              " +
-                        "  && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                && tx" +
-                        "tLocationAr.val() != null && txtLocationAr.val() != \'\'\r\n                && txtDe" +
-                        "scription.val() != null && txtDescription.val() != \'\'\r\n                && txtDes" +
-                        "criptionAr.val() != null && txtDescriptionAr.val() != \'\') {\r\n                ret" +
-                        "urn true;\r\n\r\n            }\r\n            else {\r\n                return alert(\"Yo" +
-                        "u are about to submit the news without contents on both language. Do you want to" +
-                        " continue?\");\r\n\r\n            }\r\n        }\r\n        else if (rbName == \"rbEnglish" +
-                        "\")\r\n        {\r\n            if (txtHead.val() != null && txtHead.val() != \'\'\r\n   " +
-                        "             && txtDate.val() != null && txtDate.val() != \'\'\r\n                &&" +
-                        " txtLocation.val() != null && txtLocation.val() != \'\'\r\n                && txtDes" +
-                        "cription.val() != null && txtDescription.val() != \'\') {\r\n                return " +
-                        "true;\r\n\r\n            }\r\n            else {\r\n                return confirm(\"You " +
-                        "are about to submit the news without contents on both language. Do you want to c" +
-                        "ontinue?\");\r\n\r\n            }\r\n\r\n        }\r\n         \r\n        }\r\n  \r\n</script>\r\n" +
-                        "\r\n\r\n<script>\r\n    $(document).ready(function () {\r\n/* language selection for pan" +
-                        "el update */\r\n        function ArabicLanguage()\r\n        {\r\n            $(\"#pane" +
-                        "lEn\").removeClass(\'active\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n  " +
-                        "          $(\"#panelEn\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n           " +
-                        " $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#p" +
-                        "anelAr\").removeClass(\'disabled\');\n            $(\"#panelAr\").addClass(\'active\');\n" +
-                        "            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"" +
-                        "#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#pane" +
-                        "lAr\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#arabic\").addClas" +
-                        "s(\'active in\');\r\n            $(\"#english\").removeClass(\'active in\');\r\n        }\r" +
-                        "\n        function EnglishLanguage() {\r\n            $(\"#panelAr\").removeClass(\'ac" +
-                        "tive\');\r\n            $(\"#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr" +
-                        "\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'" +
-                        "a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').at" +
-                        "tr(\"aria-expanded\", \"false\");\r\n            $(\"#panelEn\").removeClass(\'disabled\')" +
-                        ";\n            $(\"#panelEn\").addClass(\'active\');\n            $(\"#panelEn\").find(\'" +
-                        "a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(" +
-                        "\"aria-expanded\", \"false\");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expan" +
-                        "ded\", \"true\");\r\n            $(\"#english\").addClass(\'active in\');\r\n            $(" +
-                        "\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        function BothLanguage()" +
-                        " {\r\n            $(\"#panelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").rem" +
-                        "oveClass(\'disabled\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"t" +
-                        "ab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");" +
-                        "\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n          " +
-                        "  $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'d" +
-                        "isabled\');\n            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n    " +
-                        "        $(\"#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n          " +
-                        "  $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"false\");\r\n            $(\"#engli" +
-                        "sh\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r" +
-                        "\n        }\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked" +
-                        "\").val();\r\n        if (rbName == \"rbBoth\") {\r\n            BothLanguage();\r\n     " +
-                        "   }\r\n        else if (rbName == \"rbEnglish\") {\r\n           \r\n            Englis" +
-                        "hLanguage();\r\n        }\r\n        else if (rbName == \"rbArabic\") {\r\n            A" +
-                        "rabicLanguage();\r\n        }\r\n        $(\"input[name$=grpLanguage]\").click(functio" +
-                        "n () {\r\n            if ($(\"#rbEnglish\").is(\":checked\")) {\r\n                Engli" +
-                        "shLanguage();\r\n\r\n            } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n    " +
-                        "            ArabicLanguage();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\"" +
-                        ").is(\":checked\")) {\r\n                BothLanguage();\r\n            }\r\n        });" +
-                        "\r\n        /* language selection for panel update */\r\n        /* Image upload sel" +
-                        "ection for file upload control update */\r\n        var rbImageName = $(\"input[typ" +
-                        "e=radio][name$=grpImage]:checked\").val();\r\n        if (rbImageName == \"rbYes\") {" +
-                        "\r\n            $(\'#uploadImages\').show();\r\n        }\r\n        else if (rbImageNam" +
-                        "e == \"rbNo\") {\r\n\r\n            $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"" +
-                        "input[name$=grpImage]\").click(function () {\r\n            if ($(\"#rbYes\").is(\":ch" +
-                        "ecked\")) {\r\n                $(\'#uploadImages\').show();\r\n\r\n            } else if " +
-                        "($(\"#rbNo\").is(\":checked\")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n " +
-                        "           }\r\n          \r\n        });\r\n      \r\n        /* Image upload selection" +
-                        " for file upload control update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
+                        "\n\r\n<!--Submit/Validation Query-->\r\n<script>\r\n  \r\n    function UserConfirmation(e" +
+                        "vent) {\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\")." +
+                        "val();\r\n        var txtHead = $(\'#txtNewsHeading\');\r\n        var txtHeadAr = $(\'" +
+                        "#txtNewsHeadingAr\');\r\n        var txtDate = $(\'#txtNewsdate\');\r\n        var txtD" +
+                        "ateAr = $(\'#txtNewsDateAr\');\r\n        var txtLocation = $(\'#txtNewsLocation\');\r\n" +
+                        "        var txtLocationAr = $(\'#txtNewsLocationAr\');\r\n        var txtDescription" +
+                        " = $(\'#hfNewsDescription\');\r\n        var txtDescriptionAr = $(\'#hfNewsDescriptio" +
+                        "nAr\');\r\n        var fileLength = $(\"input[name$=fuThumbnailImage]\").get(0).files" +
+                        ".length;\r\n        var rbImageName = $(\"input[type=radio][name$=grpImage]:checked" +
+                        "\").val();\r\n       \r\n        if (rbName == \"rbBoth\") {\r\n            if (rbImageNa" +
+                        "me == \"rbYes\") {\r\n                if (txtHead.val() != null && txtHead.val() != " +
+                        "\'\'\r\n                 && txtHeadAr.val() != null && txtHeadAr.val() != \'\'\r\n      " +
+                        "           && txtDate.val() != null && txtDate.val() != \'\'\r\n                 && " +
+                        "txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n                 && txtLocatio" +
+                        "n.val() != null && txtLocation.val() != \'\'\r\n                 && txtLocationAr.va" +
+                        "l() != null && txtLocationAr.val() != \'\'\r\n                 && txtDescription.val" +
+                        "() != null && txtDescription.val() != \'\'\r\n                 && txtDescriptionAr.v" +
+                        "al() != null && txtDescriptionAr.val() != \'\'\r\n                 && fileLength > 0" +
+                        ") {\r\n                    var x = validateFormat(event);\r\n                    if(" +
+                        "x==true)\r\n                    {\r\n                        return true;\r\n         " +
+                        "           }\r\n                    else\r\n                    {\r\n                 " +
+                        "       return false;\r\n                    }\r\n                 \r\n                " +
+                        "}\r\n                else {\r\n                    return confirm(\"You are about to " +
+                        "submit the news without contents on both language. Do you want to continue?\");\r\n" +
+                        "                  \r\n\r\n                }\r\n            }\r\n            else\r\n      " +
+                        "      {\r\n                alert(\"All fields are mandatory\");\r\n                ret" +
+                        "urn false;\r\n                event.preventDefault();\r\n            }\r\n\r\n          " +
+                        "  if (rbImageName == \"rbNo\") {\r\n                if (txtHead.val() != null && txt" +
+                        "Head.val() != \'\'\r\n                 && txtHeadAr.val() != null && txtHeadAr.val()" +
+                        " != \'\'\r\n                 && txtDate.val() != null && txtDate.val() != \'\'\r\n      " +
+                        "           && txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n                " +
+                        " && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                 && tx" +
+                        "tLocationAr.val() != null && txtLocationAr.val() != \'\'\r\n                 && txtD" +
+                        "escription.val() != null && txtDescription.val() != \'\'\r\n                 && txtD" +
+                        "escriptionAr.val() != null && txtDescriptionAr.val() != \'\')\r\n                 {\r" +
+                        "\n                    return true;\r\n                }\r\n                else {\r\n  " +
+                        "                  return confirm(\"You are about to submit the news without conte" +
+                        "nts on both language. Do you want to continue?\");\r\n\r\n\r\n                }\r\n      " +
+                        "      }\r\n            else {\r\n                alert(\"All fields are mandatory\");\r" +
+                        "\n                return false;\r\n                event.preventDefault();\r\n       " +
+                        "     }\r\n       \r\n            \r\n\r\n            }\r\n              \r\n        \r\n      " +
+                        "  else if (rbName == \"rbEnglish\")\r\n        {\r\n            if (rbImageName == \"rb" +
+                        "Yes\") {\r\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n     " +
+                        "               && txtDate.val() != null && txtDate.val() != \'\'\r\n                " +
+                        "    && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                   " +
+                        " && txtDescription.val() != null && txtDescription.val() != \'\'\r\n                " +
+                        "    && fileLength > 0) {\r\n                    var x = validateFormat(event);\r\n  " +
+                        "                  if (x == true) {\r\n                        return true;\r\n      " +
+                        "              }\r\n                    else {\r\n                        return fals" +
+                        "e;\r\n                    }\r\n\r\n                }\r\n                else {\r\n        " +
+                        "            alert(\"All fields are mandatory\");\r\n                    return false" +
+                        ";\r\n                    event.preventDefault();\r\n                }\r\n            }" +
+                        "\r\n            if (rbImageName == \"rbNo\") {\r\n                if (txtHead.val() !=" +
+                        " null && txtHead.val() != \'\'\r\n                    && txtDate.val() != null && tx" +
+                        "tDate.val() != \'\'\r\n                    && txtLocation.val() != null && txtLocati" +
+                        "on.val() != \'\'\r\n                    && txtDescription.val() != null && txtDescri" +
+                        "ption.val() != \'\') {\r\n                    return true;\r\n\r\n                }\r\n   " +
+                        "             else {\r\n                    alert(\"All fields are mandatory\");\r\n   " +
+                        "                 return false;\r\n                    event.preventDefault();\r\n   " +
+                        "             }\r\n            }\r\n\r\n        }\r\n        else if (rbName == \"rbArabic" +
+                        "\") {\r\n            if (rbImageName == \"rbYes\") {\r\n                if (txtHead.val" +
+                        "() != null && txtHead.val() != \'\'\r\n                    && txtDate.val() != null " +
+                        "&& txtDate.val() != \'\'\r\n                    && txtLocation.val() != null && txtL" +
+                        "ocation.val() != \'\'\r\n                    && txtDescription.val() != null && txtD" +
+                        "escription.val() != \'\'\r\n                    && fileLength > 0) {\r\n              " +
+                        "      var x = validateFormat(event);\r\n                    if (x == true) {\r\n    " +
+                        "                    return true;\r\n                    }\r\n                    els" +
+                        "e {\r\n                        return false;\r\n                    }\r\n\r\n           " +
+                        "     }\r\n                else {\r\n                    alert(\"All fields are mandat" +
+                        "ory\");\r\n                    return false;\r\n                    event.preventDefa" +
+                        "ult();\r\n                }\r\n            }\r\n            if (rbImageName == \"rbNo\")" +
+                        " {\r\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n          " +
+                        "          && txtDate.val() != null && txtDate.val() != \'\'\r\n                    &" +
+                        "& txtLocation.val() != null && txtLocation.val() != \'\'\r\n                    && t" +
+                        "xtDescription.val() != null && txtDescription.val() != \'\') {\r\n                  " +
+                        "  return true;\r\n\r\n                }\r\n                else {\r\n                   " +
+                        " alert(\"All fields are mandatory\");\r\n                    return false;\r\n        " +
+                        "            event.preventDefault();\r\n                }\r\n            }\r\n\r\n       " +
+                        " }\r\n         \r\n        }\r\n  \r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n " +
+                        "   $(document).ready(function () {\r\n        $(\'#lblImageError\').hide();\r\n       " +
+                        " $(\"input[name$=fuThumbnailImage]\").change(function () {\r\n            $(\'#lblIma" +
+                        "geError\').hide();\r\n        });\r\n\r\n\r\n    });\r\n</script>\r\n\r\n<!--fileupload Script-" +
+                        "->\r\n<script type=\"text/javascript\">\r\n    function validateFormat(event) {\r\n     " +
+                        "   if (Page_ClientValidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n     " +
+                        "       $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"input[name$=fuThu" +
+                        "mbnailImage]\").get(0).files.length;\r\n            if (ext > 0) {\r\n               " +
+                        " var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n             " +
+                        "       names.push($(\"input[name$=fuThumbnailImage]\").get(0).files[i].name);\r\n   " +
+                        "             }\r\n                var x = 0;\r\n                for (i = 0; i < name" +
+                        "s.length; i++) {\r\n                    var str = names[i];\r\n                    /" +
+                        "/  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.t" +
+                        "est(str) == false) {\r\n\r\n                        x = 1;\r\n                    }\r\n " +
+                        "                   if (x == 1) {\r\n                        $(\'#lblImageError\').sh" +
+                        "ow();\r\n                        $(\'#lblImageError\').text(\'Special characters exce" +
+                        "pt - and _ are not allowed in filename. Please select a valid image file of type" +
+                        " .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n                " +
+                        "        return false;\r\n                        break;\r\n                        e" +
+                        "vent.preventDefault();\r\n                    }\r\n\r\n                }\r\n            " +
+                        "    if (x == 0) {\r\n\r\n                    var ext = [];\r\n                    for " +
+                        "(i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names[i].su" +
+                        "bstr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n      " +
+                        "              var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];" +
+                        "\r\n\r\n                    var i, j, result = [];\r\n                    for (i = 0; " +
+                        "i < valid_filetype.length; i++) {\r\n                        for (j = 0; j < ext.l" +
+                        "ength; j++) {\r\n                            if (ext[j].indexOf(valid_filetype[i])" +
+                        " != -1) {\r\n                                result.push(ext[j]);\r\n               " +
+                        "             }\r\n                        }\r\n                    }\r\n\r\n            " +
+                        "        if (result.length < ext.length) {\r\n                        //   break;\r\n" +
+                        "                        $(\'#lblImageError\').show();\r\n                        $(\'" +
+                        "#lblImageError\').text(\'Invalid File Found. Please select a valid image file of t" +
+                        "ype .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n             " +
+                        "           return false;\r\n                        event.preventDefault();\r\n     " +
+                        "               }\r\n                    else\r\n                    {\r\n             " +
+                        "           return true;\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n     " +
+                        "       } else {\r\n                return false;\r\n                event.preventDef" +
+                        "ault();\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n<script>\r\n    $(docum" +
+                        "ent).ready(function () {\r\n/* language selection for panel update */\r\n        fun" +
+                        "ction ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").removeClass(\'active" +
+                        "\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n            $(\"#panelEn\").f" +
+                        "ind(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\')." +
+                        "removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeClass(\'dis" +
+                        "abled\');\n            $(\"#panelAr\").addClass(\'active\');\n            $(\"#panelAr\")" +
+                        ".find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').remo" +
+                        "veAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"ari" +
+                        "a-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active in\');\r\n        " +
+                        "    $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        function English" +
+                        "Language() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"#" +
+                        "panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'a\').removeAttr(\"" +
+                        "data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').removeAttr(\"aria-expa" +
+                        "nded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"fals" +
+                        "e\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n            $(\"#panelEn" +
+                        "\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"" +
+                        "tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\")" +
+                        ";\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n         " +
+                        "   $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'a" +
+                        "ctive in\');\r\n        }\r\n        function BothLanguage() {\r\n            $(\"#panel" +
+                        "En\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n   " +
+                        "         $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#pa" +
+                        "nelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelEn" +
+                        "\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeCla" +
+                        "ss(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\');\n            $(" +
+                        "\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").fin" +
+                        "d(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\')" +
+                        ".attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addClass(\'active in\'" +
+                        ");\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        var r" +
+                        "bName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n        if (rb" +
+                        "Name == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n        else if (rb" +
+                        "Name == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage();\r\n        }\r\n" +
+                        "        else if (rbName == \"rbArabic\") {\r\n            ArabicLanguage();\r\n       " +
+                        " }\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r\n            if ($" +
+                        "(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLanguage();\r\n\r\n        " +
+                        "    } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n                ArabicLanguag" +
+                        "e();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\").is(\":checked\")) {\r\n    " +
+                        "            BothLanguage();\r\n            }\r\n        });\r\n        /* language sel" +
+                        "ection for panel update */\r\n        /* Image upload selection for file upload co" +
+                        "ntrol update */\r\n        var rbImageName = $(\"input[type=radio][name$=grpImage]:" +
+                        "checked\").val();\r\n        if (rbImageName == \"rbYes\") {\r\n            $(\'#uploadI" +
+                        "mages\').show();\r\n        }\r\n        else if (rbImageName == \"rbNo\") {\r\n\r\n       " +
+                        "     $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"input[name$=grpImage]\").c" +
+                        "lick(function () {\r\n            if ($(\"#rbYes\").is(\":checked\")) {\r\n             " +
+                        "   $(\'#uploadImages\').show();\r\n\r\n            } else if ($(\"#rbNo\").is(\":checked\"" +
+                        ")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n            }\r\n          \r" +
+                        "\n        });\r\n      \r\n        /* Image upload selection for file upload control " +
+                        "update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

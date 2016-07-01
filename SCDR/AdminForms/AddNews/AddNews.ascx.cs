@@ -113,7 +113,7 @@ namespace SCDR.AdminForms.AddNews
 
         }
 
-        public void SaveToEnglishNewsList(string fileName, byte[] fileContents, int newsId)
+        public void SaveToEnglishNewsList(List<string> fileName, byte[] fileContents, int newsId)
         {
             try
             {
@@ -131,10 +131,13 @@ namespace SCDR.AdminForms.AddNews
                           item["Date"] = txtNewsdate.Text;
                           item["Location"] = txtNewsLocation.Text;
                           item["Description"] = hfNewsDescription.Value.ToString();
-                          if (fileName != string.Empty)
+                          if (fileName.Count > 0)
                           {
-                              SPAttachmentCollection attach = item.Attachments;
-                              attach.Add(fileName, fileContents);
+                              SPAttachmentCollection attachAr = item.Attachments;
+                              foreach (string filename in fileName)
+                              {
+                                  attachAr.Add(filename, fileContents);
+                              }
                           }
                           oWeb.AllowUnsafeUpdates = true;
                           item.Update();
@@ -149,7 +152,7 @@ namespace SCDR.AdminForms.AddNews
 
             }
         }
-        public void SaveToArabicNewsList(string fileName, byte[] fileContents, int newsId)
+        public void SaveToArabicNewsList(List<string> fileName, byte[] fileContents, int newsId)
         {
             try
             {
@@ -167,10 +170,13 @@ namespace SCDR.AdminForms.AddNews
                           itemAr["Date"] = txtNewsDateAr.Text;
                           itemAr["Location"] = txtNewsLocationAr.Text;
                           itemAr["Description"] = hfNewsDescriptionAr.Value.ToString();
-                          if (fileName != string.Empty)
+                          if (fileName.Count>0)
                           {
                               SPAttachmentCollection attachAr = itemAr.Attachments;
-                              attachAr.Add(fileName, fileContents);
+                              foreach (string filename in fileName)
+                              {
+                                  attachAr.Add(filename, fileContents);
+                              }
                           }
                           oWebAr.AllowUnsafeUpdates = true;
                           itemAr.Update();
@@ -311,7 +317,8 @@ namespace SCDR.AdminForms.AddNews
 
 
                       byte[] fileContents = new byte[16 * 1024];
-                      string fileName = string.Empty;
+                      List<string> fileName=new List<string>();
+                      List<byte> fileContent = new List<byte>();
                       int newsId = GetNewsId();
                       if (fuThumbnailImage.HasFile)
                       {
@@ -323,7 +330,9 @@ namespace SCDR.AdminForms.AddNews
                               fileContents = new byte[fs.Length];
                               fs.Read(fileContents, 0, (int)fs.Length);
                               fs.Close();
-                              fileName = Path.GetFileName(postedFile.FileName);
+                            //  fileContent.Add(fileContents);
+                              fileName.Add(Path.GetFileName(postedFile.FileName));
+                              
                           }
                       }
                       if (rbBoth.Checked)
