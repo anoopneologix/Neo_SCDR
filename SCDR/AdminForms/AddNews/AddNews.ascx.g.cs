@@ -329,6 +329,7 @@ namespace SCDR.AdminForms.AddNews {
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbYes = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.GroupName = "grpImage";
             @__ctrl.Text = "Yes";
             @__ctrl.Checked = true;
@@ -344,6 +345,7 @@ namespace SCDR.AdminForms.AddNews {
             @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
             this.rbNo = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.GroupName = "grpImage";
             @__ctrl.Text = "No";
             @__ctrl.ID = "rbNo";
@@ -607,9 +609,9 @@ namespace SCDR.AdminForms.AddNews {
             global::System.Web.UI.WebControls.RadioButton @__ctrl15;
             @__ctrl15 = this.@__BuildControlrbNo();
             @__parser.AddParsedSubObject(@__ctrl15);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 " +
-                        "control-label\">Upload News Images : </label>\r\n    <div class=\"col-sm-9\">\r\n      " +
-                        "  "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\" id=\"uploadImages\">\r\n       <label" +
+                        "  class=\"col-sm-3 control-label\">Upload News Images : </label>\r\n    <div class=\"" +
+                        "col-sm-9\">\r\n        "));
             global::System.Web.UI.WebControls.FileUpload @__ctrl16;
             @__ctrl16 = this.@__BuildControlfuThumbnailImage();
             @__parser.AddParsedSubObject(@__ctrl16);
@@ -695,62 +697,78 @@ namespace SCDR.AdminForms.AddNews {
                         "       var content = $(\"#txtNewsDescriptionAr\").Editor(\"getText\");\r\n            " +
                         "   $(\"#hfNewsDescriptionAr\").val(content);\r\n           });\r\n     });\r\n</script>\r" +
                         "\n\r\n<!--Submit/Validation Query-->\r\n<script>\r\n  \r\n    function UserConfirmation()" +
-                        " {\r\n                var txtHead = $(\'#txtNewsHeading\');\r\n                var txt" +
-                        "HeadAr = $(\'#txtNewsHeadingAr\');\r\n                var txtDate = $(\'#txtNewsdate\'" +
-                        ");\r\n                var txtDateAr = $(\'#txtNewsDateAr\');\r\n                var tx" +
-                        "tLocation = $(\'#txtNewsLocation\');\r\n                var txtLocationAr = $(\'#txtN" +
-                        "ewsLocationAr\');\r\n                var txtDescription = $(\'#hfNewsDescription\');\r" +
-                        "\n                var txtDescriptionAr = $(\'#hfNewsDescriptionAr\');\r\n            " +
-                        "    if (txtHead.val() != null && txtHead.val() != \'\'\r\n                    && txt" +
-                        "HeadAr.val() != null && txtHeadAr.val() != \'\'\r\n                    && txtDate.va" +
-                        "l() != null && txtDate.val() != \'\'\r\n                    && txtDateAr.val() != nu" +
-                        "ll && txtDateAr.val() != \'\'\r\n                    && txtLocation.val() != null &&" +
-                        " txtLocation.val() != \'\'\r\n                    && txtLocationAr.val() != null && " +
-                        "txtLocationAr.val() != \'\'\r\n                    && txtDescription.val() != null &" +
-                        "& txtDescription.val() != \'\'\r\n                    && txtDescriptionAr.val() != n" +
-                        "ull && txtDescriptionAr.val() != \'\') {\r\n                    return true;\r\n\r\n    " +
-                        "            }\r\n                else {\r\n                    return confirm(\"You a" +
-                        "re about to submit the news without contents on both language. Do you want to co" +
-                        "ntinue?\");\r\n\r\n                }\r\n         \r\n        }\r\n  \r\n</script>\r\n\r\n<!--Lang" +
-                        "uage Selection for Panel Update-->\r\n<script>\r\n    $(document).ready(function () " +
-                        "{\r\n\r\n        function ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").rem" +
-                        "oveClass(\'active\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n           " +
-                        " $(\"#panelEn\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#pane" +
-                        "lEn\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\")." +
-                        "removeClass(\'disabled\');\n            $(\"#panelAr\").addClass(\'active\');\n         " +
-                        "   $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\"" +
-                        ").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").fin" +
-                        "d(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active" +
-                        " in\');\r\n            $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        " +
-                        "function EnglishLanguage() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n" +
-                        "            $(\"#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'" +
-                        "a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').remov" +
-                        "eAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-" +
-                        "expanded\", \"false\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n       " +
-                        "     $(\"#panelEn\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(" +
-                        "\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-exp" +
-                        "anded\", \"false\");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"tr" +
-                        "ue\");\r\n            $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\"" +
-                        ").removeClass(\'active in\');\r\n        }\r\n        function BothLanguage() {\r\n     " +
-                        "       $(\"#panelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(" +
-                        "\'disabled\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n  " +
-                        "          $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n       " +
-                        "     $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#pan" +
-                        "elAr\").removeClass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\')" +
-                        ";\n            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $" +
-                        "(\"#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#pan" +
-                        "elAr\").find(\'a\').attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addC" +
-                        "lass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        " +
-                        "}\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();" +
-                        "\r\n        if (rbName == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n   " +
-                        "     else if (rbName == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage" +
-                        "();\r\n        }\r\n        else if (rbName == \"rbArabic\") {\r\n            ArabicLang" +
-                        "uage();\r\n        }\r\n\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r" +
-                        "\n            if ($(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLangu" +
-                        "age();\r\n\r\n            } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n           \r\n" +
-                        "                ArabicLanguage();\r\n               \r\n            }\r\n            e" +
-                        "lse if ($(\"#rbBoth\").is(\":checked\")) {\r\n                BothLanguage();\r\n       " +
-                        "     }\r\n        });\r\n    });\r\n    </script>"));
+                        " {\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val()" +
+                        ";\r\n        var txtHead = $(\'#txtNewsHeading\');\r\n        var txtHeadAr = $(\'#txtN" +
+                        "ewsHeadingAr\');\r\n        var txtDate = $(\'#txtNewsdate\');\r\n        var txtDateAr" +
+                        " = $(\'#txtNewsDateAr\');\r\n        var txtLocation = $(\'#txtNewsLocation\');\r\n     " +
+                        "   var txtLocationAr = $(\'#txtNewsLocationAr\');\r\n        var txtDescription = $(" +
+                        "\'#hfNewsDescription\');\r\n        var txtDescriptionAr = $(\'#hfNewsDescriptionAr\')" +
+                        ";\r\n        if (rbName == \"rbBoth\") {\r\n               if (txtHead.val() != null &" +
+                        "& txtHead.val() != \'\'\r\n                && txtHeadAr.val() != null && txtHeadAr.v" +
+                        "al() != \'\'\r\n                && txtDate.val() != null && txtDate.val() != \'\'\r\n   " +
+                        "             && txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n              " +
+                        "  && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                && tx" +
+                        "tLocationAr.val() != null && txtLocationAr.val() != \'\'\r\n                && txtDe" +
+                        "scription.val() != null && txtDescription.val() != \'\'\r\n                && txtDes" +
+                        "criptionAr.val() != null && txtDescriptionAr.val() != \'\') {\r\n                ret" +
+                        "urn true;\r\n\r\n            }\r\n            else {\r\n                return alert(\"Yo" +
+                        "u are about to submit the news without contents on both language. Do you want to" +
+                        " continue?\");\r\n\r\n            }\r\n        }\r\n        else if (rbName == \"rbEnglish" +
+                        "\")\r\n        {\r\n            if (txtHead.val() != null && txtHead.val() != \'\'\r\n   " +
+                        "             && txtDate.val() != null && txtDate.val() != \'\'\r\n                &&" +
+                        " txtLocation.val() != null && txtLocation.val() != \'\'\r\n                && txtDes" +
+                        "cription.val() != null && txtDescription.val() != \'\') {\r\n                return " +
+                        "true;\r\n\r\n            }\r\n            else {\r\n                return confirm(\"You " +
+                        "are about to submit the news without contents on both language. Do you want to c" +
+                        "ontinue?\");\r\n\r\n            }\r\n\r\n        }\r\n         \r\n        }\r\n  \r\n</script>\r\n" +
+                        "\r\n\r\n<script>\r\n    $(document).ready(function () {\r\n/* language selection for pan" +
+                        "el update */\r\n        function ArabicLanguage()\r\n        {\r\n            $(\"#pane" +
+                        "lEn\").removeClass(\'active\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n  " +
+                        "          $(\"#panelEn\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n           " +
+                        " $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#p" +
+                        "anelAr\").removeClass(\'disabled\');\n            $(\"#panelAr\").addClass(\'active\');\n" +
+                        "            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"" +
+                        "#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#pane" +
+                        "lAr\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#arabic\").addClas" +
+                        "s(\'active in\');\r\n            $(\"#english\").removeClass(\'active in\');\r\n        }\r" +
+                        "\n        function EnglishLanguage() {\r\n            $(\"#panelAr\").removeClass(\'ac" +
+                        "tive\');\r\n            $(\"#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr" +
+                        "\").find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'" +
+                        "a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').at" +
+                        "tr(\"aria-expanded\", \"false\");\r\n            $(\"#panelEn\").removeClass(\'disabled\')" +
+                        ";\n            $(\"#panelEn\").addClass(\'active\');\n            $(\"#panelEn\").find(\'" +
+                        "a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(" +
+                        "\"aria-expanded\", \"false\");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expan" +
+                        "ded\", \"true\");\r\n            $(\"#english\").addClass(\'active in\');\r\n            $(" +
+                        "\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        function BothLanguage()" +
+                        " {\r\n            $(\"#panelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").rem" +
+                        "oveClass(\'disabled\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"t" +
+                        "ab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");" +
+                        "\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n          " +
+                        "  $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'d" +
+                        "isabled\');\n            $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n    " +
+                        "        $(\"#panelAr\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n          " +
+                        "  $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"false\");\r\n            $(\"#engli" +
+                        "sh\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r" +
+                        "\n        }\r\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked" +
+                        "\").val();\r\n        if (rbName == \"rbBoth\") {\r\n            BothLanguage();\r\n     " +
+                        "   }\r\n        else if (rbName == \"rbEnglish\") {\r\n           \r\n            Englis" +
+                        "hLanguage();\r\n        }\r\n        else if (rbName == \"rbArabic\") {\r\n            A" +
+                        "rabicLanguage();\r\n        }\r\n        $(\"input[name$=grpLanguage]\").click(functio" +
+                        "n () {\r\n            if ($(\"#rbEnglish\").is(\":checked\")) {\r\n                Engli" +
+                        "shLanguage();\r\n\r\n            } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n    " +
+                        "            ArabicLanguage();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\"" +
+                        ").is(\":checked\")) {\r\n                BothLanguage();\r\n            }\r\n        });" +
+                        "\r\n        /* language selection for panel update */\r\n        /* Image upload sel" +
+                        "ection for file upload control update */\r\n        var rbImageName = $(\"input[typ" +
+                        "e=radio][name$=grpImage]:checked\").val();\r\n        if (rbImageName == \"rbYes\") {" +
+                        "\r\n            $(\'#uploadImages\').show();\r\n        }\r\n        else if (rbImageNam" +
+                        "e == \"rbNo\") {\r\n\r\n            $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"" +
+                        "input[name$=grpImage]\").click(function () {\r\n            if ($(\"#rbYes\").is(\":ch" +
+                        "ecked\")) {\r\n                $(\'#uploadImages\').show();\r\n\r\n            } else if " +
+                        "($(\"#rbNo\").is(\":checked\")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n " +
+                        "           }\r\n          \r\n        });\r\n      \r\n        /* Image upload selection" +
+                        " for file upload control update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

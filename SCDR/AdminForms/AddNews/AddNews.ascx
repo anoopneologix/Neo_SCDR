@@ -100,11 +100,11 @@
       <div class="form-group">
        <label  class="col-sm-3 control-label">Is there Images to upload : </label>
     <div class="col-sm-9">
-        <asp:RadioButton GroupName="grpImage" Text="Yes" Checked="true" ID="rbYes" runat="server" />
-          <asp:RadioButton GroupName="grpImage" Text="No" ID="rbNo" runat="server" />
+        <asp:RadioButton ClientIDMode="Static" GroupName="grpImage" Text="Yes" Checked="true" ID="rbYes" runat="server" />
+          <asp:RadioButton ClientIDMode="Static" GroupName="grpImage" Text="No" ID="rbNo" runat="server" />
     </div>
   </div>
-<div class="form-group">
+<div class="form-group" id="uploadImages">
        <label  class="col-sm-3 control-label">Upload News Images : </label>
     <div class="col-sm-9">
         <asp:FileUpload ID="fuThumbnailImage" AllowMultiple="true" runat="server" />
@@ -257,38 +257,56 @@
 <script>
   
     function UserConfirmation() {
-                var txtHead = $('#txtNewsHeading');
-                var txtHeadAr = $('#txtNewsHeadingAr');
-                var txtDate = $('#txtNewsdate');
-                var txtDateAr = $('#txtNewsDateAr');
-                var txtLocation = $('#txtNewsLocation');
-                var txtLocationAr = $('#txtNewsLocationAr');
-                var txtDescription = $('#hfNewsDescription');
-                var txtDescriptionAr = $('#hfNewsDescriptionAr');
-                if (txtHead.val() != null && txtHead.val() != ''
-                    && txtHeadAr.val() != null && txtHeadAr.val() != ''
-                    && txtDate.val() != null && txtDate.val() != ''
-                    && txtDateAr.val() != null && txtDateAr.val() != ''
-                    && txtLocation.val() != null && txtLocation.val() != ''
-                    && txtLocationAr.val() != null && txtLocationAr.val() != ''
-                    && txtDescription.val() != null && txtDescription.val() != ''
-                    && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '') {
-                    return true;
+        var rbName = $("input[type=radio][name$=grpLanguage]:checked").val();
+        var txtHead = $('#txtNewsHeading');
+        var txtHeadAr = $('#txtNewsHeadingAr');
+        var txtDate = $('#txtNewsdate');
+        var txtDateAr = $('#txtNewsDateAr');
+        var txtLocation = $('#txtNewsLocation');
+        var txtLocationAr = $('#txtNewsLocationAr');
+        var txtDescription = $('#hfNewsDescription');
+        var txtDescriptionAr = $('#hfNewsDescriptionAr');
+        if (rbName == "rbBoth") {
+               if (txtHead.val() != null && txtHead.val() != ''
+                && txtHeadAr.val() != null && txtHeadAr.val() != ''
+                && txtDate.val() != null && txtDate.val() != ''
+                && txtDateAr.val() != null && txtDateAr.val() != ''
+                && txtLocation.val() != null && txtLocation.val() != ''
+                && txtLocationAr.val() != null && txtLocationAr.val() != ''
+                && txtDescription.val() != null && txtDescription.val() != ''
+                && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '') {
+                return true;
 
-                }
-                else {
-                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
+            }
+            else {
+                return alert("You are about to submit the news without contents on both language. Do you want to continue?");
 
-                }
+            }
+        }
+        else if (rbName == "rbEnglish")
+        {
+            if (txtHead.val() != null && txtHead.val() != ''
+                && txtDate.val() != null && txtDate.val() != ''
+                && txtLocation.val() != null && txtLocation.val() != ''
+                && txtDescription.val() != null && txtDescription.val() != '') {
+                return true;
+
+            }
+            else {
+                return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
+
+            }
+
+        }
          
         }
   
 </script>
 
-<!--Language Selection for Panel Update-->
+
 <script>
     $(document).ready(function () {
-
+/* language selection for panel update */
         function ArabicLanguage()
         {
             $("#panelEn").removeClass('active');
@@ -342,19 +360,44 @@
         else if (rbName == "rbArabic") {
             ArabicLanguage();
         }
-
         $("input[name$=grpLanguage]").click(function () {
             if ($("#rbEnglish").is(":checked")) {
                 EnglishLanguage();
 
             } else if ($("#rbArabic").is(":checked")) {
-           
+
                 ArabicLanguage();
-               
+
             }
             else if ($("#rbBoth").is(":checked")) {
                 BothLanguage();
             }
         });
+        /* language selection for panel update */
+        /* Image upload selection for file upload control update */
+        var rbImageName = $("input[type=radio][name$=grpImage]:checked").val();
+        if (rbImageName == "rbYes") {
+            $('#uploadImages').show();
+        }
+        else if (rbImageName == "rbNo") {
+
+            $('#uploadImages').hide();
+        }
+        $("input[name$=grpImage]").click(function () {
+            if ($("#rbYes").is(":checked")) {
+                $('#uploadImages').show();
+
+            } else if ($("#rbNo").is(":checked")) {
+
+                $('#uploadImages').hide();
+
+            }
+          
+        });
+      
+        /* Image upload selection for file upload control update */
+
+
+        
     });
     </script>

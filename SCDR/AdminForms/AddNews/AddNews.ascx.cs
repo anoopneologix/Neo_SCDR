@@ -131,8 +131,11 @@ namespace SCDR.AdminForms.AddNews
                           item["Date"] = txtNewsdate.Text;
                           item["Location"] = txtNewsLocation.Text;
                           item["Description"] = hfNewsDescription.Value.ToString();
-                          SPAttachmentCollection attach = item.Attachments;
-                          attach.Add(fileName, fileContents);
+                          if (fileName != string.Empty)
+                          {
+                              SPAttachmentCollection attach = item.Attachments;
+                              attach.Add(fileName, fileContents);
+                          }
                           oWeb.AllowUnsafeUpdates = true;
                           item.Update();
                           oWeb.AllowUnsafeUpdates = false;
@@ -164,8 +167,11 @@ namespace SCDR.AdminForms.AddNews
                           itemAr["Date"] = txtNewsDateAr.Text;
                           itemAr["Location"] = txtNewsLocationAr.Text;
                           itemAr["Description"] = hfNewsDescriptionAr.Value.ToString();
-                          SPAttachmentCollection attachAr = itemAr.Attachments;
-                          attachAr.Add(fileName, fileContents);
+                          if (fileName != string.Empty)
+                          {
+                              SPAttachmentCollection attachAr = itemAr.Attachments;
+                              attachAr.Add(fileName, fileContents);
+                          }
                           oWebAr.AllowUnsafeUpdates = true;
                           itemAr.Update();
                           oWebAr.AllowUnsafeUpdates = false;
