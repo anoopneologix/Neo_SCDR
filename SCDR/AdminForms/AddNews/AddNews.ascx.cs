@@ -77,7 +77,7 @@ namespace SCDR.AdminForms.AddNews
                          
                           if (maxItem != null)
                           {
-                              lastItemIdEn = maxItem.ID;
+                              lastItemIdEn = Convert.ToInt32(maxItem["NewsID"]);
                           } 
                       }
                       using (SPWeb oWeb = oSite.OpenWeb("ar/"))
@@ -90,16 +90,16 @@ namespace SCDR.AdminForms.AddNews
 
                           if (maxItem != null)
                           {
-                              lastItemIdAr = maxItem.ID;
+                              lastItemIdAr = Convert.ToInt32(maxItem["NewsID"]);
                           }
                       }
                       if(lastItemIdAr>=lastItemIdEn)
                       {
-                          newsid = lastItemIdAr;
+                          newsid = lastItemIdAr+1;
                       }
                       else
                       {
-                          newsid = lastItemIdEn;
+                          newsid = lastItemIdEn+1;
                       }
                    
 
@@ -113,7 +113,9 @@ namespace SCDR.AdminForms.AddNews
 
         }
 
-        public void SaveToEnglishNewsList(List<string> fileName, byte[] fileContents, int newsId)
+
+        //function for add items to English CustomNewsGallery List
+        public void SaveToEnglishNewsList(List<string> fileName, List<byte[]> fileContents, int newsId)
         {
             try
             {
@@ -133,11 +135,20 @@ namespace SCDR.AdminForms.AddNews
                           item["Description"] = hfNewsDescription.Value.ToString();
                           if (fileName.Count > 0)
                           {
-                              SPAttachmentCollection attachAr = item.Attachments;
-                              foreach (string filename in fileName)
+                              SPAttachmentCollection attach = item.Attachments;
+                         
+                              using (var e1 = fileName.GetEnumerator())
+                              using (var e2 = fileContents.GetEnumerator())
                               {
-                                  attachAr.Add(filename, fileContents);
+                                  while (e1.MoveNext() && e2.MoveNext())
+                                  {
+                                      var item1 = e1.Current;
+                                      var item2 = e2.Current;
+                                      // use item1 and item2
+                                      attach.Add(item1, item2);
+                                  }
                               }
+
                           }
                           oWeb.AllowUnsafeUpdates = true;
                           item.Update();
@@ -152,7 +163,8 @@ namespace SCDR.AdminForms.AddNews
 
             }
         }
-        public void SaveToArabicNewsList(List<string> fileName, byte[] fileContents, int newsId)
+        //function for add items to Arabic CustomNewsGallery List
+        public void SaveToArabicNewsList(List<string> fileName, List<byte[]> fileContents, int newsId)
         {
             try
             {
@@ -173,10 +185,18 @@ namespace SCDR.AdminForms.AddNews
                           if (fileName.Count>0)
                           {
                               SPAttachmentCollection attachAr = itemAr.Attachments;
-                              foreach (string filename in fileName)
+                              using (var e1 = fileName.GetEnumerator())
+                              using (var e2 = fileContents.GetEnumerator())
                               {
-                                  attachAr.Add(filename, fileContents);
+                                  while (e1.MoveNext() && e2.MoveNext())
+                                  {
+                                      var item1 = e1.Current;
+                                      var item2 = e2.Current;
+                                      // use item1 and item2
+                                      attachAr.Add(item1, item2);
+                                  }
                               }
+                              
                           }
                           oWebAr.AllowUnsafeUpdates = true;
                           itemAr.Update();
@@ -190,6 +210,7 @@ namespace SCDR.AdminForms.AddNews
             { }
         }
 
+        //function for Update default image to Arabic CustomNewsGallery List
         public void UpdateDefaultThumbnailToEnglishNewsList()
         {
             try
@@ -217,7 +238,7 @@ namespace SCDR.AdminForms.AddNews
             }
 
         }
-
+        //function for Update default image to Arabic CustomNewsGallery List
         public void UpdateDefaultThumbnailToArabicNewsList()
         {
             try
@@ -305,7 +326,7 @@ namespace SCDR.AdminForms.AddNews
 
         }
 
-        //function for add items to list
+        //function for add items to arabic and English list on button click
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
              try
@@ -318,7 +339,7 @@ namespace SCDR.AdminForms.AddNews
 
                       byte[] fileContents = new byte[16 * 1024];
                       List<string> fileName=new List<string>();
-                      List<byte> fileContent = new List<byte>();
+                      List<byte[]> fileContent = new List<byte[]>();
                       int newsId = GetNewsId();
                       if (fuThumbnailImage.HasFile)
                       {
@@ -330,15 +351,15 @@ namespace SCDR.AdminForms.AddNews
                               fileContents = new byte[fs.Length];
                               fs.Read(fileContents, 0, (int)fs.Length);
                               fs.Close();
-                            //  fileContent.Add(fileContents);
+                              fileContent.Add(fileContents);
                               fileName.Add(Path.GetFileName(postedFile.FileName));
                               
                           }
                       }
                       if (rbBoth.Checked)
                       {
-                          SaveToEnglishNewsList(fileName, fileContents, newsId);
-                          SaveToArabicNewsList(fileName, fileContents, newsId);
+                          SaveToEnglishNewsList(fileName, fileContent, newsId);
+                          SaveToArabicNewsList(fileName, fileContent, newsId);
 
                           if (rbYes.Checked)
                           {
@@ -357,7 +378,7 @@ namespace SCDR.AdminForms.AddNews
                       }
                       else if(rbEnglish.Checked)
                       {
-                          SaveToEnglishNewsList(fileName, fileContents, newsId);
+                          SaveToEnglishNewsList(fileName, fileContent, newsId);
                           if (rbYes.Checked)
                           {
                               BindEnglishThumbnailImages();
@@ -374,7 +395,7 @@ namespace SCDR.AdminForms.AddNews
                       }
                       else if (rbArabic.Checked)
                       {
-                          SaveToArabicNewsList(fileName, fileContents, newsId);
+                          SaveToArabicNewsList(fileName, fileContent, newsId);
                           if (rbYes.Checked)
                           {
                               BindArabicThumbnailImages();
@@ -404,7 +425,7 @@ namespace SCDR.AdminForms.AddNews
 
         }
 
-        //function for update list item (Thumbnail Url)
+        //function for update list item (Thumbnail Url) on button click
         protected void btnSaveThumbnail_Click(object sender, EventArgs e)
         {
             try

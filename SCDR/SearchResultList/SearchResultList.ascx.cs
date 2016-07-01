@@ -20,6 +20,9 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Globalization;
+using Microsoft.Office.Server.Search.Query;
+using Microsoft.Office.Server.Search.Administration;
+using System.Linq;
 
 namespace SCDR.SearchResultList
 {
@@ -98,6 +101,7 @@ namespace SCDR.SearchResultList
                             SPList oImageList = oWeb.Lists[ImageListName];
                             SPListItemCollection oImageItems = oImageList.GetItems();
                             DataTable dtImageGallery = MatchingImageGallery(oImageItems, searchKeyword, SiteUrl);
+                            DataTable dtSitePages = MatchingSitePages(searchKeyword);
                             if (dtNews != null && dtImageGallery != null)
                             {
                                 //merging first data table into second data table  
@@ -218,7 +222,52 @@ namespace SCDR.SearchResultList
                 return null;
             }
         }
-      
+
+
+        private DataTable MatchingSitePages(string searchKeyword)
+        {
+            try
+            {
+                DataTable dataTable = new DataTable();
+                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                {
+                    using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                    {
+                        KeywordQuery keywordQuery = new KeywordQuery(oWeb);
+                        keywordQuery.QueryText = searchKeyword.Trim();
+                        keywordQuery.ResultsProvider = SearchProvider.Default;
+                        keywordQuery.KeywordInclusion = KeywordInclusion.AllKeywords;
+
+                        SearchExecutor searchExecutor = new SearchExecutor();
+                        ResultTableCollection resultTableCollection = searchExecutor.ExecuteQuery(keywordQuery);
+                        var resultTable = resultTableCollection.Filter("TableType", KnownTableTypes.RelevantResults);
+                        var result = resultTable.FirstOrDefault();
+                        dataTable = result.Table;
+                    }
+                    if(dataTable.Rows.Count>0)
+                    {
+                        return dataTable;
+                    }
+                    else
+                    {
+                        return null;
+                    }
+                }
+
+
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+          
+        
+
+
+
         // Function to extract matching sentence from description
         public string ExtractSentence(string searchKeyword, string text)
         {

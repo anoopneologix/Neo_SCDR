@@ -229,7 +229,7 @@ namespace SCDR.CalendarControl
                             }
                             else
                             {
-                              
+                                ScriptManager.RegisterStartupScript(Page, Page.GetType(), "close", "$('#" + Panel1.ClientID + "').modal('hide');", true);
                                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "displayalertmessage", "Showalert();", true);
                             }
                         }
@@ -427,6 +427,19 @@ namespace SCDR.CalendarControl
 
                 }
             
+        }
+
+        protected void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                BindCalenderWithEventDetails();
+
+            }
+            catch
+            {
+
+            }
         }
 
       

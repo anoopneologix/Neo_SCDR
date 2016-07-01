@@ -40,7 +40,7 @@
                 <asp:AsyncPostBackTrigger ControlID="btnTodayEvents" EventName="Click"  />
              <asp:AsyncPostBackTrigger ControlID="btnSelectedDate" EventName="Click"  />
                  <asp:AsyncPostBackTrigger ControlID="btnSearchEvent" EventName="Click"  />
-         
+        
            </Triggers>
              <ContentTemplate>
                 
@@ -53,6 +53,7 @@
            <div class="col-md-12">
               <div class="event-search-wrapper">
             <div class="search-event-title">ابحث عن حدث</div>
+                <!--   <asp:Button  ID="btnClear" CssClass="btn btn-info"   class="event-search" runat="server" Text="clear" OnClick="btnClear_Click"  /> -->
             <div class="search-event-form">
                  <asp:TextBox ID="txtSearch" placeholder="ابحث هنا"  CssClass="form-control" runat="server"></asp:TextBox>    
 <asp:RequiredFieldValidator ID="rq1" ClientIDMode="Static" runat="server" ErrorMessage="مطلوب هذه البيانات" ControlToValidate="txtSearch" ValidationGroup="chk"></asp:RequiredFieldValidator>

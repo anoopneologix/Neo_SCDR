@@ -57,11 +57,19 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExp1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtNewsdate;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtNewsLocation;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -77,11 +85,19 @@ namespace SCDR.AdminForms.AddNews {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtNewsDateAr;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtNewsLocationAr;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -200,6 +216,24 @@ namespace SCDR.AdminForms.AddNews {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegExp1() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegExp1 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegExp1";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtNewsHeading";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.TextBox @__BuildControltxtNewsdate() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
@@ -222,6 +256,24 @@ namespace SCDR.AdminForms.AddNews {
             @__ctrl.ID = "txtNewsLocation";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator2() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator2 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator2";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtNewsLocation";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
             return @__ctrl;
         }
         
@@ -270,6 +322,24 @@ namespace SCDR.AdminForms.AddNews {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator3() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator3 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator3";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationExpression = "^[-_0-9\\u0600-\\u06FF\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtNewsHeadingAr";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.TextBox @__BuildControltxtNewsDateAr() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
@@ -294,6 +364,24 @@ namespace SCDR.AdminForms.AddNews {
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator4() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator4 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator4";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationExpression = "^[-_0-9\\u0600-\\u06FF\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtNewsLocationAr";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
             return @__ctrl;
         }
         
@@ -561,31 +649,39 @@ namespace SCDR.AdminForms.AddNews {
         <div class=""form-horizontal"">
   <div class=""form-group"">
     <label  class=""col-sm-3 control-label"">Heading : </label>
-    <div class=""col-sm-9"">
+    <div class=""col-sm-6"">
       "));
             global::System.Web.UI.WebControls.TextBox @__ctrl4;
             @__ctrl4 = this.@__BuildControltxtNewsHeading();
             @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 con" +
-                        "trol-label\">Date : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl5;
-            @__ctrl5 = this.@__BuildControltxtNewsdate();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl5;
+            @__ctrl5 = this.@__BuildControlRegExp1();
             @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
-                        "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control" +
+                        "-label\">Date : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl6;
-            @__ctrl6 = this.@__BuildControltxtNewsLocation();
+            @__ctrl6 = this.@__BuildControltxtNewsdate();
             @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
-                        "ontrol-label\">Description : </label>\r\n    <div class=\"col-sm-9\" id=\"divNewsDescr" +
-                        "iption\">\r\n      "));
+                        "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl7;
-            @__ctrl7 = this.@__BuildControltxtNewsDescription();
+            @__ctrl7 = this.@__BuildControltxtNewsLocation();
             @__parser.AddParsedSubObject(@__ctrl7);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n            "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl8;
-            @__ctrl8 = this.@__BuildControlhfNewsDescription();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n        <div class=\"col-sm-3\">\r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl8;
+            @__ctrl8 = this.@__BuildControlRegularExpressionValidator2();
             @__parser.AddParsedSubObject(@__ctrl8);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n        </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"co" +
+                        "l-sm-3 control-label\">Description : </label>\r\n    <div class=\"col-sm-9\" id=\"divN" +
+                        "ewsDescription\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl9;
+            @__ctrl9 = this.@__BuildControltxtNewsDescription();
+            @__parser.AddParsedSubObject(@__ctrl9);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n            "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl10;
+            @__ctrl10 = this.@__BuildControlhfNewsDescription();
+            @__parser.AddParsedSubObject(@__ctrl10);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 </div>
         <!-- Form Ends -->
@@ -595,62 +691,70 @@ namespace SCDR.AdminForms.AddNews {
         <div class=""form-horizontal"">
   <div class=""form-group"">
     <label  class=""col-sm-3 control-label"">Heading : </label>
-    <div class=""col-sm-9"">
+    <div class=""col-sm-6"">
       "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl9;
-            @__ctrl9 = this.@__BuildControltxtNewsHeadingAr();
-            @__parser.AddParsedSubObject(@__ctrl9);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 con" +
-                        "trol-label\">Date : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl10;
-            @__ctrl10 = this.@__BuildControltxtNewsDateAr();
-            @__parser.AddParsedSubObject(@__ctrl10);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
-                        "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-9\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl11;
-            @__ctrl11 = this.@__BuildControltxtNewsLocationAr();
+            @__ctrl11 = this.@__BuildControltxtNewsHeadingAr();
             @__parser.AddParsedSubObject(@__ctrl11);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
-                        "ontrol-label\">Description : </label>\r\n    <div class=\"col-sm-9\" id=\"divNewsDescr" +
-                        "iptionAr\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl12;
-            @__ctrl12 = this.@__BuildControltxtNewsDescriptionAr();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n       <div class=\"col-sm-3\">\r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl12;
+            @__ctrl12 = this.@__BuildControlRegularExpressionValidator3();
             @__parser.AddParsedSubObject(@__ctrl12);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n      "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl13;
-            @__ctrl13 = this.@__BuildControlhfNewsDescriptionAr();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n        </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <label  class=\"col-" +
+                        "sm-3 control-label\">Date : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl13;
+            @__ctrl13 = this.@__BuildControltxtNewsDateAr();
             @__parser.AddParsedSubObject(@__ctrl13);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 c" +
+                        "ontrol-label\">Location : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl14;
+            @__ctrl14 = this.@__BuildControltxtNewsLocationAr();
+            @__parser.AddParsedSubObject(@__ctrl14);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n          <div class=\"col-sm-3\">\r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl15;
+            @__ctrl15 = this.@__BuildControlRegularExpressionValidator4();
+            @__parser.AddParsedSubObject(@__ctrl15);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n        </div>\r\n      \r\n  </div>\r\n    <div class=\"form-group\">\r\n    <label  c" +
+                        "lass=\"col-sm-3 control-label\">Description : </label>\r\n    <div class=\"col-sm-9\" " +
+                        "id=\"divNewsDescriptionAr\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl16;
+            @__ctrl16 = this.@__BuildControltxtNewsDescriptionAr();
+            @__parser.AddParsedSubObject(@__ctrl16);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n  </div>\r\n      "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl17;
+            @__ctrl17 = this.@__BuildControlhfNewsDescriptionAr();
+            @__parser.AddParsedSubObject(@__ctrl17);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n</div>\r\n        <!-- Form Ends -->\r\n    </div> \r\n    </div>\r\n    <div class" +
                         "=\"form-horizontal\">\r\n      <div class=\"form-group\">\r\n       <label  class=\"col-s" +
                         "m-3 control-label\">Is there Images to upload : </label>\r\n    <div class=\"col-sm-" +
                         "9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl14;
-            @__ctrl14 = this.@__BuildControlrbYes();
-            @__parser.AddParsedSubObject(@__ctrl14);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl18;
+            @__ctrl18 = this.@__BuildControlrbYes();
+            @__parser.AddParsedSubObject(@__ctrl18);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl15;
-            @__ctrl15 = this.@__BuildControlrbNo();
-            @__parser.AddParsedSubObject(@__ctrl15);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl19;
+            @__ctrl19 = this.@__BuildControlrbNo();
+            @__parser.AddParsedSubObject(@__ctrl19);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\" id=\"uploadImages\">\r\n       <label" +
                         "  class=\"col-sm-3 control-label\">Upload News Images : </label>\r\n    <div class=\"" +
                         "col-sm-6\">\r\n        "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl16;
-            @__ctrl16 = this.@__BuildControlfuThumbnailImage();
-            @__parser.AddParsedSubObject(@__ctrl16);
+            global::System.Web.UI.WebControls.FileUpload @__ctrl20;
+            @__ctrl20 = this.@__BuildControlfuThumbnailImage();
+            @__parser.AddParsedSubObject(@__ctrl20);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n     <div class=\"col-sm-3\">\r\n                          <span style=" +
                         "\"color:red\" id=\"lblImageError\"></span>\r\n         \r\n      "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl17;
-            @__ctrl17 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl17);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl21;
+            @__ctrl21 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl21);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                       </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div c" +
                         "lass=\"col-sm-offset-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl18;
-            @__ctrl18 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl18);
+            global::System.Web.UI.WebControls.Button @__ctrl22;
+            @__ctrl22 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl22);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl19;
-            @__ctrl19 = this.@__BuildControllblUrl();
-            @__parser.AddParsedSubObject(@__ctrl19);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl23;
+            @__ctrl23 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl23);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
       
             </div>
@@ -666,22 +770,22 @@ namespace SCDR.AdminForms.AddNews {
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl20;
-            @__ctrl20 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl20);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl24;
+            @__ctrl24 = this.@__BuildControlhfListItemId();
+            @__parser.AddParsedSubObject(@__ctrl24);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl21;
-            @__ctrl21 = this.@__BuildControlhfListItemIdAr();
-            @__parser.AddParsedSubObject(@__ctrl21);
+            global::System.Web.UI.WebControls.HiddenField @__ctrl25;
+            @__ctrl25 = this.@__BuildControlhfListItemIdAr();
+            @__parser.AddParsedSubObject(@__ctrl25);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n     \r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl22;
-            @__ctrl22 = this.@__BuildControlrepThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl22);
+            global::System.Web.UI.WebControls.Repeater @__ctrl26;
+            @__ctrl26 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl26);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  \r\n       \r\n        \r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n" +
                         "        \r\n      \r\n          "));
-            global::System.Web.UI.WebControls.Button @__ctrl23;
-            @__ctrl23 = this.@__BuildControlbtnSaveThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl23);
+            global::System.Web.UI.WebControls.Button @__ctrl27;
+            @__ctrl27 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl27);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n\r\n    <!-- datetime picker script" +
                         "-->\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/bootstrap-dat" +
                         "epicker.min.js\" ></script>\r\n\r\n <script type=\"text/javascript\">\r\n                " +
@@ -741,152 +845,148 @@ namespace SCDR.AdminForms.AddNews {
                         "l() != null && txtLocationAr.val() != \'\'\r\n                 && txtDescription.val" +
                         "() != null && txtDescription.val() != \'\'\r\n                 && txtDescriptionAr.v" +
                         "al() != null && txtDescriptionAr.val() != \'\'\r\n                 && fileLength > 0" +
-                        ") {\r\n                    var x = validateFormat(event);\r\n                    if(" +
-                        "x==true)\r\n                    {\r\n                        return true;\r\n         " +
-                        "           }\r\n                    else\r\n                    {\r\n                 " +
-                        "       return false;\r\n                    }\r\n                 \r\n                " +
-                        "}\r\n                else {\r\n                    return confirm(\"You are about to " +
-                        "submit the news without contents on both language. Do you want to continue?\");\r\n" +
-                        "                  \r\n\r\n                }\r\n            }\r\n            else\r\n      " +
-                        "      {\r\n                alert(\"All fields are mandatory\");\r\n                ret" +
-                        "urn false;\r\n                event.preventDefault();\r\n            }\r\n\r\n          " +
-                        "  if (rbImageName == \"rbNo\") {\r\n                if (txtHead.val() != null && txt" +
-                        "Head.val() != \'\'\r\n                 && txtHeadAr.val() != null && txtHeadAr.val()" +
-                        " != \'\'\r\n                 && txtDate.val() != null && txtDate.val() != \'\'\r\n      " +
-                        "           && txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n                " +
-                        " && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                 && tx" +
-                        "tLocationAr.val() != null && txtLocationAr.val() != \'\'\r\n                 && txtD" +
-                        "escription.val() != null && txtDescription.val() != \'\'\r\n                 && txtD" +
-                        "escriptionAr.val() != null && txtDescriptionAr.val() != \'\')\r\n                 {\r" +
-                        "\n                    return true;\r\n                }\r\n                else {\r\n  " +
-                        "                  return confirm(\"You are about to submit the news without conte" +
-                        "nts on both language. Do you want to continue?\");\r\n\r\n\r\n                }\r\n      " +
-                        "      }\r\n            else {\r\n                alert(\"All fields are mandatory\");\r" +
-                        "\n                return false;\r\n                event.preventDefault();\r\n       " +
-                        "     }\r\n       \r\n            \r\n\r\n            }\r\n              \r\n        \r\n      " +
-                        "  else if (rbName == \"rbEnglish\")\r\n        {\r\n            if (rbImageName == \"rb" +
-                        "Yes\") {\r\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n     " +
-                        "               && txtDate.val() != null && txtDate.val() != \'\'\r\n                " +
-                        "    && txtLocation.val() != null && txtLocation.val() != \'\'\r\n                   " +
-                        " && txtDescription.val() != null && txtDescription.val() != \'\'\r\n                " +
-                        "    && fileLength > 0) {\r\n                    var x = validateFormat(event);\r\n  " +
-                        "                  if (x == true) {\r\n                        return true;\r\n      " +
-                        "              }\r\n                    else {\r\n                        return fals" +
-                        "e;\r\n                    }\r\n\r\n                }\r\n                else {\r\n        " +
-                        "            alert(\"All fields are mandatory\");\r\n                    return false" +
-                        ";\r\n                    event.preventDefault();\r\n                }\r\n            }" +
-                        "\r\n            if (rbImageName == \"rbNo\") {\r\n                if (txtHead.val() !=" +
-                        " null && txtHead.val() != \'\'\r\n                    && txtDate.val() != null && tx" +
-                        "tDate.val() != \'\'\r\n                    && txtLocation.val() != null && txtLocati" +
-                        "on.val() != \'\'\r\n                    && txtDescription.val() != null && txtDescri" +
-                        "ption.val() != \'\') {\r\n                    return true;\r\n\r\n                }\r\n   " +
-                        "             else {\r\n                    alert(\"All fields are mandatory\");\r\n   " +
-                        "                 return false;\r\n                    event.preventDefault();\r\n   " +
-                        "             }\r\n            }\r\n\r\n        }\r\n        else if (rbName == \"rbArabic" +
-                        "\") {\r\n            if (rbImageName == \"rbYes\") {\r\n                if (txtHead.val" +
-                        "() != null && txtHead.val() != \'\'\r\n                    && txtDate.val() != null " +
-                        "&& txtDate.val() != \'\'\r\n                    && txtLocation.val() != null && txtL" +
-                        "ocation.val() != \'\'\r\n                    && txtDescription.val() != null && txtD" +
-                        "escription.val() != \'\'\r\n                    && fileLength > 0) {\r\n              " +
-                        "      var x = validateFormat(event);\r\n                    if (x == true) {\r\n    " +
-                        "                    return true;\r\n                    }\r\n                    els" +
-                        "e {\r\n                        return false;\r\n                    }\r\n\r\n           " +
+                        ") {\r\n                    var x = validateFormat(event);\r\n                    if " +
+                        "(x == true) {\r\n                        return true;\r\n                    }\r\n    " +
+                        "                else {\r\n                        return false;\r\n                 " +
+                        "   }\r\n\r\n                }\r\n                else {\r\n                    alert(\"Al" +
+                        "l fields are mandatory\");\r\n                    return false;\r\n                  " +
+                        "  event.preventDefault();\r\n                }\r\n            }\r\n            \r\n     " +
+                        "       \r\n           \r\n\r\n            if (rbImageName == \"rbNo\") {\r\n              " +
+                        "  if (txtHead.val() != null && txtHead.val() != \'\'\r\n                 && txtHeadA" +
+                        "r.val() != null && txtHeadAr.val() != \'\'\r\n                 && txtDate.val() != n" +
+                        "ull && txtDate.val() != \'\'\r\n                 && txtDateAr.val() != null && txtDa" +
+                        "teAr.val() != \'\'\r\n                 && txtLocation.val() != null && txtLocation.v" +
+                        "al() != \'\'\r\n                 && txtLocationAr.val() != null && txtLocationAr.val" +
+                        "() != \'\'\r\n                 && txtDescription.val() != null && txtDescription.val" +
+                        "() != \'\'\r\n                 && txtDescriptionAr.val() != null && txtDescriptionAr" +
+                        ".val() != \'\')\r\n                 {\r\n                    return true;\r\n           " +
                         "     }\r\n                else {\r\n                    alert(\"All fields are mandat" +
                         "ory\");\r\n                    return false;\r\n                    event.preventDefa" +
-                        "ult();\r\n                }\r\n            }\r\n            if (rbImageName == \"rbNo\")" +
-                        " {\r\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n          " +
-                        "          && txtDate.val() != null && txtDate.val() != \'\'\r\n                    &" +
-                        "& txtLocation.val() != null && txtLocation.val() != \'\'\r\n                    && t" +
-                        "xtDescription.val() != null && txtDescription.val() != \'\') {\r\n                  " +
-                        "  return true;\r\n\r\n                }\r\n                else {\r\n                   " +
-                        " alert(\"All fields are mandatory\");\r\n                    return false;\r\n        " +
-                        "            event.preventDefault();\r\n                }\r\n            }\r\n\r\n       " +
-                        " }\r\n         \r\n        }\r\n  \r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n " +
-                        "   $(document).ready(function () {\r\n        $(\'#lblImageError\').hide();\r\n       " +
-                        " $(\"input[name$=fuThumbnailImage]\").change(function () {\r\n            $(\'#lblIma" +
-                        "geError\').hide();\r\n        });\r\n\r\n\r\n    });\r\n</script>\r\n\r\n<!--fileupload Script-" +
-                        "->\r\n<script type=\"text/javascript\">\r\n    function validateFormat(event) {\r\n     " +
-                        "   if (Page_ClientValidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n     " +
-                        "       $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"input[name$=fuThu" +
-                        "mbnailImage]\").get(0).files.length;\r\n            if (ext > 0) {\r\n               " +
-                        " var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n             " +
-                        "       names.push($(\"input[name$=fuThumbnailImage]\").get(0).files[i].name);\r\n   " +
-                        "             }\r\n                var x = 0;\r\n                for (i = 0; i < name" +
-                        "s.length; i++) {\r\n                    var str = names[i];\r\n                    /" +
-                        "/  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.t" +
-                        "est(str) == false) {\r\n\r\n                        x = 1;\r\n                    }\r\n " +
-                        "                   if (x == 1) {\r\n                        $(\'#lblImageError\').sh" +
-                        "ow();\r\n                        $(\'#lblImageError\').text(\'Special characters exce" +
-                        "pt - and _ are not allowed in filename. Please select a valid image file of type" +
-                        " .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n                " +
-                        "        return false;\r\n                        break;\r\n                        e" +
-                        "vent.preventDefault();\r\n                    }\r\n\r\n                }\r\n            " +
-                        "    if (x == 0) {\r\n\r\n                    var ext = [];\r\n                    for " +
-                        "(i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names[i].su" +
-                        "bstr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n      " +
-                        "              var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];" +
-                        "\r\n\r\n                    var i, j, result = [];\r\n                    for (i = 0; " +
-                        "i < valid_filetype.length; i++) {\r\n                        for (j = 0; j < ext.l" +
-                        "ength; j++) {\r\n                            if (ext[j].indexOf(valid_filetype[i])" +
-                        " != -1) {\r\n                                result.push(ext[j]);\r\n               " +
-                        "             }\r\n                        }\r\n                    }\r\n\r\n            " +
-                        "        if (result.length < ext.length) {\r\n                        //   break;\r\n" +
-                        "                        $(\'#lblImageError\').show();\r\n                        $(\'" +
-                        "#lblImageError\').text(\'Invalid File Found. Please select a valid image file of t" +
-                        "ype .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n             " +
-                        "           return false;\r\n                        event.preventDefault();\r\n     " +
-                        "               }\r\n                    else\r\n                    {\r\n             " +
-                        "           return true;\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n     " +
-                        "       } else {\r\n                return false;\r\n                event.preventDef" +
-                        "ault();\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n<script>\r\n    $(docum" +
-                        "ent).ready(function () {\r\n/* language selection for panel update */\r\n        fun" +
-                        "ction ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").removeClass(\'active" +
-                        "\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n            $(\"#panelEn\").f" +
-                        "ind(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\')." +
-                        "removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeClass(\'dis" +
-                        "abled\');\n            $(\"#panelAr\").addClass(\'active\');\n            $(\"#panelAr\")" +
-                        ".find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').remo" +
-                        "veAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"ari" +
-                        "a-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active in\');\r\n        " +
-                        "    $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        function English" +
-                        "Language() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"#" +
-                        "panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'a\').removeAttr(\"" +
-                        "data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').removeAttr(\"aria-expa" +
-                        "nded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"fals" +
-                        "e\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n            $(\"#panelEn" +
-                        "\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"" +
-                        "tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\")" +
-                        ";\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n         " +
-                        "   $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'a" +
-                        "ctive in\');\r\n        }\r\n        function BothLanguage() {\r\n            $(\"#panel" +
-                        "En\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n   " +
-                        "         $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#pa" +
-                        "nelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelEn" +
-                        "\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeCla" +
-                        "ss(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\');\n            $(" +
-                        "\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").fin" +
-                        "d(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\')" +
-                        ".attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addClass(\'active in\'" +
-                        ");\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        var r" +
-                        "bName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n        if (rb" +
-                        "Name == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n        else if (rb" +
-                        "Name == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage();\r\n        }\r\n" +
-                        "        else if (rbName == \"rbArabic\") {\r\n            ArabicLanguage();\r\n       " +
-                        " }\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r\n            if ($" +
-                        "(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLanguage();\r\n\r\n        " +
-                        "    } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n                ArabicLanguag" +
-                        "e();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\").is(\":checked\")) {\r\n    " +
-                        "            BothLanguage();\r\n            }\r\n        });\r\n        /* language sel" +
-                        "ection for panel update */\r\n        /* Image upload selection for file upload co" +
-                        "ntrol update */\r\n        var rbImageName = $(\"input[type=radio][name$=grpImage]:" +
-                        "checked\").val();\r\n        if (rbImageName == \"rbYes\") {\r\n            $(\'#uploadI" +
-                        "mages\').show();\r\n        }\r\n        else if (rbImageName == \"rbNo\") {\r\n\r\n       " +
-                        "     $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"input[name$=grpImage]\").c" +
-                        "lick(function () {\r\n            if ($(\"#rbYes\").is(\":checked\")) {\r\n             " +
-                        "   $(\'#uploadImages\').show();\r\n\r\n            } else if ($(\"#rbNo\").is(\":checked\"" +
-                        ")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n            }\r\n          \r" +
-                        "\n        });\r\n      \r\n        /* Image upload selection for file upload control " +
-                        "update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
+                        "ult();\r\n\r\n                }\r\n            }\r\n           \r\n       \r\n            \r\n" +
+                        "\r\n            }\r\n              \r\n        \r\n        else if (rbName == \"rbEnglish" +
+                        "\")\r\n        {\r\n            if (rbImageName == \"rbYes\") {\r\n                if (tx" +
+                        "tHead.val() != null && txtHead.val() != \'\'\r\n                    && txtDate.val()" +
+                        " != null && txtDate.val() != \'\'\r\n                    && txtLocation.val() != nul" +
+                        "l && txtLocation.val() != \'\'\r\n                    && txtDescription.val() != nul" +
+                        "l && txtDescription.val() != \'\'\r\n                    && fileLength > 0) {\r\n     " +
+                        "               var x = validateFormat(event);\r\n                    if (x == true" +
+                        ") {\r\n                        return true;\r\n                    }\r\n              " +
+                        "      else {\r\n                        return false;\r\n                    }\r\n\r\n  " +
+                        "              }\r\n                else {\r\n                    alert(\"All fields a" +
+                        "re mandatory\");\r\n                    return false;\r\n                    event.pr" +
+                        "eventDefault();\r\n                }\r\n            }\r\n            if (rbImageName =" +
+                        "= \"rbNo\") {\r\n                if (txtHead.val() != null && txtHead.val() != \'\'\r\n " +
+                        "                   && txtDate.val() != null && txtDate.val() != \'\'\r\n            " +
+                        "        && txtLocation.val() != null && txtLocation.val() != \'\'\r\n               " +
+                        "     && txtDescription.val() != null && txtDescription.val() != \'\') {\r\n         " +
+                        "           return true;\r\n\r\n                }\r\n                else {\r\n          " +
+                        "          alert(\"All fields are mandatory\");\r\n                    return false;\r" +
+                        "\n                    event.preventDefault();\r\n                }\r\n            }\r\n" +
+                        "\r\n        }\r\n        else if (rbName == \"rbArabic\") {\r\n            if (rbImageNa" +
+                        "me == \"rbYes\") {\r\n                if (txtHeadAr.val() != null && txtHeadAr.val()" +
+                        " != \'\'\r\n                    && txtDateAr.val() != null && txtDateAr.val() != \'\'\r" +
+                        "\n                    && txtLocationAr.val() != null && txtLocationAr.val() != \'\'" +
+                        "\r\n                    && txtDescriptionAr.val() != null && txtDescriptionAr.val(" +
+                        ") != \'\'\r\n                    && fileLength > 0) {\r\n                    var x = v" +
+                        "alidateFormat(event);\r\n                    if (x == true) {\r\n                   " +
+                        "     return true;\r\n                    }\r\n                    else {\r\n          " +
+                        "              return false;\r\n                    }\r\n\r\n                }\r\n       " +
+                        "         else {\r\n                    alert(\"All fields are mandatory\");\r\n       " +
+                        "             return false;\r\n                    event.preventDefault();\r\n       " +
+                        "         }\r\n            }\r\n            if (rbImageName == \"rbNo\") {\r\n           " +
+                        "     if (txtHeadAr.val() != null && txtHeadAr.val() != \'\'\r\n                    &" +
+                        "& txtDateAr.val() != null && txtDateAr.val() != \'\'\r\n                    && txtLo" +
+                        "cationAr.val() != null && txtLocationAr.val() != \'\'\r\n                    && txtD" +
+                        "escriptionAr.val() != null && txtDescriptionAr.val() != \'\') {\r\n                 " +
+                        "   return true;\r\n\r\n                }\r\n                else {\r\n                  " +
+                        "  alert(\"All fields are mandatory\");\r\n                    return false;\r\n       " +
+                        "             event.preventDefault();\r\n                }\r\n            }\r\n\r\n      " +
+                        "  }\r\n         \r\n        }\r\n  \r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n" +
+                        "    $(document).ready(function () {\r\n        $(\'#lblImageError\').hide();\r\n      " +
+                        "  $(\"input[name$=fuThumbnailImage]\").change(function () {\r\n            $(\'#lblIm" +
+                        "ageError\').hide();\r\n        });\r\n\r\n\r\n    });\r\n</script>\r\n\r\n<!--fileupload Script" +
+                        "-->\r\n<script type=\"text/javascript\">\r\n    function validateFormat(event) {\r\n    " +
+                        "    if (Page_ClientValidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n    " +
+                        "        $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"input[name$=fuTh" +
+                        "umbnailImage]\").get(0).files.length;\r\n            if (ext > 0) {\r\n              " +
+                        "  var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n            " +
+                        "        names.push($(\"input[name$=fuThumbnailImage]\").get(0).files[i].name);\r\n  " +
+                        "              }\r\n                var x = 0;\r\n                for (i = 0; i < nam" +
+                        "es.length; i++) {\r\n                    var str = names[i];\r\n                    " +
+                        "//  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/." +
+                        "test(str) == false) {\r\n\r\n                        x = 1;\r\n                    }\r\n" +
+                        "                    if (x == 1) {\r\n                        $(\'#lblImageError\').s" +
+                        "how();\r\n                        $(\'#lblImageError\').text(\'Special characters exc" +
+                        "ept - and _ are not allowed in filename. Please select a valid image file of typ" +
+                        "e .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n               " +
+                        "         return false;\r\n                        break;\r\n                        " +
+                        "event.preventDefault();\r\n                    }\r\n\r\n                }\r\n           " +
+                        "     if (x == 0) {\r\n\r\n                    var ext = [];\r\n                    for" +
+                        " (i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names[i].s" +
+                        "ubstr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n     " +
+                        "               var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"]" +
+                        ";\r\n\r\n                    var i, j, result = [];\r\n                    for (i = 0;" +
+                        " i < valid_filetype.length; i++) {\r\n                        for (j = 0; j < ext." +
+                        "length; j++) {\r\n                            if (ext[j].indexOf(valid_filetype[i]" +
+                        ") != -1) {\r\n                                result.push(ext[j]);\r\n              " +
+                        "              }\r\n                        }\r\n                    }\r\n\r\n           " +
+                        "         if (result.length < ext.length) {\r\n                        //   break;\r" +
+                        "\n                        $(\'#lblImageError\').show();\r\n                        $(" +
+                        "\'#lblImageError\').text(\'Invalid File Found. Please select a valid image file of " +
+                        "type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n            " +
+                        "            return false;\r\n                        event.preventDefault();\r\n    " +
+                        "                }\r\n                    else\r\n                    {\r\n            " +
+                        "            return true;\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n    " +
+                        "        } else {\r\n                return false;\r\n                event.preventDe" +
+                        "fault();\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n<script>\r\n    $(docu" +
+                        "ment).ready(function () {\r\n/* language selection for panel update */\r\n        fu" +
+                        "nction ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").removeClass(\'activ" +
+                        "e\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n            $(\"#panelEn\")." +
+                        "find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\')" +
+                        ".removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeClass(\'di" +
+                        "sabled\');\n            $(\"#panelAr\").addClass(\'active\');\n            $(\"#panelAr\"" +
+                        ").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').rem" +
+                        "oveAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"ar" +
+                        "ia-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active in\');\r\n       " +
+                        "     $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        function Englis" +
+                        "hLanguage() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"" +
+                        "#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'a\').removeAttr(" +
+                        "\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').removeAttr(\"aria-exp" +
+                        "anded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"fal" +
+                        "se\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n            $(\"#panelE" +
+                        "n\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", " +
+                        "\"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\"" +
+                        ");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n        " +
+                        "    $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'" +
+                        "active in\');\r\n        }\r\n        function BothLanguage() {\r\n            $(\"#pane" +
+                        "lEn\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n  " +
+                        "          $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#p" +
+                        "anelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelE" +
+                        "n\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeCl" +
+                        "ass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\');\n            $" +
+                        "(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").fi" +
+                        "nd(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\'" +
+                        ").attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addClass(\'active in" +
+                        "\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        var " +
+                        "rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n        if (r" +
+                        "bName == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n        else if (r" +
+                        "bName == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage();\r\n        }\r" +
+                        "\n        else if (rbName == \"rbArabic\") {\r\n            ArabicLanguage();\r\n      " +
+                        "  }\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r\n            if (" +
+                        "$(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLanguage();\r\n\r\n       " +
+                        "     } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n                ArabicLangua" +
+                        "ge();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\").is(\":checked\")) {\r\n   " +
+                        "             BothLanguage();\r\n            }\r\n        });\r\n        /* language se" +
+                        "lection for panel update */\r\n        /* Image upload selection for file upload c" +
+                        "ontrol update */\r\n        var rbImageName = $(\"input[type=radio][name$=grpImage]" +
+                        ":checked\").val();\r\n        if (rbImageName == \"rbYes\") {\r\n            $(\'#upload" +
+                        "Images\').show();\r\n        }\r\n        else if (rbImageName == \"rbNo\") {\r\n\r\n      " +
+                        "      $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"input[name$=grpImage]\")." +
+                        "click(function () {\r\n            if ($(\"#rbYes\").is(\":checked\")) {\r\n            " +
+                        "    $(\'#uploadImages\').show();\r\n\r\n            } else if ($(\"#rbNo\").is(\":checked" +
+                        "\")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n            }\r\n          " +
+                        "\r\n        });\r\n      \r\n        /* Image upload selection for file upload control" +
+                        " update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

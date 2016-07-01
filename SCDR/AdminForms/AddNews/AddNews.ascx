@@ -37,21 +37,26 @@
         <div class="form-horizontal">
   <div class="form-group">
     <label  class="col-sm-3 control-label">Heading : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsHeading" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
-  </div>
+  </div><div class="col-sm-3">
+      <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'., ]{0,250}$" ControlToValidate="txtNewsHeading" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator></div>
   </div>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Date : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsdate"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Location : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsLocation" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
+        <div class="col-sm-3">
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'., ]{0,250}$" ControlToValidate="txtNewsLocation" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+
+        </div>
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Description : </label>
@@ -68,21 +73,30 @@
         <div class="form-horizontal">
   <div class="form-group">
     <label  class="col-sm-3 control-label">Heading : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsHeadingAr" style="direction:rtl" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
+       <div class="col-sm-3">
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtNewsHeadingAr" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+
+        </div>
   </div>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Date : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsDateAr" style="direction:rtl"   ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Location : </label>
-    <div class="col-sm-9">
+    <div class="col-sm-6">
       <asp:TextBox ID="txtNewsLocationAr" style="direction:rtl"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
+          <div class="col-sm-3">
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtNewsLocationAr" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+
+        </div>
+      
   </div>
     <div class="form-group">
     <label  class="col-sm-3 control-label">Description : </label>
@@ -288,28 +302,23 @@
                  && txtDescriptionAr.val() != null && txtDescriptionAr.val() != ''
                  && fileLength > 0) {
                     var x = validateFormat(event);
-                    if(x==true)
-                    {
+                    if (x == true) {
                         return true;
                     }
-                    else
-                    {
+                    else {
                         return false;
                     }
-                 
-                }
-                else {
-                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
-                  
 
                 }
+                else {
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
+                }
             }
-            else
-            {
-                alert("All fields are mandatory");
-                return false;
-                event.preventDefault();
-            }
+            
+            
+           
 
             if (rbImageName == "rbNo") {
                 if (txtHead.val() != null && txtHead.val() != ''
@@ -324,16 +333,13 @@
                     return true;
                 }
                 else {
-                    return confirm("You are about to submit the news without contents on both language. Do you want to continue?");
-
+                    alert("All fields are mandatory");
+                    return false;
+                    event.preventDefault();
 
                 }
             }
-            else {
-                alert("All fields are mandatory");
-                return false;
-                event.preventDefault();
-            }
+           
        
             
 
@@ -381,10 +387,10 @@
         }
         else if (rbName == "rbArabic") {
             if (rbImageName == "rbYes") {
-                if (txtHead.val() != null && txtHead.val() != ''
-                    && txtDate.val() != null && txtDate.val() != ''
-                    && txtLocation.val() != null && txtLocation.val() != ''
-                    && txtDescription.val() != null && txtDescription.val() != ''
+                if (txtHeadAr.val() != null && txtHeadAr.val() != ''
+                    && txtDateAr.val() != null && txtDateAr.val() != ''
+                    && txtLocationAr.val() != null && txtLocationAr.val() != ''
+                    && txtDescriptionAr.val() != null && txtDescriptionAr.val() != ''
                     && fileLength > 0) {
                     var x = validateFormat(event);
                     if (x == true) {
@@ -402,10 +408,10 @@
                 }
             }
             if (rbImageName == "rbNo") {
-                if (txtHead.val() != null && txtHead.val() != ''
-                    && txtDate.val() != null && txtDate.val() != ''
-                    && txtLocation.val() != null && txtLocation.val() != ''
-                    && txtDescription.val() != null && txtDescription.val() != '') {
+                if (txtHeadAr.val() != null && txtHeadAr.val() != ''
+                    && txtDateAr.val() != null && txtDateAr.val() != ''
+                    && txtLocationAr.val() != null && txtLocationAr.val() != ''
+                    && txtDescriptionAr.val() != null && txtDescriptionAr.val() != '') {
                     return true;
 
                 }

@@ -69,6 +69,10 @@ namespace SCDR.CalendarControl {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.Button btnClear;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtSearch;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -242,6 +246,24 @@ namespace SCDR.CalendarControl {
             @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
             @__ctrl.ID = "UpdatePanel1";
             @__ctrl.UpdateMode = global::System.Web.UI.UpdatePanelUpdateMode.Always;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.Button @__BuildControlbtnClear() {
+            global::System.Web.UI.WebControls.Button @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.Button();
+            this.btnClear = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "btnClear";
+            @__ctrl.CssClass = "btn btn-info";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "event-search");
+            @__ctrl.Text = "clear";
+            @__ctrl.Click -= new System.EventHandler(this.btnClear_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnClear_Click);
             return @__ctrl;
         }
         
@@ -618,28 +640,31 @@ namespace SCDR.CalendarControl {
            <div class=""col-md-12"">
 <div class=""event-search-wrapper"">
             <div class=""search-event-title"">Search Events</div>
-            <div class=""search-event-form"">
-               "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl1;
-            @__ctrl1 = this.@__BuildControltxtSearch();
+  <!--   "));
+            global::System.Web.UI.WebControls.Button @__ctrl1;
+            @__ctrl1 = this.@__BuildControlbtnClear();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n   "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
-            @__ctrl2 = this.@__BuildControlrq1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("-->\r\n            <div class=\"search-event-form\">\r\n               "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl2;
+            @__ctrl2 = this.@__BuildControltxtSearch();
             @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n   "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl3;
+            @__ctrl3 = this.@__BuildControlrq1();
+            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
                  <div class=""row"" id=""date_pair"">
                     <div class=""col-xs-12 col-sm-6 mt10 event-start"">
                         <div class=""form-group"">
                             <label for=""startDate"">Start Date:</label>
                             "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl3;
-            @__ctrl3 = this.@__BuildControltxtStartDate();
-            @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl4;
-            @__ctrl4 = this.@__BuildControlrq2();
+            global::System.Web.UI.WebControls.TextBox @__ctrl4;
+            @__ctrl4 = this.@__BuildControltxtStartDate();
             @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
+            @__ctrl5 = this.@__BuildControlrq2();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
                         </div>
                     </div>
@@ -647,24 +672,24 @@ namespace SCDR.CalendarControl {
                         <div class=""form-group"">
                             <label for=""endDate"">End Date:</label>
                            "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl5;
-            @__ctrl5 = this.@__BuildControltxtEndDate();
-            @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl6;
-            @__ctrl6 = this.@__BuildControlrq3();
+            global::System.Web.UI.WebControls.TextBox @__ctrl6;
+            @__ctrl6 = this.@__BuildControltxtEndDate();
             @__parser.AddParsedSubObject(@__ctrl6);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl7;
+            @__ctrl7 = this.@__BuildControlrq3();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                            </div>\r\n                    </div>\r\n               " +
                         " </div>\r\n               "));
-            global::System.Web.UI.WebControls.Button @__ctrl7;
-            @__ctrl7 = this.@__BuildControlbtnSearchEvent();
-            @__parser.AddParsedSubObject(@__ctrl7);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n              </div>\r\n        </div>\r\n\r\n                   <!-- search div ends" +
-                        "-->\r\n               <!-- event list div begins-->\r\n                 <div class=\"" +
-                        "event-details-wrapper\">\r\n            "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl8;
-            @__ctrl8 = this.@__BuildControlrepEventDetails();
+            global::System.Web.UI.WebControls.Button @__ctrl8;
+            @__ctrl8 = this.@__BuildControlbtnSearchEvent();
             @__parser.AddParsedSubObject(@__ctrl8);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                 \r\n              </div>\r\n        </div>\r\n\r\n                   <" +
+                        "!-- search div ends-->\r\n               <!-- event list div begins-->\r\n          " +
+                        "       <div class=\"event-details-wrapper\">\r\n            "));
+            global::System.Web.UI.WebControls.Repeater @__ctrl9;
+            @__ctrl9 = this.@__BuildControlrepEventDetails();
+            @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      \r\n           \r\n        </div>\r\n            \r\n  </div>\r\n</div>\r\n      </di" +
                         "v>\r\n      <div class=\"modal-footer\">\r\n  \r\n       </div>\r\n    </div>\r\n           " +
                         "   "));

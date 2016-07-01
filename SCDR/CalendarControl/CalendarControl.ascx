@@ -41,7 +41,7 @@
                 <asp:AsyncPostBackTrigger ControlID="btnTodayEvents" EventName="Click"  />
              <asp:AsyncPostBackTrigger ControlID="btnSelectedDate" EventName="Click"  />
                  <asp:AsyncPostBackTrigger ControlID="btnSearchEvent" EventName="Click"  />
-         
+        
            </Triggers>
              <ContentTemplate>
                    <div class="modal-content">
@@ -55,6 +55,7 @@
            <div class="col-md-12">
 <div class="event-search-wrapper">
             <div class="search-event-title">Search Events</div>
+  <!--   <asp:Button  ID="btnClear" CssClass="btn btn-info"   class="event-search" runat="server" Text="clear" OnClick="btnClear_Click"  />-->
             <div class="search-event-form">
                <asp:TextBox ID="txtSearch" placeholder="Event"  CssClass="form-control" runat="server"></asp:TextBox>
    <asp:RequiredFieldValidator ID="rq1" ClientIDMode="Static" runat="server" ErrorMessage="Required Field" ControlToValidate="txtSearch" ValidationGroup="chk"></asp:RequiredFieldValidator>
@@ -75,6 +76,7 @@
                     </div>
                 </div>
                <asp:Button ValidationGroup="chk" ID="btnSearchEvent" CssClass="btn btn-info"   class="event-search" runat="server" Text="search" OnClick="btnSearchEvent_Click" />
+                 
               </div>
         </div>
 

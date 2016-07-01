@@ -37,27 +37,7 @@ namespace SCDR.SearchEn
                     Page.Response.Redirect(siteUrl+"/en/SitePages/SearchResult.aspx?kw=" + txtSearch.Text.Trim());
                 }
             }
-            /*   SPSecurity.RunWithElevatedPrivileges(delegate()
-              {
-                  DataTable dt = new DataTable();
-              using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
-                  {
-                      using (SPWeb oWeb = oSite.OpenWeb())
-                      {
-                          KeywordQuery keywordQuery = new KeywordQuery(oSite);
-                          keywordQuery.QueryText = txtSearch.Text.Trim();
-                          keywordQuery.ResultsProvider = SearchProvider.Default;
-                          keywordQuery.KeywordInclusion = KeywordInclusion.AllKeywords;
-
-                          SearchExecutor searchExecutor = new SearchExecutor();
-                          ResultTableCollection resultTableCollection = searchExecutor.ExecuteQuery(keywordQuery);
-                          var resultTable = resultTableCollection.Filter("TableType", KnownTableTypes.RelevantResults);
-                          var result = resultTable.FirstOrDefault();
-                          DataTable dataTable = result.Table;
-                      }
-                  }
-
-              });*/
+          
         }
     }
 }
