@@ -247,6 +247,7 @@ namespace SCDR.SearchResultList
                     if(dataTable.Rows.Count>0)
                     {
                         return dataTable;
+                        /**/
                     }
                     else
                     {
