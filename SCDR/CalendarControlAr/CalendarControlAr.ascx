@@ -601,3 +601,35 @@
 
      }
    </script>
+
+ <script type="text/javascript">
+
+     var app = Sys.Application; var origTitle = "";
+
+     app.add_init(SPCustomAppnInit);
+
+     function SPCustomAppnInit(sender) {
+
+         origTitle = document.title;
+
+         // grab the original title.
+
+         var prm = Sys.WebForms.PageRequestManager.getInstance(); if (!prm.get_isInAsyncPostBack()) {
+
+             prm.add_pageLoaded(SPCustomPageLoaded);
+
+             // wire up loaded handler.
+
+         }
+
+     }
+
+     function SPCustomPageLoaded(sender, args) {
+
+         // put the original title back on the document.
+
+         document.title = origTitle;
+
+     }
+
+</script>

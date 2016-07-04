@@ -64,6 +64,8 @@ namespace SCDR.SearchAr {
             @__ctrl.ID = "btnSearch";
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("<i class=\"fa fa-search\"></i>"));
+            @__ctrl.Click -= new System.EventHandler(this.btnSearch_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnSearch_Click);
             return @__ctrl;
         }
         

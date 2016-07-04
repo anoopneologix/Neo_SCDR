@@ -15,7 +15,7 @@ namespace SCDR.RatingandFeedbackAr
     [ToolboxItemAttribute(false)]
     public partial class RatingandFeedbackAr : WebPart
     {
-        string liveUser = string.Empty;
+       
         public RatingandFeedbackAr()
         {
         }
@@ -88,7 +88,7 @@ namespace SCDR.RatingandFeedbackAr
         {
             try
             {
-                //  divViewComments.Visible = true;
+               
                 divAddComments.Visible = false;
 
                 if (SPContext.Current.Web.CurrentUser != null)
@@ -97,6 +97,7 @@ namespace SCDR.RatingandFeedbackAr
                     {
                         using (SPWeb oWeb = oSite.OpenWeb("ar/"))
                         {
+                            string liveUser = string.Empty;
                             SPList oList = oWeb.Lists[ListName];
                             SPListItemCollection oItems = oList.GetItems();
                             //  imgStar.ImageUrl = oWeb.Url + "/_catalogs/masterpage/images/star.png";
@@ -152,14 +153,7 @@ namespace SCDR.RatingandFeedbackAr
                                         dt.Rows.Add(dr);
                                     }
                                 }
-                              /*  repFeedback.DataSource = dt;
-                                repFeedback.DataBind();
-                                yourRating.InnerHtml = "تصنيف : " + yourRate;
-                                input21b.Text = yourRate.ToString();
-
-                                //  divViewComments.Visible = true;
-                                divAddComments.Visible = false;
-                                divButton.Visible = false;*/
+                             
                                 input21b.Text = yourRate.ToString();
                                 string liFeedback = dt.Rows[0]["Feedback"].ToString();
                                 txtShowFeedBack.Text = Regex.Replace(liFeedback, "<.*?>", string.Empty);
@@ -170,10 +164,7 @@ namespace SCDR.RatingandFeedbackAr
                             }
                             else
                             {
-                              /*  yourRating.InnerHtml = "تصنيف : " + yourRate;
-                                //    divViewComments.Visible = false;
-                                divAddComments.Visible = true;
-                                divButton.Visible = false;*/
+                              
                                 txtShowFeedBack.Text = "";
                                 divAddComments.Visible = true;
                                 divButton.Visible = false;
@@ -256,13 +247,7 @@ namespace SCDR.RatingandFeedbackAr
                                         }
                                     }
 
-                                 /*   repFeedback.DataSource = dt;
-                                    repFeedback.DataBind();
-                                    yourRating.InnerHtml = "Your Rating : " + yourRate;
-                                    input21b.Text = yourRate.ToString();
-                                    divButton.Visible = false;*/
-                                //    string liFeedback = dt.Rows[0]["Feedback"].ToString();
-                                //    txtShowFeedBack.Text = Regex.Replace(liFeedback, "<.*?>", string.Empty);
+                               
                                     input21b.Text = yourRate.ToString();
                                     divButton.Visible = false;
                                     divShowFeedback.Visible = false;
@@ -270,10 +255,7 @@ namespace SCDR.RatingandFeedbackAr
                                 }
                                 else
                                 {
-                                  /*  yourRating.InnerHtml = "Your Rating : " + yourRate;
-                                    //   divViewComments.Visible = false;
-                                    divAddComments.Visible = false;
-                                    divButton.Visible = true;*/
+                                  
                                     txtShowFeedBack.Text = "";
                                     divAddComments.Visible = false;
                                     divButton.Visible = true;
@@ -293,66 +275,13 @@ namespace SCDR.RatingandFeedbackAr
             }
         }
 
-     /*   public void BindAllComments()
-        {
-            try
-            {
-
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
-                    {
-                        using (SPWeb oWeb = oSite.OpenWeb())
-                        {
-                            SPList oList = oWeb.Lists[ListName];
-                            SPListItemCollection oItems = oList.GetItems();
-                            if (oItems != null)
-                            {
-                                if (oItems.Count > 0)
-                                {
-                                    DataTable dt = new DataTable();
-                                    DataColumn dcUsername = new DataColumn("Username", typeof(string));
-                                    dt.Columns.Add(dcUsername);
-                                    DataColumn dcFeedback = new DataColumn("Feedback", typeof(string));
-                                    dt.Columns.Add(dcFeedback);
-                                    foreach (SPListItem li in oItems)
-                                    {
-                                        if (li["Title"].ToString() != liveUser)
-                                        {
-                                            if (li["Feedback"] != null)
-                                            {
-                                                DataRow dr = dt.NewRow();
-                                                dr["Username"] = li["Title"].ToString();
-                                                dr["Feedback"] = li["Feedback"].ToString();
-                                                dt.Rows.Add(dr);
-                                            }
-                                            else
-                                            {
-
-                                            }
-                                        }
-                                    }
-
-                                    repAllComments.DataSource = dt;
-                                    repAllComments.DataBind();
-                                }
-
-                            }
-                        }
-                    }
-
-                });
-            }
-            catch
-            { }
-        }*/
+     
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                //  divViewComments.Visible = false;
+                
                 divShowFeedback.Visible = false;
                 divAddComments.Visible = false;
                 divButton.Visible = false;
@@ -360,7 +289,7 @@ namespace SCDR.RatingandFeedbackAr
                 headingRating.InnerHtml = RatingandFeedbackAr.questionName;
                 headingfeedback.InnerHtml = RatingandFeedbackAr.feedbackText;
                 BindAverageRating();
-              //  BindAllComments();
+        
 
             }
         }
@@ -401,7 +330,7 @@ namespace SCDR.RatingandFeedbackAr
                         item.Update();
                         oWeb.AllowUnsafeUpdates = false;
                         BindAverageRating();
-                     //   BindAllComments();
+                   
 
                     }
                 }
@@ -413,7 +342,7 @@ namespace SCDR.RatingandFeedbackAr
             }
             catch (Exception ex)
             {
-                // System.Web.HttpContext.Current.Response.Write("<script>alert('Already rated!');</script>");
+               
             }
 
         }
@@ -446,7 +375,7 @@ namespace SCDR.RatingandFeedbackAr
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
                             BindAverageRating();
-                         //   BindAllComments();
+                        
 
                         }
                     }

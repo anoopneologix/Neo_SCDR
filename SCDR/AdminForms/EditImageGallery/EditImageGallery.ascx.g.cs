@@ -875,52 +875,52 @@ namespace SCDR.AdminForms.EditImageGallery {
                         "|| e.which > 57)) {\r\n                //display error message\r\n                $(" +
                         "\"#errmsg\").html(\"Digits Only\").show().fadeOut(\"slow\");\r\n                return f" +
                         "alse;\r\n            }\r\n        });\r\n\r\n    });\r\n</script>\r\n<script type=\"text/java" +
-                        "script\">\r\n    function validateFormat(event) {\r\n        if (Page_ClientValidate(" +
-                        ")) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').t" +
-                        "ext(\' \');\r\n            var ext = $(\"input[name$=fuThumbnailImage]\").get(0).files" +
-                        ".length;\r\n            if (ext > 0) {\r\n                var names = [];\r\n         " +
-                        "       for (var i = 0; i < ext; ++i) {\r\n                    names.push($(\"input[" +
-                        "name$=fuThumbnailImage]\").get(0).files[i].name);\r\n                }\r\n           " +
-                        "     var x = 0;\r\n                for (i = 0; i < names.length; i++) {\r\n         " +
-                        "           var str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n      " +
-                        "              if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n   " +
-                        "                     x = 1;\r\n                    }\r\n                    if (x ==" +
-                        " 1) {\r\n                        $(\'#lblImageError\').show();\r\n                    " +
-                        "    $(\'#lblImageError\').text(\'Special characters except - and _ are not allowed " +
-                        "in filename. Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n     " +
+                        "script\">\r\n    function validateFormat(event) {\r\n     if (Page_ClientValidate()) " +
+                        "{\r\n            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').text" +
+                        "(\' \');\r\n            var ext = $(\"input[name$=fuThumbnailImage]\").get(0).files.le" +
+                        "ngth;\r\n            if (ext > 0) {\r\n                var names = [];\r\n            " +
+                        "    for (var i = 0; i < ext; ++i) {\r\n                    names.push($(\"input[nam" +
+                        "e$=fuThumbnailImage]\").get(0).files[i].name);\r\n                }\r\n              " +
+                        "  var x = 0;\r\n                for (i = 0; i < names.length; i++) {\r\n            " +
+                        "        var str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n         " +
+                        "           if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n      " +
+                        "                  x = 1;\r\n                    }\r\n                    if (x == 1)" +
+                        " {\r\n                        $(\'#lblImageError\').show();\r\n                       " +
+                        " $(\'#lblImageError\').text(\'Special characters except - and _ are not allowed in " +
+                        "filename. Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n        " +
+                        "                // setTimeout();\r\n                        return false;\r\n       " +
+                        "                 break;\r\n                        event.preventDefault();\r\n      " +
+                        "              }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n         " +
+                        "           var ext = [];\r\n                    for (i = 0; i < names.length; i++)" +
+                        " {\r\n\r\n                        ext.push(names[i].substr(names[i].indexOf(\".\") + 1" +
+                        ").toLowerCase());\r\n\r\n                    }\r\n                    var valid_filety" +
+                        "pe = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i," +
+                        " j, result = [];\r\n                    for (i = 0; i < valid_filetype.length; i++" +
+                        ") {\r\n                        for (j = 0; j < ext.length; j++) {\r\n               " +
+                        "             if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                   " +
+                        "             result.push(ext[j]);\r\n                            }\r\n              " +
+                        "          }\r\n                    }\r\n\r\n                    if (result.length < ex" +
+                        "t.length) {\r\n                        //   break;\r\n                        $(\'#lb" +
+                        "lImageError\').show();\r\n                        $(\'#lblImageError\').text(\'Invalid" +
+                        " File Found. Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n     " +
                         "                   // setTimeout();\r\n                        return false;\r\n    " +
-                        "                    break;\r\n                        event.preventDefault();\r\n   " +
-                        "                 }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n      " +
-                        "              var ext = [];\r\n                    for (i = 0; i < names.length; i" +
-                        "++) {\r\n\r\n                        ext.push(names[i].substr(names[i].indexOf(\".\") " +
-                        "+ 1).toLowerCase());\r\n\r\n                    }\r\n                    var valid_fil" +
-                        "etype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var" +
-                        " i, j, result = [];\r\n                    for (i = 0; i < valid_filetype.length; " +
-                        "i++) {\r\n                        for (j = 0; j < ext.length; j++) {\r\n            " +
-                        "                if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                " +
-                        "                result.push(ext[j]);\r\n                            }\r\n           " +
-                        "             }\r\n                    }\r\n\r\n                    if (result.length <" +
-                        " ext.length) {\r\n                        //   break;\r\n                        $(\'" +
-                        "#lblImageError\').show();\r\n                        $(\'#lblImageError\').text(\'Inva" +
-                        "lid File Found. Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n  " +
-                        "                      // setTimeout();\r\n                        return false;\r\n " +
-                        "                       event.preventDefault();\r\n                    }\r\n\r\n\r\n\r\n   " +
-                        "             }\r\n\r\n            } else {\r\n               \r\n            }\r\n\r\n      " +
-                        "  }\r\n    }\r\n\r\n</script>\r\n\r\n<!-- Panel Refresh-->\r\n <script type=\"text/javascript" +
-                        "\"> \r\n     // if you use jQuery, you can load them when dom is read.\r\n     $(docu" +
-                        "ment).ready(function () {\r\n         var prm = Sys.WebForms.PageRequestManager.ge" +
-                        "tInstance();    \r\n         prm.add_initializeRequest(InitializeRequest);\r\n      " +
-                        "   prm.add_endRequest(EndRequest);\r\n\r\n     });        \r\n\r\n     function Initiali" +
-                        "zeRequest(sender, args) {\r\n      \r\n     }\r\n\r\n     function EndRequest(sender, ar" +
-                        "gs) {\r\n         $(\'#lblImageError\').hide();\r\n         $(\"input[name$=fuThumbnail" +
-                        "Image]\").change(function () {\r\n             $(\'#lblImageError\').hide();\r\n       " +
-                        "  });\r\n         //called when key is pressed in textbox\r\n         $(\"#txtRanking" +
-                        "\").keypress(function (e) {\r\n             //if the letter is not digit then displ" +
-                        "ay error and don\'t type anything\r\n             if (e.which != 8 && e.which != 0 " +
-                        "&& (e.which < 48 || e.which > 57)) {\r\n                 //display error message\r\n" +
-                        "                 $(\"#errmsg\").html(\"Digits Only\").show().fadeOut(\"slow\");\r\n     " +
-                        "            return false;\r\n             }\r\n         });\r\n         }\r\n     </scri" +
-                        "pt>"));
+                        "                    event.preventDefault();\r\n                    }\r\n\r\n\r\n\r\n      " +
+                        "          }\r\n\r\n            } else {\r\n               \r\n            }\r\n\r\n        }" +
+                        "\r\n    }\r\n\r\n</script>\r\n\r\n<!-- Panel Refresh-->\r\n <script type=\"text/javascript\"> " +
+                        "\r\n     // if you use jQuery, you can load them when dom is read.\r\n     $(documen" +
+                        "t).ready(function () {\r\n         var prm = Sys.WebForms.PageRequestManager.getIn" +
+                        "stance();    \r\n         prm.add_initializeRequest(InitializeRequest);\r\n         " +
+                        "prm.add_endRequest(EndRequest);\r\n\r\n     });        \r\n\r\n     function InitializeR" +
+                        "equest(sender, args) {\r\n      \r\n     }\r\n\r\n     function EndRequest(sender, args)" +
+                        " {\r\n         $(\'#lblImageError\').hide();\r\n         $(\"input[name$=fuThumbnailIma" +
+                        "ge]\").change(function () {\r\n             $(\'#lblImageError\').hide();\r\n         }" +
+                        ");\r\n         //called when key is pressed in textbox\r\n         $(\"#txtRanking\")." +
+                        "keypress(function (e) {\r\n             //if the letter is not digit then display " +
+                        "error and don\'t type anything\r\n             if (e.which != 8 && e.which != 0 && " +
+                        "(e.which < 48 || e.which > 57)) {\r\n                 //display error message\r\n   " +
+                        "              $(\"#errmsg\").html(\"Digits Only\").show().fadeOut(\"slow\");\r\n        " +
+                        "         return false;\r\n             }\r\n         });\r\n         }\r\n     </script>" +
+                        ""));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

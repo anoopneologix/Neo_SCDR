@@ -2,7 +2,7 @@
 // Project Name : SCDR
 // Program Name : Search Result (Visual WebPart)
 // Developed by : Neo 250
-// Created Date : 28/06/2016
+// Created Date : 04/07/2016
 //---------------------------------------------------
 using System;
 using System.ComponentModel;
@@ -24,12 +24,12 @@ using Microsoft.Office.Server.Search.Query;
 using Microsoft.Office.Server.Search.Administration;
 using System.Linq;
 
-namespace SCDR.SearchResultList
+namespace SCDR.SearchResultListAr
 {
     [ToolboxItemAttribute(false)]
-    public partial class SearchResultList : WebPart
+    public partial class SearchResultListAr : WebPart
     {
-        public SearchResultList()
+        public SearchResultListAr()
         {
         }
 
@@ -70,7 +70,6 @@ namespace SCDR.SearchResultList
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
                 if (Page.Request.QueryString["kw"] != null)
@@ -82,6 +81,7 @@ namespace SCDR.SearchResultList
 
             }
         }
+
         //Function for binding the search result to page
         public void GetResult(string searchKeyword)
         {
@@ -166,7 +166,7 @@ namespace SCDR.SearchResultList
             {
                 dtSPList = spItemCollection.GetDataTable();
                 dtSPList.CaseSensitive = false;
-               
+
                 var filteredRows = dtSPList.AsEnumerable()
                     .Where(r => r.Field<String>("Title").ToLower().Contains(searchKeyword.ToLower())
                     || r.Field<String>("Location").ToLower().Contains(searchKeyword.ToLower())
@@ -196,14 +196,14 @@ namespace SCDR.SearchResultList
                 {
                     return null;
                 }
-               
+
             }
             catch
             {
                 return null;
             }
         }
-     
+
         // Function to convert SharePoint Image Gallery List to DataTable  and return matching Image title
         private DataTable MatchingImageGallery(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
         {
@@ -216,14 +216,14 @@ namespace SCDR.SearchResultList
                 var filteredRows = dtSPList.AsEnumerable()
                     .Where(r => r.Field<String>("Title").ToLower().Contains(searchKeyword.ToLower())
                     || r.Field<String>("CategoryName").ToLower().Contains(searchKeyword.ToLower()));
-                    
+
                 if (filteredRows.Any())
                 {
                     dtSPList = filteredRows.CopyToDataTable();
                     DataTable dtNewsList = new DataTable();
                     DataColumn dcTitle = new DataColumn("Title", typeof(string));
                     dtNewsList.Columns.Add(dcTitle);
-                  
+
                     DataColumn dcPageID = new DataColumn("PageUrl", typeof(string));
                     dtNewsList.Columns.Add(dcPageID);
                     DataColumn dcDescription = new DataColumn("Content", typeof(string));
@@ -255,7 +255,7 @@ namespace SCDR.SearchResultList
         {
             try
             {
-                DataTable dtResult= new DataTable();
+                DataTable dtResult = new DataTable();
                 using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                 {
                     using (SPWeb oWeb = oSite.OpenWeb())
@@ -334,5 +334,6 @@ namespace SCDR.SearchResultList
             }
             return resultString;
         }
+
     }
 }

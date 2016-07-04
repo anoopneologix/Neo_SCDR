@@ -1,17 +1,18 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Web.UI.WebControls.WebParts;
+using Microsoft.SharePoint;
+using System.Data;
+using System.Web.UI;
+using Microsoft.Office.Server.Search.Query;
+using Microsoft.Office.Server.Search.Administration;
+using System.Linq;
 
 namespace SCDR.SearchAr
 {
     [ToolboxItemAttribute(false)]
     public partial class SearchAr : WebPart
     {
-        // Uncomment the following SecurityPermission attribute only when doing Performance Profiling on a farm solution
-        // using the Instrumentation method, and then remove the SecurityPermission attribute when the code is ready
-        // for production. Because the SecurityPermission attribute bypasses the security check for callers of
-        // your constructor, it's not recommended for production purposes.
-        // [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Assert, UnmanagedCode = true)]
         public SearchAr()
         {
         }
@@ -25,6 +26,18 @@ namespace SCDR.SearchAr
         protected void Page_Load(object sender, EventArgs e)
         {
             /**/
+        }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
+            {
+                string siteUrl = oSite.Url;
+                if (txtSearch.Text != "")
+                {
+                    Page.Response.Redirect(siteUrl + "/ar/SitePages/SearchResult.aspx?kw=" + txtSearch.Text.Trim());
+                }
+            }
         }
     }
 }

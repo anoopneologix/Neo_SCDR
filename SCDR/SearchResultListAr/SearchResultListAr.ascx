@@ -5,16 +5,20 @@
 <%@ Register Tagprefix="asp" Namespace="System.Web.UI" Assembly="System.Web.Extensions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35" %>
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
-<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchAr.ascx.cs" Inherits="SCDR.SearchAr.SearchAr" %>
-<!--Code Begins-->
-<div class="search_outer">
-    <a class="search_btn">
-        <i class="fa"></i>
-    </a>
-    <span class="input_outer"><span
-        class="col-md-12 col-sm-12 col-xs-12">
-        <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click"><i class="fa fa-search"></i></asp:LinkButton>
-         <asp:TextBox ID="txtSearch" CssClass="form-control" runat="server" placeholder="ابحث هنا" ></asp:TextBox>
-      
-</div>
-<!--Code Ends-->
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchResultListAr.ascx.cs" Inherits="SCDR.SearchResultListAr.SearchResultListAr" %>
+<section class="container resiazable">
+
+<div class="col-md-12 col-sm-12 col-xs-12">
+    <asp:Repeater ID="rptrSearchResult" runat="server">
+        <ItemTemplate>
+           <div class="newsrelease">
+                  <h4 class="inti_subhead font_resize"><a href='<%# Eval("PageUrl") %>'><%# Eval("Title") %></a></h4>
+            <p class="releasecontent font_resize">
+       <div class="content_limit"> <%# Eval("Content") %> </div> </p>
+    <a  href='<%# Eval("PageUrl") %>' class="newsread font_resize">read more</a>
+       </div> 
+    
+        </ItemTemplate>
+    </asp:Repeater>
+    </div>
+    </section>

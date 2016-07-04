@@ -21,7 +21,7 @@ namespace SCDR.RatingAndFeedBack
     [ToolboxItemAttribute(false)]
     public partial class RatingAndFeedBack : WebPart
     {
-        string liveUser = string.Empty;
+        
          public RatingAndFeedBack()
         {
         }
@@ -94,7 +94,7 @@ namespace SCDR.RatingAndFeedBack
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-              //  divViewComments.Visible = false;
+              
                 divShowFeedback.Visible = false;
                 divAddComments.Visible = false;
                 divButton.Visible = false;
@@ -102,7 +102,7 @@ namespace SCDR.RatingAndFeedBack
                 headingRating.InnerHtml = RatingAndFeedBack.questionName;
                 headingfeedback.InnerHtml = RatingAndFeedBack.feedbackText;
                 BindAverageRating();
-             //   BindAllComments();
+           ;
            
             }
         }
@@ -113,7 +113,7 @@ namespace SCDR.RatingAndFeedBack
         {
             try
             {
-              //  divViewComments.Visible = true;
+              
                 divAddComments.Visible = false;
 
                 if (SPContext.Current.Web.CurrentUser != null)
@@ -122,6 +122,7 @@ namespace SCDR.RatingAndFeedBack
                     {
                         using (SPWeb oWeb = oSite.OpenWeb("en/"))
                         {
+                            string liveUser = string.Empty;
                             SPList oList = oWeb.Lists[ListName];
                             SPListItemCollection oItems = oList.GetItems();
                             //  imgStar.ImageUrl = oWeb.Url + "/_catalogs/masterpage/images/star.png";
@@ -269,11 +270,7 @@ namespace SCDR.RatingAndFeedBack
                                   }
                               }
                            
-                            //  repFeedback.DataSource = dt;
-                            //  repFeedback.DataBind();
-                           //   yourRating.InnerHtml = "Your Rating : " + yourRate;
-                          //    string liFeedback = dt.Rows[0]["Feedback"].ToString();
-                           //   txtShowFeedBack.Text = Regex.Replace(liFeedback, "<.*?>", string.Empty);
+                          
                               input21b.Text = yourRate.ToString();
                               divButton.Visible = false;
                               divShowFeedback.Visible = false;
@@ -281,8 +278,7 @@ namespace SCDR.RatingAndFeedBack
                           }
                           else
                           {
-                            //  yourRating.InnerHtml = "Your Rating : " + yourRate;
-                           //   divViewComments.Visible = false;
+                            
                               txtShowFeedBack.Text = "";
                               divAddComments.Visible = false;
                               divButton.Visible = true;
@@ -302,60 +298,7 @@ namespace SCDR.RatingAndFeedBack
             }
         }
 
-        /*       public void BindAllComments()
-        {
-            try
-            {
-
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
-                    {
-                        using (SPWeb oWeb = oSite.OpenWeb())
-                        {
-                            SPList oList = oWeb.Lists[ListName];
-                            SPListItemCollection oItems = oList.GetItems();
-                             if (oItems != null)
-                            {
-                                if (oItems.Count > 0)
-                                {
-                                    DataTable dt = new DataTable();
-                                    DataColumn dcUsername = new DataColumn("Username", typeof(string));
-                                    dt.Columns.Add(dcUsername);
-                                    DataColumn dcFeedback = new DataColumn("Feedback", typeof(string));
-                                    dt.Columns.Add(dcFeedback);
-                                    foreach (SPListItem li in oItems)
-                                    {
-                                        if (li["Title"].ToString() != liveUser)
-                                        {
-                                            if (li["Feedback"] != null)
-                                            {
-                                                DataRow dr = dt.NewRow();
-                                                dr["Username"] = li["Title"].ToString();
-                                                dr["Feedback"] = li["Feedback"].ToString();
-                                                dt.Rows.Add(dr);
-                                            }
-                                            else
-                                            {
-                                               
-                                            }
-                                        }
-                                    }
-                                    
-                                    repAllComments.DataSource = dt;
-                                    repAllComments.DataBind();
-                                }
-
-                            }
-                        }
-                    }
-
-                });
-            }
-            catch
-            { }
-        }*/
+        
 
         protected void btnSUbmit_Click(object sender, EventArgs e)
         {
@@ -440,7 +383,7 @@ namespace SCDR.RatingAndFeedBack
                          item.Update();
                          oWeb.AllowUnsafeUpdates = false;
                          BindAverageRating();
-                      //   BindAllComments();
+                     
 
                      }
                  }

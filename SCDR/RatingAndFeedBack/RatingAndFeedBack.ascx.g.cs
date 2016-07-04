@@ -81,7 +81,7 @@ namespace SCDR.RatingAndFeedBack {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExp1;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -98,14 +98,6 @@ namespace SCDR.RatingAndFeedBack {
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divButton;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Repeater repFeedback;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Repeater repAllComments;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
         public static implicit operator global::System.Web.UI.TemplateControl(RatingAndFeedBack target) 
@@ -275,18 +267,19 @@ namespace SCDR.RatingAndFeedBack {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator6() {
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegExp1() {
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
-            this.RegularExpressionValidator6 = @__ctrl;
+            this.RegExp1 = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "RegularExpressionValidator6";
-            @__ctrl.ValidationExpression = "^[0-9a-zA-Z ]+$";
-            @__ctrl.ControlToValidate = "txtFeedback";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ID = "RegExp1";
             @__ctrl.ValidationGroup = "chkFeedback";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
-            @__ctrl.ErrorMessage = "only english albhabets and numbers allowed.";
-            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'., ]{0,250}$";
+            @__ctrl.ControlToValidate = "txtFeedback";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
+                "d";
             return @__ctrl;
         }
         
@@ -299,6 +292,7 @@ namespace SCDR.RatingAndFeedBack {
             this.btnSUbmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSUbmit";
+            @__ctrl.OnClientClick = "if ( ! UserConfirmation(event)) return false;";
             @__ctrl.UseSubmitBehavior = false;
             @__ctrl.Text = "Submit";
             @__ctrl.ValidationGroup = "chkFeedback";
@@ -325,11 +319,11 @@ namespace SCDR.RatingAndFeedBack {
             global::System.Web.UI.WebControls.TextBox @__ctrl2;
             @__ctrl2 = this.@__BuildControltxtFeedback();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                       "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl3;
-            @__ctrl3 = this.@__BuildControlRegularExpressionValidator6();
+            @__ctrl3 = this.@__BuildControlRegExp1();
             @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                           \r\n                            "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n                            "));
             global::System.Web.UI.WebControls.Button @__ctrl4;
             @__ctrl4 = this.@__BuildControlbtnSUbmit();
             @__parser.AddParsedSubObject(@__ctrl4);
@@ -346,6 +340,7 @@ namespace SCDR.RatingAndFeedBack {
             this.btnAnonymosSubmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnAnonymosSubmit";
+            @__ctrl.OnClientClick = "if ( ! UserConfirmation(event)) return false;";
             @__ctrl.UseSubmitBehavior = false;
             @__ctrl.CssClass = "btn btn-warning";
             @__ctrl.Text = "Submit";
@@ -368,84 +363,6 @@ namespace SCDR.RatingAndFeedBack {
             @__ctrl1 = this.@__BuildControlbtnAnonymosSubmit();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                        "));
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control3(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      <div class=\"row\">\r\n          "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control4(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          <div class=\"col-md-3\"><# Eval(\"Username\") %> :</div>\r\n          <div " +
-                        "class=\"col-md-9\"><# Eval(\"Feedback\") %></div>\r\n                  "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control5(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n                  "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Repeater @__BuildControlrepFeedback() {
-            global::System.Web.UI.WebControls.Repeater @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Repeater();
-            this.repFeedback = @__ctrl;
-            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control3));
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control4));
-            @__ctrl.FooterTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control5));
-            @__ctrl.ID = "repFeedback";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control6(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      <div class=\"row\">\r\n          "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control7(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          <div class=\"col-md-3\"><# Eval(\"Username\") %> :</div>\r\n          <div " +
-                        "class=\"col-md-9\"><# Eval(\"Feedback\") %></div>\r\n                  "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control8(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n                  "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Repeater @__BuildControlrepAllComments() {
-            global::System.Web.UI.WebControls.Repeater @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Repeater();
-            this.repAllComments = @__ctrl;
-            @__ctrl.HeaderTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control6));
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control7));
-            @__ctrl.FooterTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control8));
-            @__ctrl.ID = "repAllComments";
             return @__ctrl;
         }
         
@@ -499,44 +416,37 @@ namespace SCDR.RatingAndFeedBack {
               
                 
                 <!--floating menu area END-->
-<!--
-<div id=""modalRating"" style=""z-index:50000 !important"" class=""modal fade bs-example-modal-lg"" tabindex=""-1"" role=""dialog"" aria-labelledby=""myLargeModalLabel"">
-  <div class=""modal-dialog modal-lg"">
-    <div class=""modal-content"">
-      <div class=""modal-header"">
-        <button type=""button"" class=""close"" data-dismiss=""modal"" aria-label=""Close""><span aria-hidden=""true"">&times;</span></button>
-        <h4 class=""modal-title"" id=""myModalLabel"">Comments</h4>
-      </div>
-      <div class=""modal-body"">
-        
-          "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl10;
-            @__ctrl10 = this.@__BuildControlrepFeedback();
-            @__parser.AddParsedSubObject(@__ctrl10);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n   \r\n              "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl11;
-            @__ctrl11 = this.@__BuildControlrepAllComments();
-            @__parser.AddParsedSubObject(@__ctrl11);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-      </div>
-      <div class=""modal-footer"">
-        <button type=""button"" class=""btn btn-default"" data-dismiss=""modal"">Close</button>
-        </div>
-    </div>
-  </div>
-</div> -->
+
 
 <script>
     $(document).ready(function () {
 
-        var _val = $(""#input21b"").val();
-        if(_val>0)
-        {
-            $(""#input21b"").prop('disabled', true);
+        var _val = $(""input[name$=input21b]"").val();
+        if (_val > 0) {
+            $(""input[name$=input21b]"").prop('disabled', true);
+            $(""input[name$=input21b]"").css('cursor', 'default');
         }
-       
+
     });
-</script>"));
+</script>
+
+<script type=""text/javascript"">
+    function UserConfirmation(event) {
+     
+
+        var ext = $(""input[name$=input21b]"").val();
+        if (ext <= 0) {
+
+            alert('Rating should not be zero');
+            return false;
+        }
+        else {
+            return true;
+        }
+
+     
+    }
+    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

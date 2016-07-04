@@ -502,6 +502,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchEn.ascx</DependentUpon>
     </Compile>
+    <Compile Include="SearchResultListAr\SearchResultListAr.ascx.cs">
+      <DependentUpon>SearchResultListAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchResultListAr\SearchResultListAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SearchResultListAr.ascx</DependentUpon>
+    </Compile>
     <Compile Include="SearchResultList\SearchResultList.ascx.cs">
       <DependentUpon>SearchResultList.ascx</DependentUpon>
     </Compile>
@@ -752,6 +760,10 @@
     <None Include="SearchEn\SearchEn.webpart" />
     <None Include="SearchEn\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{0172df6d-a696-44af-90de-d25ab982864c}</SharePointProjectItemId>
+    </None>
+    <None Include="SearchResultListAr\SearchResultListAr.webpart" />
+    <None Include="SearchResultListAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{08aa36e4-3b03-47c0-ae77-6f95f5fb9583}</SharePointProjectItemId>
     </None>
     <None Include="SearchResultList\SearchResultList.webpart" />
     <None Include="SearchResultList\SharePointProjectItem.spdata">
@@ -1056,6 +1068,11 @@
     <Content Include="SearchEn\SearchEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchEn.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SearchResultListAr\Elements.xml" />
+    <Content Include="SearchResultListAr\SearchResultListAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SearchResultListAr.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="SearchResultList\Elements.xml" />
     <Content Include="SearchResultList\SearchResultList.ascx">

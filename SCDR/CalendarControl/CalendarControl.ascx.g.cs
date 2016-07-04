@@ -1068,7 +1068,14 @@ namespace SCDR.CalendarControl {
                     "/yyyy\',\r\n                     todayHighlight: true,\r\n\r\n                 });\r\n   " +
                     "          $(\'#txtEndDate\')\r\n               .datepicker({\r\n                   for" +
                     "mat: \'dd/MM/yyyy\',\r\n                   todayHighlight: true,\r\n\r\n               }" +
-                    ");\r\n\r\n       \r\n\r\n         \r\n\r\n     }\r\n   </script>\r\n    ");
+                    ");\r\n\r\n       \r\n\r\n         \r\n\r\n     }\r\n   </script>\r\n\r\n <script type=\"text/javasc" +
+                    "ript\">\r\n   \r\nvar app = Sys.Application; var origTitle = \"\";\r\n\r\napp.add_init(SPCu" +
+                    "stomAppnInit);\r\n\r\nfunction SPCustomAppnInit(sender) {\r\n\r\norigTitle = document.ti" +
+                    "tle;\r\n\r\n// grab the original title.\r\n\r\nvar prm = Sys.WebForms.PageRequestManager" +
+                    ".getInstance(); if (!prm.get_isInAsyncPostBack())\r\n\r\n{\r\n\r\nprm.add_pageLoaded(SPC" +
+                    "ustomPageLoaded);\r\n\r\n// wire up loaded handler.\r\n\r\n}\r\n\r\n}\r\n\r\nfunction SPCustomPa" +
+                    "geLoaded(sender, args) {\r\n\r\n// put the original title back on the document.\r\n\r\nd" +
+                    "ocument.title = origTitle;\r\n\r\n}\r\n\r\n</script>");
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

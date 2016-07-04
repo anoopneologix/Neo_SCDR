@@ -28,72 +28,49 @@
                              <hr />
                         <h2 id="headingfeedback" runat="server"></h2>
                         <asp:TextBox ID="txtFeedback" TextMode="MultiLine" runat="server"></asp:TextBox>
-                          <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
-    ControlToValidate="txtFeedback" ValidationGroup="chkFeedback" runat="server" ForeColor="Red" ErrorMessage=" فقط الأحرف العربية و الأرقام المسموح بها"
-    Display="Dynamic" />
-                          
-                        <asp:Button  usesubmitbehavior="false" ID="btnSUbmit" Text="ارسال" ValidationGroup="chkFeedback"  CssClass="btn btn-warning" runat="server" OnClick="btnSUbmit_Click"  />
+                     
+     <asp:RegularExpressionValidator  Display="Dynamic" ID="RegExp1" ValidationGroup="chkFeedback" ForeColor="Red"  ValidationExpression="^[-_\u0621-\u064A0-9'., ]{0,250}$" ControlToValidate="txtFeedback" runat="server" ErrorMessage="أقصى 250 حرفا، حرفا الخاصة باستثناء '. _ -، لا يسمح"></asp:RegularExpressionValidator>                      
+                        <asp:Button OnClientClick="if ( ! UserConfirmation(event)) return false;"  usesubmitbehavior="false" ID="btnSUbmit" Text="ارسال" ValidationGroup="chkFeedback"  CssClass="btn btn-warning" runat="server" OnClick="btnSUbmit_Click"  />
                         </div>
                         <div id="divButton" runat="server">
                                 <hr />
-<asp:Button ID="btnAnonymosSubmit"  usesubmitbehavior="false" CssClass="btn btn-warning" Text="ارسال" runat="server" OnClick="btnAnonymosSubmit_Click"   />
+<asp:Button ID="btnAnonymosSubmit" OnClientClick="if ( ! UserConfirmation(event)) return false;"  usesubmitbehavior="false" CssClass="btn btn-warning" Text="ارسال" runat="server" OnClick="btnAnonymosSubmit_Click"   />
                         </div>
                     </div>
                 </div>
               
                 
                 <!--floating menu area END-->
-<!--
-<div id="modalRating" style="z-index:50000 !important" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Comments</h4>
-      </div>
-      <div class="modal-body">
-        
-          <asp:Repeater ID="repFeedback" runat="server">
-              <HeaderTemplate>
-      <div class="row">
-          </HeaderTemplate>
-              <ItemTemplate>
-          <div class="col-md-3"><# Eval("Username") %> :</div>
-          <div class="col-md-9"><# Eval("Feedback") %></div>
-                  </ItemTemplate>
-              <FooterTemplate>
-        </div>
-                  </FooterTemplate>
-              </asp:Repeater>
-   
-              <asp:Repeater ID="repAllComments" runat="server">
-              <HeaderTemplate>
-      <div class="row">
-          </HeaderTemplate>
-              <ItemTemplate>
-          <div class="col-md-3"><# Eval("Username") %> :</div>
-          <div class="col-md-9"><# Eval("Feedback") %></div>
-                  </ItemTemplate>
-              <FooterTemplate>
-        </div>
-                  </FooterTemplate>
-              </asp:Repeater>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-    </div>
-  </div>
-</div>-->
+
 
 <script>
     $(document).ready(function () {
 
-        var _val = $("#input21b").val();
+        var _val = $("input[name$=input21b]").val();
         if(_val>0)
         {
-            $("#input21b").prop('disabled', true);
+            $("input[name$=input21b]").prop('disabled', true);
+            $("input[name$=input21b]").css('cursor', 'default');
         }
        
     });
 </script>
+
+<script type="text/javascript">
+    function UserConfirmation(event) {
+     
+
+            var ext = $("input[name$=input21b]").val();
+            if (ext <= 0) {
+              
+                alert('Rating should not be zero');
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
+      
+    }
+    </script>
