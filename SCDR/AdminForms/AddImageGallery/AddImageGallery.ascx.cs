@@ -26,7 +26,10 @@ namespace SCDR.AdminForms.AddImageGallery
             base.OnInit(e);
             InitializeControl();
         }
-        // Following code is for enabling custom webpart property
+        /// <summary>
+        ///  Following code is for enabling custom webpart property
+        /// </summary>
+
         #region CustomWebPartProperty
         private const string DefaultLibraryName = "CustomImageGallery";
         private static string listName = DefaultLibraryName;
@@ -43,7 +46,11 @@ namespace SCDR.AdminForms.AddImageGallery
         }
         #endregion
 
-
+        /// <summary>
+        /// fires on the page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -51,7 +58,13 @@ namespace SCDR.AdminForms.AddImageGallery
 
             }
         }
-
+        /// <summary>
+        /// fires when the submit button get clicked
+        /// items were saved to custom sharepoint list
+        /// images were attached to item as list item attachments
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -114,7 +127,10 @@ namespace SCDR.AdminForms.AddImageGallery
 
         }
 
-        //function for binding uploaded images to pop up modal
+        /// <summary>
+        /// function for binding uploaded images to pop up modal
+        /// </summary>
+ 
         public void BindThumbnailImages()
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
@@ -147,7 +163,13 @@ namespace SCDR.AdminForms.AddImageGallery
                 }
             });
         }
-
+        /// <summary>
+        /// fires when the sumit button on modal popup get clicked
+        /// sets the thumbnail image
+        /// update the item
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSaveThumbnail_Click(object sender, EventArgs e)
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
@@ -172,7 +194,10 @@ namespace SCDR.AdminForms.AddImageGallery
 
         }
 
-        //function for clearing the controls in form
+        /// <summary>
+        /// function for clearing the controls in form
+        /// </summary>
+
         public void formClear()
         {
             txtTitle.Text = "";
@@ -181,7 +206,12 @@ namespace SCDR.AdminForms.AddImageGallery
             lblGrpError.Text = "";
             lblRankError.Text = "";
         }
-
+        /// <summary>
+        /// fires when the textbox "txtGroupName" loses its focus
+        /// function for checking the newly added category exists or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void txtGroupName_TextChanged(object sender, EventArgs e)
         {
             try
@@ -230,6 +260,12 @@ namespace SCDR.AdminForms.AddImageGallery
 
         }
 
+        /// <summary>
+        /// fires when the textbox "txtRanking" loses its focus
+        /// function for checking the newly added rank exists or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void txtRanking_TextChanged(object sender, EventArgs e)
         {
             try
@@ -277,12 +313,20 @@ namespace SCDR.AdminForms.AddImageGallery
             }
 
         }
-
+        /// <summary>
+        /// for clearing the form while choosing language
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rbArabic_CheckedChanged(object sender, EventArgs e)
         {
             formClear();
         }
-
+        /// <summary>
+        /// for clearing the form while choosing language
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
         {
             formClear();

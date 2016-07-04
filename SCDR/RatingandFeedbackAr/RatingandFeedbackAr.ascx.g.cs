@@ -436,7 +436,7 @@ namespace SCDR.RatingandFeedbackAr {
             var ext = $(""input[name$=input21b]"").val();
             if (ext <= 0) {
               
-                alert('Rating should not be zero');
+                alert('موقع الكتروني غير مصنف');
                 return false;
             }
             else
