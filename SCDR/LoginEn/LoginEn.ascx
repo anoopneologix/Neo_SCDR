@@ -24,14 +24,15 @@
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm" style="display: block">
                 <div>
                     <div class="form-group custom-frm-group">
-                        <label for="email">Email Address:</label>
+                        <label for="email">User Name:</label>
                         <span class="email">
-                         <asp:TextBox TextMode="Email" ID="email" CssClass="form-control frm-email" ClientIDMode="Static" runat="server"></asp:TextBox>
+                            <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
+                         
                         </span>
                     </div>
                     <div class="form-group custom-frm-group">
                         <label for="pwd">Password:</label>
-                        <span class="pass">
+                       
                             <asp:TextBox ID="pwd" TextMode="Password" runat="server" ClientIDMode="Static" class="form-control frm-pwd"></asp:TextBox>
                           
                     </div>
