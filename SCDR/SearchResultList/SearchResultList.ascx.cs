@@ -38,7 +38,10 @@ namespace SCDR.SearchResultList
             base.OnInit(e);
             InitializeControl();
         }
-        //Code for enabling Webpart property
+        /// <summary>
+        /// Code for enabling Webpart property
+        /// </summary>
+
         #region CustomWebPartProperty
         private const string DefaultNewsList = "CustomNewsList";
         private static string newsListName = DefaultNewsList;
@@ -82,7 +85,11 @@ namespace SCDR.SearchResultList
 
             }
         }
-        //Function for binding the search result to page
+        /// <summary>
+        /// Function for binding the search result to page
+        /// </summary>
+        /// <param name="searchKeyword"></param>
+
         public void GetResult(string searchKeyword)
         {
             try
@@ -102,52 +109,36 @@ namespace SCDR.SearchResultList
                             SPListItemCollection oImageItems = oImageList.GetItems();
                             DataTable dtImageGallery = MatchingImageGallery(oImageItems, searchKeyword, SiteUrl);
                             DataTable dtSitePages = MatchingSitePages(searchKeyword);
-                            if (dtNews != null && dtImageGallery != null && dtSitePages != null)
+                            DataTable dtSearchResult = new DataTable();
+                            DataColumn dcTitle = new DataColumn("Title", typeof(string));
+                            dtSearchResult.Columns.Add(dcTitle);
+                            DataColumn dcPageID = new DataColumn("PageUrl", typeof(string));
+                            dtSearchResult.Columns.Add(dcPageID);
+                            DataColumn dcDescription = new DataColumn("Content", typeof(string));
+                            dtSearchResult.Columns.Add(dcDescription);
+                            if (dtNews != null)
                             {
                                 //merging first data table into second data table  
-                                dtNews.Merge(dtImageGallery);
-                                dtNews.AcceptChanges();
-                                dtSitePages.Merge(dtNews);
-                                dtSitePages.AcceptChanges();
-                                rptrSearchResult.DataSource = dtNews;
+                                dtSearchResult.Merge(dtNews);
+                                dtSearchResult.AcceptChanges();
+                                rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
                             }
-                            else if (dtNews != null && dtImageGallery != null && dtSitePages == null)
+                            if (dtImageGallery != null)
                             {
-                                dtNews.Merge(dtImageGallery);
-                                dtNews.AcceptChanges();
-                                rptrSearchResult.DataSource = dtNews;
+                                dtSearchResult.Merge(dtImageGallery);
+                                dtSearchResult.AcceptChanges();
+                                rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
                             }
-                            else if (dtNews != null && dtImageGallery == null && dtSitePages != null)
+                            if (dtSitePages != null)
                             {
-                                dtNews.Merge(dtSitePages);
-                                dtNews.AcceptChanges();
-                                rptrSearchResult.DataSource = dtNews;
+                                dtSearchResult.Merge(dtSitePages);
+                                dtSearchResult.AcceptChanges();
+                                rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
                             }
-                            else if (dtNews == null && dtImageGallery != null && dtSitePages != null)
-                            {
-                                dtImageGallery.Merge(dtSitePages);
-                                dtImageGallery.AcceptChanges();
-                                rptrSearchResult.DataSource = dtImageGallery;
-                                rptrSearchResult.DataBind();
-                            }
-                            else if (dtNews != null && dtImageGallery == null && dtSitePages == null)
-                            {
-                                rptrSearchResult.DataSource = dtNews;
-                                rptrSearchResult.DataBind();
-                            }
-                            else if (dtNews == null && dtImageGallery != null && dtSitePages == null)
-                            {
-                                rptrSearchResult.DataSource = dtImageGallery;
-                                rptrSearchResult.DataBind();
-                            }
-                            else if (dtNews == null && dtImageGallery == null && dtSitePages != null)
-                            {
-                                rptrSearchResult.DataSource = dtSitePages;
-                                rptrSearchResult.DataBind();
-                            }
+                            
                         }
                     }
                 });
@@ -158,7 +149,14 @@ namespace SCDR.SearchResultList
             }
         }
 
-        // Function to convert SharePoint News List to DataTable  and return matching news
+        /// <summary>
+        /// Function to convert SharePoint News List to DataTable  and return matching news
+        /// </summary>
+        /// <param name="spItemCollection"></param>
+        /// <param name="searchKeyword"></param>
+        /// <param name="siteUrl"></param>
+        /// <returns></returns>
+ 
         private DataTable MatchingNews(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
         {
             DataTable dtSPList = new DataTable();
@@ -204,7 +202,14 @@ namespace SCDR.SearchResultList
             }
         }
      
-        // Function to convert SharePoint Image Gallery List to DataTable  and return matching Image title
+        /// <summary>
+        ///  Function to convert SharePoint Image Gallery List to DataTable  and return matching Image title
+        /// </summary>
+        /// <param name="spItemCollection"></param>
+        /// <param name="searchKeyword"></param>
+        /// <param name="siteUrl"></param>
+        /// <returns></returns>
+
         private DataTable MatchingImageGallery(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
         {
             DataTable dtSPList = new DataTable();
@@ -251,6 +256,12 @@ namespace SCDR.SearchResultList
             }
         }
 
+        /// <summary>
+        /// Function to convert SharePoint Image Gallery List to DataTable  and return matching Image title
+        /// </summary>
+        /// <param name="searchKeyword"></param>
+        /// <returns></returns>
+ 
         private DataTable MatchingSitePages(string searchKeyword)
         {
             try
@@ -317,7 +328,13 @@ namespace SCDR.SearchResultList
             }
         }
 
-        // Function to extract matching sentence from description
+        /// <summary>
+        ///  Function to extract matching sentence from description
+        /// </summary>
+        /// <param name="searchKeyword"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+
         public string ExtractSentence(string searchKeyword, string text)
         {
             string resultString = string.Empty;

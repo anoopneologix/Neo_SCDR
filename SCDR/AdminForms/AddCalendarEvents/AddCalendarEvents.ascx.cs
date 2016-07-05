@@ -29,7 +29,9 @@ namespace SCDR.AdminForms.AddCalendarEvents
             base.OnInit(e);
             InitializeControl();
         }
-
+        /// <summary>
+        /// for enabling custom webpart properties
+        /// </summary>
         #region CustomWebPartProperty
         private const string DepartmentListName = "CustomDepartmentList";
         private static string dListName = DepartmentListName;
@@ -72,6 +74,10 @@ namespace SCDR.AdminForms.AddCalendarEvents
         }
         #endregion
 
+        /// <summary>
+        /// for binding the event venue to dropdownlist
+        /// active event venue were selected
+        /// </summary>
         public void BindEventVenue()
         {
             try
@@ -117,7 +123,10 @@ namespace SCDR.AdminForms.AddCalendarEvents
 
             }
         }
-
+        /// <summary>
+        /// for binding the department to dropdownlist
+        /// active department were selected
+        /// </summary>
         public void BindDepartment()
         {
             try
@@ -155,7 +164,11 @@ namespace SCDR.AdminForms.AddCalendarEvents
             }
         }
 
-        // Function to convert List to DataTable 
+       /// <summary>
+       /// function for converting the sharepoint listitem collection to datatable
+       /// </summary>
+       /// <param name="spItemCollection"></param>
+       /// <returns>datatable</returns>
         private static DataTable ConvertSPListToDataTable(SPListItemCollection spItemCollection)
         {
             DataTable dtSPList = new DataTable();
@@ -178,7 +191,11 @@ namespace SCDR.AdminForms.AddCalendarEvents
                 BindDepartment();
             }
         }
-
+        /// <summary>
+        /// for submiting the calendar events to custom sharepoint list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (CheckForExixtingEvents())
@@ -314,12 +331,18 @@ namespace SCDR.AdminForms.AddCalendarEvents
             }
 
         }
-
+        /// <summary>
+        /// for clearing the form on clicking cancel button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             formClear();
         }
-
+        /// <summary>
+        /// function for clearing the form
+        /// </summary>
         void formClear()
         {
             txtEventName.Text = "";
@@ -334,7 +357,10 @@ namespace SCDR.AdminForms.AddCalendarEvents
             ddlFrequency.SelectedIndex = 0;
         }
 
-        
+        /// <summary>
+        /// for checking the newly added event were already created or not.
+        /// </summary>
+        /// <returns></returns>
         public bool CheckForExixtingEvents()
         {
             bool returnvalue = true;
@@ -582,19 +608,31 @@ namespace SCDR.AdminForms.AddCalendarEvents
             }
             return returnvalue;
         }
-
+        /// <summary>
+        /// converting the string to valid DateTime format
+        /// </summary>
+        /// <param name="sDate"></param>
+        /// <returns>DateTime</returns>
         public DateTime GetDateTimeFromString(string sDate)
         {
             DateTime myDate = DateTime.ParseExact(sDate, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             return myDate;
         }
-
+        /// <summary>
+        /// for binding arabic event venue to dropdownlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rbArabic_CheckedChanged(object sender, EventArgs e)
         {
             
             BindEventVenue();
         }
-
+        /// <summary>
+        /// for binding English event venue to dropdownlist
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
         {
             

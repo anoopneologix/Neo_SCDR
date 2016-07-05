@@ -25,6 +25,9 @@ namespace SCDR.AdminForms.AddDepartment
             base.OnInit(e);
             InitializeControl();
         }
+        /// <summary>
+        /// for adding custom webpart properties
+        /// </summary>
         #region CustomWebPartProperty
         private const string DefaultLibraryName = "CustomDepartmentList";
         private static string listName = DefaultLibraryName;
@@ -40,7 +43,11 @@ namespace SCDR.AdminForms.AddDepartment
             set { listName = value; }
         }
         #endregion
-
+        /// <summary>
+        /// fires on page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -48,7 +55,12 @@ namespace SCDR.AdminForms.AddDepartment
 
             }
         }
-
+        /// <summary>
+        /// fires when the submit button get clicked
+        /// stores the newly added department to shatepoint custom list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -103,7 +115,12 @@ namespace SCDR.AdminForms.AddDepartment
             { }
 
         }
-
+        /// <summary>
+        /// fires when the cancel button get clicked
+        /// clear the form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             formClear();
@@ -111,7 +128,9 @@ namespace SCDR.AdminForms.AddDepartment
             ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
                  
         }
-
+        /// <summary>
+        /// function for clearing the form after succesfull submit
+        /// </summary>
         void formClear()
         {
             txtDepartment.Text = "";

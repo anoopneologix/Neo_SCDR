@@ -26,7 +26,10 @@ namespace SCDR.AdminForms.AddNewAtSCDR
             InitializeControl();
         }
 
-        // Following code is for enabling custom webpart property
+        /// <summary>
+        ///  Following code is for enabling custom webpart property
+        /// </summary>
+
         #region CustomWebPartProperty
         private const string DefaultLibraryName = "NewAtSCDR_List";
         private static string listName = DefaultLibraryName;
@@ -42,7 +45,11 @@ namespace SCDR.AdminForms.AddNewAtSCDR
             set { listName = value; }
         }
         #endregion
-
+        /// <summary>
+        /// fires when the page loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -50,7 +57,13 @@ namespace SCDR.AdminForms.AddNewAtSCDR
 
             }
         }
-
+        /// <summary>
+        /// fires when the submit buton on english panel get clicked
+        /// saves the details to custom sharepoint list in english subsite
+        /// image saved ad item attachment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string subsiteName = "en/";
@@ -98,7 +111,13 @@ namespace SCDR.AdminForms.AddNewAtSCDR
             catch { }
 
         }
-
+        /// <summary>
+        /// fires when the submit buton on arabic panel get clicked
+        /// saves the details to custom sharepoint list in arabic subsite
+        /// image saved ad item attachment
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnArSubmit_Click(object sender, EventArgs e)
         {
             string subsiteName = "ar/";
@@ -147,7 +166,9 @@ namespace SCDR.AdminForms.AddNewAtSCDR
 
 
         }
-
+        /// <summary>
+        /// function for clearing the form after succesfull commit
+        /// </summary>
         void formClear()
         {
             txtArDescription.Text = "";

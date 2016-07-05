@@ -60,7 +60,7 @@
         var ext = $("input[name$=input21b]").val();
         if (ext <= 0) {
 
-            alert('Rating should not be zero');
+            alert('Website not rated');
             return false;
         }
         else {

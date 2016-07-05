@@ -48,7 +48,11 @@ namespace SCDR.AdminForms.AddBanner
                 
             }
         }
-
+        /// <summary>
+        /// For submiting the images to Sharepoint custom image gallery
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             string subsiteName = string.Empty;
@@ -103,7 +107,9 @@ namespace SCDR.AdminForms.AddBanner
             }
             catch { }
         }
-
+        /// <summary>
+        /// for clearing the form after submit
+        /// </summary>
         public void formClear()
         {
             txtBannerDescription.Text = "";
