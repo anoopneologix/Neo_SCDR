@@ -22,7 +22,6 @@ using System.Collections;
 using System.Globalization;
 using Microsoft.Office.Server.Search.Query;
 using Microsoft.Office.Server.Search.Administration;
-using System.Linq;
 
 namespace SCDR.SearchResultList
 {
@@ -38,10 +37,10 @@ namespace SCDR.SearchResultList
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// Code for enabling Webpart property
         /// </summary>
-
         #region CustomWebPartProperty
         private const string DefaultNewsList = "CustomNewsList";
         private static string newsListName = DefaultNewsList;
@@ -69,6 +68,19 @@ namespace SCDR.SearchResultList
             get { return imageListName; }
             set { imageListName = value; }
         }
+        private const string DefaultPublicationList = "Publications";
+        private static string publicationListName = DefaultPublicationList;
+        [Category("Extended Settings"),
+        Personalizable(PersonalizationScope.Shared),
+        WebBrowsable(true),
+        DefaultValue(DefaultPublicationList),
+        WebDisplayName("News List Name:"),
+        WebDescription("Please Enter a valid Image Gallery List Name")]
+        public string PublicationListName
+        {
+            get { return publicationListName; }
+            set { publicationListName = value; }
+        }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -85,11 +97,11 @@ namespace SCDR.SearchResultList
 
             }
         }
+       
         /// <summary>
         /// Function for binding the search result to page
         /// </summary>
         /// <param name="searchKeyword"></param>
-
         public void GetResult(string searchKeyword)
         {
             try
@@ -109,6 +121,9 @@ namespace SCDR.SearchResultList
                             SPListItemCollection oImageItems = oImageList.GetItems();
                             DataTable dtImageGallery = MatchingImageGallery(oImageItems, searchKeyword, SiteUrl);
                             DataTable dtSitePages = MatchingSitePages(searchKeyword);
+                            SPList oPublicationList = oWeb.Lists[PublicationListName];
+                            SPListItemCollection oPublicationItems = oPublicationList.GetItems();
+                            DataTable dtPublication = MatchingPublications(oPublicationItems, searchKeyword, SiteUrl);
                             DataTable dtSearchResult = new DataTable();
                             DataColumn dcTitle = new DataColumn("Title", typeof(string));
                             dtSearchResult.Columns.Add(dcTitle);
@@ -138,6 +153,13 @@ namespace SCDR.SearchResultList
                                 rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
                             }
+                            if (dtPublication != null)
+                            {
+                                dtSearchResult.Merge(dtPublication);
+                                dtSearchResult.AcceptChanges();
+                                rptrSearchResult.DataSource = dtSearchResult;
+                                rptrSearchResult.DataBind();
+                            }
                             
                         }
                     }
@@ -149,15 +171,14 @@ namespace SCDR.SearchResultList
             }
         }
 
-        /// <summary>
+         /// <summary>
         /// Function to convert SharePoint News List to DataTable  and return matching news
         /// </summary>
         /// <param name="spItemCollection"></param>
         /// <param name="searchKeyword"></param>
         /// <param name="siteUrl"></param>
         /// <returns></returns>
- 
-        private DataTable MatchingNews(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
+         private DataTable MatchingNews(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
         {
             DataTable dtSPList = new DataTable();
             try
@@ -209,7 +230,6 @@ namespace SCDR.SearchResultList
         /// <param name="searchKeyword"></param>
         /// <param name="siteUrl"></param>
         /// <returns></returns>
-
         private DataTable MatchingImageGallery(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
         {
             DataTable dtSPList = new DataTable();
@@ -257,11 +277,10 @@ namespace SCDR.SearchResultList
         }
 
         /// <summary>
-        /// Function to convert SharePoint Image Gallery List to DataTable  and return matching Image title
+        /// Function to convert SharePoint SitePages to DataTable  and return matching .aspx pages
         /// </summary>
         /// <param name="searchKeyword"></param>
         /// <returns></returns>
- 
         private DataTable MatchingSitePages(string searchKeyword)
         {
             try
@@ -334,7 +353,6 @@ namespace SCDR.SearchResultList
         /// <param name="searchKeyword"></param>
         /// <param name="text"></param>
         /// <returns></returns>
-
         public string ExtractSentence(string searchKeyword, string text)
         {
             string resultString = string.Empty;
@@ -351,5 +369,59 @@ namespace SCDR.SearchResultList
             }
             return resultString;
         }
+      
+        /// <summary>
+        /// function to convert sharepoint publication list to datatable and returm matching title/pdf
+        /// </summary>
+        /// <param name="spItemCollection"></param>
+        /// <param name="searchKeyword"></param>
+        /// <param name="siteUrl"></param>
+        /// <returns></returns>
+        private DataTable MatchingPublications(SPListItemCollection spItemCollection, string searchKeyword, string siteUrl)
+        {
+            DataTable dtSPList = new DataTable();
+            try
+            {
+                dtSPList = spItemCollection.GetDataTable();
+                dtSPList.CaseSensitive = false;
+
+                var filteredRows = dtSPList.AsEnumerable()
+                    .Where(r => r.Field<String>("LinkFilename").Contains(searchKeyword));
+
+                if (filteredRows.Any())
+                {
+                    dtSPList = filteredRows.CopyToDataTable();
+                    DataTable dtNewsList = new DataTable();
+                    DataColumn dcTitle = new DataColumn("Title", typeof(string));
+                    dtNewsList.Columns.Add(dcTitle);
+
+                    DataColumn dcPageID = new DataColumn("PageUrl", typeof(string));
+                    dtNewsList.Columns.Add(dcPageID);
+                    DataColumn dcDescription = new DataColumn("Content", typeof(string));
+                    dtNewsList.Columns.Add(dcDescription);
+
+                    foreach (DataRow dr in dtSPList.Rows)
+                    {
+                        DataRow drow = dtNewsList.NewRow();
+                        drow["Title"] = dr["LinkFilename"];
+                        drow["PageUrl"] = siteUrl + "/"+publicationListName+"/"+dr["LinkFilename"];
+                        drow["Content"] = string.Empty;
+                        dtNewsList.Rows.Add(drow);
+                    }
+                    return (dtNewsList);
+                }
+                else
+                {
+                    return null;
+                }
+
+            }
+            catch
+            {
+                return null;
+            }
+
+        }
+
     }
 }

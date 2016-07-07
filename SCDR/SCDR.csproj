@@ -969,6 +969,7 @@
     <Content Include="Layouts\SCDR\js\canvas2image.js" />
     <Content Include="Layouts\SCDR\js\editor.js" />
     <Content Include="Layouts\SCDR\js\html2canvas.js" />
+    <Content Include="Layouts\SCDR\js\jquery-ui.js" />
     <Content Include="Layouts\SCDR\js\jquery-ui.min.js" />
     <Content Include="Layouts\SCDR\js\jquery.validate.min.js" />
     <Content Include="Layouts\SCDR\js\jspdf.min.js" />
