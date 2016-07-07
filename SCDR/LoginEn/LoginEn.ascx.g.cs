@@ -45,7 +45,7 @@ namespace SCDR.LoginEn {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.TextBox email;
+        protected global::System.Web.UI.WebControls.TextBox UserName;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -84,21 +84,20 @@ namespace SCDR.LoginEn {
             @__ctrl.ID = "btnOk";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-theme-ok");
             @__ctrl.Text = "OK";
+            @__ctrl.Click -= new System.EventHandler(this.btnOk_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnOk_Click);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TextBox @__BuildControlemail() {
+        private global::System.Web.UI.WebControls.TextBox @__BuildControlUserName() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
-            this.email = @__ctrl;
+            this.UserName = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.TextMode = global::System.Web.UI.WebControls.TextBoxMode.Email;
-            @__ctrl.ID = "email";
-            @__ctrl.CssClass = "form-control frm-email";
-            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.ID = "UserName";
             return @__ctrl;
         }
         
@@ -128,6 +127,8 @@ namespace SCDR.LoginEn {
             @__ctrl.ID = "btnSignin";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-submit");
             @__ctrl.Text = "Submit";
+            @__ctrl.Click -= new System.EventHandler(this.btnSignin_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnSignin_Click);
             return @__ctrl;
         }
         
@@ -202,18 +203,19 @@ namespace SCDR.LoginEn {
             <span class=""col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm"" style=""display: block"">
                 <div>
                     <div class=""form-group custom-frm-group"">
-                        <label for=""email"">Email Address:</label>
+                        <label for=""email"">User Name:</label>
                         <span class=""email"">
-                         "));
+                            "));
             global::System.Web.UI.WebControls.TextBox @__ctrl2;
-            @__ctrl2 = this.@__BuildControlemail();
+            @__ctrl2 = this.@__BuildControlUserName();
             @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
+                         
                         </span>
                     </div>
                     <div class=""form-group custom-frm-group"">
                         <label for=""pwd"">Password:</label>
-                        <span class=""pass"">
+                       
                             "));
             global::System.Web.UI.WebControls.TextBox @__ctrl3;
             @__ctrl3 = this.@__BuildControlpwd();
