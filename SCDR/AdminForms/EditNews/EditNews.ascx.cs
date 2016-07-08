@@ -15,38 +15,39 @@ using System.Text.RegularExpressions;
 using System.Collections;
 using System.Globalization;
 
-namespace SCDR.AdminForms.ViewVenue
+namespace SCDR.AdminForms.EditNews
 {
     [ToolboxItemAttribute(false)]
-    public partial class ViewVenue : WebPart
+    public partial class EditNews : WebPart
     {
-        public ViewVenue()
+         public EditNews()
         {
         }
-        /// <summary>
-        /// function for enabiling custom webpart properties
-        /// </summary>
-        #region CustomWebPartProperty
-        private const string DefaultVenueList = "CustomVenueList";
-        private static string venueListName = DefaultVenueList;
-        [Category("Extended Settings"),
-        Personalizable(PersonalizationScope.Shared),
-        WebBrowsable(true),
-        DefaultValue(DefaultVenueList),
-        WebDisplayName("Venue List Name:"),
-        WebDescription("Please Enter a valid Venue List Name")]
-        public string VenueListName
-        {
-            get { return venueListName; }
-            set { venueListName = value; }
-        }
-        #endregion
 
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
             InitializeControl();
         }
+
+        /// <summary>
+        /// function for enabiling custom webpart properties
+        /// </summary>
+        #region CustomWebPartProperty
+        private const string DefaultNewsList = "CustomNewsList";
+        private static string newsListName = DefaultNewsList;
+        [Category("Extended Settings"),
+        Personalizable(PersonalizationScope.Shared),
+        WebBrowsable(true),
+        DefaultValue(DefaultNewsList),
+        WebDisplayName("News List Name:"),
+        WebDescription("Please Enter a valid News List Name")]
+        public string NewsListName
+        {
+            get { return newsListName; }
+            set { newsListName = value; }
+        }
+        #endregion
         /// <summary>
         /// fires on page load
         /// </summary>
@@ -57,14 +58,15 @@ namespace SCDR.AdminForms.ViewVenue
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
 
-                BindVenue();
+                BindNews();
 
             }
         }
+
         /// <summary>
         /// function for binding the venue to gridview based on langauage
         /// </summary>
-        public void BindVenue()
+        public void BindNews()
         {
             try
             {
@@ -73,7 +75,7 @@ namespace SCDR.AdminForms.ViewVenue
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
                         string subsiteName = string.Empty;
-                        if(rbArabic.Checked)
+                        if (rbArabic.Checked)
                         {
                             subsiteName = "ar/";
                         }
@@ -84,11 +86,11 @@ namespace SCDR.AdminForms.ViewVenue
 
                         using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
-                            SPList oList = oWeb.Lists[VenueListName];
+                            SPList oList = oWeb.Lists[NewsListName];
                             SPListItemCollection oItems = oList.GetItems();
                             DataTable dtVenue = ConvertSPListToDataTable(oItems);
-                            gdvVenue.DataSource = dtVenue;
-                            gdvVenue.DataBind();
+                            gdvNews.DataSource = dtVenue;
+                            gdvNews.DataBind();
                         }
                     }
                 });
@@ -99,7 +101,6 @@ namespace SCDR.AdminForms.ViewVenue
             }
 
         }
-
         /// <summary>
         ///  Function to convert SharePoint List to DataTable 
         /// </summary>
@@ -125,9 +126,10 @@ namespace SCDR.AdminForms.ViewVenue
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void lbAddVenue_Click(object sender, EventArgs e)
+
+        protected void lbAddNews_Click(object sender, EventArgs e)
         {
-            Page.Response.Redirect("AddVenue.aspx");
+
         }
         /// <summary>
         /// binds the venue on gridview from Arabic list
@@ -136,7 +138,7 @@ namespace SCDR.AdminForms.ViewVenue
         /// <param name="e"></param>
         protected void rbArabic_CheckedChanged(object sender, EventArgs e)
         {
-            BindVenue();
+            BindNews();
         }
         /// <summary>
         /// binds the venue on gridview from english list
@@ -145,15 +147,17 @@ namespace SCDR.AdminForms.ViewVenue
         /// <param name="e"></param>
         protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
         {
-            BindVenue();
+            BindNews();
         }
+
         /// <summary>
         /// fires when the rows on gridview get clicked
         /// for edit and delete venue
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected void gdvVenue_RowCommand(object sender, GridViewCommandEventArgs e)
+
+        protected void gdvNews_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
             {
@@ -170,7 +174,7 @@ namespace SCDR.AdminForms.ViewVenue
                     }
                     using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                     {
-                        SPList oList = oWeb.Lists[VenueListName];
+                        SPList oList = oWeb.Lists[NewsListName];
                         int listItemId = Convert.ToInt32(e.CommandArgument);
                         if (e.CommandName == "delme")
                         {
@@ -178,16 +182,17 @@ namespace SCDR.AdminForms.ViewVenue
                             SPListItem itemToDelete = oList.GetItemById(listItemId);
                             itemToDelete.Delete();
                             oWeb.AllowUnsafeUpdates = false;
-                            BindVenue();
+                            BindNews();
                         }
                         else if (e.CommandName == "editme")
                         {
-                            Page.Response.Redirect("EditVenue.aspx?ItemID=" + listItemId + "&SiteName=" + subsiteName);
+                            Page.Response.Redirect("EditNews.aspx?NewsID=" + listItemId + "&SiteName=" + subsiteName);
                         }
 
                     }
                 }
             });
+
         }
     }
 }

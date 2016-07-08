@@ -206,6 +206,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditImageGallery.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\EditNews\EditNews.ascx.cs">
+      <DependentUpon>EditNews.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\EditNews\EditNews.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EditNews.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\EditVenue\EditVenue.ascx.cs">
       <DependentUpon>EditVenue.ascx</DependentUpon>
     </Compile>
@@ -601,6 +609,10 @@
     <None Include="AdminForms\EditImageGallery\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{5b1ab812-a18c-4ae9-9b2f-a138ebe58fc8}</SharePointProjectItemId>
     </None>
+    <None Include="AdminForms\EditNews\EditNews.webpart" />
+    <None Include="AdminForms\EditNews\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{ca0eef83-267b-467d-8fde-9ef51f4981e4}</SharePointProjectItemId>
+    </None>
     <None Include="AdminForms\EditVenue\EditVenue.webpart" />
     <None Include="AdminForms\EditVenue\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9bbe9218-cf34-47fd-acc7-769127653eef}</SharePointProjectItemId>
@@ -864,6 +876,11 @@
       <LastGenOutput>EditImageGallery.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\EditImageGallery\Elements.xml" />
+    <Content Include="AdminForms\EditNews\EditNews.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>EditNews.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\EditNews\Elements.xml" />
     <Content Include="AdminForms\EditVenue\EditVenue.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>EditVenue.ascx.g.cs</LastGenOutput>
