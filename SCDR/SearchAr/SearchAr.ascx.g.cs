@@ -88,9 +88,16 @@ namespace SCDR.SearchAr {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.SearchAr.SearchAr @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<!--Code Begins-->\r\n<div class=\"search_outer\">\r\n    <a class=\"search_btn\">\r\n   " +
-                        "     <i class=\"fa\"></i>\r\n    </a>\r\n    <span class=\"input_outer\"><span\r\n        " +
-                        "class=\"col-md-12 col-sm-12 col-xs-12\">\r\n        "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
+<script src=""../_layouts/15/SCDR/js/jquery-ui.js""></script>
+<!--Code Begins-->
+<div class=""search_outer"">
+    <a class=""search_btn"">
+        <i class=""fa""></i>
+    </a>
+    <span class=""input_outer""><span
+        class=""col-md-12 col-sm-12 col-xs-12"">
+        "));
             global::System.Web.UI.WebControls.LinkButton @__ctrl1;
             @__ctrl1 = this.@__BuildControlbtnSearch();
             @__parser.AddParsedSubObject(@__ctrl1);
@@ -98,7 +105,26 @@ namespace SCDR.SearchAr {
             global::System.Web.UI.WebControls.TextBox @__ctrl2;
             @__ctrl2 = this.@__BuildControltxtSearch();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      \r\n</div>\r\n<!--Code Ends-->"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      \r\n</div>\r\n<!--Code Ends-->\r\n<!--\r\n<script type=\"text/javascript\">\r\n\r\n    " +
+                        "// Settings\r\n    var siteurl = _spPageContextInfo.webAbsoluteUrl;\r\n    var field" +
+                        " = \"Title\";\r\n    // Onload\r\n    $(document).ready(function () {\r\n     \r\n        " +
+                        "$(\"input[name$=txtSearch]\").autocomplete({\r\n            source: function (req, a" +
+                        "dd) {\r\n              // \r\n                var suggestions = search(req.term, fie" +
+                        "ld);\r\n               \r\n                add(suggestions);\r\n            }\r\n       " +
+                        " });\r\n    });\r\n\r\n\r\n    function search(value, field) {\r\n        var coll = new A" +
+                        "rray();\r\n        var url = siteurl + \"/_vti_bin/listdata.svc/CustomImageGallery?" +
+                        "$select=Title&$filter=startswith(Title, \'\" + value + \"\')\";\r\n        $.ajax({\r\n  " +
+                        "          cache: true,\r\n            type: \"GET\",\r\n            headers: { \"Accept" +
+                        "\": \"application/json; odata=verbose\" },\r\n            async: false,\r\n            " +
+                        "dataType: \"json\",\r\n            url: url,\r\n            success: function (data) {" +
+                        "\r\n                var results = data.d.results;\r\n                for (att in res" +
+                        "ults) {\r\n                    var object = results[att];\r\n                    for" +
+                        " (attt in object) {\r\n                        if (attt == field) {\r\n             " +
+                        "               coll.push(object[attt]);\r\n                        }\r\n            " +
+                        "        }\r\n                }\r\n                return coll;\r\n            },\r\n    " +
+                        "        error: function (data) {\r\n                alert(\"Error: No search sugges" +
+                        "tion.\");\r\n            }\r\n        });\r\n        return coll;\r\n    }\r\n\r\n      </scr" +
+                        "ipt>-->"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

@@ -315,9 +315,11 @@ namespace SCDR.SearchResultListAr
                                 foreach (DataRow dr in dtResult.Rows)
                                 {
                                     DataRow drow = dtSitePagesList.NewRow();
-                                    drow["Title"] = dr["Title"];
+                                    string content = ExtractSentence(searchKeyword, dr["HitHighlightedSummary"].ToString());
+                                    drow["Title"] = content;
                                     drow["PageUrl"] = dr["Path"];
                                     drow["Content"] = dr["HitHighlightedSummary"];
+                                    
                                     dtSitePagesList.Rows.Add(drow);
                                 }
                                 return (dtSitePagesList);

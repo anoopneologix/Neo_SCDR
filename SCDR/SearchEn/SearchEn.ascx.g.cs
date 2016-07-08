@@ -106,83 +106,26 @@ namespace SCDR.SearchEn {
             global::System.Web.UI.WebControls.TextBox @__ctrl2;
             @__ctrl2 = this.@__BuildControltxtSearch();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </span> </span>\r\n</div>\r\n<!--Code Ends-->\r\n\r\n<!--<script>\r\n   \r\n        " +
-                        "var siteurl = _spPageContextInfo.webAbsoluteUrl;\r\n        $.ajax({\r\n            " +
-                        "       url: siteurl + \"/_api/web/lists/getbytitle(\'CustomImageGallery\')/items\",\r" +
-                        "\n                   method: \"GET\",\r\n                   headers: { \"Accept\": \"app" +
-                        "lication/json; odata=verbose\" },\r\n                   success: function (data) {\r" +
-                        "\n                        if (data.d.results.length > 0 ) {\r\n                    " +
-                        "         //This section can be used to iterate through data and show it on scree" +
-                        "n\r\n                        }       \r\n                  },\r\n                  err" +
-                        "or: function (data) {\r\n                      alert(\"Error: \"+ data);\r\n          " +
-                        "       }\r\n          });\r\n  \r\n</script>-->\r\n\r\n <!--  <script type=\"text/javascrip" +
-                        "t\">\r\n\r\n    // Settings\r\n    var siteurl = _spPageContextInfo.webAbsoluteUrl;\r\n  " +
-                        "  var url = siteurl + \"/_api/web/lists/getbytitle(\'CustomImageGallery\')/Items?\";" +
-                        "\r\n    var field = \"Title\";\r\n\r\n    // Onload\r\n    $(document).ready(function () {" +
-                        "\r\n        SP.SOD.executeFunc(\'sp.js\', \'SP.ClientContext\', prepareTables);\r\n     " +
-                        "   $(\"input[name$=txtSearch]\").autocomplete({\r\n            source: function (req" +
-                        ", add) {\r\n              //  search(req.term, url, field);\r\n                var s" +
-                        "uggestions=  retrieveListItems();\r\n               \r\n                add(suggesti" +
-                        "ons);\r\n            }\r\n        });\r\n    });\r\n\r\n    // Search all the listitems by" +
-                        " using the REST Service\r\n    // Value is the text that needs to be used in the q" +
-                        "uery\r\n    // listurl is the listdata.svc url withouth the filter params\r\n    // " +
-                        "field is the name of the field where the value in exists\r\n   /* function search(" +
-                        "value, listurl, field) {\r\n        var coll = new Array();\r\n       // var url =li" +
-                        "sturl + \"$filter=startswith(\" + field + \",\'\" + value + \"\')\";\r\n        var url = " +
-                        "siteurl + \"/_api/web/lists/getbytitle(\'CustomImageGallery\')/Items?filter=startsw" +
-                        "ith(Title,t)\";\r\n        $.ajax({\r\n            cache: true,\r\n            type: \"G" +
-                        "ET\",\r\n            headers: { \"Accept\": \"application/json; odata=verbose\" },\r\n   " +
-                        "         async: false,\r\n            dataType: \"json\",\r\n            url: url,\r\n  " +
-                        "          success: function (data) {\r\n                var results = data.d.resul" +
-                        "ts;\r\n                for (att in results) {\r\n                    var object = re" +
-                        "sults[att];\r\n                    for (attt in object) {\r\n                       " +
-                        " if (attt == field) {\r\n                            coll.push(object[attt]);\r\n   " +
-                        "                     }\r\n                    }\r\n                }\r\n            }," +
-                        "\r\n            error: function (data) {\r\n                alert(\"Error: \" + data);" +
-                        "\r\n            }\r\n        });\r\n        return coll\r\n    }*/\r\n\r\n   \r\n    var siteU" +
-                        "rl = _spPageContextInfo.webAbsoluteUrl;\r\n    function retrieveListItems() {\r\n\r\n " +
-                        "       var clientContext = new SP.ClientContext(siteUrl);\r\n        var oList = c" +
-                        "lientContext.get_web().get_lists().getByTitle(\'CustomImageGallery\');\r\n\r\n        " +
-                        "var camlQuery = new SP.CamlQuery();\r\n        camlQuery.set_viewXml(\'<View><Query" +
-                        "><Where><Contains><FieldRef Name=Title /><Value Type=Text>t</Value></Contains></" +
-                        "Where></Query><RowLimit>10</RowLimit></View>\');\r\n        this.collListItem = oLi" +
-                        "st.getItems(camlQuery);\r\n\r\n        clientContext.load(collListItem);\r\n     //   " +
-                        "clientContext.executeQueryAsync(Function.createDelegate(this, function () { _ret" +
-                        "urnParam = onQuerySucceeded(); }), Function.createDelegate(this, this.onQueryFai" +
-                        "led));\r\n       clientContext.executeQueryAsync(Function.createDelegate(this, thi" +
-                        "s.onQuerySucceeded), Function.createDelegate(this, this.onQueryFailed));\r\n      " +
-                        "//  return (_returnParam);\r\n    }\r\n\r\n    function onQuerySucceeded(sender, args)" +
-                        " {\r\n\r\n        var listItemInfo = \'\';\r\n        var coll = new Array();\r\n        v" +
-                        "ar listItemEnumerator = collListItem.getEnumerator();\r\n\r\n        while (listItem" +
-                        "Enumerator.moveNext()) {\r\n            var oListItem = listItemEnumerator.get_cur" +
-                        "rent();\r\n            coll.push(oListItem.get_item(\'Title\'));\r\n        \r\n        " +
-                        "}\r\n        return coll;\r\n      //  alert(listItemInfo.toString());\r\n    }\r\n\r\n   " +
-                        " function onQueryFailed(sender, args) {\r\n\r\n        alert(\'Request failed. \' + ar" +
-                        "gs.get_message() + \'\\n\' + args.get_stackTrace());\r\n    }\r\n\r\n\r\n</script> -->\r\n\r\n<" +
-                        "script>\r\n\r\n\r\n    $(document).ready(function () {\r\n     \r\n        $(\"input[name$=" +
-                        "txtSearch]\").autocomplete({\r\n            source: function (req, add) {\r\n        " +
-                        "        //  search(req.term, url, field);\r\n                var suggestions = pre" +
-                        "pareTables();\r\n                //don\'t exectute any jsom until sp.js file has lo" +
-                        "aded.        \r\n                SP.SOD.executeFunc(\'sp.js\', \'SP.ClientContext\', p" +
-                        "repareTables);\r\n                add(suggestions);\r\n            }\r\n        });\r\n " +
-                        "   });\r\n\r\n    function prepareTables() {\r\n        var coll = new Array();\r\n     " +
-                        "   getItemsWithCaml(\'CustomImageGallery\',\r\n                function (camlItems) " +
-                        "{\r\n                    var listItemEnumerator = camlItems.getEnumerator();\r\n    " +
-                        "                while (listItemEnumerator.moveNext()) {\r\n                       " +
-                        " var listItem = listItemEnumerator.get_current();\r\n                        coll." +
-                        "push(listItem.get_item(\'Title\'));\r\n                    }\r\n                    re" +
-                        "turn coll;\r\n                },\r\n                function (sender, args) {\r\n     " +
-                        "               console.log(\'An error occured while retrieving list items:\' + arg" +
-                        "s.get_message());\r\n                });\r\n       \r\n    }\r\n\r\n    function getItemsW" +
-                        "ithCaml(listTitle, success, error) {\r\n        var clientContext = new SP.ClientC" +
-                        "ontext.get_current();\r\n        var list = clientContext.get_web().get_lists().ge" +
-                        "tByTitle(listTitle);\r\n        var camlQuery = new SP.CamlQuery();\r\n        camlQ" +
-                        "uery.set_viewXml(\'<View><Query><Where><Contains><FieldRef Name=Title /><Value Ty" +
-                        "pe=Text>t</Value></Contains></Where></Query><RowLimit>10</RowLimit></View>\');\r\n " +
-                        "       var camlItems = list.getItems(camlQuery);\r\n        clientContext.load(cam" +
-                        "lItems);\r\n        clientContext.executeQueryAsync(\r\n                function () " +
-                        "{\r\n                    success(camlItems);\r\n                },\r\n                " +
-                        "error\r\n            );\r\n    };\r\n\r\n</script>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </span> </span>\r\n</div>\r\n<!--Code Ends-->\r\n\r\n<!--\r\n\r\n  <script type=\"tex" +
+                        "t/javascript\">\r\n\r\n    // Settings\r\n    var siteurl = _spPageContextInfo.webAbsol" +
+                        "uteUrl;\r\n    var field = \"Title\";\r\n    // Onload\r\n    $(document).ready(function" +
+                        " () {\r\n     \r\n        $(\"input[name$=txtSearch]\").autocomplete({\r\n            so" +
+                        "urce: function (req, add) {\r\n              // \r\n                var suggestions " +
+                        "= search(req.term, field);\r\n               \r\n                add(suggestions);\r\n" +
+                        "            }\r\n        });\r\n    });\r\n\r\n\r\n    function search(value, field) {\r\n  " +
+                        "      var coll = new Array();\r\n        var url = siteurl + \"/_vti_bin/listdata.s" +
+                        "vc/CustomImageGallery?$select=Title&$filter=startswith(Title, \'\" + value + \"\')\";" +
+                        "\r\n        $.ajax({\r\n            cache: true,\r\n            type: \"GET\",\r\n        " +
+                        "    headers: { \"Accept\": \"application/json; odata=verbose\" },\r\n            async" +
+                        ": false,\r\n            dataType: \"json\",\r\n            url: url,\r\n            succ" +
+                        "ess: function (data) {\r\n                var results = data.d.results;\r\n         " +
+                        "       for (att in results) {\r\n                    var object = results[att];\r\n " +
+                        "                   for (attt in object) {\r\n                        if (attt == f" +
+                        "ield) {\r\n                            coll.push(object[attt]);\r\n                 " +
+                        "       }\r\n                    }\r\n                }\r\n                return coll;" +
+                        "\r\n            },\r\n            error: function (data) {\r\n                alert(\"E" +
+                        "rror: No search suggestion.\");\r\n            }\r\n        });\r\n        return coll;" +
+                        "\r\n    }\r\n\r\n      </script>-->\r\n\r\n  "));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

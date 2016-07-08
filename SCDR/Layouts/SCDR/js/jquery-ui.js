@@ -7149,13 +7149,13 @@ $.extend( $.ui.autocomplete, {
 // live region extension, adding a `messages` option
 // NOTE: This is an experimental API. We are still investigating
 // a full solution for string manipulation and internationalization.
-$.widget( "ui.autocomplete", $.ui.autocomplete, {
+/*$.widget( "ui.autocomplete", $.ui.autocomplete, {
 	options: {
 		messages: {
-			noResults: "No search results.",
+		    noResults: "",//No search results.
 			results: function( amount ) {
-				return amount + ( amount > 1 ? " results are" : " result is" ) +
-					" available, use up and down arrow keys to navigate.";
+			    return;// amount + ( amount > 1 ? " results are" : " result is" ) +
+					//" available, use up and down arrow keys to navigate.";
 			}
 		}
 	},
@@ -7173,7 +7173,7 @@ $.widget( "ui.autocomplete", $.ui.autocomplete, {
 		}
 		this.liveRegion.text( message );
 	}
-});
+});*/
 
 }( jQuery ));
 

@@ -6,6 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SearchAr.ascx.cs" Inherits="SCDR.SearchAr.SearchAr" %>
+<script src="../_layouts/15/SCDR/js/jquery-ui.js"></script>
 <!--Code Begins-->
 <div class="search_outer">
     <a class="search_btn">
@@ -18,3 +19,53 @@
       
 </div>
 <!--Code Ends-->
+<!--
+<script type="text/javascript">
+
+    // Settings
+    var siteurl = _spPageContextInfo.webAbsoluteUrl;
+    var field = "Title";
+    // Onload
+    $(document).ready(function () {
+     
+        $("input[name$=txtSearch]").autocomplete({
+            source: function (req, add) {
+              // 
+                var suggestions = search(req.term, field);
+               
+                add(suggestions);
+            }
+        });
+    });
+
+
+    function search(value, field) {
+        var coll = new Array();
+        var url = siteurl + "/_vti_bin/listdata.svc/CustomImageGallery?$select=Title&$filter=startswith(Title, '" + value + "')";
+        $.ajax({
+            cache: true,
+            type: "GET",
+            headers: { "Accept": "application/json; odata=verbose" },
+            async: false,
+            dataType: "json",
+            url: url,
+            success: function (data) {
+                var results = data.d.results;
+                for (att in results) {
+                    var object = results[att];
+                    for (attt in object) {
+                        if (attt == field) {
+                            coll.push(object[attt]);
+                        }
+                    }
+                }
+                return coll;
+            },
+            error: function (data) {
+                alert("Error: No search suggestion.");
+            }
+        });
+        return coll;
+    }
+
+      </script>-->
