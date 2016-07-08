@@ -21,7 +21,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
     public partial class EditCalendarEvents : WebPart
     {
         string subsiteName = string.Empty;
-        string liDescription = "";
+        
         public EditCalendarEvents()
         {
         }
@@ -31,7 +31,9 @@ namespace SCDR.AdminForms.EditCalendarEvents
             base.OnInit(e);
             InitializeControl();
         }
-
+        /// <summary>
+        /// function for enabling custom webpart properties
+        /// </summary>
         #region CustomWebPartProperty
         private const string DepartmentListName = "CustomDepartmentList";
         private static string dListName = DepartmentListName;
@@ -73,7 +75,10 @@ namespace SCDR.AdminForms.EditCalendarEvents
             set { venueListName = value; }
         }
         #endregion
-
+      
+        /// <summary>
+        /// function for binding departments to dropdownlist from sharepoint list
+        /// </summary>
         public void BindDepartment()
         {
             try
@@ -110,7 +115,11 @@ namespace SCDR.AdminForms.EditCalendarEvents
 
             }
         }
-
+       
+        /// <summary>
+        /// function for binding Venue to dropdownlist from sharepoint list
+        /// venue with status equals to Active will be binded
+        /// </summary>
         public void BindEventVenue()
         {
             try
@@ -157,7 +166,11 @@ namespace SCDR.AdminForms.EditCalendarEvents
             }
         }
 
-        // Function to convert SharePoint Picture Library to DataTable 
+        /// <summary>
+        ///  Function to convert list to DataTable 
+        /// </summary>
+        /// <param name="spItemCollection"></param>
+        /// <returns></returns>
         private static DataTable ConvertSPListToDataTable(SPListItemCollection spItemCollection)
         {
             DataTable dtSPList = new DataTable();
@@ -172,7 +185,11 @@ namespace SCDR.AdminForms.EditCalendarEvents
             }
         }
 
-
+        /// <summary>
+        /// fires on page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -183,6 +200,13 @@ namespace SCDR.AdminForms.EditCalendarEvents
              //   BindDepartment();
             }
         }
+
+        /// <summary>
+        /// bind the deatils of event to the dropdownlist
+        /// event will be loaded based on date selected
+        /// get the deatils from sharepoint list
+        /// </summary>
+        /// <param name="txt"></param>
         public void BindEvents(string txt)
         {
             try
@@ -245,7 +269,12 @@ namespace SCDR.AdminForms.EditCalendarEvents
 
             }
         }
-
+      
+        /// <summary>
+        /// fires when user selects a date
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void txtEventDate_TextChanged(object sender, EventArgs e)
         {
             string txt = txtEventDate.Text;
@@ -253,6 +282,12 @@ namespace SCDR.AdminForms.EditCalendarEvents
 
         }
 
+        /// <summary>
+        /// bind the deatils of event to the page
+        /// event will be loaded based on event name selected
+        /// get the deatils from sharepoint list
+        /// </summary>
+        /// <param name="txt"></param>
         public void BindDetails()
         {
             try
@@ -274,6 +309,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
                         }
                         using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
+                            string liDescription = "";
                             SPList oList = oWeb.Lists[ListName];
                             SPListItem item = oList.GetItemById(Convert.ToInt32(ddlEventName.SelectedValue));
                             liDescription = item["Description"].ToString();
@@ -328,7 +364,12 @@ namespace SCDR.AdminForms.EditCalendarEvents
             }
         }
 
-       
+        /// <summary>
+       /// fires when the selected index of dropdown changed
+       /// event details loaded to page
+       /// </summary>
+       /// <param name="sender"></param>
+       /// <param name="e"></param>
         protected void ddlEventName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(ddlEventName.SelectedIndex>0)
@@ -338,7 +379,12 @@ namespace SCDR.AdminForms.EditCalendarEvents
             }
 
         }
-
+       
+        /// <summary>
+        /// update the deatils to sharepoint list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             if (CheckForExixtingEvents())
@@ -429,14 +475,23 @@ namespace SCDR.AdminForms.EditCalendarEvents
             }
 
         }
-
+       
+        /// <summary>
+        /// fires on the cancel button click event
+        /// function for clearing the fields in page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             formClear();
 
         }
-
-       void formClear()
+      
+        /// <summary>
+        /// function for clearing the controls
+        /// </summary>
+        void formClear()
         {
             ddlEventName.Items.Clear();
             ddlEventName.Items.Insert(0, new ListItem("--Select Event--", "0"));
@@ -450,18 +505,33 @@ namespace SCDR.AdminForms.EditCalendarEvents
            divContent.Visible=false;
            //divContent1.Visible = false;
         }
-
-       protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
+       
+        /// <summary>
+        /// binds the name of events from English website
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
        {
            BindEventVenue();
        }
 
-       protected void rbArabic_CheckedChanged(object sender, EventArgs e)
+        /// <summary>
+        /// binds the name of events from Arabic website
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rbArabic_CheckedChanged(object sender, EventArgs e)
        {
            BindEventVenue();
        }
 
-       public bool CheckForExixtingEvents()
+        /// <summary>
+        /// function for checking the current details of event with already added events
+        /// venue, date , time are taken for checking
+        /// </summary>
+        /// <returns></returns>
+        public bool CheckForExixtingEvents()
        {
            bool returnvalue = true;
            try
@@ -576,7 +646,12 @@ namespace SCDR.AdminForms.EditCalendarEvents
            return returnvalue;
        }
 
-       public DateTime GetDateTimeFromString(string sDate)
+        /// <summary>
+        /// function for converting string to valid DateTime
+        /// </summary>
+        /// <param name="sDate"></param>
+        /// <returns></returns>
+        public DateTime GetDateTimeFromString(string sDate)
        {
            DateTime myDate = DateTime.ParseExact(sDate, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
            return myDate;

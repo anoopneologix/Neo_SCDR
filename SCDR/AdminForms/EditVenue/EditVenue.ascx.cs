@@ -29,7 +29,9 @@ namespace SCDR.AdminForms.EditVenue
             base.OnInit(e);
             InitializeControl();
         }
-
+        /// <summary>
+        /// function for enabling  custom webpart property
+        /// </summary>
         #region CustomWebPartProperty
         private const string DefaultVenueList = "CustomVenueList";
         private static string venueListName = DefaultVenueList;
@@ -46,6 +48,12 @@ namespace SCDR.AdminForms.EditVenue
         }
         #endregion
 
+        /// <summary>
+        /// fires when the page loads
+        /// binds deatils to page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -62,7 +70,11 @@ namespace SCDR.AdminForms.EditVenue
 
             }
         }
-
+        /// <summary>
+        /// function for getting details of venue from sharepoint list based on Item ID and Site Langauge
+        /// </summary>
+        /// <param name="itemID"></param>
+        /// <param name="siteName"></param>
         public void GetVenueDetails(int itemID, string siteName)
         {
             try
@@ -143,7 +155,12 @@ namespace SCDR.AdminForms.EditVenue
             }
         }
 
-
+        /// <summary>
+        /// fires when the button get clicked
+        /// update the details to sharepoint list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -228,7 +245,11 @@ namespace SCDR.AdminForms.EditVenue
             }
 
         }
-
+        /// <summary>
+        /// fires on cancel button click 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             string sMessage = "operation cancelled";
