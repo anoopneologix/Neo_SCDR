@@ -941,52 +941,52 @@ namespace SCDR.AdminForms.AddNews {
                         "fault();\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>\r\n\r\n<script>\r\n    $(docu" +
                         "ment).ready(function () {\r\n/* language selection for panel update */\r\n        fu" +
                         "nction ArabicLanguage()\r\n        {\r\n            $(\"#panelEn\").removeClass(\'activ" +
-                        "e\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\n            $(\"#panelEn\")." +
-                        "find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\')" +
-                        ".removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeClass(\'di" +
-                        "sabled\');\n            $(\"#panelAr\").addClass(\'active\');\n            $(\"#panelAr\"" +
-                        ").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').rem" +
-                        "oveAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"ar" +
-                        "ia-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active in\');\r\n       " +
-                        "     $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        function Englis" +
-                        "hLanguage() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n            $(\"" +
-                        "#panelAr\").addClass(\'disabled\');\n            $(\"#panelAr\").find(\'a\').removeAttr(" +
-                        "\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').removeAttr(\"aria-exp" +
-                        "anded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", \"fal" +
-                        "se\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n            $(\"#panelE" +
-                        "n\").addClass(\'active\');\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", " +
-                        "\"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\"" +
-                        ");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n        " +
-                        "    $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\").removeClass(\'" +
-                        "active in\');\r\n        }\r\n        function BothLanguage() {\r\n            $(\"#pane" +
-                        "lEn\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(\'disabled\');\n  " +
-                        "          $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#p" +
-                        "anelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelE" +
-                        "n\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeCl" +
-                        "ass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\');\n            $" +
-                        "(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").fi" +
-                        "nd(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\'" +
-                        ").attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addClass(\'active in" +
-                        "\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        }\r\n        var " +
-                        "rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n        if (r" +
-                        "bName == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n        else if (r" +
-                        "bName == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage();\r\n        }\r" +
-                        "\n        else if (rbName == \"rbArabic\") {\r\n            ArabicLanguage();\r\n      " +
-                        "  }\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r\n            if (" +
-                        "$(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLanguage();\r\n\r\n       " +
-                        "     } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n                ArabicLangua" +
-                        "ge();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\").is(\":checked\")) {\r\n   " +
-                        "             BothLanguage();\r\n            }\r\n        });\r\n        /* language se" +
-                        "lection for panel update */\r\n        /* Image upload selection for file upload c" +
-                        "ontrol update */\r\n        var rbImageName = $(\"input[type=radio][name$=grpImage]" +
-                        ":checked\").val();\r\n        if (rbImageName == \"rbYes\") {\r\n            $(\'#upload" +
-                        "Images\').show();\r\n        }\r\n        else if (rbImageName == \"rbNo\") {\r\n\r\n      " +
-                        "      $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"input[name$=grpImage]\")." +
-                        "click(function () {\r\n            if ($(\"#rbYes\").is(\":checked\")) {\r\n            " +
-                        "    $(\'#uploadImages\').show();\r\n\r\n            } else if ($(\"#rbNo\").is(\":checked" +
-                        "\")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n            }\r\n          " +
-                        "\r\n        });\r\n      \r\n        /* Image upload selection for file upload control" +
-                        " update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
+                        "e\');\r\n            $(\"#panelEn\").addClass(\'disabled\');\r\n            $(\"#panelEn\")" +
+                        ".find(\'a\').removeAttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\'" +
+                        ").removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").removeClass(\'d" +
+                        "isabled\');\r\n            $(\"#panelAr\").addClass(\'active\');\r\n            $(\"#panel" +
+                        "Ar\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\')." +
+                        "removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"#panelAr\").find(\'a\').attr(" +
+                        "\"aria-expanded\", \"true\");\r\n            $(\"#arabic\").addClass(\'active in\');\r\n    " +
+                        "        $(\"#english\").removeClass(\'active in\');\r\n        }\r\n        function Eng" +
+                        "lishLanguage() {\r\n            $(\"#panelAr\").removeClass(\'active\');\r\n            " +
+                        "$(\"#panelAr\").addClass(\'disabled\');\r\n            $(\"#panelAr\").find(\'a\').removeA" +
+                        "ttr(\"data-toggle\", \"tab\");\r\n            $(\"#panelAr\").find(\'a\').removeAttr(\"aria" +
+                        "-expanded\", \"true\");\r\n            $(\"#panelAr\").find(\'a\').attr(\"aria-expanded\", " +
+                        "\"false\");\r\n            $(\"#panelEn\").removeClass(\'disabled\');\r\n            $(\"#p" +
+                        "anelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").find(\'a\').attr(\"data-tog" +
+                        "gle\", \"tab\");\r\n            $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"" +
+                        "false\");\r\n            $(\"#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n  " +
+                        "          $(\"#english\").addClass(\'active in\');\r\n            $(\"#arabic\").removeC" +
+                        "lass(\'active in\');\r\n        }\r\n        function BothLanguage() {\r\n            $(" +
+                        "\"#panelEn\").addClass(\'active\');\r\n            $(\"#panelEn\").removeClass(\'disabled" +
+                        "\');\r\n            $(\"#panelEn\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n          " +
+                        "  $(\"#panelEn\").find(\'a\').removeAttr(\"aria-expanded\", \"false\");\r\n            $(\"" +
+                        "#panelEn\").find(\'a\').attr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\").r" +
+                        "emoveClass(\'active\');\r\n            $(\"#panelAr\").removeClass(\'disabled\');\r\n     " +
+                        "       $(\"#panelAr\").find(\'a\').attr(\"data-toggle\", \"tab\");\r\n            $(\"#pane" +
+                        "lAr\").find(\'a\').removeAttr(\"aria-expanded\", \"true\");\r\n            $(\"#panelAr\")." +
+                        "find(\'a\').attr(\"aria-expanded\", \"false\");\r\n            $(\"#english\").addClass(\'a" +
+                        "ctive in\');\r\n            $(\"#arabic\").removeClass(\'active in\');\r\n        }\r\n    " +
+                        "    var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n     " +
+                        "   if (rbName == \"rbBoth\") {\r\n            BothLanguage();\r\n        }\r\n        el" +
+                        "se if (rbName == \"rbEnglish\") {\r\n           \r\n            EnglishLanguage();\r\n  " +
+                        "      }\r\n        else if (rbName == \"rbArabic\") {\r\n            ArabicLanguage();" +
+                        "\r\n        }\r\n        $(\"input[name$=grpLanguage]\").click(function () {\r\n        " +
+                        "    if ($(\"#rbEnglish\").is(\":checked\")) {\r\n                EnglishLanguage();\r\n\r" +
+                        "\n            } else if ($(\"#rbArabic\").is(\":checked\")) {\r\n\r\n                Arab" +
+                        "icLanguage();\r\n\r\n            }\r\n            else if ($(\"#rbBoth\").is(\":checked\")" +
+                        ") {\r\n                BothLanguage();\r\n            }\r\n        });\r\n        /* lan" +
+                        "guage selection for panel update */\r\n        /* Image upload selection for file " +
+                        "upload control update */\r\n        var rbImageName = $(\"input[type=radio][name$=g" +
+                        "rpImage]:checked\").val();\r\n        if (rbImageName == \"rbYes\") {\r\n            $(" +
+                        "\'#uploadImages\').show();\r\n        }\r\n        else if (rbImageName == \"rbNo\") {\r\n" +
+                        "\r\n            $(\'#uploadImages\').hide();\r\n        }\r\n        $(\"input[name$=grpI" +
+                        "mage]\").click(function () {\r\n            if ($(\"#rbYes\").is(\":checked\")) {\r\n    " +
+                        "            $(\'#uploadImages\').show();\r\n\r\n            } else if ($(\"#rbNo\").is(\"" +
+                        ":checked\")) {\r\n\r\n                $(\'#uploadImages\').hide();\r\n\r\n            }\r\n  " +
+                        "        \r\n        });\r\n      \r\n        /* Image upload selection for file upload" +
+                        " control update */\r\n\r\n\r\n        \r\n    });\r\n    </script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
