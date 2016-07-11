@@ -1,4 +1,5 @@
 ﻿using Microsoft.SharePoint;
+
 using System;
 using System.ComponentModel;
 using System.Web;
@@ -7,6 +8,12 @@ using System.Web.UI.WebControls.WebParts;
 using System.Text;
 using System.Collections;
 using System.DirectoryServices;
+
+using Microsoft.SharePoint.WebControls;
+
+using Microsoft.SharePoint.IdentityModel;
+using Microsoft.IdentityModel;
+
 
 namespace SCDR.LoginEn
 {
@@ -53,10 +60,36 @@ namespace SCDR.LoginEn
 
         protected void btnSignin_Click(object sender, EventArgs e)
         {
+            //bool status = SPClaimsUtility.AuthenticateFormsUser(Context.Request.UrlReferrer, UserName.Text, pwd.Text);
 
+            //if (!status)
+
+            //{
+
+            //    //Label1.Text = “Wrong Userid or Password”;
+
+            //}
+
+            //else
+
+            //{
+
+            //    if (Context.Request.QueryString.Keys.Count > 1)
+
+            //    {
+
+            //        HttpContext.Current.Response.Redirect(Context.Request.QueryString["Source"].ToString());
+
+            //    }
+
+            //    else
+
+            //        HttpContext.Current.Response.Redirect(Context.Request.QueryString["ReturnUrl"].ToString());
+
+            //}
         }
 
-        public bool IsAuthenticated(string domain, string username, string pwd)
+      /*  public bool IsAuthenticated(string domain, string username, string pwd)
         {
             string domainAndUsername = domain + @"\" + username;
             DirectoryEntry entry = new DirectoryEntry(_path,
@@ -82,7 +115,7 @@ namespace SCDR.LoginEn
                 throw new Exception("Error authenticating user. " + ex.Message);
             }
             return true;
-        }
+        }*/
        
     }
 }
