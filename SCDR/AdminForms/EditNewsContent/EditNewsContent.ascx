@@ -70,7 +70,7 @@
    <div class="col-sm-9">
    
         <asp:RadioButton GroupName="chkImage" ClientIDMode="Static" Text="Yes"  ID="chkYes" runat="server" />
-                 <asp:RadioButton GroupName="chkImage" ClientIDMode="Static"  Text="No" ID="chkNo" runat="server" />
+                 <asp:RadioButton GroupName="chkImage" ClientIDMode="Static" Checked="true" Text="No" ID="chkNo" runat="server" />
        </div>
                       </div>
  <div class="form-group" id="divNewsPicture">
@@ -88,6 +88,7 @@
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
         <asp:Button ID="btnSubmit"  OnClientClick="if ( ! UserConfirmation(event)) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
+         <asp:Button ID="btnCancel"  Text="cancel" class="btn btn-warning" runat="server" OnClick="btnCancel_Click"  />
     </div>
   </div>
        <asp:HiddenField ID="lblUrl" ClientIDMode="Static" runat="server" ></asp:HiddenField>

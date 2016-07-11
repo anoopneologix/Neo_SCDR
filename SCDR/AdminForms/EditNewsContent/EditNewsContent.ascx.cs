@@ -318,5 +318,10 @@ namespace SCDR.AdminForms.EditNewsContent
 
 
         }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            Page.Response.Redirect("ViewNews.aspx");
+        }
     }
 }

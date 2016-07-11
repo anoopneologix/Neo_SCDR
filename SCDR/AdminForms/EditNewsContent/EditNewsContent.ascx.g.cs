@@ -93,6 +93,10 @@ namespace SCDR.AdminForms.EditNewsContent {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.HiddenField lblUrl;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -366,6 +370,7 @@ namespace SCDR.AdminForms.EditNewsContent {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.GroupName = "chkImage";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Checked = true;
             @__ctrl.Text = "No";
             @__ctrl.ID = "chkNo";
             return @__ctrl;
@@ -417,6 +422,22 @@ namespace SCDR.AdminForms.EditNewsContent {
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
             @__ctrl.Click -= new System.EventHandler(this.btnSubmit_Click);
             @__ctrl.Click += new System.EventHandler(this.btnSubmit_Click);
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.Button @__BuildControlbtnCancel() {
+            global::System.Web.UI.WebControls.Button @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.Button();
+            this.btnCancel = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "btnCancel";
+            @__ctrl.Text = "cancel";
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-warning");
+            @__ctrl.Click -= new System.EventHandler(this.btnCancel_Click);
+            @__ctrl.Click += new System.EventHandler(this.btnCancel_Click);
             return @__ctrl;
         }
         
@@ -599,10 +620,14 @@ namespace SCDR.AdminForms.EditNewsContent {
             global::System.Web.UI.WebControls.Button @__ctrl13;
             @__ctrl13 = this.@__BuildControlbtnSubmit();
             @__parser.AddParsedSubObject(@__ctrl13);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl14;
-            @__ctrl14 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n         "));
+            global::System.Web.UI.WebControls.Button @__ctrl14;
+            @__ctrl14 = this.@__BuildControlbtnCancel();
             @__parser.AddParsedSubObject(@__ctrl14);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n       "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl15;
+            @__ctrl15 = this.@__BuildControllblUrl();
+            @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 
 </div>
@@ -618,22 +643,22 @@ namespace SCDR.AdminForms.EditNewsContent {
       </div>
          <div class=""modal-body"">
              "));
-            global::System.Web.UI.WebControls.HiddenField @__ctrl15;
-            @__ctrl15 = this.@__BuildControlhfListItemId();
-            @__parser.AddParsedSubObject(@__ctrl15);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.HiddenField @__ctrl16;
-            @__ctrl16 = this.@__BuildControlhfSubsiteName();
+            @__ctrl16 = this.@__BuildControlhfListItemId();
             @__parser.AddParsedSubObject(@__ctrl16);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n        "));
-            global::System.Web.UI.WebControls.Repeater @__ctrl17;
-            @__ctrl17 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.HiddenField @__ctrl17;
+            @__ctrl17 = this.@__BuildControlhfSubsiteName();
             @__parser.AddParsedSubObject(@__ctrl17);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\"row\">\r\n        "));
+            global::System.Web.UI.WebControls.Repeater @__ctrl18;
+            @__ctrl18 = this.@__BuildControlrepThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl18);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n</div>\r\n      </div>\r\n      <div class=\"modal-footer\">\r\n        \r\n      \r\n     " +
                         "     "));
-            global::System.Web.UI.WebControls.Button @__ctrl18;
-            @__ctrl18 = this.@__BuildControlbtnSaveThumbnail();
-            @__parser.AddParsedSubObject(@__ctrl18);
+            global::System.Web.UI.WebControls.Button @__ctrl19;
+            @__ctrl19 = this.@__BuildControlbtnSaveThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl19);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    </div>\r\n  </div>\r\n</div>\r\n    <!-- datetime picker script--" +
                         ">\r\n<script type=\"text/javascript\" src=\"../../_layouts/15/SCDR/js/bootstrap-datep" +
                         "icker.min.js\" ></script>\r\n\r\n <script type=\"text/javascript\">\r\n                  " +
