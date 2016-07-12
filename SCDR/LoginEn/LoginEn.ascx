@@ -1,4 +1,5 @@
 ﻿<%@ Assembly Name="$SharePoint.Project.AssemblyFullName$" %>
+
 <%@ Assembly Name="Microsoft.Web.CommandUI, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
 <%@ Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %> 
 <%@ Register Tagprefix="Utilities" Namespace="Microsoft.SharePoint.Utilities" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
@@ -7,6 +8,7 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LoginEn.ascx.cs" Inherits="SCDR.LoginEn.LoginEn" %>
 <!-- form begins-->
+<asp:HiddenField ID="hfloginstatus" ClientIDMode="Static" runat="server" />
 <div class="login">
     <div class="login_btn">
         <i class="fa"></i>
@@ -21,6 +23,7 @@
             </div>
 
             <div class="alert alert-custom"></div>
+        
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm" style="display: block">
                 <div>
                     <div class="form-group custom-frm-group">
@@ -41,11 +44,11 @@
                             <input type="checkbox">Remember me</label>
                         <a href="#" class="forgot">Forgot Password?</a>
                     </div>-->
-                    <asp:Button ID="btnSignin" class="btn btn-default btn-theme btn-submit" runat="server" Text="Submit" />
+                    <asp:Button ID="btnSignin" class="btn btn-default" runat="server" Text="Submit" OnClick="btnSignin_Click1" />
                   
                 </div>
             </span>
-
+ 
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm forgot-frm">
                 <div>
                     <div class="form-group custom-frm-group">
@@ -58,17 +61,33 @@
                    <asp:Button ID="btnForgotPassword" class="btn btn-default btn-theme btn-forgot-submit" Text="Submit" runat="server" />
                 </div>
             </span>
-
+          
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm after-signin">
 
                 <div class="welcome_user">
                     <b>Welcome</b>
-                    <span>Mr. Abhilash Nair</span>
+                    <span><asp:Label ID="lblUsername" runat="server"></asp:Label></span>
                 </div>
                 
-                  <asp:Button ID="btnSignOut" class="btn btn-default btn-theme btn-signout" Text="Signout" runat="server" />
+                  <asp:Button ID="btnSignOut" class="btn btn-default" Text="Signout" runat="server" OnClick="btnSignOut_Click" />
             </span>
 
         </span>
     </div>
 </div>
+
+<script>
+
+        var loginStatus = $("#hfloginstatus").val();
+        if (loginStatus == "True")
+        {
+            $(".login_form_outer").removeClass("expand_height");
+            $(".tab-frm").hide();
+            $(".tab-frm.after-signin").fadeIn();
+        }
+        else
+        {
+
+        }
+  
+</script>
