@@ -106,6 +106,18 @@ namespace SCDR.AdminForms.EditNewsContent
                             }
                             else
                             {
+                                string imgUrl = item["ThumbnailUrl"].ToString();
+                                int index = imgUrl.IndexOf(",");
+                                if (index > 0)
+                                {
+                                    imgUrl = imgUrl.Substring(0, index);
+                                    DataRow dr = dt.NewRow();
+                                    dr["ImageUrl"] = imgUrl;
+                                    dt.Rows.Add(dr);
+                                   
+                                }
+                                gdvAttachments.DataSource = dt;
+                                gdvAttachments.DataBind();
                                
                             }
                         }
@@ -126,19 +138,32 @@ namespace SCDR.AdminForms.EditNewsContent
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                       
-                        int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+
+                        int itemID = Convert.ToInt32(Page.Request.QueryString["NewsID"]);
                         string siteName = Page.Request.QueryString["SiteName"].ToString();
                         using (SPWeb oWeb = oSite.OpenWeb(siteName))
                         {
                             SPList oList = oWeb.Lists[ListName];
                             SPListItem item = oList.GetItemById(itemID);
+                            
                             item["Title"] = txtNewsHeading.Text;
                             item["Location"] = txtNewsLocation.Text;
                             item["Description"] = hfNewsDescription.Value;
                             item["Date"] = txtNewsdate.Text;
+                           
                            if(chkYes.Checked)
                            {
+                               SPAttachmentCollection currentAttachmentItems = item.Attachments;
+                               if (currentAttachmentItems.Count > 0)
+                               {
+                                   List<string> deletedFilenames = GetDeletedFileNames();
+                                   foreach (string fileName in deletedFilenames)
+                                   {
+
+                                       item.Attachments.Delete(fileName);
+
+                                   }
+                               }
                                if (fuNewsImage.HasFile)
                                {
 
@@ -163,13 +188,7 @@ namespace SCDR.AdminForms.EditNewsContent
 
                                    }
                                }
-                               List<string> deletedFilenames = GetDeletedFileNames();
-                               foreach (string fileName in deletedFilenames)
-                               {
-
-                                   item.Attachments.Delete(fileName);
-
-                               }
+                              
                                oWeb.AllowUnsafeUpdates = true;
                                item.Update();
                                oWeb.AllowUnsafeUpdates = false;
@@ -179,53 +198,74 @@ namespace SCDR.AdminForms.EditNewsContent
                            }
                            else if (chkNo.Checked)
                            {
-                            /*   int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                               string siteName = Page.Request.QueryString["SiteName"].ToString();
-                               SpListItemId = item.ID;
-                               SPList olist = oWeb.Lists[ListName];
-                               SPListItem oitem = olist.GetItemById(SpListItemId);
-                               SPAttachmentCollection ocollAttachments = oitem.Attachments;
+                                SPAttachmentCollection currentAttachmentItems= item.Attachments;
+                                if (currentAttachmentItems.Count > 0)
+                                {
+                                    List<string> deletedFilenames = GetDeletedFileNames();
+                                    foreach (string fileName in deletedFilenames)
+                                    {
+
+                                        item.Attachments.Delete(fileName);
+
+                                    }
+                                }
+                            List<string> thumbnailUrl = new List<string>();
+                            string imgUrl = item["ThumbnailUrl"].ToString();
+                            int index = imgUrl.IndexOf(",");
+                            if (index > 0)
+                            {
+                                imgUrl = imgUrl.Substring(0, index);
+                                thumbnailUrl.Add(imgUrl);
+                            }
+                               SPAttachmentCollection ocollAttachments = item.Attachments;
+                               List<string> oattachmenUrl = new List<string>();
                                if (ocollAttachments.Count > 0)
                                {
-                                   foreach (string fileName in oitem.Attachments)
+                                   foreach (string fileName in item.Attachments)
                                    {
-                                       oattachmenUrl.Add(SPUrlUtility.CombineUrl(oitem.Attachments.UrlPrefix, fileName));
+                                       oattachmenUrl.Add(SPUrlUtility.CombineUrl(item.Attachments.UrlPrefix, fileName));
                                    }
                                    bool val = thumbnailUrl.Intersect(oattachmenUrl).Any();
                                    if (val == false)
                                    {
+                                       oWeb.AllowUnsafeUpdates = true;
+                                       item.Update();
+                                       oWeb.AllowUnsafeUpdates = false;
                                        UpdateThumbnailImages();
                                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
                                    }
                                    else
                                    {
-                                       formClear();
+                                      // formClear();
+                                       oWeb.AllowUnsafeUpdates = true;
+                                       item.Update();
+                                       oWeb.AllowUnsafeUpdates = false;
                                        string sMessage = "successfully completed";
-                                       ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='EditImageGallery.aspx';</script>", false);
+                                       ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
 
                                    }
 
                                }
                                else
                                {
+
+                                   item["ThumbnailUrl"] = oWeb.Url + "/_layouts/15/SCDR/images/default.png";
                                    oWeb.AllowUnsafeUpdates = true;
-                                   oitem.Delete();
+                                   item.Update();
                                    oWeb.AllowUnsafeUpdates = false;
-                                   formClear();
                                    string sMessage = "successfully completed";
-                                   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='EditImageGallery.aspx';</script>", false);
+                                   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
 
-                               }*/
+                               }
+                            
 
-
+                              
 
                            }
                            
                           
-                           oWeb.AllowUnsafeUpdates = true;
-                           item.Update();
-                           oWeb.AllowUnsafeUpdates = false;
+                          
                         }
                     }
                 });
@@ -257,13 +297,52 @@ namespace SCDR.AdminForms.EditNewsContent
         }
 
         //function for binding uploaded images to pop up modal
+        public void UpdateThumbnailImages()
+        {
+            SPSecurity.RunWithElevatedPrivileges(delegate()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                {
+                    int itemID = Convert.ToInt32(Page.Request.QueryString["NewsID"]);
+                    string siteName = Page.Request.QueryString["SiteName"].ToString();
+                    using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                    {
+                        SPList list = oWeb.Lists[ListName];
+                        SPListItem item = list.GetItemById(itemID);
+                        hfListItemId.Value = itemID.ToString();
+                        hfSubsiteName.Value = siteName.ToString();
+                        SPAttachmentCollection docs = item.Attachments;
+                        DataTable dt = new DataTable();
+                        DataColumn dcImageUrl = new DataColumn("ImageUrl", typeof(string));
+                        dt.Columns.Add(dcImageUrl);
+                        if (docs.Count > 0)
+                        {
+                            foreach (string fileName in item.Attachments)
+                            {
+
+                                DataRow dr = dt.NewRow();
+                                dr["ImageUrl"] = SPUrlUtility.CombineUrl(item.Attachments.UrlPrefix, fileName);
+                                dt.Rows.Add(dr);
+
+                            }
+                            repThumbnail.DataSource = dt;
+                            repThumbnail.DataBind();
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        //function for binding uploaded images to pop up modal
         public void BindThumbnailImages()
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                 {
-                    int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+                    int itemID = Convert.ToInt32(Page.Request.QueryString["NewsID"]);
                     string siteName = Page.Request.QueryString["SiteName"].ToString();
                     using (SPWeb oWeb = oSite.OpenWeb(siteName))
                     {
@@ -312,9 +391,9 @@ namespace SCDR.AdminForms.EditNewsContent
 
                 }
             });
-            
+
             string sMessage = "successfully completed";
-            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
 
 
         }

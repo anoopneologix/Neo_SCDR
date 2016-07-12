@@ -315,7 +315,7 @@ namespace SCDR.SearchResultListAr
                                 foreach (DataRow dr in dtResult.Rows)
                                 {
                                     DataRow drow = dtSitePagesList.NewRow();
-                                    string content = ExtractSentence(searchKeyword, dr["HitHighlightedSummary"].ToString());
+                                    string content = Between(dr["HitHighlightedSummary"].ToString(), "<ddd/>","<ddd/>");
                                     drow["Title"] = content;
                                     drow["PageUrl"] = dr["Path"];
                                     drow["Content"] = dr["HitHighlightedSummary"];
@@ -360,6 +360,29 @@ namespace SCDR.SearchResultListAr
             if (results.Count > 0)
             {
                 resultString = Regex.Replace(results[0].Value.Trim().ToString(), "<.*?>", string.Empty);
+            }
+            else
+            {
+
+                resultString = string.Empty;
+            }
+            return resultString;
+        }
+
+        /// <summary>
+        /// Function to extract matching arabic sentence from description
+        /// </summary>
+        /// <param name="searchKeyword"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public string ExtractArabicSentence(string searchKeyword, string text)
+        {
+            string resultString = string.Empty;
+            var regex = new Regex(string.Format("[^<ddd/>]*({0})[^<ddd/>]*[.<ddd/>]", searchKeyword));
+            var results = regex.Matches(text);
+            if (results.Count > 0)
+            {
+                resultString = Regex.Replace(results[0].Value.Trim().ToString(), "<.*>", string.Empty);
             }
             else
             {
@@ -422,5 +445,29 @@ namespace SCDR.SearchResultListAr
 
         }
 
+        /// <summary>
+        /// This function extracts a string from a sentence lies between two strings
+        /// </summary>
+        /// <param name="Text">Sentence from which string will be extracted</param>
+        /// <param name="FirstString">
+        /// Starting string after which the result string will be extracted
+        // </param>
+        /// <param name="LastString">
+        /// Ending string before which the result string will be extracted
+        /// </param>
+        /// <returns>Final string extracted from the Text parameter</returns>
+
+        public string Between(string Text, string FirstString, string LastString)
+        {
+            string STR = Text;
+            string STRFirst = FirstString;
+            string STRLast = LastString;
+            string FinalString;
+           
+            int Pos1 = STR.IndexOf(FirstString) + FirstString.Length;
+            int Pos2 = STR.IndexOf(LastString);
+            FinalString = STR.Substring(Pos1, Pos2 - Pos1);
+            return FinalString;
+        }
     }
 }

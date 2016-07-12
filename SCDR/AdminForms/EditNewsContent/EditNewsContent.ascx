@@ -18,7 +18,7 @@
     <div class="col-sm-6">
       <asp:TextBox ID="txtNewsHeading" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
-      <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'., ]{0,250}$" ControlToValidate="txtNewsHeading" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator></div>
+      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegExp1" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'.,() ]{0,250}$" ControlToValidate="txtNewsHeading" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator></div>
   </div>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Date : </label>
@@ -32,7 +32,7 @@
       <asp:TextBox ID="txtNewsLocation" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
         <div class="col-sm-3">
-      <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'., ]{0,250}$" ControlToValidate="txtNewsLocation" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'.,() ]{0,250}$" ControlToValidate="txtNewsLocation" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator>
 
         </div>
   </div>
@@ -87,7 +87,7 @@
   </div>
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-        <asp:Button ID="btnSubmit"  OnClientClick="if ( ! UserConfirmation(event)) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
+        <asp:Button ID="btnSubmit" ValidationGroup="chk"  OnClientClick="if ( ! UserConfirmation(event)) return false;" ClientIDMode="Static" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click" />
          <asp:Button ID="btnCancel"  Text="cancel" class="btn btn-warning" runat="server" OnClick="btnCancel_Click"  />
     </div>
   </div>
@@ -224,7 +224,7 @@
 <script>
   
     function UserConfirmation(event) {
-        var rbName = $("input[type=radio][name$=grpLanguage]:checked").val();
+        var rbName = $("input[type=radio][name$=chkImage]:checked").val();
         var txtHead = $('#txtNewsHeading');
      
         var txtDate = $('#txtNewsdate');
@@ -234,10 +234,10 @@
         var txtDescription = $('#hfNewsDescription');
     
         var fileLength = $("input[name$=fuNewsImage]").get(0).files.length;
-        var rbImageName = $("input[type=radio][name$=grpImage]:checked").val();
+      
       
      
-            if (rbImageName == "rbYes") {
+        if (rbName == "chkYes") {
                 if (txtHead.val() != null && txtHead.val() != ''
                     && txtDate.val() != null && txtDate.val() != ''
                     && txtLocation.val() != null && txtLocation.val() != ''
@@ -258,7 +258,7 @@
                     event.preventDefault();
                 }
             }
-            if (rbImageName == "rbNo") {
+        if (rbName == "chkNo") {
                 if (txtHead.val() != null && txtHead.val() != ''
                     && txtDate.val() != null && txtDate.val() != ''
                     && txtLocation.val() != null && txtLocation.val() != ''

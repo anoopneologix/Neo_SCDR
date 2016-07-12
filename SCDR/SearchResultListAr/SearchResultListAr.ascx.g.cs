@@ -62,7 +62,7 @@ namespace SCDR.SearchResultListAr {
             @__ctrl.SetStaticString(2, "</a></h4>\r\n            <p class=\"releasecontent font_resize\">\r\n       <div class=" +
                     "\"content_limit\"> ");
             @__ctrl.SetStaticString(3, " </div> </p>\r\n    <a  href=\'");
-            @__ctrl.SetStaticString(4, "\' class=\"newsread font_resize\">read more</a>\r\n       </div> \r\n    \r\n        ");
+            @__ctrl.SetStaticString(4, "\' class=\"newsread font_resize\">اقرأ المزيد</a>\r\n       </div> \r\n    \r\n        ");
             @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control3);
             return @__ctrl;
         }

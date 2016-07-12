@@ -143,13 +143,14 @@ namespace SCDR.AdminForms.EditNewsContent {
             @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
             this.RegExp1 = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ValidationGroup = "chk";
             @__ctrl.ID = "RegExp1";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'., ]{0,250}$";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'.,() ]{0,250}$";
             @__ctrl.ControlToValidate = "txtNewsHeading";
-            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
-                "d";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , ( ) are not al" +
+                "lowed";
             return @__ctrl;
         }
         
@@ -189,13 +190,14 @@ namespace SCDR.AdminForms.EditNewsContent {
             @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
             this.RegularExpressionValidator2 = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ValidationGroup = "chk";
             @__ctrl.ID = "RegularExpressionValidator2";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'., ]{0,250}$";
+            @__ctrl.ValidationExpression = "^[-_a-zA-Z0-9\'.,() ]{0,250}$";
             @__ctrl.ControlToValidate = "txtNewsLocation";
-            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , are not allowe" +
-                "d";
+            @__ctrl.ErrorMessage = "Maximum 250 characters allowed.Special characters except \' . _ - , ( ) are not al" +
+                "lowed";
             return @__ctrl;
         }
         
@@ -416,6 +418,7 @@ namespace SCDR.AdminForms.EditNewsContent {
             this.btnSubmit = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSubmit";
+            @__ctrl.ValidationGroup = "chk";
             @__ctrl.OnClientClick = "if ( ! UserConfirmation(event)) return false;";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             @__ctrl.Text = "submit";
@@ -691,68 +694,67 @@ namespace SCDR.AdminForms.EditNewsContent {
                         "ion\").Editor(\"getText\");\r\n               $(\"#hfNewsDescription\").val(content);\r\n" +
                         "\r\n              \r\n           });\r\n        \r\n      \r\n     });\r\n</script>\r\n\r\n<!--S" +
                         "ubmit/Validation Query-->\r\n<script>\r\n  \r\n    function UserConfirmation(event) {\r" +
-                        "\n        var rbName = $(\"input[type=radio][name$=grpLanguage]:checked\").val();\r\n" +
-                        "        var txtHead = $(\'#txtNewsHeading\');\r\n     \r\n        var txtDate = $(\'#tx" +
-                        "tNewsdate\');\r\n    \r\n        var txtLocation = $(\'#txtNewsLocation\');\r\n       \r\n " +
-                        "       var txtDescription = $(\'#hfNewsDescription\');\r\n    \r\n        var fileLeng" +
-                        "th = $(\"input[name$=fuNewsImage]\").get(0).files.length;\r\n        var rbImageName" +
-                        " = $(\"input[type=radio][name$=grpImage]:checked\").val();\r\n      \r\n     \r\n       " +
-                        "     if (rbImageName == \"rbYes\") {\r\n                if (txtHead.val() != null &&" +
-                        " txtHead.val() != \'\'\r\n                    && txtDate.val() != null && txtDate.va" +
-                        "l() != \'\'\r\n                    && txtLocation.val() != null && txtLocation.val()" +
-                        " != \'\'\r\n                    && txtDescription.val() != null && txtDescription.va" +
-                        "l() != \'\'\r\n                    && fileLength > 0) {\r\n                    var x =" +
-                        " validateFormat(event);\r\n                    if (x == true) {\r\n                 " +
-                        "       return true;\r\n                    }\r\n                    else {\r\n        " +
-                        "                return false;\r\n                    }\r\n\r\n                }\r\n     " +
-                        "           else {\r\n                    alert(\"All fields are mandatory\");\r\n     " +
-                        "               return false;\r\n                    event.preventDefault();\r\n     " +
-                        "           }\r\n            }\r\n            if (rbImageName == \"rbNo\") {\r\n         " +
-                        "       if (txtHead.val() != null && txtHead.val() != \'\'\r\n                    && " +
-                        "txtDate.val() != null && txtDate.val() != \'\'\r\n                    && txtLocation" +
-                        ".val() != null && txtLocation.val() != \'\'\r\n                    && txtDescription" +
-                        ".val() != null && txtDescription.val() != \'\') {\r\n                    return true" +
-                        ";\r\n\r\n                }\r\n                else {\r\n                    alert(\"All f" +
-                        "ields are mandatory\");\r\n                    return false;\r\n                    e" +
-                        "vent.preventDefault();\r\n                }\r\n            }\r\n\r\n         \r\n        }" +
-                        "\r\n  \r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n    $(document).ready(fun" +
-                        "ction () {\r\n        $(\'#lblImageError\').hide();\r\n        $(\"input[name$=fuNewsIm" +
-                        "age]\").change(function () {\r\n            $(\'#lblImageError\').hide();\r\n        })" +
-                        ";\r\n\r\n\r\n    });\r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script type=\"text/javasc" +
-                        "ript\">\r\n    function validateFormat(event) {\r\n        if (Page_ClientValidate())" +
-                        " {\r\n            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').tex" +
-                        "t(\' \');\r\n            var ext = $(\"input[name$=fuNewsImage]\").get(0).files.length" +
-                        ";\r\n            if (ext > 0) {\r\n                var names = [];\r\n                " +
-                        "for (var i = 0; i < ext; ++i) {\r\n                    names.push($(\"input[name$=f" +
-                        "uNewsImage]\").get(0).files[i].name);\r\n                }\r\n                var x =" +
-                        " 0;\r\n                for (i = 0; i < names.length; i++) {\r\n                    v" +
-                        "ar str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n                  " +
-                        "  if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n               " +
-                        "         x = 1;\r\n                    }\r\n                    if (x == 1) {\r\n     " +
-                        "                   $(\'#lblImageError\').show();\r\n                        $(\'#lblI" +
-                        "mageError\').text(\'Special characters except - and _ are not allowed in filename." +
-                        " Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n                 " +
-                        "       // setTimeout();\r\n                        return false;\r\n                " +
-                        "        break;\r\n                        event.preventDefault();\r\n               " +
-                        "     }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n                  " +
-                        "  var ext = [];\r\n                    for (i = 0; i < names.length; i++) {\r\n\r\n   " +
-                        "                     ext.push(names[i].substr(names[i].indexOf(\".\") + 1).toLower" +
-                        "Case());\r\n\r\n                    }\r\n                    var valid_filetype = [\"jp" +
-                        "g\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, resul" +
-                        "t = [];\r\n                    for (i = 0; i < valid_filetype.length; i++) {\r\n    " +
-                        "                    for (j = 0; j < ext.length; j++) {\r\n                        " +
-                        "    if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                            " +
-                        "    result.push(ext[j]);\r\n                            }\r\n                       " +
-                        " }\r\n                    }\r\n\r\n                    if (result.length < ext.length)" +
-                        " {\r\n                        //   break;\r\n                        $(\'#lblImageErr" +
-                        "or\').show();\r\n                        $(\'#lblImageError\').text(\'Invalid File Fou" +
-                        "nd. Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n              " +
-                        "          // setTimeout();\r\n                        return false;\r\n             " +
-                        "           event.preventDefault();\r\n                    }\r\n                    e" +
-                        "lse\r\n                    {\r\n                        return true;\r\n              " +
-                        "      }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n                return" +
-                        " false;\r\n                event.preventDefault();\r\n            }\r\n\r\n        }\r\n  " +
-                        "  }\r\n\r\n</script>\r\n"));
+                        "\n        var rbName = $(\"input[type=radio][name$=chkImage]:checked\").val();\r\n   " +
+                        "     var txtHead = $(\'#txtNewsHeading\');\r\n     \r\n        var txtDate = $(\'#txtNe" +
+                        "wsdate\');\r\n    \r\n        var txtLocation = $(\'#txtNewsLocation\');\r\n       \r\n    " +
+                        "    var txtDescription = $(\'#hfNewsDescription\');\r\n    \r\n        var fileLength " +
+                        "= $(\"input[name$=fuNewsImage]\").get(0).files.length;\r\n      \r\n      \r\n     \r\n   " +
+                        "     if (rbName == \"chkYes\") {\r\n                if (txtHead.val() != null && txt" +
+                        "Head.val() != \'\'\r\n                    && txtDate.val() != null && txtDate.val() " +
+                        "!= \'\'\r\n                    && txtLocation.val() != null && txtLocation.val() != " +
+                        "\'\'\r\n                    && txtDescription.val() != null && txtDescription.val() " +
+                        "!= \'\'\r\n                    && fileLength > 0) {\r\n                    var x = val" +
+                        "idateFormat(event);\r\n                    if (x == true) {\r\n                     " +
+                        "   return true;\r\n                    }\r\n                    else {\r\n            " +
+                        "            return false;\r\n                    }\r\n\r\n                }\r\n         " +
+                        "       else {\r\n                    alert(\"All fields are mandatory\");\r\n         " +
+                        "           return false;\r\n                    event.preventDefault();\r\n         " +
+                        "       }\r\n            }\r\n        if (rbName == \"chkNo\") {\r\n                if (t" +
+                        "xtHead.val() != null && txtHead.val() != \'\'\r\n                    && txtDate.val(" +
+                        ") != null && txtDate.val() != \'\'\r\n                    && txtLocation.val() != nu" +
+                        "ll && txtLocation.val() != \'\'\r\n                    && txtDescription.val() != nu" +
+                        "ll && txtDescription.val() != \'\') {\r\n                    return true;\r\n\r\n       " +
+                        "         }\r\n                else {\r\n                    alert(\"All fields are ma" +
+                        "ndatory\");\r\n                    return false;\r\n                    event.prevent" +
+                        "Default();\r\n                }\r\n            }\r\n\r\n         \r\n        }\r\n  \r\n</scri" +
+                        "pt>\r\n\r\n<!--fileupload Script-->\r\n<script>\r\n    $(document).ready(function () {\r\n" +
+                        "        $(\'#lblImageError\').hide();\r\n        $(\"input[name$=fuNewsImage]\").chang" +
+                        "e(function () {\r\n            $(\'#lblImageError\').hide();\r\n        });\r\n\r\n\r\n    }" +
+                        ");\r\n</script>\r\n\r\n<!--fileupload Script-->\r\n<script type=\"text/javascript\">\r\n    " +
+                        "function validateFormat(event) {\r\n        if (Page_ClientValidate()) {\r\n        " +
+                        "    $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').text(\' \');\r\n   " +
+                        "         var ext = $(\"input[name$=fuNewsImage]\").get(0).files.length;\r\n         " +
+                        "   if (ext > 0) {\r\n                var names = [];\r\n                for (var i =" +
+                        " 0; i < ext; ++i) {\r\n                    names.push($(\"input[name$=fuNewsImage]\"" +
+                        ").get(0).files[i].name);\r\n                }\r\n                var x = 0;\r\n       " +
+                        "         for (i = 0; i < names.length; i++) {\r\n                    var str = nam" +
+                        "es[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a" +
+                        "-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n                        x =" +
+                        " 1;\r\n                    }\r\n                    if (x == 1) {\r\n                 " +
+                        "       $(\'#lblImageError\').show();\r\n                        $(\'#lblImageError\')." +
+                        "text(\'Special characters except - and _ are not allowed in filename. Please sele" +
+                        "ct a valid image file of type .jpg,.jpeg,.png.\');\r\n                        // se" +
+                        "tTimeout();\r\n                        return false;\r\n                        brea" +
+                        "k;\r\n                        event.preventDefault();\r\n                    }\r\n\r\n  " +
+                        "              }\r\n                if (x == 0) {\r\n\r\n                    var ext = " +
+                        "[];\r\n                    for (i = 0; i < names.length; i++) {\r\n\r\n               " +
+                        "         ext.push(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n" +
+                        "                    }\r\n                    var valid_filetype = [\"jpg\", \"jpeg\", " +
+                        "\"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, result = [];\r\n   " +
+                        "                 for (i = 0; i < valid_filetype.length; i++) {\r\n                " +
+                        "        for (j = 0; j < ext.length; j++) {\r\n                            if (ext[" +
+                        "j].indexOf(valid_filetype[i]) != -1) {\r\n                                result.p" +
+                        "ush(ext[j]);\r\n                            }\r\n                        }\r\n        " +
+                        "            }\r\n\r\n                    if (result.length < ext.length) {\r\n        " +
+                        "                //   break;\r\n                        $(\'#lblImageError\').show();" +
+                        "\r\n                        $(\'#lblImageError\').text(\'Invalid File Found. Please s" +
+                        "elect a valid image file of type .jpg,.jpeg,.png.\');\r\n                        //" +
+                        " setTimeout();\r\n                        return false;\r\n                        e" +
+                        "vent.preventDefault();\r\n                    }\r\n                    else\r\n       " +
+                        "             {\r\n                        return true;\r\n                    }\r\n\r\n\r" +
+                        "\n\r\n                }\r\n\r\n            } else {\r\n                return false;\r\n   " +
+                        "             event.preventDefault();\r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</scr" +
+                        "ipt>\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
