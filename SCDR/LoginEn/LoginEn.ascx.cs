@@ -1,5 +1,4 @@
 ﻿using Microsoft.SharePoint;
-
 using System;
 using System.ComponentModel;
 using System.Web;
@@ -8,25 +7,20 @@ using System.Web.UI.WebControls.WebParts;
 using System.Text;
 using System.Collections;
 using System.DirectoryServices;
-
+using System.Web.UI;
 using Microsoft.SharePoint.WebControls;
-
 using Microsoft.SharePoint.IdentityModel;
-using Microsoft.IdentityModel;
-
+using System.IdentityModel.Tokens;
+using Microsoft.SharePoint.Administration.Claims;
+using System.IdentityModel.Services;
+using Microsoft.SharePoint.Utilities;
 
 namespace SCDR.LoginEn
 {
     [ToolboxItemAttribute(false)]
     public partial class LoginEn : WebPart
     {
-        private string _path;
-        private string _filterAttribute;
-        // Uncomment the following SecurityPermission attribute only when doing Performance Profiling on a farm solution
-        // using the Instrumentation method, and then remove the SecurityPermission attribute when the code is ready
-        // for production. Because the SecurityPermission attribute bypasses the security check for callers of
-        // your constructor, it's not recommended for production purposes.
-        // [System.Security.Permissions.SecurityPermission(System.Security.Permissions.SecurityAction.Assert, UnmanagedCode = true)]
+      
         public LoginEn()
         {
         }
@@ -39,83 +33,129 @@ namespace SCDR.LoginEn
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (SPContext.Current.Web.CurrentUser != null)
+            if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                
+                if (SPContext.Current.Web.CurrentUser != null)
+                {
+                    hfloginstatus.Value = "True";
+                    GetCurrentUserDetails();
+                }
+                else
+                {
+                    hfloginstatus.Value = "False";
+                }
             }
+         
         }
 
-        protected void btnOk_Click(object sender, EventArgs e)
+     
+
+        protected void btnSignin_Click1(object sender, EventArgs e)
         {
-            if (HttpContext.Current.User.Identity.AuthenticationType.ToUpper() != "FORMS")
+            #region
+               if (Membership.ValidateUser(UserName.Text, pwd.Text))
+               {
+                 
+                   SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember","LdapRole", UserName.Text, pwd.Text);
+                   if (tk != null)
+                   {
+                       SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
+                       fam.SetPrincipalAndWriteSessionToken(tk);
+                       hfloginstatus.Value = "True";
+
+                       GetCurrentUserDetails();
+                 
+                   
+                   }
+               }
+            #endregion
+            #region
+            /*
+            bool status = SPClaimsUtility.AuthenticateFormsUser(new Uri(SPContext.Current.Web.Url), UserName.Text, pwd.Text);
+
+            if (!status)
             {
-                FormsAuthentication.SignOut();
-                FormsAuthentication.RedirectToLoginPage();
+
+                //Label1.Text = “Wrong Userid or Password”;
+
             }
+
             else
             {
-                HttpContext.Current.Response.Redirect("/_layouts/Signout.aspx");
-            }
+
+                //if (Context.Request.QueryString.Keys.Count > 1)
+                //{
+
+                //    HttpContext.Current.Response.Redirect("Home.aspx");
+
+                //}
+
+                //else
+
+                HttpContext.Current.Response.Redirect("Home.aspx");
+
+
+            }*/
+            #endregion
+
+   
+
         }
-
-        protected void btnSignin_Click(object sender, EventArgs e)
+        //Function for retreiving User Details from SharePoint
+        public void GetCurrentUserDetails()
         {
-            //bool status = SPClaimsUtility.AuthenticateFormsUser(Context.Request.UrlReferrer, UserName.Text, pwd.Text);
-
-            //if (!status)
-
-            //{
-
-            //    //Label1.Text = “Wrong Userid or Password”;
-
-            //}
-
-            //else
-
-            //{
-
-            //    if (Context.Request.QueryString.Keys.Count > 1)
-
-            //    {
-
-            //        HttpContext.Current.Response.Redirect(Context.Request.QueryString["Source"].ToString());
-
-            //    }
-
-            //    else
-
-            //        HttpContext.Current.Response.Redirect(Context.Request.QueryString["ReturnUrl"].ToString());
-
-            //}
-        }
-
-      /*  public bool IsAuthenticated(string domain, string username, string pwd)
-        {
-            string domainAndUsername = domain + @"\" + username;
-            DirectoryEntry entry = new DirectoryEntry(_path,
-            domainAndUsername, pwd);
             try
             {
-                // Bind to the native AdsObject to force authentication.
-                Object obj = entry.NativeObject;
-                DirectorySearcher search = new DirectorySearcher(entry);
-                search.Filter = "(SAMAccountName=" + username + ")";
-                search.PropertiesToLoad.Add("cn");
-                SearchResult result = search.FindOne();
-                if (null == result)
+                SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    return false;
-                }
-                // Update the new path to the user in the directory
-                _path = result.Path;
-                _filterAttribute = (String)result.Properties["cn"][0];
+
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPUser currentUser = oWeb.CurrentUser;
+                            lblUsername.Text = currentUser.Name;
+                       
+                        }
+                    }
+                });
             }
             catch (Exception ex)
+            { }
+
+        }
+
+        protected void btnSignOut_Click(object sender, EventArgs e)
+        {
+            using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
             {
-                throw new Exception("Error authenticating user. " + ex.Message);
+                using (SPWeb oWeb = oSite.OpenWeb())
+                {
+
+
+                    oWeb.AllowUnsafeUpdates = true;
+                    if (HttpContext.Current.User.Identity.AuthenticationType.ToUpper() != "FORMS")
+                    {
+                        FormsAuthentication.SignOut();
+
+                        SPFederationAuthenticationModule.FederatedSignOut(new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"), new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"));
+                        FormsAuthentication.RedirectToLoginPage();
+
+
+                        //  FederatedAuthentication.SessionAuthenticationModule.SignOut();
+                        //  WSFederationAuthenticationModule authModule = FederatedAuthentication.WSFederationAuthenticationModule;
+                        //  SPUtility.Redirect(WSFederationAuthenticationModule.GetFederationPassiveSignOutUrl(authModule.Issuer, authModule.Realm, null), SPRedirectFlags.Default, HttpContext.Current);
+                    }
+                    else
+                    {
+                        HttpContext.Current.Response.Redirect("~/sites/SCDR/en/SitePages/Home.aspx");
+                    }
+                    oWeb.AllowUnsafeUpdates = false;
+                }
+
+
             }
-            return true;
-        }*/
+        }
        
     }
 }
