@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="ViewAdUsers" List="113" Url="_catalogs/wp">
+    <File Path="ViewAdUsers\ViewAdUsers.webpart" Url="SCDR_ViewAdUsers.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

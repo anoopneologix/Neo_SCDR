@@ -34,10 +34,9 @@ namespace SCDR.AdminForms.AddNews
             InitializeControl();
         }
 
-          /// <summary>
+        /// <summary>
         ///  Following code is for enabling custom webpart property
           /// </summary>
-
         #region CustomWebPartProperty
         private const string DefaultLibraryName = "CustomNewsList";
         private static string listName = DefaultLibraryName;
@@ -53,6 +52,7 @@ namespace SCDR.AdminForms.AddNews
             set { listName = value; }
         }
         #endregion
+
         /// <summary>
         /// fires when the page loads
         /// </summary>
@@ -63,6 +63,7 @@ namespace SCDR.AdminForms.AddNews
           
             
         }
+
         /// <summary>
         /// Get the latest News Id from both Arabic and English Sharepoint custom news list.
         /// Largest News Id selected
@@ -123,6 +124,7 @@ namespace SCDR.AdminForms.AddNews
             }
 
         }
+
         /// <summary>
         /// function for add items to English CustomNewsGallery List
         /// </summary>
@@ -177,6 +179,7 @@ namespace SCDR.AdminForms.AddNews
 
             }
         }
+
         /// <summary>
         /// function for add items to Arabic CustomNewsGallery List
         /// </summary>
@@ -259,6 +262,7 @@ namespace SCDR.AdminForms.AddNews
             }
 
         }
+
         /// <summary>
         /// function for Update default image to Arabic CustomNewsGallery List
         /// </summary>
@@ -289,6 +293,7 @@ namespace SCDR.AdminForms.AddNews
             }
 
         }
+
         /// <summary>
         /// function for Update Thumbnail image to English CustomNewsGallery List
         /// </summary>
@@ -315,6 +320,7 @@ namespace SCDR.AdminForms.AddNews
             catch { }
 
         }
+
         /// <summary>
         /// function for Update Thumbnail image to Arabic CustomNewsGallery List
         /// </summary>
@@ -359,7 +365,6 @@ namespace SCDR.AdminForms.AddNews
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
              try
@@ -463,7 +468,6 @@ namespace SCDR.AdminForms.AddNews
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-
         protected void btnSaveThumbnail_Click(object sender, EventArgs e)
         {
             try
@@ -495,7 +499,6 @@ namespace SCDR.AdminForms.AddNews
         /// <summary>
         /// function for binding uploaded English News  images to pop up modal
         /// </summary>
-
         public void BindEnglishThumbnailImages()
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
@@ -534,7 +537,6 @@ namespace SCDR.AdminForms.AddNews
         /// <summary>
         /// function for binding uploaded Arabic News images to pop up modal
         /// </summary>
-
         public void BindArabicThumbnailImages()
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
@@ -572,7 +574,6 @@ namespace SCDR.AdminForms.AddNews
          /// <summary>
         /// function for clearing the controls in form
          /// </summary>
-
         public void formClear()
         {
             txtNewsHeading.Text = "";

@@ -546,6 +546,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchResultList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx.cs">
+      <DependentUpon>CreateADUserEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateADUserEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\ViewAdUsers\ViewAdUsers.ascx.cs">
+      <DependentUpon>ViewAdUsers.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\ViewAdUsers\ViewAdUsers.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewAdUsers.ascx</DependentUpon>
+    </Compile>
     <Compile Include="VideoGalleryAr\VideoGalleryAr.ascx.cs">
       <DependentUpon>VideoGalleryAr.ascx</DependentUpon>
     </Compile>
@@ -808,6 +824,14 @@
     <None Include="SharePointProjectItem.spdata">
       <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
     </None>
+    <None Include="UserManagement\CreateADUserEn\CreateADUserEn.webpart" />
+    <None Include="UserManagement\CreateADUserEn\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{c19c5ae3-f35c-46ff-9a55-01ec27f2a119}</SharePointProjectItemId>
+    </None>
+    <None Include="UserManagement\ViewAdUsers\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b6a07610-6134-4d97-8d56-092958e627c5}</SharePointProjectItemId>
+    </None>
+    <None Include="UserManagement\ViewAdUsers\ViewAdUsers.webpart" />
     <None Include="VideoGalleryAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{3958bdb5-da70-4d20-b197-af2f4c879d9d}</SharePointProjectItemId>
     </None>
@@ -1127,6 +1151,16 @@
     <Content Include="SearchResultList\SearchResultList.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchResultList.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CreateADUserEn.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserManagement\CreateADUserEn\Elements.xml" />
+    <Content Include="UserManagement\ViewAdUsers\Elements.xml" />
+    <Content Include="UserManagement\ViewAdUsers\ViewAdUsers.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewAdUsers.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="VideoGalleryAr\Elements.xml" />
     <Content Include="VideoGalleryAr\VideoGalleryAr.ascx">

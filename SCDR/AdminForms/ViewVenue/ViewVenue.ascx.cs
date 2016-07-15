@@ -23,6 +23,7 @@ namespace SCDR.AdminForms.ViewVenue
         public ViewVenue()
         {
         }
+
         /// <summary>
         /// function for enabiling custom webpart properties
         /// </summary>
@@ -47,6 +48,7 @@ namespace SCDR.AdminForms.ViewVenue
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// fires on page load
         /// </summary>
@@ -61,6 +63,7 @@ namespace SCDR.AdminForms.ViewVenue
 
             }
         }
+
         /// <summary>
         /// function for binding the venue to gridview based on langauage
         /// </summary>
@@ -105,7 +108,6 @@ namespace SCDR.AdminForms.ViewVenue
         /// </summary>
         /// <param name="spItemCollection"></param>
         /// <returns></returns>
-
         private static DataTable ConvertSPListToDataTable(SPListItemCollection spItemCollection)
         {
             DataTable dtSPList = new DataTable();
@@ -119,6 +121,7 @@ namespace SCDR.AdminForms.ViewVenue
                 return (dtSPList);
             }
         }
+     
         /// <summary>
         /// fires when the linkbutton 'lbAddVenue' gets clicked
         /// page redirect to AddVenue.aspx
@@ -129,6 +132,7 @@ namespace SCDR.AdminForms.ViewVenue
         {
             Page.Response.Redirect("AddVenue.aspx");
         }
+
         /// <summary>
         /// binds the venue on gridview from Arabic list
         /// </summary>
@@ -138,6 +142,7 @@ namespace SCDR.AdminForms.ViewVenue
         {
             BindVenue();
         }
+
         /// <summary>
         /// binds the venue on gridview from english list
         /// </summary>
@@ -147,6 +152,7 @@ namespace SCDR.AdminForms.ViewVenue
         {
             BindVenue();
         }
+
         /// <summary>
         /// fires when the rows on gridview get clicked
         /// for edit and delete venue
