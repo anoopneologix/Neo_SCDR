@@ -14,6 +14,8 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Collections;
 using System.Globalization;
+using System.DirectoryServices;
+using System.DirectoryServices.ActiveDirectory;
 
 
 namespace SCDR.UserManagement.ViewAdUsers
@@ -108,6 +110,73 @@ namespace SCDR.UserManagement.ViewAdUsers
             {
                 return (dtSPList);
             }
+        }
+
+        protected void gdvAdUsers_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            SPSecurity.RunWithElevatedPrivileges(delegate()
+            {
+                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                {
+                    
+                    using (SPWeb oWeb = oSite.OpenWeb())
+                    {
+                        SPList oList = oWeb.Lists[ListName];
+                        int listItemId = Convert.ToInt32(e.CommandArgument);
+                        if (e.CommandName == "rejectme")
+                        {
+                            oWeb.AllowUnsafeUpdates = true;
+                            SPListItem itemToUpdate = oList.GetItemById(listItemId);
+                            itemToUpdate["Status"] = "Rejected";
+                            itemToUpdate.Update();
+                            oWeb.AllowUnsafeUpdates = false;
+                           
+                        }
+                        else if (e.CommandName == "approveme")
+                        {
+                            oWeb.AllowUnsafeUpdates = true;
+                            SPListItem itemToUpdate = oList.GetItemById(listItemId);
+                            string userName = itemToUpdate["Title"].ToString();
+                            string userPassword = itemToUpdate["Password"].ToString();
+                            bool returnvalue = CreateUserAccount(userName, userPassword);
+                            if (returnvalue == true)
+                            {
+                                itemToUpdate["Status"] = "Approved";
+                                itemToUpdate.Update();
+                            }
+                            oWeb.AllowUnsafeUpdates = false;
+                        }
+
+                    }
+                }
+            });
+        }
+
+        public bool CreateUserAccount(string userName,string userPassword)
+        {
+            try
+            {
+                string ldapPath = "extscdr.gov.ae";
+                string oGUID = string.Empty;
+                string connectionPrefix = "LDAP://" + ldapPath;
+                DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix,@"extscdr\Administrator","P@ssw0rd",AuthenticationTypes.Secure);
+                DirectoryEntry newUser = dirEntry.Children.Add("CN=" + userName, "user");
+                newUser.Properties["samAccountName"].Value = userName;
+                newUser.CommitChanges();
+                oGUID = newUser.Guid.ToString();
+                newUser.Invoke("SetPassword", new object[] { userPassword });
+                newUser.CommitChanges();
+                dirEntry.Close();
+                newUser.Close();
+                return true;
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException E)
+            {
+                //DoSomethingwith --> E.Message.ToString();
+                return false;
+
+            }
+           
         }
     }
 }

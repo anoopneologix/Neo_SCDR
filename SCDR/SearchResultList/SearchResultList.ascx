@@ -11,10 +11,10 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <asp:Repeater ID="rptrSearchResult" runat="server">
         <ItemTemplate>
-           <div class="newsrelease">
+           <div class="newsrelease search-results">
                   <h4 class="inti_subhead font_resize"><a href='<%# Eval("PageUrl") %>'><%# Eval("Title") %></a></h4>
             <p class="releasecontent font_resize">
-       <div class="content_limit"> <%# Eval("Content") %> </div> </p>
+       <div> <%# Eval("Content") %> </div> </p>
     <a  href='<%# Eval("PageUrl") %>' class="newsread font_resize">read more</a>
        </div> 
     

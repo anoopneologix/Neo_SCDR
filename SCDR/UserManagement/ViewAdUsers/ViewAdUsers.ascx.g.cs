@@ -521,6 +521,8 @@ namespace SCDR.UserManagement.ViewAdUsers {
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "table table-hover table-striped");
             @__ctrl.AutoGenerateColumns = false;
             this.@__BuildControl__control2(@__ctrl.Columns);
+            @__ctrl.RowCommand -= new System.Web.UI.WebControls.GridViewCommandEventHandler(this.gdvAdUsers_RowCommand);
+            @__ctrl.RowCommand += new System.Web.UI.WebControls.GridViewCommandEventHandler(this.gdvAdUsers_RowCommand);
             return @__ctrl;
         }
         

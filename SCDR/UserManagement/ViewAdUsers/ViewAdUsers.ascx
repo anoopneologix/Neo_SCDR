@@ -13,7 +13,7 @@
  
    
     <div class=" col-md-12"> 
-<asp:GridView ID="gdvAdUsers" class="table table-hover table-striped" runat="server" AutoGenerateColumns="False"  >
+<asp:GridView ID="gdvAdUsers" class="table table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="gdvAdUsers_RowCommand"  >
     <Columns>
         <asp:TemplateField HeaderText="First Name">
             <ItemTemplate>
