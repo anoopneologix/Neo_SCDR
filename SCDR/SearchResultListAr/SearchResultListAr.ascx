@@ -13,8 +13,7 @@
         <ItemTemplate>
            <div class="newsrelease search-results">
                   <h4 class="inti_subhead font_resize"><a href='<%# Eval("PageUrl") %>'><%# Eval("Title") %></a></h4>
-            <p class="releasecontent font_resize">
-       <div> <%# Eval("Content") %> </div> </p>
+            <p class="releasecontent font_resize"> <%# Eval("Content") %>  </p>
     <a  href='<%# Eval("PageUrl") %>' class="newsread font_resize">اقرأ المزيد</a>
        </div> 
     

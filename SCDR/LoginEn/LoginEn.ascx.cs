@@ -14,12 +14,15 @@ using System.IdentityModel.Tokens;
 using Microsoft.SharePoint.Administration.Claims;
 using System.IdentityModel.Services;
 using Microsoft.SharePoint.Utilities;
+using System.Web.Security;
+using System.Security.Principal;
 
 namespace SCDR.LoginEn
 {
     [ToolboxItemAttribute(false)]
     public partial class LoginEn : WebPart
     {
+
       
         public LoginEn()
         {
@@ -27,6 +30,7 @@ namespace SCDR.LoginEn
 
         protected override void OnInit(EventArgs e)
         {
+          
             base.OnInit(e);
             InitializeControl();
         }
@@ -47,58 +51,52 @@ namespace SCDR.LoginEn
             }
          
         }
-
-     
+   
 
         protected void btnSignin_Click1(object sender, EventArgs e)
         {
-            #region
-               if (Membership.ValidateUser(UserName.Text, pwd.Text))
-               {
-                 
-                   SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember","LdapRole", UserName.Text, pwd.Text);
-                   if (tk != null)
-                   {
-                       SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
-                       fam.SetPrincipalAndWriteSessionToken(tk);
-                       hfloginstatus.Value = "True";
 
-                       GetCurrentUserDetails();
-                 
-                   
-                   }
-               }
-            #endregion
-            #region
-            /*
-            bool status = SPClaimsUtility.AuthenticateFormsUser(new Uri(SPContext.Current.Web.Url), UserName.Text, pwd.Text);
-
-            if (!status)
+            if (Membership.ValidateUser(UserName.Text, pwd.Text))
             {
 
-                //Label1.Text = “Wrong Userid or Password”;
+                SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember", "LdapRole", UserName.Text, pwd.Text);
 
+                if (tk != null)
+                {
+                    SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
+                    fam.SetPrincipalAndWriteSessionToken(tk);
+                    hfloginstatus.Value = "True";
+
+                    GetCurrentUserDetails();
+
+
+                }
             }
-
             else
             {
+               
+                /*  string domain = "scdr.gov.ae";
+                  if(Authenticate(UserName.Text,pwd.Text,domain)==true)
+                  {
+                      SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMemberSCDR", "LdapRoleSCDR", UserName.Text, pwd.Text);
 
-                //if (Context.Request.QueryString.Keys.Count > 1)
-                //{
+                      if (tk != null)
+                      {
+                          SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
+                          fam.SetPrincipalAndWriteSessionToken(tk);
+                          hfloginstatus.Value = "True";
 
-                //    HttpContext.Current.Response.Redirect("Home.aspx");
-
-                //}
-
-                //else
-
-                HttpContext.Current.Response.Redirect("Home.aspx");
+                          GetCurrentUserDetails();
 
 
-            }*/
-            #endregion
+                      }
+                  }*/
 
-   
+
+            }
+            
+
+
 
         }
         //Function for retreiving User Details from SharePoint
@@ -137,15 +135,8 @@ namespace SCDR.LoginEn
                     if (HttpContext.Current.User.Identity.AuthenticationType.ToUpper() != "FORMS")
                     {
                         FormsAuthentication.SignOut();
-
                         SPFederationAuthenticationModule.FederatedSignOut(new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"), new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"));
-                        FormsAuthentication.RedirectToLoginPage();
-
-
-                        //  FederatedAuthentication.SessionAuthenticationModule.SignOut();
-                        //  WSFederationAuthenticationModule authModule = FederatedAuthentication.WSFederationAuthenticationModule;
-                        //  SPUtility.Redirect(WSFederationAuthenticationModule.GetFederationPassiveSignOutUrl(authModule.Issuer, authModule.Realm, null), SPRedirectFlags.Default, HttpContext.Current);
-                    }
+                  }
                     else
                     {
                         HttpContext.Current.Response.Redirect("~/sites/SCDR/en/SitePages/Home.aspx");
@@ -156,6 +147,23 @@ namespace SCDR.LoginEn
 
             }
         }
+
+   /*     private bool Authenticate(string userName,string password, string domain)
+        {
+            bool authentic = false;
+            try
+            {
+                DirectoryEntry entry = new DirectoryEntry("LDAP://" + domain,userName, password);
+                object nativeObject = entry.NativeObject;
+                authentic = true;
+            }
+            catch (DirectoryServicesCOMException) { }
+            return authentic;
+        }
+        */
+
+       
+     
        
     }
 }
