@@ -79,6 +79,7 @@ namespace SCDR.UserManagement.ViewAdUsers
                             DataTable dtVenue = ConvertSPListToDataTable(oItems);
                             gdvAdUsers.DataSource = dtVenue;
                             gdvAdUsers.DataBind();
+                            /**/
                         }
                     }
                 });
