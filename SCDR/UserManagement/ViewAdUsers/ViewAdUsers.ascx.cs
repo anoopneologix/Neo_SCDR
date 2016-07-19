@@ -144,8 +144,12 @@ namespace SCDR.UserManagement.ViewAdUsers
                             SPListItem itemToUpdate = oList.GetItemById(listItemId);
                             string userName = itemToUpdate["Title"].ToString();
                             string userPassword = itemToUpdate["Password"].ToString();
-                          //  bool returnvalue = CreateUserAccount(userName, userPassword);
-                            bool  returnvalue = CreateUserAccount(userName, userPassword);
+                            string userFirstName = itemToUpdate["FirstName"].ToString();
+                            string userLastName = itemToUpdate["LastName"].ToString();
+                            string userPhoneNumber = itemToUpdate["PhoneNumber"].ToString();
+                            string userEmailID = itemToUpdate["EmailId"].ToString();
+                            string userGroupName = itemToUpdate["GroupName"].ToString();
+                            bool  returnvalue = CreateUserAccount(userName, userPassword,userFirstName,userLastName,userEmailID,userPhoneNumber);
                             if (returnvalue ==true)
                             {
                                 itemToUpdate["Status"] = "Approved";
@@ -158,17 +162,30 @@ namespace SCDR.UserManagement.ViewAdUsers
                 }
             });
         }
-   
-        public bool CreateUserAccount(string userName,string userPassword)
+
+        public bool CreateUserAccount(string userName, string userPassword, string userFirstName, string userLastName, string userEmailID, string userPhoneNumber)
         {
             try
             {
-                string ldapPath = "extscdr.gov.ae";
+                string ldapPath = "extscdr.gov.ae/CN=Users,DC=EXTSCDR,DC=GOV,DC=AE";
                 string oGUID = string.Empty;
                 string connectionPrefix = "LDAP://" + ldapPath;
                 DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix, @"extscdr1\scdradmin", @"P@ss123", AuthenticationTypes.Secure);
                 DirectoryEntry newUser = dirEntry.Children.Add("CN=" + userName, "user");
                 newUser.Properties["samAccountName"].Value = userName;
+                newUser.CommitChanges();
+                
+                newUser.Properties["givenName"].Value = userFirstName;
+                newUser.CommitChanges();
+                newUser.Properties["sn"].Value = userLastName;
+                newUser.CommitChanges();
+                newUser.Properties["displayName"].Value =userFirstName+ " " + userLastName;
+                newUser.CommitChanges();
+                newUser.Properties["mail"].Value = userEmailID;
+                newUser.CommitChanges();
+                newUser.Properties["telephoneNumber"].Value = userPhoneNumber;
+                newUser.CommitChanges();
+                newUser.Properties["userPrincipalName"].Value = userName + "@extscdr.gov.ae";
                 newUser.CommitChanges();
                 oGUID = newUser.Guid.ToString();
                 newUser.Invoke("SetPassword", new object[] { userPassword });
@@ -186,99 +203,7 @@ namespace SCDR.UserManagement.ViewAdUsers
 
         }
        
-        #region Alternate Method
-        // /// <summary>
-       // /// Creates a new user on Active Directory
-       // /// </summary>
-       // /// <param name="sOU">The OU location you want to save your user</param>
-       // /// <param name="sUserName">The username of the new user</param>
-       // /// <param name="sPassword">The password of the new user</param>
-       // /// <param name="sGivenName">The given name of the new user</param>
-       // /// <param name="sSurname">The surname of the new user</param>
-       // /// <returns>returns the UserPrincipal object</returns>
-       //public UserPrincipal CreateNewUser(string sUserName, string sPassword, string sGivenName, string sSurname)
-       // {
-       //     if (!IsUserExisiting(sUserName))
-       //     {
-       //         PrincipalContext oPrincipalContext = GetPrincipalContext();
-
-       //         UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, sPassword, true /*Enabled or not*/);
-
-       //         //User Log on Name
-       //         oUserPrincipal.UserPrincipalName = sUserName;
-       //         oUserPrincipal.GivenName = sGivenName;
-       //         oUserPrincipal.Surname = sSurname;
-       //         oUserPrincipal.Save();
-
-       //         return oUserPrincipal;
-       //     }
-       //     else
-       //     {
-       //         return GetUser(sUserName);
-       //     }
-       // }
-
-       // /// <summary>
-       // /// Gets the base principal context
-       // /// </summary>
-       // /// <returns>Retruns the PrincipalContext object</returns>
-       // public PrincipalContext GetPrincipalContext()
-       // {
-       //     PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, sDomain,sServiceUser, sServicePassword);
-       //     return oPrincipalContext;
-       // }
-
-       // /// <summary>
-       // /// Checks if user exsists on AD
-       // /// </summary>
-       // /// <param name="sUserName">The username to check</param>
-       // /// <returns>Returns true if username Exists</returns>
-       // public bool IsUserExisiting(string sUserName)
-       // {
-       //     if (GetUser(sUserName) == null)
-       //     {
-       //         return false;
-       //     }
-       //     else
-       //     {
-       //         return true;
-       //     }
-       // }
-
-       // /// <summary>
-       // /// Gets a certain user on Active Directory
-       // /// </summary>
-       // /// <param name="sUserName">The username to get</param>
-       // /// <returns>Returns the UserPrincipal Object</returns>
-       // public UserPrincipal GetUser(string sUserName)
-       // {
-       //     PrincipalContext oPrincipalContext = GetPrincipalContext();
-
-       //     UserPrincipal oUserPrincipal = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
-       //     return oUserPrincipal;
-       // }
-
-       // /// <summary>
-       // /// Sets the user password
-       // /// </summary>
-       // /// <param name="sUserName">The username to set</param>
-       // /// <param name="sNewPassword">The new password to use</param>
-       // /// <param name="sMessage">Any output messages</param>
-       // public void SetUserPassword(string sUserName, string sNewPassword, out string sMessage)
-       // {
-       //     try
-       //     {
-       //         UserPrincipal oUserPrincipal = GetUser(sUserName);
-       //         oUserPrincipal.SetPassword(sNewPassword);
-       //         sMessage = "";
-       //     }
-       //     catch (Exception ex)
-       //     {
-       //         sMessage = ex.Message;
-       //     }
-
-        // }
-        #endregion
+        
 
     }
 }
