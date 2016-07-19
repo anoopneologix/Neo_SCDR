@@ -24,11 +24,11 @@ namespace SCDR.UserManagement.ViewAdUsers
     [ToolboxItemAttribute(false)]
     public partial class ViewAdUsers : WebPart
     {
-        private string sDomain = "extscdr.gov.ae";
-      //  private string sDefaultOU = "OU=Test Users,OU=Test,DC=test,DC=com";
-        private string sDefaultRootOU = "DC=extscdr,DC=gov,DC=ae";
-        private string sServiceUser = @"EXTSCDR\Administrator";
-        private string sServicePassword = "P@ssw0rd";
+      //  private string sDomain = "extscdr.gov.ae";
+      ////  private string sDefaultOU = "OU=Test Users,OU=Test,DC=test,DC=com";
+      //  private string sDefaultRootOU = "DC=extscdr,DC=gov,DC=ae";
+      //  private string sServiceUser = @"EXTSCDR\Administrator";
+      //  private string sServicePassword = "P@ssw0rd";
         public ViewAdUsers()
         {
         }
@@ -158,7 +158,7 @@ namespace SCDR.UserManagement.ViewAdUsers
                 }
             });
         }
-
+   
         public bool CreateUserAccount(string userName,string userPassword)
         {
             try
@@ -166,7 +166,7 @@ namespace SCDR.UserManagement.ViewAdUsers
                 string ldapPath = "extscdr.gov.ae";
                 string oGUID = string.Empty;
                 string connectionPrefix = "LDAP://" + ldapPath;
-                DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix,@"EXTSCDR\Administrator","P@ssw0rd",AuthenticationTypes.Secure);
+                DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix, @"extscdr1\scdradmin", @"P@ss123", AuthenticationTypes.Secure);
                 DirectoryEntry newUser = dirEntry.Children.Add("CN=" + userName, "user");
                 newUser.Properties["samAccountName"].Value = userName;
                 newUser.CommitChanges();
@@ -183,100 +183,102 @@ namespace SCDR.UserManagement.ViewAdUsers
                 return false;
 
             }
-           
-        }
-
-        /// <summary>
-        /// Creates a new user on Active Directory
-        /// </summary>
-        /// <param name="sOU">The OU location you want to save your user</param>
-        /// <param name="sUserName">The username of the new user</param>
-        /// <param name="sPassword">The password of the new user</param>
-        /// <param name="sGivenName">The given name of the new user</param>
-        /// <param name="sSurname">The surname of the new user</param>
-        /// <returns>returns the UserPrincipal object</returns>
-        public UserPrincipal CreateNewUser(string sUserName, string sPassword, string sGivenName, string sSurname)
-        {
-            if (!IsUserExisiting(sUserName))
-            {
-                PrincipalContext oPrincipalContext = GetPrincipalContext();
-
-                UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, sPassword, true /*Enabled or not*/);
-
-                //User Log on Name
-                oUserPrincipal.UserPrincipalName = sUserName;
-                oUserPrincipal.GivenName = sGivenName;
-                oUserPrincipal.Surname = sSurname;
-                oUserPrincipal.Save();
-
-                return oUserPrincipal;
-            }
-            else
-            {
-                return GetUser(sUserName);
-            }
-        }
-
-        /// <summary>
-        /// Gets the base principal context
-        /// </summary>
-        /// <returns>Retruns the PrincipalContext object</returns>
-        public PrincipalContext GetPrincipalContext()
-        {
-            PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, sDomain,sServiceUser, sServicePassword);
-            return oPrincipalContext;
-        }
-
-        /// <summary>
-        /// Checks if user exsists on AD
-        /// </summary>
-        /// <param name="sUserName">The username to check</param>
-        /// <returns>Returns true if username Exists</returns>
-        public bool IsUserExisiting(string sUserName)
-        {
-            if (GetUser(sUserName) == null)
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-
-        /// <summary>
-        /// Gets a certain user on Active Directory
-        /// </summary>
-        /// <param name="sUserName">The username to get</param>
-        /// <returns>Returns the UserPrincipal Object</returns>
-        public UserPrincipal GetUser(string sUserName)
-        {
-            PrincipalContext oPrincipalContext = GetPrincipalContext();
-
-            UserPrincipal oUserPrincipal = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
-            return oUserPrincipal;
-        }
-
-        /// <summary>
-        /// Sets the user password
-        /// </summary>
-        /// <param name="sUserName">The username to set</param>
-        /// <param name="sNewPassword">The new password to use</param>
-        /// <param name="sMessage">Any output messages</param>
-        public void SetUserPassword(string sUserName, string sNewPassword, out string sMessage)
-        {
-            try
-            {
-                UserPrincipal oUserPrincipal = GetUser(sUserName);
-                oUserPrincipal.SetPassword(sNewPassword);
-                sMessage = "";
-            }
-            catch (Exception ex)
-            {
-                sMessage = ex.Message;
-            }
 
         }
+       
+        #region Alternate Method
+        // /// <summary>
+       // /// Creates a new user on Active Directory
+       // /// </summary>
+       // /// <param name="sOU">The OU location you want to save your user</param>
+       // /// <param name="sUserName">The username of the new user</param>
+       // /// <param name="sPassword">The password of the new user</param>
+       // /// <param name="sGivenName">The given name of the new user</param>
+       // /// <param name="sSurname">The surname of the new user</param>
+       // /// <returns>returns the UserPrincipal object</returns>
+       //public UserPrincipal CreateNewUser(string sUserName, string sPassword, string sGivenName, string sSurname)
+       // {
+       //     if (!IsUserExisiting(sUserName))
+       //     {
+       //         PrincipalContext oPrincipalContext = GetPrincipalContext();
+
+       //         UserPrincipal oUserPrincipal = new UserPrincipal(oPrincipalContext, sUserName, sPassword, true /*Enabled or not*/);
+
+       //         //User Log on Name
+       //         oUserPrincipal.UserPrincipalName = sUserName;
+       //         oUserPrincipal.GivenName = sGivenName;
+       //         oUserPrincipal.Surname = sSurname;
+       //         oUserPrincipal.Save();
+
+       //         return oUserPrincipal;
+       //     }
+       //     else
+       //     {
+       //         return GetUser(sUserName);
+       //     }
+       // }
+
+       // /// <summary>
+       // /// Gets the base principal context
+       // /// </summary>
+       // /// <returns>Retruns the PrincipalContext object</returns>
+       // public PrincipalContext GetPrincipalContext()
+       // {
+       //     PrincipalContext oPrincipalContext = new PrincipalContext(ContextType.Domain, sDomain,sServiceUser, sServicePassword);
+       //     return oPrincipalContext;
+       // }
+
+       // /// <summary>
+       // /// Checks if user exsists on AD
+       // /// </summary>
+       // /// <param name="sUserName">The username to check</param>
+       // /// <returns>Returns true if username Exists</returns>
+       // public bool IsUserExisiting(string sUserName)
+       // {
+       //     if (GetUser(sUserName) == null)
+       //     {
+       //         return false;
+       //     }
+       //     else
+       //     {
+       //         return true;
+       //     }
+       // }
+
+       // /// <summary>
+       // /// Gets a certain user on Active Directory
+       // /// </summary>
+       // /// <param name="sUserName">The username to get</param>
+       // /// <returns>Returns the UserPrincipal Object</returns>
+       // public UserPrincipal GetUser(string sUserName)
+       // {
+       //     PrincipalContext oPrincipalContext = GetPrincipalContext();
+
+       //     UserPrincipal oUserPrincipal = UserPrincipal.FindByIdentity(oPrincipalContext, sUserName);
+       //     return oUserPrincipal;
+       // }
+
+       // /// <summary>
+       // /// Sets the user password
+       // /// </summary>
+       // /// <param name="sUserName">The username to set</param>
+       // /// <param name="sNewPassword">The new password to use</param>
+       // /// <param name="sMessage">Any output messages</param>
+       // public void SetUserPassword(string sUserName, string sNewPassword, out string sMessage)
+       // {
+       //     try
+       //     {
+       //         UserPrincipal oUserPrincipal = GetUser(sUserName);
+       //         oUserPrincipal.SetPassword(sNewPassword);
+       //         sMessage = "";
+       //     }
+       //     catch (Exception ex)
+       //     {
+       //         sMessage = ex.Message;
+       //     }
+
+        // }
+        #endregion
 
     }
 }
