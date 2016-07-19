@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SCDR.UserManagement.CreateADUserEn {
+namespace SCDR.UserManagement.CreateADUserAr {
     using System.Web.UI.WebControls.Expressions;
     using System.Web.UI.HtmlControls;
     using System.Collections;
@@ -37,7 +37,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
     using System.CodeDom.Compiler;
     
     
-    public partial class CreateADUserEn {
+    public partial class CreateADUserAr {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -148,7 +148,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
         protected global::System.Web.UI.UpdatePanel upUsername;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
-        public static implicit operator global::System.Web.UI.TemplateControl(CreateADUserEn target) 
+        public static implicit operator global::System.Web.UI.TemplateControl(CreateADUserAr target) 
         {
             return target == null ? null : target.TemplateControl;
         }
@@ -183,7 +183,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ID = "RequiredFieldValidator1";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtFirstName";
-            @__ctrl.ErrorMessage = "Please enter your first name";
+            @__ctrl.ErrorMessage = "يرجى إدخال الاسم الأول.";
             return @__ctrl;
         }
         
@@ -202,7 +202,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ValidationExpression = "^[a-zA-Z]{0,50}$";
             @__ctrl.ControlToValidate = "txtFirstName";
-            @__ctrl.ErrorMessage = "Maximum 50 characters allowed.Special characters and numbers are not allowed";
+            @__ctrl.ErrorMessage = "سمحت أقصى 50 حرفا. لا الأرقام والأحرف الخاصة المسموح بها";
             return @__ctrl;
         }
         
@@ -236,7 +236,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ID = "RequiredFieldValidator2";
             @__ctrl.ControlToValidate = "txtLastName";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ErrorMessage = "Please enter your last name";
+            @__ctrl.ErrorMessage = "يرجى إدخال اسم العائلة";
             return @__ctrl;
         }
         
@@ -255,7 +255,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ValidationExpression = "^[a-zA-Z]{0,50}$";
             @__ctrl.ControlToValidate = "txtLastName";
-            @__ctrl.ErrorMessage = "Maximum 50 characters allowed.Special characters and numbers are not allowed";
+            @__ctrl.ErrorMessage = "سمحت أقصى 50 حرفا. لا الأرقام والأحرف الخاصة المسموح بها";
             return @__ctrl;
         }
         
@@ -289,7 +289,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtPhoneNumber";
             @__ctrl.ID = "RequiredFieldValidator3";
-            @__ctrl.ErrorMessage = "Please enter phone number";
+            @__ctrl.ErrorMessage = "يرجى إدخال رقم الهاتف.";
             return @__ctrl;
         }
         
@@ -308,7 +308,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtPhoneNumber";
             @__ctrl.ValidationExpression = "^\\s*\\+?[0-9]\\d?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$";
-            @__ctrl.ErrorMessage = "please enter a valid phone number";
+            @__ctrl.ErrorMessage = "يرجى إدخال رقم الهاتف الصحيح.";
             return @__ctrl;
         }
         
@@ -358,7 +358,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ControlToValidate = "txtEmail";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "RequiredFieldValidator4";
-            @__ctrl.ErrorMessage = "Please enter the email address";
+            @__ctrl.ErrorMessage = "يرجى إدخال عنوان البريد الإلكتروني.";
             return @__ctrl;
         }
         
@@ -376,7 +376,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ID = "RegularExpressionValidator2";
             @__ctrl.ControlToValidate = "txtEmail";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ErrorMessage = "Please enter a valid email id";
+            @__ctrl.ErrorMessage = "يرجى إدخال عنوان البريد الإلكتروني الصحيح.";
             @__ctrl.ValidationExpression = "\\w+([-+.\']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
             return @__ctrl;
         }
@@ -427,7 +427,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ControlToValidate = "txtUsername";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "RequiredFieldValidator5";
-            @__ctrl.ErrorMessage = "Please enter a username";
+            @__ctrl.ErrorMessage = "الرجاء ادخال اسم المستخدم";
             return @__ctrl;
         }
         
@@ -446,8 +446,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ValidationExpression = "^[a-zA-Z0-9]{8,20}$";
             @__ctrl.ControlToValidate = "txtUsername";
-            @__ctrl.ErrorMessage = "Minimum 8 characters, Maximum 20 characters allowed.Special characters are not al" +
-                "lowed";
+            @__ctrl.ErrorMessage = "الحد الأدنى 8 أحرف، ويسمح أقصى 20 حرفا. لم أحرف خاصة سمحت";
             return @__ctrl;
         }
         
@@ -482,7 +481,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "RequiredFieldValidator6";
-            @__ctrl.ErrorMessage = "Please enter your password";
+            @__ctrl.ErrorMessage = "يرجى إدخال كلمة المرور.";
             return @__ctrl;
         }
         
@@ -499,7 +498,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ID = "Regex2";
             @__ctrl.ControlToValidate = "txtPassword";
             @__ctrl.ValidationExpression = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$";
-            @__ctrl.ErrorMessage = "Minimum 8 characters atleast 1 Alphabet, 1 Number and 1 Special Character";
+            @__ctrl.ErrorMessage = "الحد الأدنى من 8 أحرف على الأقل 1 الأبجدية و1 عدد و1 طابع خاص";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             return @__ctrl;
         }
@@ -535,7 +534,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ControlToValidate = "txtCpassword";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "RequiredFieldValidator7";
-            @__ctrl.ErrorMessage = "Please re-enter your password";
+            @__ctrl.ErrorMessage = "يرجى إعادة كلمة المرور.";
             return @__ctrl;
         }
         
@@ -553,7 +552,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ControlToCompare = "txtPassword";
             @__ctrl.ControlToValidate = "txtCpassword";
             @__ctrl.ID = "CompareValidator1";
-            @__ctrl.ErrorMessage = "Password miss match. Please check the password re-entered";
+            @__ctrl.ErrorMessage = "كلمة المرور غير مطابقة . الرجاء المحاولة مرة أخرى ";
             return @__ctrl;
         }
         
@@ -567,7 +566,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "chkGetNotification";
-            @__ctrl.Text = "Get updates from SCDR";
+            @__ctrl.Text = "تعرف على آخر مستجدات المركز ";
             return @__ctrl;
         }
         
@@ -583,7 +582,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ID = "btnRegister";
             @__ctrl.CssClass = "btn btn-default";
             @__ctrl.ValidationGroup = "chk";
-            @__ctrl.Text = "Sign Up";
+            @__ctrl.Text = "تسجيل";
             @__ctrl.Click -= new System.EventHandler(this.btnRegister_Click);
             @__ctrl.Click += new System.EventHandler(this.btnRegister_Click);
             return @__ctrl;
@@ -600,7 +599,7 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btncancel";
             @__ctrl.CssClass = "btn btn-default";
-            @__ctrl.Text = "Cancel";
+            @__ctrl.Text = "ألغى";
             @__ctrl.Click -= new System.EventHandler(this.btncancel_Click);
             @__ctrl.Click += new System.EventHandler(this.btncancel_Click);
             return @__ctrl;
@@ -612,8 +611,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
         private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<div class=\"col-md-12 col-sm-12 col-xs-12\">\r\n    <div class=\"form-horizontal\">\r" +
-                        "\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-2 control-label\">First Na" +
-                        "me</label>\r\n    <div class=\"col-sm-5\">\r\n      "));
+                        "\n  <div class=\"form-group\">\r\n    <label  class=\"col-sm-2 control-label\">الاسم ال" +
+                        "اول</label>\r\n    <div class=\"col-sm-5\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl1;
             @__ctrl1 = this.@__BuildControltxtFirstName();
             @__parser.AddParsedSubObject(@__ctrl1);
@@ -621,13 +620,13 @@ namespace SCDR.UserManagement.CreateADUserEn {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
             @__ctrl2 = this.@__BuildControlRequiredFieldValidator1();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n     "));
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl3;
             @__ctrl3 = this.@__BuildControlRegExp1();
             @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n           </div>\r\n  </div>\r\n         <div class=\"form-group\">\r\n    <label  cla" +
-                        "ss=\"col-sm-2 control-label\">Last Name</label>\r\n    <div class=\"col-sm-5\">\r\n     " +
-                        ""));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            </div>\r\n  </div>\r\n         <div class=\"form-group\">\r\n    <label  cl" +
+                        "ass=\"col-sm-2 control-label\">اسم العائلة</label>\r\n    <div class=\"col-sm-5\">\r\n  " +
+                        "   "));
             global::System.Web.UI.WebControls.TextBox @__ctrl4;
             @__ctrl4 = this.@__BuildControltxtLastName();
             @__parser.AddParsedSubObject(@__ctrl4);
@@ -640,8 +639,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl6 = this.@__BuildControlRegularExpressionValidator3();
             @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                     </div>\r\n  </div>\r\n        <div class=\"form-group\">\r\n    <l" +
-                        "abel  class=\"col-sm-2 control-label\">Phone Number</label>\r\n    <div class=\"col-s" +
-                        "m-5\">\r\n     "));
+                        "abel  class=\"col-sm-2 control-label\">رقم الهاتف</label>\r\n    <div class=\"col-sm-" +
+                        "5\">\r\n     "));
             global::System.Web.UI.WebControls.TextBox @__ctrl7;
             @__ctrl7 = this.@__BuildControltxtPhoneNumber();
             @__parser.AddParsedSubObject(@__ctrl7);
@@ -654,8 +653,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl9 = this.@__BuildControlRegularExpressionValidator1();
             @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n                   </div>\r\n  </div>\r\n       \r\n    <div class=\"form-group" +
-                        "\">\r\n    <label  class=\"col-sm-2 control-label\">Email ID</label>\r\n    <div class=" +
-                        "\"col-sm-5\">\r\n     "));
+                        "\">\r\n    <label  class=\"col-sm-2 control-label\">البريد الإلكتروني</label>\r\n    <d" +
+                        "iv class=\"col-sm-5\">\r\n     "));
             global::System.Web.UI.WebControls.TextBox @__ctrl10;
             @__ctrl10 = this.@__BuildControltxtEmail();
             @__parser.AddParsedSubObject(@__ctrl10);
@@ -672,8 +671,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl13 = this.@__BuildControlRegularExpressionValidator2();
             @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(" \r\n             \r\n              </div>\r\n  </div>\r\n    <div class=\"form-group\">\r\n " +
-                        "   <label  class=\"col-sm-2 control-label\">Username</label>\r\n    <div class=\"col-" +
-                        "sm-5\">\r\n     "));
+                        "   <label  class=\"col-sm-2 control-label\">اسم المستخدم</label>\r\n    <div class=\"" +
+                        "col-sm-5\">\r\n     "));
             global::System.Web.UI.WebControls.TextBox @__ctrl14;
             @__ctrl14 = this.@__BuildControltxtUsername();
             @__parser.AddParsedSubObject(@__ctrl14);
@@ -685,13 +684,13 @@ namespace SCDR.UserManagement.CreateADUserEn {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl16;
             @__ctrl16 = this.@__BuildControlRequiredFieldValidator5();
             @__parser.AddParsedSubObject(@__ctrl16);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                    "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                  "));
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl17;
             @__ctrl17 = this.@__BuildControlRegularExpressionValidator4();
             @__parser.AddParsedSubObject(@__ctrl17);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                    </div>\r\n  </div>\r\n        <div class=\"form-group\">\r\n    <la" +
-                        "bel  class=\"col-sm-2 control-label\">Password</label>\r\n    <div class=\"col-sm-5\">" +
-                        "\r\n     "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                     </div>\r\n  </div>\r\n        <div class=\"form-group\">\r\n    <l" +
+                        "abel  class=\"col-sm-2 control-label\">كلمة التعارف</label>\r\n    <div class=\"col-s" +
+                        "m-5\">\r\n     "));
             global::System.Web.UI.WebControls.TextBox @__ctrl18;
             @__ctrl18 = this.@__BuildControltxtPassword();
             @__parser.AddParsedSubObject(@__ctrl18);
@@ -699,13 +698,13 @@ namespace SCDR.UserManagement.CreateADUserEn {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl19;
             @__ctrl19 = this.@__BuildControlRequiredFieldValidator6();
             @__parser.AddParsedSubObject(@__ctrl19);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             \r\n                     "));
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl20;
             @__ctrl20 = this.@__BuildControlRegex2();
             @__parser.AddParsedSubObject(@__ctrl20);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                   </div>\r\n  </div>\r\n         <div class=\"form-group\">\r\n    <la" +
-                        "bel  class=\"col-sm-2 control-label\">Confirm Password</label>\r\n    <div class=\"co" +
-                        "l-sm-5\">\r\n     "));
+                        "bel  class=\"col-sm-2 control-label\">تأكيد كلمة السر</label>\r\n    <div class=\"col" +
+                        "-sm-5\">\r\n     "));
             global::System.Web.UI.WebControls.TextBox @__ctrl21;
             @__ctrl21 = this.@__BuildControltxtCpassword();
             @__parser.AddParsedSubObject(@__ctrl21);
@@ -717,8 +716,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
             global::System.Web.UI.WebControls.CompareValidator @__ctrl23;
             @__ctrl23 = this.@__BuildControlCompareValidator1();
             @__parser.AddParsedSubObject(@__ctrl23);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n               </div>\r\n  </div>\r\n         <div id=\"messages\"></div>\r\n        <d" +
-                        "iv class=\"form-group\">\r\n    <div class=\"col-sm-offset-2 col-sm-10\">\r\n  "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n               </div>\r\n  </div>\r\n        <div class=\"form-group\">\r\n    <div cla" +
+                        "ss=\"col-sm-offset-2 col-sm-10\">\r\n  "));
             global::System.Web.UI.WebControls.CheckBox @__ctrl24;
             @__ctrl24 = this.@__BuildControlchkGetNotification();
             @__parser.AddParsedSubObject(@__ctrl24);
@@ -797,13 +796,13 @@ namespace SCDR.UserManagement.CreateADUserEn {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControlTree(global::SCDR.UserManagement.CreateADUserEn.CreateADUserEn @__ctrl) {
+        private void @__BuildControlTree(global::SCDR.UserManagement.CreateADUserAr.CreateADUserAr @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n<section class=\"container resiazable\">\r\n      "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<section class=\"container resiazable\">\r\n      "));
             global::System.Web.UI.UpdatePanel @__ctrl1;
             @__ctrl1 = this.@__BuildControlupUsername();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </section>\r\n"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </section>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

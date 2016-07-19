@@ -6,6 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CreateADUserEn.ascx.cs" Inherits="SCDR.UserManagement.CreateADUserEn.CreateADUserEn" %>
+
 <section class="container resiazable">
       <asp:UpdatePanel ID="upUsername" runat="server">
             <Triggers>
@@ -23,7 +24,8 @@
     </div>
       <div class="col-sm-5">
           <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ID="RequiredFieldValidator1" Display="Dynamic" ControlToValidate="txtFirstName" runat="server" ErrorMessage="Please enter your first name"></asp:RequiredFieldValidator>
-      </div>
+      <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z]{0,50}$" ControlToValidate="txtFirstName" runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>
+           </div>
   </div>
          <div class="form-group">
     <label  class="col-sm-2 control-label">Last Name</label>
@@ -32,7 +34,8 @@
     </div>
                <div class="col-sm-5">
                    <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ID="RequiredFieldValidator2" ControlToValidate="txtLastName" Display="Dynamic" runat="server" ErrorMessage="Please enter your last name"></asp:RequiredFieldValidator>
-               </div>
+              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z]{0,50}$" ControlToValidate="txtLastName"  runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>
+                     </div>
   </div>
         <div class="form-group">
     <label  class="col-sm-2 control-label">Phone Number</label>
@@ -65,7 +68,8 @@
                <div class="col-sm-5">
                    <asp:Label ID="lblUserError" runat="server"></asp:Label>
                    <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtUsername" Display="Dynamic" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
-                   </div>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z0-9]{8,20}$" ControlToValidate="txtUsername"  runat="server" ErrorMessage="Minimum 8 characters, Maximum 20 characters allowed.Special characters are not allowed"></asp:RegularExpressionValidator>
+                    </div>
   </div>
         <div class="form-group">
     <label  class="col-sm-2 control-label">Password</label>
@@ -74,7 +78,10 @@
     </div>
               <div class="col-sm-5">
                   <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="txtPassword" ValidationGroup="chk" Display="Dynamic" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please enter your password"></asp:RequiredFieldValidator>
-              </div>
+             <asp:RegularExpressionValidator Display="Dynamic" ID="Regex2" runat="server" ControlToValidate="txtPassword"
+    ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
+    ErrorMessage="Minimum 8 characters atleast 1 Alphabet, 1 Number and 1 Special Character" ForeColor="Red" ></asp:RegularExpressionValidator>
+                   </div>
   </div>
          <div class="form-group">
     <label  class="col-sm-2 control-label">Confirm Password</label>
@@ -86,6 +93,7 @@
                    <asp:CompareValidator ForeColor="Red" Display="Dynamic" ControlToCompare="txtPassword" ControlToValidate="txtCpassword" ID="CompareValidator1" runat="server" ErrorMessage="Password miss match. Please check the password re-entered"></asp:CompareValidator>
                </div>
   </div>
+         <div id="messages"></div>
         <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
   <asp:CheckBox ID="chkGetNotification" runat="server" Text="Get updates from SCDR" />

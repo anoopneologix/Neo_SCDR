@@ -24,11 +24,7 @@ namespace SCDR.UserManagement.ViewAdUsers
     [ToolboxItemAttribute(false)]
     public partial class ViewAdUsers : WebPart
     {
-      //  private string sDomain = "extscdr.gov.ae";
-      ////  private string sDefaultOU = "OU=Test Users,OU=Test,DC=test,DC=com";
-      //  private string sDefaultRootOU = "DC=extscdr,DC=gov,DC=ae";
-      //  private string sServiceUser = @"EXTSCDR\Administrator";
-      //  private string sServicePassword = "P@ssw0rd";
+     
         public ViewAdUsers()
         {
         }
@@ -140,22 +136,36 @@ namespace SCDR.UserManagement.ViewAdUsers
                         }
                         else if (e.CommandName == "approveme")
                         {
-                            oWeb.AllowUnsafeUpdates = true;
+                           
                             SPListItem itemToUpdate = oList.GetItemById(listItemId);
-                            string userName = itemToUpdate["Title"].ToString();
-                            string userPassword = itemToUpdate["Password"].ToString();
-                            string userFirstName = itemToUpdate["FirstName"].ToString();
-                            string userLastName = itemToUpdate["LastName"].ToString();
-                            string userPhoneNumber = itemToUpdate["PhoneNumber"].ToString();
-                            string userEmailID = itemToUpdate["EmailId"].ToString();
-                            string userGroupName = itemToUpdate["GroupName"].ToString();
-                            bool  returnvalue = CreateUserAccount(userName, userPassword,userFirstName,userLastName,userEmailID,userPhoneNumber);
-                            if (returnvalue ==true)
+                            string itemStatus = itemToUpdate["Status"].ToString();
+                            if (itemStatus != "Approved")
                             {
-                                itemToUpdate["Status"] = "Approved";
-                                itemToUpdate.Update();
+                                oWeb.AllowUnsafeUpdates = true;
+                                string userName = itemToUpdate["Title"].ToString();
+                                string userPassword = itemToUpdate["Password"].ToString();
+                                string userFirstName = itemToUpdate["FirstName"].ToString();
+                                string userLastName = itemToUpdate["LastName"].ToString();
+                                string userPhoneNumber = itemToUpdate["PhoneNumber"].ToString();
+                                string userEmailID = itemToUpdate["EmailId"].ToString();
+                                string userGroupName = itemToUpdate["GroupName"].ToString();
+                                bool returnvalue = CreateUserAccount(userName, userPassword, userFirstName, userLastName, userEmailID, userPhoneNumber);
+                                if (returnvalue == true)
+                                {
+                                    itemToUpdate["Status"] = "Approved";
+                                    itemToUpdate.Update();
+                                }
+                                oWeb.AllowUnsafeUpdates = false;
+                                string sMessage = "successfully completed";
+                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewADUsers.aspx';</script>", false);
+                                BindADUserDetails();
                             }
-                            oWeb.AllowUnsafeUpdates = false;
+                            else
+                            {
+                                string sMessage = "Already approved";
+                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                     
+                            }
                         }
 
                     }
@@ -168,23 +178,16 @@ namespace SCDR.UserManagement.ViewAdUsers
             try
             {
                 string ldapPath = "extscdr.gov.ae/CN=Users,DC=EXTSCDR,DC=GOV,DC=AE";
-                string oGUID = string.Empty;
+               string oGUID = string.Empty;
                 string connectionPrefix = "LDAP://" + ldapPath;
                 DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix, @"extscdr1\scdradmin", @"P@ss123", AuthenticationTypes.Secure);
                 DirectoryEntry newUser = dirEntry.Children.Add("CN=" + userName, "user");
                 newUser.Properties["samAccountName"].Value = userName;
-                newUser.CommitChanges();
-                
                 newUser.Properties["givenName"].Value = userFirstName;
-                newUser.CommitChanges();
                 newUser.Properties["sn"].Value = userLastName;
-                newUser.CommitChanges();
                 newUser.Properties["displayName"].Value =userFirstName+ " " + userLastName;
-                newUser.CommitChanges();
                 newUser.Properties["mail"].Value = userEmailID;
-                newUser.CommitChanges();
                 newUser.Properties["telephoneNumber"].Value = userPhoneNumber;
-                newUser.CommitChanges();
                 newUser.Properties["userPrincipalName"].Value = userName + "@extscdr.gov.ae";
                 newUser.CommitChanges();
                 oGUID = newUser.Guid.ToString();

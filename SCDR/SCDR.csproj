@@ -547,6 +547,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchResultList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx.cs">
+      <DependentUpon>CreateADUserAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CreateADUserAr.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx.cs">
       <DependentUpon>CreateADUserEn.ascx</DependentUpon>
     </Compile>
@@ -824,6 +832,10 @@
     </None>
     <None Include="SharePointProjectItem.spdata">
       <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
+    </None>
+    <None Include="UserManagement\CreateADUserAr\CreateADUserAr.webpart" />
+    <None Include="UserManagement\CreateADUserAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{51d577f4-1a82-4ec2-9487-34da8540b950}</SharePointProjectItemId>
     </None>
     <None Include="UserManagement\CreateADUserEn\CreateADUserEn.webpart" />
     <None Include="UserManagement\CreateADUserEn\SharePointProjectItem.spdata">
@@ -1153,6 +1165,11 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchResultList.ascx.g.cs</LastGenOutput>
     </Content>
+    <Content Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CreateADUserAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="UserManagement\CreateADUserAr\Elements.xml" />
     <Content Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>CreateADUserEn.ascx.g.cs</LastGenOutput>
