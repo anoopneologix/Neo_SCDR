@@ -91,7 +91,8 @@ namespace SCDR.AdminForms.EditVenue
                             txtVenue.Text = item["Title"].ToString();
                             if (item["Address"] != null)
                             {
-                                txtAddress.Text = item["Address"].ToString();
+                              
+                                txtAddress.Text = Regex.Replace(item["Address"].ToString(), "<.*?>", string.Empty);
                             }
                             else
                             {
@@ -99,7 +100,7 @@ namespace SCDR.AdminForms.EditVenue
                             }
                             if (item["Description"] != null)
                             {
-                                txtDescription.Text = item["Description"].ToString();
+                                txtDescription.Text = Regex.Replace(item["Description"].ToString(), "<.*?>", string.Empty);
                             }
                             else
                             {
