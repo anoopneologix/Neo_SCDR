@@ -145,8 +145,8 @@ namespace SCDR.UserManagement.ViewAdUsers
                             string userName = itemToUpdate["Title"].ToString();
                             string userPassword = itemToUpdate["Password"].ToString();
                           //  bool returnvalue = CreateUserAccount(userName, userPassword);
-                            UserPrincipal returnvalue = CreateNewUser(userName, userPassword, userName, userName);
-                            if (returnvalue !=null)
+                            bool  returnvalue = CreateUserAccount(userName, userPassword);
+                            if (returnvalue ==true)
                             {
                                 itemToUpdate["Status"] = "Approved";
                                 itemToUpdate.Update();
