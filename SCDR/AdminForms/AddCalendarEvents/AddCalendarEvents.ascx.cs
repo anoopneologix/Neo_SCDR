@@ -361,8 +361,8 @@ namespace SCDR.AdminForms.AddCalendarEvents
                                     }
                                 }
                             }
-                            string sMessage = "successfully completed";
-                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='AddCalenderEvents.aspx';</script>", false);
+                            string sMessage = "New event has been added successfully";
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
                         }
                         formClear();
                     });
@@ -381,6 +381,8 @@ namespace SCDR.AdminForms.AddCalendarEvents
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             formClear();
+            string sMessage = "operation cancelled";
+            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
         }
 
         /// <summary>

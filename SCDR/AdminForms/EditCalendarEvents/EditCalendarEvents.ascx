@@ -14,32 +14,17 @@
         <!-- Form Begins -->
         <div class="form-horizontal">
             
-                <div class="form-group">
-       <label  class="col-sm-3 control-label">Select Language : </label>
-    <div class="col-sm-9">
-        <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="Arabic" Checked="true" ID="rbArabic" runat="server" OnCheckedChanged="rbArabic_CheckedChanged" />
-          <asp:RadioButton GroupName="grpLanguage" AutoPostBack="true" Text="English" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged" />
-    </div>
-  </div>
-       
-            <div class="form-group">
-    <label  class="col-sm-3 control-label">Event Date : </label>
-    <div class="col-sm-6">
-      <asp:TextBox ID="txtEventDate" ClientIDMode="Static" runat="server" AutoPostBack="true" class="form-control" OnTextChanged="txtEventDate_TextChanged" ></asp:TextBox>
-  </div>
-          <div class="col-sm-3">
-          <asp:RequiredFieldValidator  ControlToValidate="txtEventDate" ValidationGroup="chk" ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
-      </div>
-  </div>
-            
-             <div class="form-group">
+       <div class="form-group">
     <label  class="col-sm-3 control-label">Event Name : </label>
-                 <div class="col-sm-6">
-                     <asp:DropDownList AutoPostBack="true" ID="ddlEventName" CssClass="form-control" runat="server" OnSelectedIndexChanged="ddlEventName_SelectedIndexChanged"></asp:DropDownList>   </div>
-                 </div>
-                   
-            <div id="divContent" runat="server">
-                <div class="form-group">
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtEventName" MaxLength="250" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+  </div>
+      <div class="col-sm-3">
+          <asp:RequiredFieldValidator Display="Dynamic"  ControlToValidate="txtEventName" ValidationGroup="chk" ID="req1" runat="server" ForeColor="Red" ErrorMessage="Please enter event name"></asp:RequiredFieldValidator>
+     <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'., ]{0,250}$" ControlToValidate="txtEventName" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , are not allowed"></asp:RegularExpressionValidator>
+            </div>
+  </div>
+            <div class="form-group">
     <label  class="col-sm-3 control-label">Event Venue : </label>
     <div class="col-sm-6">
         <asp:DropDownList CausesValidation="true" runat="server" class="form-control" ID="ddlEventVenue">
@@ -51,7 +36,18 @@
          <asp:RequiredFieldValidator InitialValue="0"  ControlToValidate="ddlEventVenue" ValidationGroup="chk" ID="RequiredFieldValidator1" runat="server" ForeColor="Red" ErrorMessage="Please select a Venue"></asp:RequiredFieldValidator>
       </div>
   </div>
-                <div class="form-group">
+       
+            <div class="form-group">
+    <label  class="col-sm-3 control-label">Event Date : </label>
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtEventDate" ClientIDMode="Static" runat="server"  class="form-control"  ></asp:TextBox>
+  </div>
+          <div class="col-sm-3">
+          <asp:RequiredFieldValidator  ControlToValidate="txtEventDate" ValidationGroup="chk" ID="RequiredFieldValidator2" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      </div>
+  </div>
+            
+       <div class="form-group">
     <label  class="col-sm-3 control-label">Event Time : </label>
  
          <div class="col-sm-2">
@@ -70,7 +66,8 @@
       </div>
  
   </div>
-                <div class="form-group">
+
+            <div class="form-group">
     <label  class="col-sm-3 control-label">Event Description : </label>
     <div class="col-sm-6">
       <asp:TextBox ID="txtEventDescription"  ClientIDMode="Static"  TextMode="MultiLine" runat="server" class="form-control"></asp:TextBox>
@@ -79,15 +76,18 @@
           <asp:RequiredFieldValidator  ControlToValidate="txtEventDescription" ValidationGroup="chk" ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
       </div>
   </div>
-                <div class="form-group">
+
+            <div class="form-group">
     <label  class="col-sm-3 control-label">Department : </label>
     <div class="col-sm-6">
-      <asp:DropDownList CausesValidation="true" ID="ddlDepartment" runat="server"></asp:DropDownList>
+      <asp:DropDownList CausesValidation="true" class="form-control" ID="ddlDepartment" runat="server"></asp:DropDownList>
   </div>
                  <div class="col-sm-3">
           <asp:RequiredFieldValidator InitialValue="0"  ControlToValidate="ddlDepartment" ValidationGroup="chk" ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
       </div>
   </div>
+
+               
                  <div class="form-group">
     <label  class="col-sm-3 control-label">Saved Image : </label>
     <div class="col-sm-6">
@@ -120,7 +120,8 @@
              <asp:Button ID="btnCancel" Text="cancel" class="btn btn-danger" runat="server" OnClick="btnCancel_Click" />
     </div>
   </div>
-                   </div>
+                   
+         
     
             </div>
     <!-- Form Ends -->
