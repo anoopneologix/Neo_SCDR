@@ -185,7 +185,7 @@ namespace SCDR.UserManagement.CreateADUserAr
             }
             catch
             {
-
+                /**/
             }
 
         }
