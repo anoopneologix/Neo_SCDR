@@ -10,25 +10,16 @@
      <div class=" col-md-12"> 
      <asp:LinkButton ID="lbAddVenue" runat="server" OnClick="lbAddVenue_Click" ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Venue</asp:LinkButton>
   </div>
-    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-        <Triggers>
-            <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
-             <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
-        </Triggers>
-        <ContentTemplate>
-    <div class=" col-md-6">
-     <table >
-       <tr>
-           <td>Select Language :</td>
-           <td> <asp:RadioButton GroupName="grpLanguage" Checked="true" Text="Arabic"  AutoPostBack="true" ID="rbArabic" runat="server" OnCheckedChanged="rbArabic_CheckedChanged"   />
-          <asp:RadioButton GroupName="grpLanguage" Text="English" AutoPostBack="true" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged"    /></td>
-       </tr>
-   </table>
-      </div>
+    
     <div class=" col-md-12"> 
 <asp:GridView ID="gdvVenue" class="table table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="gdvVenue_RowCommand" >
     <Columns>
-        <asp:TemplateField HeaderText="Venue">
+        <asp:TemplateField HeaderText="Venue Name (Arabic)">
+            <ItemTemplate>
+                <asp:Label ID="lblVenueAr" style="direction:rtl !important;" runat="server" Text='<%# Eval("TitleAr") %>'></asp:Label>
+            </ItemTemplate>
+        </asp:TemplateField>
+          <asp:TemplateField HeaderText="Venue Name (English)">
             <ItemTemplate>
                 <asp:Label ID="lblVenue" runat="server" Text='<%# Eval("Title") %>'></asp:Label>
             </ItemTemplate>
@@ -69,6 +60,5 @@
 
 
 </asp:GridView></div>
-            </ContentTemplate>
-        </asp:UpdatePanel>
+           
     </div>

@@ -75,17 +75,8 @@ namespace SCDR.AdminForms.ViewVenue
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                        string subsiteName = string.Empty;
-                        if(rbArabic.Checked)
-                        {
-                            subsiteName = "ar/";
-                        }
-                        else if (rbEnglish.Checked)
-                        {
-                            subsiteName = "en/";
-                        }
-
-                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                       
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[VenueListName];
                             SPListItemCollection oItems = oList.GetItems();
@@ -133,25 +124,7 @@ namespace SCDR.AdminForms.ViewVenue
             Page.Response.Redirect("AddVenue.aspx");
         }
 
-        /// <summary>
-        /// binds the venue on gridview from Arabic list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void rbArabic_CheckedChanged(object sender, EventArgs e)
-        {
-            BindVenue();
-        }
-
-        /// <summary>
-        /// binds the venue on gridview from english list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
-        {
-            BindVenue();
-        }
+     
 
         /// <summary>
         /// fires when the rows on gridview get clicked
@@ -162,39 +135,38 @@ namespace SCDR.AdminForms.ViewVenue
         /// <param name="e"></param>
         protected void gdvVenue_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            SPSecurity.RunWithElevatedPrivileges(delegate()
+            try
             {
-                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    string subsiteName = string.Empty;
-                    if (rbArabic.Checked)
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                        subsiteName = "ar/";
-                    }
-                    else if (rbEnglish.Checked)
-                    {
-                        subsiteName = "en/";
-                    }
-                    using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
-                    {
-                        SPList oList = oWeb.Lists[VenueListName];
-                        int listItemId = Convert.ToInt32(e.CommandArgument);
-                        if (e.CommandName == "delme")
-                        {
-                            oWeb.AllowUnsafeUpdates = true;
-                            SPListItem itemToDelete = oList.GetItemById(listItemId);
-                            itemToDelete.Delete();
-                            oWeb.AllowUnsafeUpdates = false;
-                            BindVenue();
-                        }
-                        else if (e.CommandName == "editme")
-                        {
-                            Page.Response.Redirect("EditVenue.aspx?ItemID=" + listItemId + "&SiteName=" + subsiteName);
-                        }
 
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPList oList = oWeb.Lists[VenueListName];
+                            int listItemId = Convert.ToInt32(e.CommandArgument);
+                            if (e.CommandName == "delme")
+                            {
+                                oWeb.AllowUnsafeUpdates = true;
+                                SPListItem itemToDelete = oList.GetItemById(listItemId);
+                                itemToDelete.Delete();
+                                oWeb.AllowUnsafeUpdates = false;
+                                BindVenue();
+                            }
+                            else if (e.CommandName == "editme")
+                            {
+                                Page.Response.Redirect("EditVenue.aspx?ItemID=" + listItemId);
+                            }
+
+                        }
                     }
-                }
-            });
+                });
+            }
+            catch
+            {
+
+            }
         }
     }
 }

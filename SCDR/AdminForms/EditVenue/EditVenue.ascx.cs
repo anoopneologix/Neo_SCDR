@@ -59,14 +59,14 @@ namespace SCDR.AdminForms.EditVenue
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                if (Page.Request.QueryString["ItemID"] != null && Page.Request.QueryString["SiteName"] != null)
+                if (Page.Request.QueryString["ItemID"] != null)
                 {
 
                 int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                string siteName = Page.Request.QueryString["SiteName"].ToString();
+               
               
               
-                GetVenueDetails(itemID, siteName);
+                GetVenueDetails(itemID);
                 }
 
             }
@@ -77,7 +77,7 @@ namespace SCDR.AdminForms.EditVenue
         /// </summary>
         /// <param name="itemID"></param>
         /// <param name="siteName"></param>
-        public void GetVenueDetails(int itemID, string siteName)
+        public void GetVenueDetails(int itemID)
         {
             try
             {
@@ -86,11 +86,12 @@ namespace SCDR.AdminForms.EditVenue
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
 
-                        using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[VenueListName];
                             SPListItem item = oList.GetItemById(itemID);
-                            txtVenue.Text = item["Title"].ToString();
+                            txtVenueEn.Text = item["Title"].ToString();
+                            txtVenueAr.Text = item["TitleAr"].ToString();
                             if (item["Address"] != null)
                             {
                               
@@ -173,8 +174,8 @@ namespace SCDR.AdminForms.EditVenue
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
                         int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                        string siteName = Page.Request.QueryString["SiteName"].ToString();
-                        using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                        
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
 
                             string status = string.Empty;
@@ -188,7 +189,8 @@ namespace SCDR.AdminForms.EditVenue
                             }
                             SPList oList = oWeb.Lists[VenueListName];
                             SPListItem item = oList.GetItemById(itemID);
-                            item["Title"] = txtVenue.Text;
+                            item["Title"] = txtVenueEn.Text;
+                            item["TitleAr"] = txtVenueAr.Text;
                             item["Address"] = txtAddress.Text;
                             item["Description"] = txtDescription.Text;
                             item["Latitude"] = txtLatitude.Text;

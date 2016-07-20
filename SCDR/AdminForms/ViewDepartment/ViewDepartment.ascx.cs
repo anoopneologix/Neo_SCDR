@@ -77,17 +77,9 @@ namespace SCDR.AdminForms.ViewDepartment
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                        string subsiteName = string.Empty;
-                        if (rbArabic.Checked)
-                        {
-                            subsiteName = "ar/";
-                        }
-                        else if (rbEnglish.Checked)
-                        {
-                            subsiteName = "en/";
-                        }
+                       
 
-                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[DlistName];
                             SPListItemCollection oItems = oList.GetItems();
@@ -137,17 +129,9 @@ namespace SCDR.AdminForms.ViewDepartment
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                 {
-                    string subsiteName = string.Empty;
-                    if (rbArabic.Checked)
-                    {
-                        subsiteName = "ar/";
-                    }
-                    else if (rbEnglish.Checked)
-                    {
-                        subsiteName = "en/";
-                    }
+                 
 
-                    using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                    using (SPWeb oWeb = oSite.OpenWeb())
                     {
                         SPList oList = oWeb.Lists[DlistName];
                         int listItemId = Convert.ToInt32(e.CommandArgument);
@@ -161,7 +145,7 @@ namespace SCDR.AdminForms.ViewDepartment
                         }
                         else if (e.CommandName == "editme")
                         {
-                            Page.Response.Redirect("EditDepartment.aspx?ItemID=" + listItemId + "&SiteName=" + subsiteName);
+                            Page.Response.Redirect("EditDepartment.aspx?ItemID=" + listItemId);
                         }
 
                     }
@@ -180,24 +164,6 @@ namespace SCDR.AdminForms.ViewDepartment
             Page.Response.Redirect("AddDepartment.aspx");
         }
 
-        /// <summary>
-        /// binds the department details on gridview from english list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
-        {
-            BindDepartment();
-        }
-
-        /// <summary>
-        /// binds the department details on gridview from Arabic list
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void rbArabic_CheckedChanged(object sender, EventArgs e)
-        {
-            BindDepartment();
-        }
+     
     }
 }

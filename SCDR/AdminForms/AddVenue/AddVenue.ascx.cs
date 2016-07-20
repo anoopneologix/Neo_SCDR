@@ -101,30 +101,12 @@ namespace SCDR.AdminForms.AddVenue
 
                             }
                         }
-                        using (SPWeb oWeb = oSite.OpenWeb("ar/"))
-                        {
-                            SPList list = oWeb.Lists[ListName];
-                            SPListItem item = list.Items.Add();
-                            item["Title"] = txtVenueAr.Text;
-                            item["Address"] = txtAddress.Text;
-                            item["Description"] = txtDescription.Text;
-                            item["Latitude"] = txtLatitude.Text;
-                            item["Longitude"] = txtLongitude.Text;
-                            item["Status"] = status;
-                            if (fileName != "")
-                            {
-                                SPAttachmentCollection attach = item.Attachments;
-                                attach.Add(fileName, fileContents);
-                            }
-                            oWeb.AllowUnsafeUpdates = true;
-                            item.Update();
-                            oWeb.AllowUnsafeUpdates = false;
-                        }
-                        using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList list = oWeb.Lists[ListName];
                             SPListItem item = list.Items.Add();
                             item["Title"] = txtVenueEn.Text;
+                            item["TitleAr"] = txtVenueAr.Text;
                             item["Address"] = txtAddress.Text;
                             item["Description"] = txtDescription.Text;
                             item["Latitude"] = txtLatitude.Text;
@@ -139,6 +121,7 @@ namespace SCDR.AdminForms.AddVenue
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
                         }
+                       
                         string sMessage = "Venue added successfully";
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
                         formClear();

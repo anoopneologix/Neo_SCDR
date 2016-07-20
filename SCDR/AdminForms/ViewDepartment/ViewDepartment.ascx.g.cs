@@ -45,19 +45,7 @@ namespace SCDR.AdminForms.ViewDepartment {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.RadioButton rbArabic;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.RadioButton rbEnglish;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.GridView gdvDepartment;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
         public static implicit operator global::System.Web.UI.TemplateControl(ViewDepartment target) 
@@ -85,57 +73,20 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RadioButton @__BuildControlrbArabic() {
-            global::System.Web.UI.WebControls.RadioButton @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
-            this.rbArabic = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.GroupName = "grpLanguage";
-            @__ctrl.Checked = true;
-            @__ctrl.Text = "Arabic";
-            @__ctrl.AutoPostBack = true;
-            @__ctrl.ID = "rbArabic";
-            @__ctrl.CheckedChanged -= new System.EventHandler(this.rbArabic_CheckedChanged);
-            @__ctrl.CheckedChanged += new System.EventHandler(this.rbArabic_CheckedChanged);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RadioButton @__BuildControlrbEnglish() {
-            global::System.Web.UI.WebControls.RadioButton @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
-            this.rbEnglish = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.GroupName = "grpLanguage";
-            @__ctrl.Text = "English";
-            @__ctrl.AutoPostBack = true;
-            @__ctrl.ID = "rbEnglish";
-            @__ctrl.CheckedChanged -= new System.EventHandler(this.rbEnglish_CheckedChanged);
-            @__ctrl.CheckedChanged += new System.EventHandler(this.rbEnglish_CheckedChanged);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Label @__BuildControl__control6() {
+        private global::System.Web.UI.WebControls.Label @__BuildControl__control5() {
             global::System.Web.UI.WebControls.Label @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Label();
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "lblDepartment";
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control6);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control5);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBinding__control6(object sender, System.EventArgs e) {
+        public void @__DataBinding__control5(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.Label dataBindingExpressionBuilderTarget;
             System.Web.UI.IDataItemContainer Container;
             dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.Label)(sender));
@@ -146,11 +97,11 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control5(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control4(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.Label @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control6();
+            @__ctrl1 = this.@__BuildControl__control5();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
         }
@@ -158,31 +109,78 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control4() {
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control3() {
             global::System.Web.UI.WebControls.TemplateField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control5), null);
-            @__ctrl.HeaderText = "Department";
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control4), null);
+            @__ctrl.HeaderText = "Department Name (English)";
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Label @__BuildControl__control9() {
+        private global::System.Web.UI.WebControls.Label @__BuildControl__control8() {
+            global::System.Web.UI.WebControls.Label @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.Label();
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "lblDepartmentAr";
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control8);
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        public void @__DataBinding__control8(object sender, System.EventArgs e) {
+            System.Web.UI.WebControls.Label dataBindingExpressionBuilderTarget;
+            System.Web.UI.IDataItemContainer Container;
+            dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.Label)(sender));
+            Container = ((System.Web.UI.IDataItemContainer)(dataBindingExpressionBuilderTarget.BindingContainer));
+            dataBindingExpressionBuilderTarget.Text = global::System.Convert.ToString( Eval("TitleAr") , global::System.Globalization.CultureInfo.CurrentCulture);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control7(System.Web.UI.Control @__ctrl) {
+            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.Label @__ctrl1;
+            @__ctrl1 = this.@__BuildControl__control8();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control6() {
+            global::System.Web.UI.WebControls.TemplateField @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control7), null);
+            @__ctrl.HeaderText = "Department Name (Arabic)";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.Label @__BuildControl__control11() {
             global::System.Web.UI.WebControls.Label @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Label();
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "lblStatus";
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control9);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control11);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBinding__control9(object sender, System.EventArgs e) {
+        public void @__DataBinding__control11(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.Label dataBindingExpressionBuilderTarget;
             System.Web.UI.IDataItemContainer Container;
             dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.Label)(sender));
@@ -193,11 +191,11 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control8(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control10(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.Label @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control9();
+            @__ctrl1 = this.@__BuildControl__control11();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
         }
@@ -205,10 +203,10 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control7() {
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control9() {
             global::System.Web.UI.WebControls.TemplateField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control8), null);
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control10), null);
             @__ctrl.HeaderText = "Status";
             return @__ctrl;
         }
@@ -216,7 +214,7 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.LinkButton @__BuildControl__control12() {
+        private global::System.Web.UI.WebControls.LinkButton @__BuildControl__control14() {
             global::System.Web.UI.WebControls.LinkButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.LinkButton();
             @__ctrl.TemplateControl = this;
@@ -226,14 +224,14 @@ namespace SCDR.AdminForms.ViewDepartment {
             @__ctrl.CommandName = "editme";
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("<span class=\"glyphicon glyphicon-pencil\" aria-hidden=\"true\"></span>Edit"));
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control12);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control14);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBinding__control12(object sender, System.EventArgs e) {
+        public void @__DataBinding__control14(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.LinkButton dataBindingExpressionBuilderTarget;
             System.Web.UI.IDataItemContainer Container;
             dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.LinkButton)(sender));
@@ -244,7 +242,7 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.LinkButton @__BuildControl__control13() {
+        private global::System.Web.UI.WebControls.LinkButton @__BuildControl__control15() {
             global::System.Web.UI.WebControls.LinkButton @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.LinkButton();
             @__ctrl.TemplateControl = this;
@@ -254,14 +252,14 @@ namespace SCDR.AdminForms.ViewDepartment {
             @__ctrl.OnClientClick = "return confirm(\'Do you really want to delete?\');";
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("<span class=\"glyphicon glyphicon-trash\" aria-hidden=\"true\"></span>Delete"));
-            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control13);
+            @__ctrl.DataBinding += new System.EventHandler(this.@__DataBinding__control15);
             return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        public void @__DataBinding__control13(object sender, System.EventArgs e) {
+        public void @__DataBinding__control15(object sender, System.EventArgs e) {
             System.Web.UI.WebControls.LinkButton dataBindingExpressionBuilderTarget;
             System.Web.UI.IDataItemContainer Container;
             dataBindingExpressionBuilderTarget = ((System.Web.UI.WebControls.LinkButton)(sender));
@@ -272,15 +270,15 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control11(System.Web.UI.Control @__ctrl) {
+        private void @__BuildControl__control13(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.LinkButton @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control12();
+            @__ctrl1 = this.@__BuildControl__control14();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
             global::System.Web.UI.WebControls.LinkButton @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control13();
+            @__ctrl2 = this.@__BuildControl__control15();
             @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
         }
@@ -288,10 +286,10 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control10() {
+        private global::System.Web.UI.WebControls.TemplateField @__BuildControl__control12() {
             global::System.Web.UI.WebControls.TemplateField @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TemplateField();
-            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control11), null);
+            @__ctrl.ItemTemplate = new System.Web.UI.CompiledBindableTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control13), null);
             @__ctrl.HeaderText = "Action";
             return @__ctrl;
         }
@@ -299,16 +297,19 @@ namespace SCDR.AdminForms.ViewDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control3(System.Web.UI.WebControls.DataControlFieldCollection @__ctrl) {
+        private void @__BuildControl__control2(System.Web.UI.WebControls.DataControlFieldCollection @__ctrl) {
             global::System.Web.UI.WebControls.TemplateField @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control4();
+            @__ctrl1 = this.@__BuildControl__control3();
             @__ctrl.Add(@__ctrl1);
             global::System.Web.UI.WebControls.TemplateField @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control7();
+            @__ctrl2 = this.@__BuildControl__control6();
             @__ctrl.Add(@__ctrl2);
             global::System.Web.UI.WebControls.TemplateField @__ctrl3;
-            @__ctrl3 = this.@__BuildControl__control10();
+            @__ctrl3 = this.@__BuildControl__control9();
             @__ctrl.Add(@__ctrl3);
+            global::System.Web.UI.WebControls.TemplateField @__ctrl4;
+            @__ctrl4 = this.@__BuildControl__control12();
+            @__ctrl.Add(@__ctrl4);
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -318,83 +319,13 @@ namespace SCDR.AdminForms.ViewDepartment {
             global::System.Web.UI.WebControls.GridView @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.GridView();
             this.gdvDepartment = @__ctrl;
-            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "gdvDepartment";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "table table-hover table-striped");
             @__ctrl.AutoGenerateColumns = false;
-            this.@__BuildControl__control3(@__ctrl.Columns);
+            this.@__BuildControl__control2(@__ctrl.Columns);
             @__ctrl.RowCommand -= new System.Web.UI.WebControls.GridViewCommandEventHandler(this.gdvDepartment_RowCommand);
             @__ctrl.RowCommand += new System.Web.UI.WebControls.GridViewCommandEventHandler(this.gdvDepartment_RowCommand);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    <div class=\" col-md-6\">\r\n     <table >\r\n       <tr>\r\n           <td>Select " +
-                        "Language :</td>\r\n           <td> "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl1;
-            @__ctrl1 = this.@__BuildControlrbArabic();
-            @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl2;
-            @__ctrl2 = this.@__BuildControlrbEnglish();
-            @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n       </tr>\r\n   </table>\r\n      </div>\r\n            <div class=\" col-md-1" +
-                        "2\"> \r\n"));
-            global::System.Web.UI.WebControls.GridView @__ctrl3;
-            @__ctrl3 = this.@__BuildControlgdvDepartment();
-            @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                </div>\r\n            "));
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control15() {
-            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
-            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
-            @__ctrl.ControlID = "rbArabic";
-            @__ctrl.EventName = "CheckedChanged";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control16() {
-            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
-            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
-            @__ctrl.ControlID = "rbEnglish";
-            @__ctrl.EventName = "CheckedChanged";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControl__control14(System.Web.UI.UpdatePanelTriggerCollection @__ctrl) {
-            global::System.Web.UI.AsyncPostBackTrigger @__ctrl1;
-            @__ctrl1 = this.@__BuildControl__control15();
-            @__ctrl.Add(@__ctrl1);
-            global::System.Web.UI.AsyncPostBackTrigger @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control16();
-            @__ctrl.Add(@__ctrl2);
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.UpdatePanel @__BuildControlUpdatePanel1() {
-            global::System.Web.UI.UpdatePanel @__ctrl;
-            @__ctrl = new global::System.Web.UI.UpdatePanel();
-            this.UpdatePanel1 = @__ctrl;
-            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
-            @__ctrl.ID = "UpdatePanel1";
-            this.@__BuildControl__control14(@__ctrl.Triggers);
             return @__ctrl;
         }
         
@@ -408,11 +339,11 @@ namespace SCDR.AdminForms.ViewDepartment {
             global::System.Web.UI.WebControls.LinkButton @__ctrl1;
             @__ctrl1 = this.@__BuildControlLinkButton1();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n </div>\r\n    "));
-            global::System.Web.UI.UpdatePanel @__ctrl2;
-            @__ctrl2 = this.@__BuildControlUpdatePanel1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n </div>\r\n\r\n            <div class=\" col-md-12\"> \r\n"));
+            global::System.Web.UI.WebControls.GridView @__ctrl2;
+            @__ctrl2 = this.@__BuildControlgdvDepartment();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                </div>\r\n           \r\n    </div>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

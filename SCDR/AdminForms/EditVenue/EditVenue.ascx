@@ -8,17 +8,28 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditVenue.ascx.cs" Inherits="SCDR.AdminForms.EditVenue.EditVenue" %>
 <div class="col-md-12 col-sm-12 col-xs-12">
        <div class="form-horizontal">
-           <div class="form-group">
-    <label  class="col-sm-3 control-label">Venue name: </label>
+        <div class="form-group">
+    <label  class="col-sm-3 control-label">Venue name (Arabic) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtVenue"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtVenueAr" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
-            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtVenue" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
- <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[0-9a-zA-Z\u0621-\u064A ]+$"
-    ControlToValidate="txtVenue" runat="server" ForeColor="Red" ErrorMessage="Only arabic Characters and numbers allowed."
+            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtVenueAr" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
+    ControlToValidate="txtVenueAr" runat="server" ForeColor="Red" ErrorMessage="Only arabic Characters and numbers allowed."
     Display="Dynamic" />
        </div>
-   </div>
+   </div> 
+              <div class="form-group">
+    <label  class="col-sm-3 control-label">Venue name (English) : </label>
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtVenueEn" MaxLength="250" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+  </div><div class="col-sm-3">
+          <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtVenueEn" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator6" ValidationExpression="^[0-9a-zA-Z ]+$" 
+    ControlToValidate="txtVenueEn" runat="server" ForeColor="Red" ErrorMessage="only english albhabets and numbers allowed."
+    Display="Dynamic" />
+       </div>
+        </div>
            <div class="form-group">
     <label  class="col-sm-3 control-label">Description : </label>
     <div class="col-sm-6">

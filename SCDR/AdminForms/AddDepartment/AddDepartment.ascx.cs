@@ -100,11 +100,12 @@ namespace SCDR.AdminForms.AddDepartment
 
                            }
                        }
-                       using (SPWeb oWeb = oSite.OpenWeb("ar/"))
+                       using (SPWeb oWeb = oSite.OpenWeb())
                        {
                            SPList list = oWeb.Lists[ListName];
                            SPListItem item = list.Items.Add();
-                           item["Title"] = txtDepartmentAr.Text;
+                           item["Title"] = txtDepartment.Text;
+                           item["TitleAr"] = txtDepartmentAr.Text;
                            item["Status"] = status;
                            if (fileName!="")
                            {
@@ -115,22 +116,7 @@ namespace SCDR.AdminForms.AddDepartment
                            item.Update();
                            oWeb.AllowUnsafeUpdates = false;
                        }
-                       using (SPWeb oWeb = oSite.OpenWeb("en/"))
-                       {
-                           SPList list = oWeb.Lists[ListName];
-                           SPListItem item = list.Items.Add();
-                           item["Title"] = txtDepartment.Text;
-                           item["Status"] = status;
-                           if (fileName != "")
-                           {
-                               SPAttachmentCollection attach = item.Attachments;
-                               attach.Add(fileName, fileContents);
-                           }
-                           oWeb.AllowUnsafeUpdates = true;
-                           item.Update();
-                           oWeb.AllowUnsafeUpdates = false;
-
-                       }
+                      
                        formClear();
                        string sMessage = "Department added successfully";
                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
@@ -168,12 +154,87 @@ namespace SCDR.AdminForms.AddDepartment
 
         protected void txtDepartmentAr_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
+
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPList oList = oWeb.Lists[ListName];
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='TitleAr' /><Value Type='Text'>" + txtDepartmentAr.Text.Trim() + "</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+
+                            if (oItems.Count > 0)
+                            {
+                                lblDepartmentNameAr.ForeColor = System.Drawing.Color.Red;
+                                lblDepartmentNameAr.Text = "Already Exists.";
+                                txtDepartmentAr.Text = "";
+                                txtDepartmentAr.Focus();
+                            }
+                            else
+                            {
+                                lblDepartmentNameAr.ForeColor = System.Drawing.Color.Green;
+                                lblDepartmentNameAr.Text = "Department Name Available.";
+                                txtDepartment.Focus();
+
+                            }
+                        }
+                    }
+                });
+            }
+            catch
+            {
+
+            }
 
         }
 
         protected void txtDepartment_TextChanged(object sender, EventArgs e)
         {
+            try
+            {
 
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPList oList = oWeb.Lists[ListName];
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='Title' /><Value Type='Text'>" + txtDepartment.Text.Trim() + "</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+
+                            if (oItems.Count > 0)
+                            {
+                                lblDepartmentNameEn.ForeColor = System.Drawing.Color.Red;
+                                lblDepartmentNameEn.Text = "Already Exists.";
+                                txtDepartment.Text = "";
+                                txtDepartment.Focus();
+                            }
+                            else
+                            {
+                                lblDepartmentNameEn.ForeColor = System.Drawing.Color.Green;
+                                lblDepartmentNameEn.Text = "Department Name Available.";
+                                
+
+                            }
+                        }
+                    }
+                });
+            }
+            catch
+            {
+
+            }
         }
+
+    
     }
 }

@@ -41,11 +41,39 @@ namespace SCDR.AdminForms.EditDepartment {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.TextBox txtDepartmentAr;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.Label lblDepartmentNameAr;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtDepartment;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.Label lblDepartmentNameEn;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.UpdatePanel upDepartmentNames;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -84,14 +112,103 @@ namespace SCDR.AdminForms.EditDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtDepartmentAr() {
+            global::System.Web.UI.WebControls.TextBox @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.TextBox();
+            this.txtDepartmentAr = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "txtDepartmentAr";
+            @__ctrl.AutoPostBack = true;
+            @__ctrl.CausesValidation = true;
+            @__ctrl.MaxLength = 250;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl !important;");
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            @__ctrl.TextChanged -= new System.EventHandler(this.txtDepartmentAr_TextChanged);
+            @__ctrl.TextChanged += new System.EventHandler(this.txtDepartmentAr_TextChanged);
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.Label @__BuildControllblDepartmentNameAr() {
+            global::System.Web.UI.WebControls.Label @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.Label();
+            this.lblDepartmentNameAr = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "lblDepartmentNameAr";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator2() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator2 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ID = "RequiredFieldValidator2";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.ControlToValidate = "txtDepartmentAr";
+            @__ctrl.ErrorMessage = "Please enter a department name";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator5() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator5 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator5";
+            @__ctrl.ValidationExpression = "^[\\u0621-\\u064A0-9 ]+$";
+            @__ctrl.ControlToValidate = "txtDepartmentAr";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Only arabic Characters and numbers allowed.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.TextBox @__BuildControltxtDepartment() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
             this.txtDepartment = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "txtDepartment";
+            @__ctrl.AutoPostBack = true;
+            @__ctrl.CausesValidation = true;
+            @__ctrl.MaxLength = 250;
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            @__ctrl.TextChanged -= new System.EventHandler(this.txtDepartment_TextChanged);
+            @__ctrl.TextChanged += new System.EventHandler(this.txtDepartment_TextChanged);
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.Label @__BuildControllblDepartmentNameEn() {
+            global::System.Web.UI.WebControls.Label @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.Label();
+            this.lblDepartmentNameEn = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "lblDepartmentNameEn";
             return @__ctrl;
         }
         
@@ -102,12 +219,122 @@ namespace SCDR.AdminForms.EditDepartment {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
             this.RequiredFieldValidator1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "RequiredFieldValidator1";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.ValidationGroup = "chk";
             @__ctrl.ControlToValidate = "txtDepartment";
             @__ctrl.ErrorMessage = "Please enter a department name";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator2() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator2 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator2";
+            @__ctrl.ValidationExpression = "^[0-9a-zA-Z ]+$";
+            @__ctrl.ControlToValidate = "txtDepartment";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Only english Characters and numbers allowed.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
+            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label" +
+                        "\">Department name (Arabic) : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl1;
+            @__ctrl1 = this.@__BuildControltxtDepartmentAr();
+            @__parser.AddParsedSubObject(@__ctrl1);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n         "));
+            global::System.Web.UI.WebControls.Label @__ctrl2;
+            @__ctrl2 = this.@__BuildControllblDepartmentNameAr();
+            @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl3;
+            @__ctrl3 = this.@__BuildControlRequiredFieldValidator2();
+            @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl4;
+            @__ctrl4 = this.@__BuildControlRegularExpressionValidator5();
+            @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n   </div> \r\n  <div class=\"form-group\">\r\n    <label  class=\"col-s" +
+                        "m-3 control-label\">Department name (English) : </label>\r\n    <div class=\"col-sm-" +
+                        "6\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl5;
+            @__ctrl5 = this.@__BuildControltxtDepartment();
+            @__parser.AddParsedSubObject(@__ctrl5);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n         "));
+            global::System.Web.UI.WebControls.Label @__ctrl6;
+            @__ctrl6 = this.@__BuildControllblDepartmentNameEn();
+            @__parser.AddParsedSubObject(@__ctrl6);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl7;
+            @__ctrl7 = this.@__BuildControlRequiredFieldValidator1();
+            @__parser.AddParsedSubObject(@__ctrl7);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl8;
+            @__ctrl8 = this.@__BuildControlRegularExpressionValidator2();
+            @__parser.AddParsedSubObject(@__ctrl8);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n   </div> \r\n"));
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control4() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "txtDepartmentAr";
+            @__ctrl.EventName = "TextChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.AsyncPostBackTrigger @__BuildControl__control5() {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl;
+            @__ctrl = new global::System.Web.UI.AsyncPostBackTrigger();
+            @__ctrl.ControlID = "txtDepartment";
+            @__ctrl.EventName = "TextChanged";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private void @__BuildControl__control3(System.Web.UI.UpdatePanelTriggerCollection @__ctrl) {
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl1;
+            @__ctrl1 = this.@__BuildControl__control4();
+            @__ctrl.Add(@__ctrl1);
+            global::System.Web.UI.AsyncPostBackTrigger @__ctrl2;
+            @__ctrl2 = this.@__BuildControl__control5();
+            @__ctrl.Add(@__ctrl2);
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.UpdatePanel @__BuildControlupDepartmentNames() {
+            global::System.Web.UI.UpdatePanel @__ctrl;
+            @__ctrl = new global::System.Web.UI.UpdatePanel();
+            this.upDepartmentNames = @__ctrl;
+            @__ctrl.ContentTemplate = new System.Web.UI.CompiledTemplateBuilder(new System.Web.UI.BuildTemplateMethod(this.@__BuildControl__control2));
+            @__ctrl.ID = "upDepartmentNames";
+            this.@__BuildControl__control3(@__ctrl.Triggers);
             return @__ctrl;
         }
         
@@ -223,27 +450,16 @@ namespace SCDR.AdminForms.EditDepartment {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.AdminForms.EditDepartment.EditDepartment @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-<div class=""col-md-12 col-sm-12 col-xs-12"">
-        <!-- Form Begins -->
-        <div class=""form-horizontal"">
-            <div class=""form-group"">
-    <label  class=""col-sm-3 control-label"">Name of the Department : </label>
-    <div class=""col-sm-6"">
-      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl1;
-            @__ctrl1 = this.@__BuildControltxtDepartment();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<div class=\"col-md-12 col-sm-12 col-xs-12\">\r\n        <!-- Form Begins -->\r\n    " +
+                        "    <div class=\"form-horizontal\">\r\n           "));
+            global::System.Web.UI.UpdatePanel @__ctrl1;
+            @__ctrl1 = this.@__BuildControlupDepartmentNames();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n            "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
-            @__ctrl2 = this.@__BuildControlRequiredFieldValidator1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n            <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label" +
+                        "\">Saved Image : </label>\r\n    <div class=\"col-sm-6\">\r\n    "));
+            global::System.Web.UI.WebControls.Image @__ctrl2;
+            @__ctrl2 = this.@__BuildControlimgDepartment();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div>\r\n        </div>\r\n            <div class=\"form-group\">\r\n    <label  cla" +
-                        "ss=\"col-sm-3 control-label\">Saved Image : </label>\r\n    <div class=\"col-sm-6\">\r\n" +
-                        "    "));
-            global::System.Web.UI.WebControls.Image @__ctrl3;
-            @__ctrl3 = this.@__BuildControlimgDepartment();
-            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@" </div>
                  <div class=""col-sm-3"">
              </div>
@@ -259,32 +475,32 @@ namespace SCDR.AdminForms.EditDepartment {
     <label class=""col-sm-3 control-label"">Choose an Image:</label>
       <div class=""col-sm-6"">
         "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl4;
-            @__ctrl4 = this.@__BuildControlfuDepartmentIcon();
-            @__parser.AddParsedSubObject(@__ctrl4);
+            global::System.Web.UI.WebControls.FileUpload @__ctrl3;
+            @__ctrl3 = this.@__BuildControlfuDepartmentIcon();
+            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n    <div class=\"col-sm-3\">\r\n         <span style=\"color:red\" id=\"lb" +
                         "lImageError\"></span>\r\n      "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl5;
-            @__ctrl5 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl5);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl4;
+            @__ctrl4 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 " +
                         "control-label\">Status : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl6;
-            @__ctrl6 = this.@__BuildControlrbActive();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl5;
+            @__ctrl5 = this.@__BuildControlrbActive();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl7;
-            @__ctrl7 = this.@__BuildControlrbInactive();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl6;
+            @__ctrl6 = this.@__BuildControlrbInactive();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n    <div class=\"col-sm-offset-3" +
                         " col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl8;
-            @__ctrl8 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.Button @__ctrl7;
+            @__ctrl7 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
-            global::System.Web.UI.WebControls.Button @__ctrl9;
-            @__ctrl9 = this.@__BuildControlbtnCancel();
-            @__parser.AddParsedSubObject(@__ctrl9);
+            global::System.Web.UI.WebControls.Button @__ctrl8;
+            @__ctrl8 = this.@__BuildControlbtnCancel();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n            </div>\r\n    </div>\r\n\r\n<script>\r\n    $(documen" +
                         "t).ready(function () {\r\n        $(\"#divDepartmentPicture\").hide();\r\n        $(\"i" +
                         "nput[name=\'chkImage\']\").click(function () {\r\n            if ($(\"#chkYes\").is(\":c" +

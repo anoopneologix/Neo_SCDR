@@ -75,58 +75,10 @@ namespace SCDR.AdminForms.EditCalendarEvents
             set { venueListName = value; }
         }
         #endregion
-      
-        /// <summary>
-        /// function for binding departments to dropdownlist from sharepoint list
-        /// </summary>
-        public void BindDepartment()
-        {
-            try
-            {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
-                    {
-                        if (rbArabic.Checked)
-                        {
-                            subsiteName = "ar/";
-                        }
-                        else if (rbEnglish.Checked)
-                        {
-                            subsiteName = "en/";
-                        }
 
-                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
-                        {
-                            SPList oList = oWeb.Lists[DlistName];
-                            SPQuery query = new SPQuery();
-                            query.Query = @"<Where><Eq><FieldRef Name='Status' /><Value Type='Text'>Active</Value></Eq></Where>";
-                            SPListItemCollection oItems = oList.GetItems(query);
-                            if (oItems != null)
-                            {
-                                if (oItems.Count > 0)
-                                {
-                                    DataTable dtDepartment = ConvertSPListToDataTable(oItems);
-                                    ddlDepartment.DataSource = dtDepartment;
-                                    ddlDepartment.DataValueField = "ID"; // List field holding value 
-                                    ddlDepartment.DataTextField = "Title"; // List field holding name to be displayed on page 
-                                    ddlDepartment.DataBind();
-                                    ddlDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
-                                }
-                            }
-                        }
-                    }
-                });
-            }
-            catch
-            {
-
-            }
-        }
-       
         /// <summary>
-        /// function for binding Venue to dropdownlist from sharepoint list
-        /// venue with status equals to Active will be binded
+        /// for binding the event venue to dropdownlist
+        /// active event venue were selected
         /// </summary>
         public void BindEventVenue()
         {
@@ -136,35 +88,114 @@ namespace SCDR.AdminForms.EditCalendarEvents
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                        if (rbArabic.Checked)
-                        {
-                            subsiteName = "ar/";
-                        }
-                        else if (rbEnglish.Checked)
-                        {
-                            subsiteName = "en/";
-                        }
-                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+
+
+
+
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPList oList = oWeb.Lists[VenueListName];
                             SPQuery query = new SPQuery();
                             query.Query = @"<Where><Eq><FieldRef Name='Status' /><Value Type='Text'>Active</Value></Eq></Where>";
                             SPListItemCollection oItems = oList.GetItems(query);
-                            if (oItems != null)
+                            if (rbArabic.Checked)
                             {
-                                if (oItems.Count > 0)
+
+                                if (oItems != null)
                                 {
-                                    DataTable dtEventVenue = ConvertSPListToDataTable(oItems);
-                                    ddlEventVenue.DataSource = dtEventVenue;
-                                    ddlEventVenue.Items.Clear();
-                                    ddlEventVenue.DataValueField = "ID"; // List field holding value 
-                                    ddlEventVenue.DataTextField = "Title"; // List field holding name to be displayed on page 
-                                    ddlEventVenue.DataBind();
-                                    ddlEventVenue.Items.Insert(0, new ListItem("--Select Venue--", "0"));
+                                    if (oItems.Count > 0)
+                                    {
+                                        DataTable dtEventVenue = ConvertSPListToDataTable(oItems);
+                                        ddlEventVenue.DataSource = dtEventVenue;
+                                        ddlEventVenue.Items.Clear();
+                                        ddlEventVenue.DataValueField = "ID"; // List field holding value 
+                                        ddlEventVenue.DataTextField = "TitleAr"; // List field holding name to be displayed on page 
+                                        ddlEventVenue.DataBind();
+                                        ddlEventVenue.Items.Insert(0, new ListItem("--Select Venue--", "0"));
+                                    }
+                                }
+                            }
+                            else if (rbEnglish.Checked)
+                            {
+                                if (oItems != null)
+                                {
+                                    if (oItems.Count > 0)
+                                    {
+                                        DataTable dtEventVenue = ConvertSPListToDataTable(oItems);
+                                        ddlEventVenue.DataSource = dtEventVenue;
+                                        ddlEventVenue.Items.Clear();
+                                        ddlEventVenue.DataValueField = "ID"; // List field holding value 
+                                        ddlEventVenue.DataTextField = "Title"; // List field holding name to be displayed on page 
+                                        ddlEventVenue.DataBind();
+                                        ddlEventVenue.Items.Insert(0, new ListItem("--Select Venue--", "0"));
+                                    }
                                 }
                             }
                         }
 
+                    }
+                });
+            }
+            catch
+            {
+
+            }
+        }
+
+        /// <summary>
+        /// for binding the department to dropdownlist
+        /// active department were selected
+        /// </summary>
+        public void BindDepartment()
+        {
+            try
+            {
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+
+                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                        {
+                            SPList oList = oWeb.Lists[DlistName];
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='Status' /><Value Type='Text'>Active</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+                            if (rbArabic.Checked)
+                            {
+                                if (oItems != null)
+                                {
+                                    if (oItems.Count > 0)
+                                    {
+                                        DataTable dtDepartment = ConvertSPListToDataTable(oItems);
+                                        ddlDepartment.DataSource = dtDepartment;
+                                        ddlDepartment.DataValueField = "ID"; // List field holding value 
+                                        ddlDepartment.DataTextField = "TitleAr"; // List field holding name to be displayed on page 
+                                        ddlDepartment.DataBind();
+                                        ddlDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+                                    }
+                                }
+                            }
+                            else if (rbEnglish.Checked)
+                            {
+                                if (oItems != null)
+                                {
+                                    if (oItems.Count > 0)
+                                    {
+                                        DataTable dtDepartment = ConvertSPListToDataTable(oItems);
+                                        ddlDepartment.DataSource = dtDepartment;
+                                        ddlDepartment.DataValueField = "ID"; // List field holding value 
+                                        ddlDepartment.DataTextField = "Title"; // List field holding name to be displayed on page 
+                                        ddlDepartment.DataBind();
+                                        ddlDepartment.Items.Insert(0, new ListItem("--Select Department--", "0"));
+                                    }
+                                }
+                            }
+
+
+
+
+                        }
                     }
                 });
             }
@@ -332,19 +363,34 @@ namespace SCDR.AdminForms.EditCalendarEvents
                             SPList dList = dWeb.Lists[DlistName];
                             SPQuery query = new SPQuery();
                             string departmentName = item["Department"].ToString();
-                            query.Query = @"<Where><Eq><FieldRef Name='Title'/><Value Type='Text'>" +departmentName + "</Value></Eq></Where>";
+                            if (rbArabic.Checked)
+                            {
+                                query.Query = @"<Where><Eq><FieldRef Name='TitleAr'/><Value Type='Text'>" + departmentName + "</Value></Eq></Where>";
+
+                            }
+                            else if (rbEnglish.Checked)
+                            {
+                                query.Query = @"<Where><Eq><FieldRef Name='Title'/><Value Type='Text'>" + departmentName + "</Value></Eq></Where>";
+                            }
                             SPListItemCollection dItems = dList.GetItems(query);
                             foreach (SPListItem dItem in dItems)
                             {
                                 ddlDepartment.SelectedValue = dItem["ID"].ToString();
                             }
                             }
-                            using (SPWeb dWeb = oSite.OpenWeb(subsiteName))
+                            using (SPWeb dWeb = oSite.OpenWeb())
                             {
                                 SPList dList = dWeb.Lists[VenueListName];
                                 SPQuery query = new SPQuery();
                                 string eventVenueName = item["EventVenue"].ToString();
-                                query.Query = @"<Where><Eq><FieldRef Name='Title'/><Value Type='Text'>" + eventVenueName + "</Value></Eq></Where>";
+                                if (rbArabic.Checked)
+                                {
+                                    query.Query = @"<Where><Eq><FieldRef Name='TitleAr'/><Value Type='Text'>" + eventVenueName + "</Value></Eq></Where>";
+                                }
+                                else if (rbEnglish.Checked)
+                                {
+                                    query.Query = @"<Where><Eq><FieldRef Name='Title'/><Value Type='Text'>" + eventVenueName + "</Value></Eq></Where>";
+                                }
                                 SPListItemCollection dItems = dList.GetItems(query);
                                 foreach (SPListItem dItem in dItems)
                                 {
@@ -522,6 +568,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
         protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
        {
            BindEventVenue();
+           BindDepartment();
        }
 
         /// <summary>
@@ -532,6 +579,7 @@ namespace SCDR.AdminForms.EditCalendarEvents
         protected void rbArabic_CheckedChanged(object sender, EventArgs e)
        {
            BindEventVenue();
+           BindDepartment();
        }
 
         /// <summary>

@@ -41,7 +41,7 @@ namespace SCDR.AdminForms.EditVenue {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.TextBox txtVenue;
+        protected global::System.Web.UI.WebControls.TextBox txtVenueAr;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -50,6 +50,18 @@ namespace SCDR.AdminForms.EditVenue {
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator5;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.TextBox txtVenueEn;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator6;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -120,12 +132,14 @@ namespace SCDR.AdminForms.EditVenue {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtVenue() {
+        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtVenueAr() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
-            this.txtVenue = @__ctrl;
+            this.txtVenueAr = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "txtVenue";
+            @__ctrl.ID = "txtVenueAr";
+            @__ctrl.MaxLength = 250;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("style", "direction:rtl !important;");
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
             return @__ctrl;
@@ -143,7 +157,7 @@ namespace SCDR.AdminForms.EditVenue {
             @__ctrl.ID = "RequiredFieldValidator1";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ControlToValidate = "txtVenue";
+            @__ctrl.ControlToValidate = "txtVenueAr";
             @__ctrl.ErrorMessage = "Please enter a venue name";
             return @__ctrl;
         }
@@ -157,10 +171,59 @@ namespace SCDR.AdminForms.EditVenue {
             this.RegularExpressionValidator5 = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "RegularExpressionValidator5";
-            @__ctrl.ValidationExpression = "^[0-9a-zA-Z\\u0621-\\u064A ]+$";
-            @__ctrl.ControlToValidate = "txtVenue";
+            @__ctrl.ValidationExpression = "^[\\u0621-\\u064A0-9 ]+$";
+            @__ctrl.ControlToValidate = "txtVenueAr";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.ErrorMessage = "Only arabic Characters and numbers allowed.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtVenueEn() {
+            global::System.Web.UI.WebControls.TextBox @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.TextBox();
+            this.txtVenueEn = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "txtVenueEn";
+            @__ctrl.MaxLength = 250;
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control");
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator2() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator2 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ID = "RequiredFieldValidator2";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.ControlToValidate = "txtVenueEn";
+            @__ctrl.ErrorMessage = "Please enter a venue name";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator6() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator6 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator6";
+            @__ctrl.ValidationExpression = "^[0-9a-zA-Z ]+$";
+            @__ctrl.ControlToValidate = "txtVenueEn";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "only english albhabets and numbers allowed.";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             return @__ctrl;
         }
@@ -405,10 +468,10 @@ namespace SCDR.AdminForms.EditVenue {
         private void @__BuildControlTree(global::SCDR.AdminForms.EditVenue.EditVenue @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<div class=\"col-md-12 col-sm-12 col-xs-12\">\r\n       <div class=\"form-horizontal" +
-                        "\">\r\n           <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-lab" +
-                        "el\">Venue name: </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
+                        "\">\r\n        <div class=\"form-group\">\r\n    <label  class=\"col-sm-3 control-label\"" +
+                        ">Venue name (Arabic) : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl1;
-            @__ctrl1 = this.@__BuildControltxtVenue();
+            @__ctrl1 = this.@__BuildControltxtVenueAr();
             @__parser.AddParsedSubObject(@__ctrl1);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n            "));
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
@@ -418,49 +481,63 @@ namespace SCDR.AdminForms.EditVenue {
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl3;
             @__ctrl3 = this.@__BuildControlRegularExpressionValidator5();
             @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n   </div>\r\n           <div class=\"form-group\">\r\n    <label  clas" +
-                        "s=\"col-sm-3 control-label\">Description : </label>\r\n    <div class=\"col-sm-6\">\r\n " +
-                        "     "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n   </div> \r\n              <div class=\"form-group\">\r\n    <label  " +
+                        "class=\"col-sm-3 control-label\">Venue name (English) : </label>\r\n    <div class=\"" +
+                        "col-sm-6\">\r\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl4;
-            @__ctrl4 = this.@__BuildControltxtDescription();
+            @__ctrl4 = this.@__BuildControltxtVenueEn();
             @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n     "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl5;
-            @__ctrl5 = this.@__BuildControlRegExp1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n          "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
+            @__ctrl5 = this.@__BuildControlRequiredFieldValidator2();
             @__parser.AddParsedSubObject(@__ctrl5);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl6;
+            @__ctrl6 = this.@__BuildControlRegularExpressionValidator6();
+            @__parser.AddParsedSubObject(@__ctrl6);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n        </div>\r\n           <div class=\"form-group\">\r\n    <label " +
+                        " class=\"col-sm-3 control-label\">Description : </label>\r\n    <div class=\"col-sm-6" +
+                        "\">\r\n      "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl7;
+            @__ctrl7 = this.@__BuildControltxtDescription();
+            @__parser.AddParsedSubObject(@__ctrl7);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n     "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl8;
+            @__ctrl8 = this.@__BuildControlRegExp1();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n  </div>\r\n        </div>\r\n<div class=\"form-group\">\r\n    <label  class=\"c" +
                         "ol-sm-3 control-label\">Address : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl6;
-            @__ctrl6 = this.@__BuildControltxtAddress();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.TextBox @__ctrl9;
+            @__ctrl9 = this.@__BuildControltxtAddress();
+            @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n     "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl7;
-            @__ctrl7 = this.@__BuildControlRegularExpressionValidator2();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl10;
+            @__ctrl10 = this.@__BuildControlRegularExpressionValidator2();
+            @__parser.AddParsedSubObject(@__ctrl10);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n  </div>\r\n        </div>\r\n<div class=\"form-group\">\r\n    <label  class=\"c" +
                         "ol-sm-3 control-label\">Latitude : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl8;
-            @__ctrl8 = this.@__BuildControltxtLatitude();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.TextBox @__ctrl11;
+            @__ctrl11 = this.@__BuildControltxtLatitude();
+            @__parser.AddParsedSubObject(@__ctrl11);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n     "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl9;
-            @__ctrl9 = this.@__BuildControlRegularExpressionValidator3();
-            @__parser.AddParsedSubObject(@__ctrl9);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl12;
+            @__ctrl12 = this.@__BuildControlRegularExpressionValidator3();
+            @__parser.AddParsedSubObject(@__ctrl12);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n  </div>\r\n        </div>\r\n<div class=\"form-group\">\r\n    <label  class=\"c" +
                         "ol-sm-3 control-label\">Longitude : </label>\r\n    <div class=\"col-sm-6\">\r\n      "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl10;
-            @__ctrl10 = this.@__BuildControltxtLongitude();
-            @__parser.AddParsedSubObject(@__ctrl10);
+            global::System.Web.UI.WebControls.TextBox @__ctrl13;
+            @__ctrl13 = this.@__BuildControltxtLongitude();
+            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n  </div><div class=\"col-sm-3\">\r\n     "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl11;
-            @__ctrl11 = this.@__BuildControlRegularExpressionValidator4();
-            @__parser.AddParsedSubObject(@__ctrl11);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl14;
+            @__ctrl14 = this.@__BuildControlRegularExpressionValidator4();
+            @__parser.AddParsedSubObject(@__ctrl14);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \r\n  </div>\r\n        </div>\r\n <div class=\"form-group\">\r\n    <label  class=\"" +
                         "col-sm-3 control-label\">Saved Image : </label>\r\n    <div class=\"col-sm-6\">\r\n    " +
                         ""));
-            global::System.Web.UI.WebControls.Image @__ctrl12;
-            @__ctrl12 = this.@__BuildControlimgVenue();
-            @__parser.AddParsedSubObject(@__ctrl12);
+            global::System.Web.UI.WebControls.Image @__ctrl15;
+            @__ctrl15 = this.@__BuildControlimgVenue();
+            @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@" </div>
                  <div class=""col-sm-3"">
              </div>
@@ -476,32 +553,32 @@ namespace SCDR.AdminForms.EditVenue {
     <label class=""col-sm-3 control-label"">Choose an Image:</label>
       <div class=""col-sm-6"">
         "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl13;
-            @__ctrl13 = this.@__BuildControlfuVenueImage();
-            @__parser.AddParsedSubObject(@__ctrl13);
+            global::System.Web.UI.WebControls.FileUpload @__ctrl16;
+            @__ctrl16 = this.@__BuildControlfuVenueImage();
+            @__parser.AddParsedSubObject(@__ctrl16);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n    <div class=\"col-sm-3\">\r\n         <span style=\"color:red\" id=\"lb" +
                         "lImageError\"></span>\r\n      "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl14;
-            @__ctrl14 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl14);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl17;
+            @__ctrl17 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl17);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 " +
                         "control-label\">Status : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl15;
-            @__ctrl15 = this.@__BuildControlrbActive();
-            @__parser.AddParsedSubObject(@__ctrl15);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl18;
+            @__ctrl18 = this.@__BuildControlrbActive();
+            @__parser.AddParsedSubObject(@__ctrl18);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl16;
-            @__ctrl16 = this.@__BuildControlrbInactive();
-            @__parser.AddParsedSubObject(@__ctrl16);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl19;
+            @__ctrl19 = this.@__BuildControlrbInactive();
+            @__parser.AddParsedSubObject(@__ctrl19);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n    <div class=\"col-sm-offset-3" +
                         " col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl17;
-            @__ctrl17 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl17);
+            global::System.Web.UI.WebControls.Button @__ctrl20;
+            @__ctrl20 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl20);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
-            global::System.Web.UI.WebControls.Button @__ctrl18;
-            @__ctrl18 = this.@__BuildControlbtnCancel();
-            @__parser.AddParsedSubObject(@__ctrl18);
+            global::System.Web.UI.WebControls.Button @__ctrl21;
+            @__ctrl21 = this.@__BuildControlbtnCancel();
+            @__parser.AddParsedSubObject(@__ctrl21);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n\r\n\r\n\r\n\r\n           </div>\r\n    </div>\r\n\r\n<script>\r\n    $(" +
                         "document).ready(function () {\r\n        $(\"#divVenuePicture\").hide();\r\n        $(" +
                         "\"input[name=\'chkImage\']\").click(function () {\r\n            if ($(\"#chkYes\").is(\"" +

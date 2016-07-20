@@ -10,13 +10,18 @@
     <!-- Form Begins -->
         <div class="form-horizontal">
             <asp:UpdatePanel  ID="upDepartmentNames"  runat="server">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="txtDepartmentAr" EventName="TextChanged" />
+                           <asp:AsyncPostBackTrigger ControlID="txtDepartment" EventName="TextChanged" />
+                </Triggers>
                 <ContentTemplate>
             <div class="form-group">
     <label  class="col-sm-3 control-label">Department name (Arabic) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtDepartmentAr" CausesValidation="true" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartmentAr_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtDepartmentAr" AutoPostBack="true" CausesValidation="true" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartmentAr_TextChanged"></asp:TextBox>
   </div><div class="col-sm-3">
-            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartmentAr" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+         <asp:Label ID="lblDepartmentNameAr" runat="server"></asp:Label>
+            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartmentAr" runat="server" ErrorMessage="Please enter a department name"></asp:RequiredFieldValidator>
  <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
     ControlToValidate="txtDepartmentAr" runat="server" ForeColor="Red" ErrorMessage="Only arabic Characters and numbers allowed."
     Display="Dynamic" />
@@ -25,9 +30,10 @@
   <div class="form-group">
     <label  class="col-sm-3 control-label">Department name (English) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtDepartment" CausesValidation="true" MaxLength="250"  ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartment_TextChanged"></asp:TextBox>
+      <asp:TextBox ID="txtDepartment" AutoPostBack="true" CausesValidation="true" MaxLength="250"  ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartment_TextChanged"></asp:TextBox>
   </div><div class="col-sm-3">
-            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartment" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+         <asp:Label ID="lblDepartmentNameEn" runat="server"></asp:Label>
+            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartment" runat="server" ErrorMessage="Please enter a department name"></asp:RequiredFieldValidator>
  <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^[0-9a-zA-Z ]+$"
     ControlToValidate="txtDepartment" runat="server" ForeColor="Red" ErrorMessage="Only english Characters and numbers allowed."
     Display="Dynamic" />

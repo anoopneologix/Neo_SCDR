@@ -55,7 +55,7 @@ namespace SCDR.AdminForms.EditDepartment
         /// </summary>
         /// <param name="itemID"></param>
         /// <param name="siteName"></param>
-        public void GetDepartmentDetails(int itemID, string siteName)
+        public void GetDepartmentDetails(int itemID)
         {
             try
             {
@@ -64,11 +64,12 @@ namespace SCDR.AdminForms.EditDepartment
                       using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                       {
 
-                          using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                          using (SPWeb oWeb = oSite.OpenWeb())
                           {
                               SPList oList = oWeb.Lists[DlistName];
                               SPListItem item = oList.GetItemById(itemID);
                               txtDepartment.Text = item["Title"].ToString();
+                              txtDepartmentAr.Text = item["TitleAr"].ToString();
                               SPAttachmentCollection objAttchments = item.Attachments;
                               if (objAttchments.Count > 0)
                               {
@@ -111,14 +112,13 @@ namespace SCDR.AdminForms.EditDepartment
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                if (Page.Request.QueryString["ItemID"] != null && Page.Request.QueryString["SiteName"] != null)
+                if (Page.Request.QueryString["ItemID"] != null )
                 {
 
                     int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                    string siteName = Page.Request.QueryString["SiteName"].ToString();
+           
 
-
-                    GetDepartmentDetails(itemID, siteName);
+                    GetDepartmentDetails(itemID);
                 }
             }
         }
@@ -138,8 +138,8 @@ namespace SCDR.AdminForms.EditDepartment
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
                         int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                        string siteName = Page.Request.QueryString["SiteName"].ToString();
-                        using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                       
+                        using (SPWeb oWeb = oSite.OpenWeb())
                         {
                         
                             string status = string.Empty;
@@ -154,6 +154,7 @@ namespace SCDR.AdminForms.EditDepartment
                             SPList oList = oWeb.Lists[DlistName];
                             SPListItem item = oList.GetItemById(itemID);
                             item["Title"] = txtDepartment.Text;
+                            item["TitleAr"] = txtDepartmentAr.Text;
                             item["Status"] = status;
                             if (fuDepartmentIcon.HasFile)
                             {
@@ -219,6 +220,89 @@ namespace SCDR.AdminForms.EditDepartment
         {
             string sMessage = "operation cancelled";
             ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
+        }
+
+        protected void txtDepartmentAr_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPList oList = oWeb.Lists[DlistName];
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='TitleAr' /><Value Type='Text'>" + txtDepartmentAr.Text.Trim() + "</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+
+                            if (oItems.Count > 0)
+                            {
+                                lblDepartmentNameAr.ForeColor = System.Drawing.Color.Red;
+                                lblDepartmentNameAr.Text = "Already Exists.";
+                                txtDepartmentAr.Text = "";
+                                txtDepartmentAr.Focus();
+                            }
+                            else
+                            {
+                                lblDepartmentNameAr.ForeColor = System.Drawing.Color.Green;
+                                lblDepartmentNameAr.Text = "Department Name Available.";
+                                txtDepartment.Focus();
+
+                            }
+                        }
+                    }
+                });
+            }
+            catch
+            {
+
+            }
+
+        }
+
+        protected void txtDepartment_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+                SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+
+                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    {
+                        using (SPWeb oWeb = oSite.OpenWeb())
+                        {
+                            SPList oList = oWeb.Lists[DlistName];
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<Where><Eq><FieldRef Name='Title' /><Value Type='Text'>" + txtDepartment.Text.Trim() + "</Value></Eq></Where>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+
+                            if (oItems.Count > 0)
+                            {
+                                lblDepartmentNameEn.ForeColor = System.Drawing.Color.Red;
+                                lblDepartmentNameEn.Text = "Already Exists.";
+                                txtDepartment.Text = "";
+                                txtDepartment.Focus();
+                            }
+                            else
+                            {
+                                lblDepartmentNameEn.ForeColor = System.Drawing.Color.Green;
+                                lblDepartmentNameEn.Text = "Department Name Available.";
+
+
+                            }
+                        }
+                    }
+                });
+            }
+            catch
+            {
+
+            }
         }
     }
 }
