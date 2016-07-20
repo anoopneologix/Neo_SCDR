@@ -92,6 +92,8 @@
           <asp:RequiredFieldValidator  ControlToValidate="txtEventDescription" ValidationGroup="chk" ID="RequiredFieldValidator4" runat="server" ForeColor="Red" ErrorMessage="Please enter an event description"></asp:RequiredFieldValidator>
       </div>
   </div>
+            <asp:UpdatePanel ID="upDepartment" runat="server">
+                <ContentTemplate>
             <div class="form-group">
     <label  class="col-sm-3 control-label">Department : </label>
     <div class="col-sm-6">
@@ -101,7 +103,8 @@
           <asp:RequiredFieldValidator InitialValue="0"  ControlToValidate="ddlDepartment" ValidationGroup="chk" ID="RequiredFieldValidator7" runat="server" ForeColor="Red" ErrorMessage="Please select a department"></asp:RequiredFieldValidator>
       </div>
   </div>
-          
+                    </ContentTemplate>
+          </asp:UpdatePanel>
                  <div class="form-group">
                          <label  class="col-sm-3 control-label">Is recurring? : </label>
    <div class="col-sm-9">

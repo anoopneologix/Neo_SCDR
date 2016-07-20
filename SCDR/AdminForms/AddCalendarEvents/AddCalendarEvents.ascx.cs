@@ -29,6 +29,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// for enabling custom webpart properties
         /// </summary>
@@ -123,6 +124,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
 
             }
         }
+
         /// <summary>
         /// for binding the department to dropdownlist
         /// active department were selected
@@ -135,8 +137,16 @@ namespace SCDR.AdminForms.AddCalendarEvents
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-                      
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        if (rbArabic.Checked)
+                        {
+                            subsiteName = "ar/";
+                        }
+                        else if (rbEnglish.Checked)
+                        {
+                            subsiteName = "en/";
+                        }
+
+                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
                             SPList oList = oWeb.Lists[DlistName];
                             SPQuery query = new SPQuery();
@@ -191,6 +201,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
                 BindDepartment();
             }
         }
+
         /// <summary>
         /// for submiting the calendar events to custom sharepoint list
         /// </summary>
@@ -331,6 +342,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
             }
 
         }
+
         /// <summary>
         /// for clearing the form on clicking cancel button
         /// </summary>
@@ -340,6 +352,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
         {
             formClear();
         }
+
         /// <summary>
         /// function for clearing the form
         /// </summary>
@@ -608,6 +621,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
             }
             return returnvalue;
         }
+
         /// <summary>
         /// converting the string to valid DateTime format
         /// </summary>
@@ -618,6 +632,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
             DateTime myDate = DateTime.ParseExact(sDate, "dd/MM/yyyy h:mm tt", CultureInfo.InvariantCulture);
             return myDate;
         }
+
         /// <summary>
         /// for binding arabic event venue to dropdownlist
         /// </summary>
@@ -627,7 +642,9 @@ namespace SCDR.AdminForms.AddCalendarEvents
         {
             
             BindEventVenue();
+            BindDepartment();
         }
+
         /// <summary>
         /// for binding English event venue to dropdownlist
         /// </summary>
@@ -637,6 +654,7 @@ namespace SCDR.AdminForms.AddCalendarEvents
         {
             
             BindEventVenue();
+            BindDepartment();
         }
     }
 }

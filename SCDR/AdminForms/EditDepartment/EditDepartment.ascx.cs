@@ -31,6 +31,9 @@ namespace SCDR.AdminForms.EditDepartment
             InitializeControl();
         }
 
+        /// <summary>
+        /// function for enabling  custom webpart property
+        /// </summary>
         #region CustomWebPartProperty
         private const string DepartmentListName = "CustomDepartmentList";
         private static string dListName = DepartmentListName;
@@ -47,7 +50,12 @@ namespace SCDR.AdminForms.EditDepartment
         }
         #endregion
 
-        public void GetDepartmentDetails(int itemID)
+        /// <summary>
+        /// function for getting details of department from sharepoint list based on Item ID and Site Langauge
+        /// </summary>
+        /// <param name="itemID"></param>
+        /// <param name="siteName"></param>
+        public void GetDepartmentDetails(int itemID, string siteName)
         {
             try
             {
@@ -56,7 +64,7 @@ namespace SCDR.AdminForms.EditDepartment
                       using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                       {
 
-                          using (SPWeb oWeb = oSite.OpenWeb())
+                          using (SPWeb oWeb = oSite.OpenWeb(siteName))
                           {
                               SPList oList = oWeb.Lists[DlistName];
                               SPListItem item = oList.GetItemById(itemID);
@@ -93,15 +101,34 @@ namespace SCDR.AdminForms.EditDepartment
             }
         }
 
+        /// <summary>
+        /// fires when the page loads
+        /// binds deatils to page
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
-                int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                GetDepartmentDetails(itemID);
+                if (Page.Request.QueryString["ItemID"] != null && Page.Request.QueryString["SiteName"] != null)
+                {
+
+                    int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+                    string siteName = Page.Request.QueryString["SiteName"].ToString();
+
+
+                    GetDepartmentDetails(itemID, siteName);
+                }
             }
         }
 
+        /// <summary>
+        /// fires when the button get clicked
+        /// update the details to sharepoint list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -110,10 +137,11 @@ namespace SCDR.AdminForms.EditDepartment
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
-
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+                        string siteName = Page.Request.QueryString["SiteName"].ToString();
+                        using (SPWeb oWeb = oSite.OpenWeb(siteName))
                         {
-                            int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+                        
                             string status = string.Empty;
                             if (rbActive.Checked)
                             {
@@ -170,7 +198,7 @@ namespace SCDR.AdminForms.EditDepartment
                             oWeb.AllowUnsafeUpdates = false;
                            
                         }
-                        string sMessage = "successfully completed";
+                        string sMessage = "Department updated successfully";
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
                     }
                 });
@@ -181,6 +209,12 @@ namespace SCDR.AdminForms.EditDepartment
             }
         }
 
+        /// <summary>
+        /// fires on cancel button click 
+        /// redirects to ManageDepartment.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             string sMessage = "operation cancelled";

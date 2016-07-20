@@ -87,8 +87,16 @@ namespace SCDR.AdminForms.EditCalendarEvents
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
+                        if (rbArabic.Checked)
+                        {
+                            subsiteName = "ar/";
+                        }
+                        else if (rbEnglish.Checked)
+                        {
+                            subsiteName = "en/";
+                        }
 
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
                             SPList oList = oWeb.Lists[DlistName];
                             SPQuery query = new SPQuery();

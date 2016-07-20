@@ -156,6 +156,7 @@ namespace SCDR.AdminForms.ViewVenue
         /// <summary>
         /// fires when the rows on gridview get clicked
         /// for edit and delete venue
+        /// if edit, then the user will redirect to a new page EditVenue.aspx
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

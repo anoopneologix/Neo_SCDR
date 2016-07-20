@@ -7,7 +7,25 @@
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ViewDepartment.ascx.cs" Inherits="SCDR.AdminForms.ViewDepartment.ViewDepartment" %>
 <div class="col-md-12 col-sm-12 col-xs-12">
-    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Department</asp:LinkButton>
+      <div class=" col-md-12"> 
+     <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Department</asp:LinkButton>
+ </div>
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <Triggers>
+            <asp:AsyncPostBackTrigger ControlID="rbArabic" EventName="CheckedChanged" />
+             <asp:AsyncPostBackTrigger ControlID="rbEnglish" EventName="CheckedChanged" />
+        </Triggers>
+        <ContentTemplate>
+    <div class=" col-md-6">
+     <table >
+       <tr>
+           <td>Select Language :</td>
+           <td> <asp:RadioButton GroupName="grpLanguage" Checked="true" Text="Arabic"  AutoPostBack="true" ID="rbArabic" runat="server" OnCheckedChanged="rbArabic_CheckedChanged"  />
+          <asp:RadioButton GroupName="grpLanguage" Text="English" AutoPostBack="true" ID="rbEnglish" runat="server" OnCheckedChanged="rbEnglish_CheckedChanged"  /></td>
+       </tr>
+   </table>
+      </div>
+            <div class=" col-md-12"> 
 <asp:GridView ID="gdvDepartment" class="table table-hover table-striped" runat="server" AutoGenerateColumns="False" OnRowCommand="gdvDepartment_RowCommand">
     <Columns>
         <asp:TemplateField HeaderText="Department">
@@ -31,4 +49,7 @@
 
 
 </asp:GridView>
+                </div>
+            </ContentTemplate>
+        </asp:UpdatePanel>
     </div>

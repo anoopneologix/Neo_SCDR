@@ -29,6 +29,7 @@ namespace SCDR.AdminForms.EditVenue
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// function for enabling  custom webpart property
         /// </summary>
@@ -70,6 +71,7 @@ namespace SCDR.AdminForms.EditVenue
 
             }
         }
+
         /// <summary>
         /// function for getting details of venue from sharepoint list based on Item ID and Site Langauge
         /// </summary>
@@ -235,7 +237,7 @@ namespace SCDR.AdminForms.EditVenue
                             oWeb.AllowUnsafeUpdates = false;
 
                         }
-                        string sMessage = "successfully completed";
+                        string sMessage = "Venue updated successfully";
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
                     }
                 });
@@ -246,6 +248,7 @@ namespace SCDR.AdminForms.EditVenue
             }
 
         }
+
         /// <summary>
         /// fires on cancel button click 
         /// </summary>
