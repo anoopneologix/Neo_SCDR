@@ -29,6 +29,7 @@ namespace SCDR.AdminForms.EditVenue
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// function for enabling  custom webpart property
         /// </summary>
@@ -70,6 +71,7 @@ namespace SCDR.AdminForms.EditVenue
 
             }
         }
+
         /// <summary>
         /// function for getting details of venue from sharepoint list based on Item ID and Site Langauge
         /// </summary>
@@ -91,7 +93,8 @@ namespace SCDR.AdminForms.EditVenue
                             txtVenue.Text = item["Title"].ToString();
                             if (item["Address"] != null)
                             {
-                                txtAddress.Text = item["Address"].ToString();
+                              
+                                txtAddress.Text = Regex.Replace(item["Address"].ToString(), "<.*?>", string.Empty);
                             }
                             else
                             {
@@ -99,7 +102,7 @@ namespace SCDR.AdminForms.EditVenue
                             }
                             if (item["Description"] != null)
                             {
-                                txtDescription.Text = item["Description"].ToString();
+                                txtDescription.Text = Regex.Replace(item["Description"].ToString(), "<.*?>", string.Empty);
                             }
                             else
                             {
@@ -234,7 +237,7 @@ namespace SCDR.AdminForms.EditVenue
                             oWeb.AllowUnsafeUpdates = false;
 
                         }
-                        string sMessage = "successfully completed";
+                        string sMessage = "Venue updated successfully";
                         ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
                     }
                 });
@@ -245,6 +248,7 @@ namespace SCDR.AdminForms.EditVenue
             }
 
         }
+
         /// <summary>
         /// fires on cancel button click 
         /// </summary>

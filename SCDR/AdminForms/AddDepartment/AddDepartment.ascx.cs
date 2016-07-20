@@ -25,6 +25,7 @@ namespace SCDR.AdminForms.AddDepartment
             base.OnInit(e);
             InitializeControl();
         }
+
         /// <summary>
         /// for adding custom webpart properties
         /// </summary>
@@ -36,13 +37,14 @@ namespace SCDR.AdminForms.AddDepartment
         WebBrowsable(true),
         DefaultValue(DefaultLibraryName),
         WebDisplayName("Picture Library Name:"),
-        WebDescription("Please Enter a valid Picture Library Name")]
+        WebDescription("Please Enter a valid Department Name")]
         public string ListName
         {
             get { return listName; }
             set { listName = value; }
         }
         #endregion
+
         /// <summary>
         /// fires on page load
         /// </summary>
@@ -55,9 +57,13 @@ namespace SCDR.AdminForms.AddDepartment
 
             }
         }
+
         /// <summary>
         /// fires when the submit button get clicked
         /// stores the newly added department to shatepoint custom list
+        /// English department name and details stores to the list created in English website
+        /// arabic department name and details stores to the list created in Arabic website
+        /// on succesfull submit, page redirects to ManageDepartment.aspx
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -65,56 +71,78 @@ namespace SCDR.AdminForms.AddDepartment
         {
             try
             {
-                string status = string.Empty;
                 SPSecurity.RunWithElevatedPrivileges(delegate()
-                  {
+               {
+                   using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                   {
+                       byte[] fileContents = new byte[16 * 1024];
+                       string fileName = string.Empty;
+                       string status = string.Empty;
+                       if (rbActive.Checked)
+                       {
+                           status = "Active";
+                       }
+                       else if (rbInactive.Checked)
+                       {
+                           status = "Inactive";
+                       }
+                       if (fuDepartmentIcon.HasFile)
+                       {
 
-                      using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
-                      {
-                          using (SPWeb oWeb = oSite.OpenWeb())
-                          {
-                              if(rbActive.Checked)
-                              {
-                                  status = "Active";
-                              }
-                              else if(rbInactive.Checked)
-                              {
-                                  status = "Inactive";
-                              }
-                              SPList list = oWeb.Lists[ListName];
-                              SPListItem item = list.Items.Add();
-                              item["Title"] = txtDepartment.Text;
-                              item["Status"] = status;
-                              if (fuDepartmentIcon.HasFile)
-                              {
+                           foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
+                           {
 
-                                  foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
-                                  {
+                               Stream fs = postedFile.InputStream;
+                               fileContents = new byte[fs.Length];
+                               fs.Read(fileContents, 0, (int)fs.Length);
+                               fs.Close();
+                               fileName = Path.GetFileName(postedFile.FileName);
 
-                                      Stream fs = postedFile.InputStream;
-                                      byte[] fileContents = new byte[fs.Length];
-                                      fs.Read(fileContents, 0, (int)fs.Length);
-                                      fs.Close();
-                                      SPAttachmentCollection attach = item.Attachments;
-                                      string fileName = Path.GetFileName(postedFile.FileName);
-                                      attach.Add(fileName, fileContents);
+                           }
+                       }
+                       using (SPWeb oWeb = oSite.OpenWeb("ar/"))
+                       {
+                           SPList list = oWeb.Lists[ListName];
+                           SPListItem item = list.Items.Add();
+                           item["Title"] = txtDepartmentAr.Text;
+                           item["Status"] = status;
+                           if (fileName!="")
+                           {
+                               SPAttachmentCollection attach = item.Attachments;
+                               attach.Add(fileName, fileContents);
+                           }
+                           oWeb.AllowUnsafeUpdates = true;
+                           item.Update();
+                           oWeb.AllowUnsafeUpdates = false;
+                       }
+                       using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                       {
+                           SPList list = oWeb.Lists[ListName];
+                           SPListItem item = list.Items.Add();
+                           item["Title"] = txtDepartment.Text;
+                           item["Status"] = status;
+                           if (fileName != "")
+                           {
+                               SPAttachmentCollection attach = item.Attachments;
+                               attach.Add(fileName, fileContents);
+                           }
+                           oWeb.AllowUnsafeUpdates = true;
+                           item.Update();
+                           oWeb.AllowUnsafeUpdates = false;
 
-                                  }
-                              }
-                              oWeb.AllowUnsafeUpdates = true;
-                              item.Update();
-                              oWeb.AllowUnsafeUpdates = false;
-                          }
-                      }
-                      formClear();
-                      string sMessage = "successfully completed";
-                      ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
-                  });
+                       }
+                       formClear();
+                       string sMessage = "Department added successfully";
+                       ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
+                   }
+               });
+
             }
             catch
             { }
 
         }
+
         /// <summary>
         /// fires when the cancel button get clicked
         /// clear the form
@@ -128,6 +156,7 @@ namespace SCDR.AdminForms.AddDepartment
             ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
                  
         }
+
         /// <summary>
         /// function for clearing the form after succesfull submit
         /// </summary>
@@ -135,6 +164,16 @@ namespace SCDR.AdminForms.AddDepartment
         {
             txtDepartment.Text = "";
             rbActive.Checked = true;
+        }
+
+        protected void txtDepartmentAr_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtDepartment_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

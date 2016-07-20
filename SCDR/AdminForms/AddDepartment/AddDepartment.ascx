@@ -9,14 +9,32 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <!-- Form Begins -->
         <div class="form-horizontal">
-  <div class="form-group">
-    <label  class="col-sm-3 control-label">Name of the Department : </label>
+            <asp:UpdatePanel  ID="upDepartmentNames"  runat="server">
+                <ContentTemplate>
+            <div class="form-group">
+    <label  class="col-sm-3 control-label">Department name (Arabic) : </label>
     <div class="col-sm-6">
-      <asp:TextBox ID="txtDepartment" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
+      <asp:TextBox ID="txtDepartmentAr" CausesValidation="true" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartmentAr_TextChanged"></asp:TextBox>
   </div><div class="col-sm-3">
-            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartment" runat="server" ErrorMessage="Please enter a department name"></asp:RequiredFieldValidator>
-  </div>
-        </div> 
+            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartmentAr" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
+    ControlToValidate="txtDepartmentAr" runat="server" ForeColor="Red" ErrorMessage="Only arabic Characters and numbers allowed."
+    Display="Dynamic" />
+       </div>
+   </div> 
+  <div class="form-group">
+    <label  class="col-sm-3 control-label">Department name (English) : </label>
+    <div class="col-sm-6">
+      <asp:TextBox ID="txtDepartment" CausesValidation="true" MaxLength="250"  ClientIDMode="Static" runat="server" class="form-control" OnTextChanged="txtDepartment_TextChanged"></asp:TextBox>
+  </div><div class="col-sm-3">
+            <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtDepartment" runat="server" ErrorMessage="Please enter a venue name"></asp:RequiredFieldValidator>
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^[0-9a-zA-Z ]+$"
+    ControlToValidate="txtDepartment" runat="server" ForeColor="Red" ErrorMessage="Only english Characters and numbers allowed."
+    Display="Dynamic" />
+       </div>
+   </div> 
+</ContentTemplate>
+</asp:UpdatePanel>
             <div class="form-group">
        <label  class="col-sm-3 control-label">Choose Image : </label>
     <div class="col-sm-6">

@@ -15,7 +15,7 @@ namespace SCDR.AdminForms.AddVenue
     [ToolboxItemAttribute(false)]
     public partial class AddVenue : WebPart
     {
-        string subsiteName = string.Empty;
+       
         public AddVenue()
         {
         }
@@ -25,7 +25,9 @@ namespace SCDR.AdminForms.AddVenue
             base.OnInit(e);
             InitializeControl();
         }
-
+        /// <summary>
+        /// for adding custom webpart properties
+        /// </summary>
         #region CustomWebPartProperty
         private const string DefaultLibraryName = "CustomVenueList";
         private static string listName = DefaultLibraryName;
@@ -42,6 +44,11 @@ namespace SCDR.AdminForms.AddVenue
         }
         #endregion
 
+        /// <summary>
+        /// fires when the page loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -50,6 +57,15 @@ namespace SCDR.AdminForms.AddVenue
             }
         }
 
+        /// <summary>
+        /// fires when the user clicks submit button
+        /// venue details stores to sharepoint list
+        /// English venue name and deatils stores to the list created in English website
+        /// Arabic venue name and deatils stores to the list created in Arabic website
+        /// on successfull submit, page redirect to Managevenue.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             try
@@ -95,8 +111,11 @@ namespace SCDR.AdminForms.AddVenue
                             item["Latitude"] = txtLatitude.Text;
                             item["Longitude"] = txtLongitude.Text;
                             item["Status"] = status;
-                            SPAttachmentCollection attach = item.Attachments;
-                            attach.Add(fileName, fileContents);
+                            if (fileName != "")
+                            {
+                                SPAttachmentCollection attach = item.Attachments;
+                                attach.Add(fileName, fileContents);
+                            }
                             oWeb.AllowUnsafeUpdates = true;
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
@@ -111,8 +130,11 @@ namespace SCDR.AdminForms.AddVenue
                             item["Latitude"] = txtLatitude.Text;
                             item["Longitude"] = txtLongitude.Text;
                             item["Status"] = status;
-                            SPAttachmentCollection attach = item.Attachments;
-                            attach.Add(fileName, fileContents);
+                            if (fileName != "")
+                            {
+                                SPAttachmentCollection attach = item.Attachments;
+                                attach.Add(fileName, fileContents);
+                            }
                             oWeb.AllowUnsafeUpdates = true;
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
@@ -133,6 +155,13 @@ namespace SCDR.AdminForms.AddVenue
 
         }
 
+        /// <summary>
+        /// fires whenuser clicks cancel button
+        /// an alert message is displayed
+        /// page redirects to manageVenue.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void btnCancel_Click(object sender, EventArgs e)
         {
             formClear();
@@ -140,6 +169,9 @@ namespace SCDR.AdminForms.AddVenue
             ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
         }
 
+        /// <summary>
+        /// function for clearing the form
+        /// </summary>
         void formClear()
         {
             txtVenueEn.Text = "";

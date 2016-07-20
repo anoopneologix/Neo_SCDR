@@ -86,7 +86,7 @@
   </div>
 <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
-        <asp:Button ID="btnSubmit" ValidationGroup="chk" Text="submit" class="btn btn-default" runat="server" OnClick="btnSubmit_Click"   />
+        <asp:Button ID="btnSubmit" ValidationGroup="chk" Text="submit" class="btn btn-default" OnClientClick="return validateFormat(event);" runat="server" OnClick="btnSubmit_Click"   />
              <asp:Button ID="btnCancel" Text="cancel" class="btn btn-danger" runat="server" OnClick="btnCancel_Click"   />
     </div>
   </div>

@@ -29,6 +29,10 @@ namespace SCDR.AdminForms.ViewDepartment
             base.OnInit(e);
             InitializeControl();
         }
+       
+        /// <summary>
+       /// for enabling custom properties for webpart
+       /// </summary>
         #region CustomWebPartProperty
         private const string DepartmentListName = "CustomDepartmentList";
         private static string dListName = DepartmentListName;
@@ -45,6 +49,12 @@ namespace SCDR.AdminForms.ViewDepartment
         }
         #endregion
 
+        /// <summary>
+        /// fires when the page loads
+        /// binds the department details to gridview
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
@@ -54,6 +64,11 @@ namespace SCDR.AdminForms.ViewDepartment
 
             }
         }
+       
+        /// <summary>
+        /// function for binding department details to gridview
+        /// department details will selected on the basis of language selected
+        /// </summary>
         public void BindDepartment()
         {
             try
@@ -62,8 +77,17 @@ namespace SCDR.AdminForms.ViewDepartment
                 {
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
+                        string subsiteName = string.Empty;
+                        if (rbArabic.Checked)
+                        {
+                            subsiteName = "ar/";
+                        }
+                        else if (rbEnglish.Checked)
+                        {
+                            subsiteName = "en/";
+                        }
 
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
                             SPList oList = oWeb.Lists[DlistName];
                             SPListItemCollection oItems = oList.GetItems();
@@ -81,7 +105,11 @@ namespace SCDR.AdminForms.ViewDepartment
 
         }
 
-        // Function to convert SharePoint Picture Library to DataTable 
+        /// <summary>
+        /// Function to convert SharePoint List to DataTable 
+        /// </summary>
+        /// <param name="spItemCollection"></param>
+        /// <returns></returns>
         private static DataTable ConvertSPListToDataTable(SPListItemCollection spItemCollection)
         {
             DataTable dtSPList = new DataTable();
@@ -96,14 +124,30 @@ namespace SCDR.AdminForms.ViewDepartment
             }
         }
 
+        /// <summary>
+        /// fires when the rows on gridview get clicked
+        /// for edit and delete venue
+        /// if edit, then the user will redirect to a new page EditDepartment.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void gdvDepartment_RowCommand(object sender, System.Web.UI.WebControls.GridViewCommandEventArgs e)
         {
             SPSecurity.RunWithElevatedPrivileges(delegate()
             {
                 using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                 {
+                    string subsiteName = string.Empty;
+                    if (rbArabic.Checked)
+                    {
+                        subsiteName = "ar/";
+                    }
+                    else if (rbEnglish.Checked)
+                    {
+                        subsiteName = "en/";
+                    }
 
-                    using (SPWeb oWeb = oSite.OpenWeb())
+                    using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                     {
                         SPList oList = oWeb.Lists[DlistName];
                         int listItemId = Convert.ToInt32(e.CommandArgument);
@@ -117,7 +161,7 @@ namespace SCDR.AdminForms.ViewDepartment
                         }
                         else if (e.CommandName == "editme")
                         {
-                            Page.Response.Redirect("EditDepartment.aspx?ItemID=" + listItemId);
+                            Page.Response.Redirect("EditDepartment.aspx?ItemID=" + listItemId + "&SiteName=" + subsiteName);
                         }
 
                     }
@@ -125,9 +169,35 @@ namespace SCDR.AdminForms.ViewDepartment
             });
         }
 
+        /// <summary>
+        /// fires when the linkbutton 'LinkButton1' gets clicked
+        /// page redirect to AddDepartment.aspx
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void LinkButton1_Click(object sender, EventArgs e)
         {
             Page.Response.Redirect("AddDepartment.aspx");
+        }
+
+        /// <summary>
+        /// binds the department details on gridview from english list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rbEnglish_CheckedChanged(object sender, EventArgs e)
+        {
+            BindDepartment();
+        }
+
+        /// <summary>
+        /// binds the department details on gridview from Arabic list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void rbArabic_CheckedChanged(object sender, EventArgs e)
+        {
+            BindDepartment();
         }
     }
 }
