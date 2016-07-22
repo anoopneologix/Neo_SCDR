@@ -71,57 +71,67 @@ namespace SCDR.AdminForms.AddDepartment
         {
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-               {
-                   using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                if (txtDepartment.Text != "" && txtDepartmentAr.Text != "")
+                {
+                    SPSecurity.RunWithElevatedPrivileges(delegate()
                    {
-                       byte[] fileContents = new byte[16 * 1024];
-                       string fileName = string.Empty;
-                       string status = string.Empty;
-                       if (rbActive.Checked)
+                       using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                        {
-                           status = "Active";
-                       }
-                       else if (rbInactive.Checked)
-                       {
-                           status = "Inactive";
-                       }
-                       if (fuDepartmentIcon.HasFile)
-                       {
-
-                           foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
+                           byte[] fileContents = new byte[16 * 1024];
+                           string fileName = string.Empty;
+                           string status = string.Empty;
+                           if (rbActive.Checked)
+                           {
+                               status = "Active";
+                           }
+                           else if (rbInactive.Checked)
+                           {
+                               status = "Inactive";
+                           }
+                           if (fuDepartmentIcon.HasFile)
                            {
 
-                               Stream fs = postedFile.InputStream;
-                               fileContents = new byte[fs.Length];
-                               fs.Read(fileContents, 0, (int)fs.Length);
-                               fs.Close();
-                               fileName = Path.GetFileName(postedFile.FileName);
+                               foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
+                               {
 
+                                   Stream fs = postedFile.InputStream;
+                                   fileContents = new byte[fs.Length];
+                                   fs.Read(fileContents, 0, (int)fs.Length);
+                                   fs.Close();
+                                   fileName = Path.GetFileName(postedFile.FileName);
+
+                               }
                            }
-                       }
-                       using (SPWeb oWeb = oSite.OpenWeb())
-                       {
-                           SPList list = oWeb.Lists[ListName];
-                           SPListItem item = list.Items.Add();
-                           item["Title"] = txtDepartment.Text;
-                           item["TitleAr"] = txtDepartmentAr.Text;
-                           item["Status"] = status;
-                           if (fileName!="")
+                           using (SPWeb oWeb = oSite.OpenWeb())
                            {
-                               SPAttachmentCollection attach = item.Attachments;
-                               attach.Add(fileName, fileContents);
+                               SPList list = oWeb.Lists[ListName];
+                               SPListItem item = list.Items.Add();
+                               item["Title"] = txtDepartment.Text;
+                               item["TitleAr"] = txtDepartmentAr.Text;
+                               item["Status"] = status;
+                               if (fileName != "")
+                               {
+                                   SPAttachmentCollection attach = item.Attachments;
+                                   attach.Add(fileName, fileContents);
+                               }
+                               oWeb.AllowUnsafeUpdates = true;
+                               item.Update();
+                               oWeb.AllowUnsafeUpdates = false;
                            }
-                           oWeb.AllowUnsafeUpdates = true;
-                           item.Update();
-                           oWeb.AllowUnsafeUpdates = false;
+
+                           formClear();
+                           string sMessage = "Department added successfully";
+                           ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
                        }
-                      
-                       formClear();
-                       string sMessage = "Department added successfully";
-                       ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageDepartment.aspx';</script>", false);
-                   }
-               });
+                   });
+                }
+                else
+                {
+                    formClear();
+                    string sMessage = "Insufficient data. Please try again.";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='AddDepartment.aspx';</script>", false);
+                     
+                }
 
             }
             catch

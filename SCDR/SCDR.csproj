@@ -274,6 +274,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ViewVenue.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\ViewVideoGallery\ViewVideoGallery.ascx.cs">
+      <DependentUpon>ViewVideoGallery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ViewVideoGallery\ViewVideoGallery.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewVideoGallery.ascx</DependentUpon>
+    </Compile>
     <Compile Include="BannerImageSliderAr\BannerImageSliderAr.ascx.cs">
       <DependentUpon>BannerImageSliderAr.ascx</DependentUpon>
     </Compile>
@@ -681,6 +689,10 @@
       <SharePointProjectItemId>{19325824-065e-4092-9e11-f9ca06cd0d0b}</SharePointProjectItemId>
     </None>
     <None Include="AdminForms\ViewVenue\ViewVenue.webpart" />
+    <None Include="AdminForms\ViewVideoGallery\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{cb49b79e-f939-48b3-b72c-5c4728410361}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\ViewVideoGallery\ViewVideoGallery.webpart" />
     <None Include="BannerImageSliderAr\BannerImageSliderAr.webpart" />
     <None Include="BannerImageSliderAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{1eda339e-9315-47ba-8b10-73a79b27439e}</SharePointProjectItemId>
@@ -972,6 +984,11 @@
     <Content Include="AdminForms\ViewVenue\ViewVenue.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>ViewVenue.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\ViewVideoGallery\Elements.xml" />
+    <Content Include="AdminForms\ViewVideoGallery\ViewVideoGallery.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewVideoGallery.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="BannerImageSliderAr\BannerImageSliderAr.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>

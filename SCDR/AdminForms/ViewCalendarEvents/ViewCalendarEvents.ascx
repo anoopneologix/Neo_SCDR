@@ -48,7 +48,7 @@
              <td>&nbsp;</td>
          <td>
              <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" />
-                <asp:Button ID="btnClear" CssClass="btn btn-default" runat="server" Text="Clear" OnClick="btnClear_Click" />
+                <asp:Button ID="btnClear" CssClass="btn btn-default" runat="server" Text="Clear Result" OnClick="btnClear_Click" />
          </td>
          </tr>
    </table>

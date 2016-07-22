@@ -132,148 +132,159 @@ namespace SCDR.AdminForms.EditNewsContent
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
+
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                if (txtNewsHeading.Text != "" && txtNewsdate.Text != "" && txtNewsLocation.Text != "" && hfNewsDescription.Value != "")
                 {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    SPSecurity.RunWithElevatedPrivileges(delegate()
                     {
-
-                        int itemID = Convert.ToInt32(Page.Request.QueryString["NewsID"]);
-                        string siteName = Page.Request.QueryString["SiteName"].ToString();
-                        using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                        using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                         {
-                            SPList oList = oWeb.Lists[ListName];
-                            SPListItem item = oList.GetItemById(itemID);
-                            
-                            item["Title"] = txtNewsHeading.Text;
-                            item["Location"] = txtNewsLocation.Text;
-                            item["Description"] = hfNewsDescription.Value;
-                            item["Date"] = txtNewsdate.Text;
-                           
-                           if(chkYes.Checked)
-                           {
-                               SPAttachmentCollection currentAttachmentItems = item.Attachments;
-                               if (currentAttachmentItems.Count > 0)
-                               {
-                                   List<string> deletedFilenames = GetDeletedFileNames();
-                                   foreach (string fileName in deletedFilenames)
-                                   {
 
-                                       item.Attachments.Delete(fileName);
+                            int itemID = Convert.ToInt32(Page.Request.QueryString["NewsID"]);
+                            string siteName = Page.Request.QueryString["SiteName"].ToString();
+                            using (SPWeb oWeb = oSite.OpenWeb(siteName))
+                            {
+                                SPList oList = oWeb.Lists[ListName];
+                                SPListItem item = oList.GetItemById(itemID);
 
-                                   }
-                               }
-                               if (fuNewsImage.HasFile)
-                               {
+                                item["Title"] = txtNewsHeading.Text;
+                                item["Location"] = txtNewsLocation.Text;
+                                item["Description"] = hfNewsDescription.Value;
+                                item["Date"] = txtNewsdate.Text;
 
-                                   foreach (HttpPostedFile postedFile in fuNewsImage.PostedFiles)
-                                   {
-                                       try
-                                       {
-                                           Stream fs = postedFile.InputStream;
-                                           byte[] fileContents = new byte[fs.Length];
-                                           fs.Read(fileContents, 0, (int)fs.Length);
-                                           fs.Close();
-                                           SPAttachmentCollection attach = item.Attachments;
-                                           string fileName = Path.GetFileName(postedFile.FileName);
-                                           attach.Add(fileName, fileContents);
-                                       }
-                                       catch
-                                       {
-                                           string sMessage = "Image Already Exists!";
-                                           ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
-
-                                       }
-
-                                   }
-                               }
-                              
-                               oWeb.AllowUnsafeUpdates = true;
-                               item.Update();
-                               oWeb.AllowUnsafeUpdates = false;
-                               
-                               BindThumbnailImages();
-                               ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-                           }
-                           else if (chkNo.Checked)
-                           {
-                                SPAttachmentCollection currentAttachmentItems= item.Attachments;
-                                if (currentAttachmentItems.Count > 0)
+                                if (chkYes.Checked)
                                 {
-                                    List<string> deletedFilenames = GetDeletedFileNames();
-                                    foreach (string fileName in deletedFilenames)
+                                    SPAttachmentCollection currentAttachmentItems = item.Attachments;
+                                    if (currentAttachmentItems.Count > 0)
+                                    {
+                                        List<string> deletedFilenames = GetDeletedFileNames();
+                                        foreach (string fileName in deletedFilenames)
+                                        {
+
+                                            item.Attachments.Delete(fileName);
+
+                                        }
+                                    }
+                                    if (fuNewsImage.HasFile)
                                     {
 
-                                        item.Attachments.Delete(fileName);
+                                        foreach (HttpPostedFile postedFile in fuNewsImage.PostedFiles)
+                                        {
+                                            try
+                                            {
+                                                Stream fs = postedFile.InputStream;
+                                                byte[] fileContents = new byte[fs.Length];
+                                                fs.Read(fileContents, 0, (int)fs.Length);
+                                                fs.Close();
+                                                SPAttachmentCollection attach = item.Attachments;
+                                                string fileName = Path.GetFileName(postedFile.FileName);
+                                                attach.Add(fileName, fileContents);
+                                            }
+                                            catch
+                                            {
+                                                string sMessage = "Image Already Exists!";
+                                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+
+                                            }
+
+                                        }
+                                    }
+
+                                    oWeb.AllowUnsafeUpdates = true;
+                                    item.Update();
+                                    oWeb.AllowUnsafeUpdates = false;
+
+                                    BindThumbnailImages();
+                                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                                }
+                                else if (chkNo.Checked)
+                                {
+                                    SPAttachmentCollection currentAttachmentItems = item.Attachments;
+                                    if (currentAttachmentItems.Count > 0)
+                                    {
+                                        List<string> deletedFilenames = GetDeletedFileNames();
+                                        foreach (string fileName in deletedFilenames)
+                                        {
+
+                                            item.Attachments.Delete(fileName);
+
+                                        }
+                                    }
+                                    List<string> thumbnailUrl = new List<string>();
+                                    string imgUrl = item["ThumbnailUrl"].ToString();
+                                    int index = imgUrl.IndexOf(",");
+                                    if (index > 0)
+                                    {
+                                        imgUrl = imgUrl.Substring(0, index);
+                                        thumbnailUrl.Add(imgUrl);
+                                    }
+                                    SPAttachmentCollection ocollAttachments = item.Attachments;
+                                    List<string> oattachmenUrl = new List<string>();
+                                    if (ocollAttachments.Count > 0)
+                                    {
+                                        foreach (string fileName in item.Attachments)
+                                        {
+                                            oattachmenUrl.Add(SPUrlUtility.CombineUrl(item.Attachments.UrlPrefix, fileName));
+                                        }
+                                        bool val = thumbnailUrl.Intersect(oattachmenUrl).Any();
+                                        if (val == false)
+                                        {
+                                            oWeb.AllowUnsafeUpdates = true;
+                                            item.Update();
+                                            oWeb.AllowUnsafeUpdates = false;
+                                            UpdateThumbnailImages();
+                                            ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+                                        }
+                                        else
+                                        {
+                                            // formClear();
+                                            oWeb.AllowUnsafeUpdates = true;
+                                            item.Update();
+                                            oWeb.AllowUnsafeUpdates = false;
+                                            string sMessage = "successfully completed";
+                                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
+
+                                        }
 
                                     }
+                                    else
+                                    {
+
+                                        item["ThumbnailUrl"] = oWeb.Url + "/_layouts/15/SCDR/images/default.png";
+                                        oWeb.AllowUnsafeUpdates = true;
+                                        item.Update();
+                                        oWeb.AllowUnsafeUpdates = false;
+                                        string sMessage = "successfully completed";
+                                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
+
+                                    }
+
+
+
+
                                 }
-                            List<string> thumbnailUrl = new List<string>();
-                            string imgUrl = item["ThumbnailUrl"].ToString();
-                            int index = imgUrl.IndexOf(",");
-                            if (index > 0)
-                            {
-                                imgUrl = imgUrl.Substring(0, index);
-                                thumbnailUrl.Add(imgUrl);
+
+
+
                             }
-                               SPAttachmentCollection ocollAttachments = item.Attachments;
-                               List<string> oattachmenUrl = new List<string>();
-                               if (ocollAttachments.Count > 0)
-                               {
-                                   foreach (string fileName in item.Attachments)
-                                   {
-                                       oattachmenUrl.Add(SPUrlUtility.CombineUrl(item.Attachments.UrlPrefix, fileName));
-                                   }
-                                   bool val = thumbnailUrl.Intersect(oattachmenUrl).Any();
-                                   if (val == false)
-                                   {
-                                       oWeb.AllowUnsafeUpdates = true;
-                                       item.Update();
-                                       oWeb.AllowUnsafeUpdates = false;
-                                       UpdateThumbnailImages();
-                                       ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
-
-                                   }
-                                   else
-                                   {
-                                      // formClear();
-                                       oWeb.AllowUnsafeUpdates = true;
-                                       item.Update();
-                                       oWeb.AllowUnsafeUpdates = false;
-                                       string sMessage = "successfully completed";
-                                       ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
-
-                                   }
-
-                               }
-                               else
-                               {
-
-                                   item["ThumbnailUrl"] = oWeb.Url + "/_layouts/15/SCDR/images/default.png";
-                                   oWeb.AllowUnsafeUpdates = true;
-                                   item.Update();
-                                   oWeb.AllowUnsafeUpdates = false;
-                                   string sMessage = "successfully completed";
-                                   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
-
-                               }
-                            
-
-                              
-
-                           }
-                           
-                          
-                          
                         }
-                    }
-                });
+                    });
+                }
+                else
+                {
+                    string sMessage = "Insufficient data. Please try again.";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+
+                }
             }
             catch
             {
 
             }
+  
         }
 
         public List<string> GetDeletedFileNames()

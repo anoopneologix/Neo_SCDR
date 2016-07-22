@@ -18,7 +18,7 @@
     <div class="col-sm-6">
       <asp:TextBox ID="txtNewsHeading" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
-      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegExp1" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'.,() ]{0,250}$" ControlToValidate="txtNewsHeading" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator></div>
+      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegExp1" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'.,() ]{0,250}$" ControlToValidate="txtNewsHeading" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator></div>
   </div>
   <div class="form-group">
     <label  class="col-sm-3 control-label">Date : </label>
@@ -32,7 +32,7 @@
       <asp:TextBox ID="txtNewsLocation" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div>
         <div class="col-sm-3">
-      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9'.,() ]{0,250}$" ControlToValidate="txtNewsLocation" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator>
+      <asp:RegularExpressionValidator ValidationGroup="chk" ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic"  ValidationExpression="^[-_a-zA-Z0-9\u0600-\u06FF'.,() ]{0,250}$" ControlToValidate="txtNewsLocation" runat="server" ErrorMessage="Maximum 250 characters allowed.Special characters except ' . _ - , ( ) are not allowed"></asp:RegularExpressionValidator>
 
         </div>
   </div>

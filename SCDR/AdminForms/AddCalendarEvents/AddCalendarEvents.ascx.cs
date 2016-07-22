@@ -239,136 +239,144 @@ namespace SCDR.AdminForms.AddCalendarEvents
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (CheckForExixtingEvents())
+            if (txtEventName.Text != "" && txtEventStartTime.Text != "" && txtEventEndTime.Text != "" && txtEventDate.Text != "" && txtEventDescription.Text != "" && fuCalendarEvent.HasFile)
             {
-                string subsiteName = string.Empty;
-                try
+                if (CheckForExixtingEvents())
                 {
-                    SPSecurity.RunWithElevatedPrivileges(delegate()
+                    string subsiteName = string.Empty;
+                    try
                     {
-
-                        using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                        SPSecurity.RunWithElevatedPrivileges(delegate()
                         {
-                            if (rbArabic.Checked)
-                            {
-                                subsiteName = "ar/";
-                            }
-                            else if (rbEnglish.Checked)
-                            {
-                                subsiteName = "en/";
-                            }
 
-                            using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                            using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                             {
-                                if (rbNo.Checked)
+                                if (rbArabic.Checked)
                                 {
-                                    SPList list = oWeb.Lists[ListName];
-                                    SPListItem item = list.Items.Add();
-                                    item["Title"] = txtEventName.Text;
-                                    item["EventVenue"] = ddlEventVenue.SelectedItem.Text;
-                                    item["EventDate"] = txtEventDate.Text;
-                                    item["EventTime"] = txtEventStartTime.Text + " - " + txtEventEndTime.Text;
-                                    item["Department"] = ddlDepartment.SelectedItem.Text;
-                                    item["Description"] = txtEventDescription.Text;
-                                    if (fuCalendarEvent.HasFile)
-                                    {
-
-                                        foreach (HttpPostedFile postedFile in fuCalendarEvent.PostedFiles)
-                                        {
-
-                                            Stream fs = postedFile.InputStream;
-                                            byte[] fileContents = new byte[fs.Length];
-                                            fs.Read(fileContents, 0, (int)fs.Length);
-                                            fs.Close();
-                                            SPAttachmentCollection attach = item.Attachments;
-                                            string fileName = Path.GetFileName(postedFile.FileName);
-                                            attach.Add(fileName, fileContents);
-
-                                        }
-                                    }
-                                    oWeb.AllowUnsafeUpdates = true;
-                                    item.Update();
-                                    oWeb.AllowUnsafeUpdates = false;
+                                    subsiteName = "ar/";
                                 }
-                                else if (rbYes.Checked)
+                                else if (rbEnglish.Checked)
                                 {
-                                    string frequency = ddlFrequency.SelectedItem.Text;
-                                    byte[] fileContents = new byte[16 * 1024];
-                                    string fileName = string.Empty;
-                                    List<DateTime> EventDates = new List<DateTime>();
-                                    if (frequency == "Daily")
-                                    {
-                                        DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
-                                        int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
-                                        for (int i = 0; i < Occurance; i++)
-                                        {
-                                            EventDates.Add(selectedDate.AddDays(i));
-                                        }
-                                    }
-                                    else if (frequency == "Weekly")
-                                    {
-                                        DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
-                                        int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
-                                        EventDates.Add(selectedDate);
-                                        Occurance = Occurance - 1;
-                                        for (int i = 0; i < Occurance; i++)
-                                        {
-                                            selectedDate = EventDates[i];
-                                            EventDates.Add(selectedDate.AddDays(7));
+                                    subsiteName = "en/";
+                                }
 
-                                        }
-
-                                    }
-                                    else if (frequency == "Monthly")
-                                    {
-                                        DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
-                                        int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
-                                        for (int i = 0; i < Occurance; i++)
-                                        {
-                                            EventDates.Add(selectedDate.AddMonths(i));
-                                        }
-
-                                    }
-                                    if (fuCalendarEvent.HasFile)
-                                    {
-
-                                        foreach (HttpPostedFile postedFile in fuCalendarEvent.PostedFiles)
-                                        {
-
-                                            Stream fs = postedFile.InputStream;
-                                            fileContents = new byte[fs.Length];
-                                            fs.Read(fileContents, 0, (int)fs.Length);
-                                            fs.Close();
-                                            fileName = Path.GetFileName(postedFile.FileName);
-                                        }
-                                    }
-
-                                    foreach (DateTime dt in EventDates)
+                                using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
+                                {
+                                    if (rbNo.Checked)
                                     {
                                         SPList list = oWeb.Lists[ListName];
                                         SPListItem item = list.Items.Add();
                                         item["Title"] = txtEventName.Text;
                                         item["EventVenue"] = ddlEventVenue.SelectedItem.Text;
-                                        item["EventDate"] = dt.Date;
+                                        item["EventDate"] = txtEventDate.Text;
                                         item["EventTime"] = txtEventStartTime.Text + " - " + txtEventEndTime.Text;
                                         item["Department"] = ddlDepartment.SelectedItem.Text;
                                         item["Description"] = txtEventDescription.Text;
-                                        SPAttachmentCollection attach = item.Attachments;
-                                        attach.Add(fileName, fileContents);
+                                        if (fuCalendarEvent.HasFile)
+                                        {
+
+                                            foreach (HttpPostedFile postedFile in fuCalendarEvent.PostedFiles)
+                                            {
+
+                                                Stream fs = postedFile.InputStream;
+                                                byte[] fileContents = new byte[fs.Length];
+                                                fs.Read(fileContents, 0, (int)fs.Length);
+                                                fs.Close();
+                                                SPAttachmentCollection attach = item.Attachments;
+                                                string fileName = Path.GetFileName(postedFile.FileName);
+                                                attach.Add(fileName, fileContents);
+
+                                            }
+                                        }
                                         oWeb.AllowUnsafeUpdates = true;
                                         item.Update();
                                         oWeb.AllowUnsafeUpdates = false;
                                     }
-                                }
-                            }
-                            string sMessage = "New event has been added successfully";
-                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
-                        }
-                        formClear();
-                    });
+                                    else if (rbYes.Checked)
+                                    {
+                                        string frequency = ddlFrequency.SelectedItem.Text;
+                                        byte[] fileContents = new byte[16 * 1024];
+                                        string fileName = string.Empty;
+                                        List<DateTime> EventDates = new List<DateTime>();
+                                        if (frequency == "Daily")
+                                        {
+                                            DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
+                                            int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
+                                            for (int i = 0; i < Occurance; i++)
+                                            {
+                                                EventDates.Add(selectedDate.AddDays(i));
+                                            }
+                                        }
+                                        else if (frequency == "Weekly")
+                                        {
+                                            DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
+                                            int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
+                                            EventDates.Add(selectedDate);
+                                            Occurance = Occurance - 1;
+                                            for (int i = 0; i < Occurance; i++)
+                                            {
+                                                selectedDate = EventDates[i];
+                                                EventDates.Add(selectedDate.AddDays(7));
 
+                                            }
+
+                                        }
+                                        else if (frequency == "Monthly")
+                                        {
+                                            DateTime selectedDate = DateTime.Parse(txtEventDate.Text);
+                                            int Occurance = Convert.ToInt32(ddlOccurance.SelectedItem.Text);
+                                            for (int i = 0; i < Occurance; i++)
+                                            {
+                                                EventDates.Add(selectedDate.AddMonths(i));
+                                            }
+
+                                        }
+                                        if (fuCalendarEvent.HasFile)
+                                        {
+
+                                            foreach (HttpPostedFile postedFile in fuCalendarEvent.PostedFiles)
+                                            {
+
+                                                Stream fs = postedFile.InputStream;
+                                                fileContents = new byte[fs.Length];
+                                                fs.Read(fileContents, 0, (int)fs.Length);
+                                                fs.Close();
+                                                fileName = Path.GetFileName(postedFile.FileName);
+                                            }
+                                        }
+
+                                        foreach (DateTime dt in EventDates)
+                                        {
+                                            SPList list = oWeb.Lists[ListName];
+                                            SPListItem item = list.Items.Add();
+                                            item["Title"] = txtEventName.Text;
+                                            item["EventVenue"] = ddlEventVenue.SelectedItem.Text;
+                                            item["EventDate"] = dt.Date;
+                                            item["EventTime"] = txtEventStartTime.Text + " - " + txtEventEndTime.Text;
+                                            item["Department"] = ddlDepartment.SelectedItem.Text;
+                                            item["Description"] = txtEventDescription.Text;
+                                            SPAttachmentCollection attach = item.Attachments;
+                                            attach.Add(fileName, fileContents);
+                                            oWeb.AllowUnsafeUpdates = true;
+                                            item.Update();
+                                            oWeb.AllowUnsafeUpdates = false;
+                                        }
+                                    }
+                                }
+                                string sMessage = "New event has been added successfully";
+                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
+                            }
+                            formClear();
+                        });
+
+                    }
+                    catch { }
                 }
-                catch { }
+            }
+            else
+            {
+                string sMessage = "Insufficient data. Please try again";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
             }
 
         }

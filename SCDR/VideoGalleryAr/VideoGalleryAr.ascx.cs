@@ -89,9 +89,10 @@ namespace SCDR.VideoGalleryAr
                                 }
                             }
                             topDiv.Attributes.Add("href", dt.Rows[0]["VideoUrl"].ToString() + "&feature=youtu.be");
-                            topDivFrame.Attributes.Add("src", dt.Rows[0]["VideoUrl"].ToString() + "&feature=youtu.be");
+                            topDivFrame.Attributes.Add("src", dt.Rows[0]["VideoUrl"].ToString());
                             dt.Rows[0].Delete();
                             dt.AcceptChanges();
+                            
                             repVideoGallery.DataSource = dt;
                             repVideoGallery.DataBind();
 

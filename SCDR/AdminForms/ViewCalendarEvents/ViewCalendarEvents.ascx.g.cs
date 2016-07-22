@@ -264,7 +264,7 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnClear";
             @__ctrl.CssClass = "btn btn-default";
-            @__ctrl.Text = "Clear";
+            @__ctrl.Text = "Clear Result";
             @__ctrl.Click -= new System.EventHandler(this.btnClear_Click);
             @__ctrl.Click += new System.EventHandler(this.btnClear_Click);
             return @__ctrl;

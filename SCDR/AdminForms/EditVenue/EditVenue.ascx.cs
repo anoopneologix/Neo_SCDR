@@ -169,81 +169,92 @@ namespace SCDR.AdminForms.EditVenue
         {
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
+                if (txtVenueAr.Text != "" && txtVenueEn.Text != "")
                 {
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+
+                    SPSecurity.RunWithElevatedPrivileges(delegate()
                     {
-                        int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                        
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                         {
+                            int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
 
-                            string status = string.Empty;
-                            if (rbActive.Checked)
+                            using (SPWeb oWeb = oSite.OpenWeb())
                             {
-                                status = "Active";
-                            }
-                            else
-                            {
-                                status = "Inactive";
-                            }
-                            SPList oList = oWeb.Lists[VenueListName];
-                            SPListItem item = oList.GetItemById(itemID);
-                            item["Title"] = txtVenueEn.Text;
-                            item["TitleAr"] = txtVenueAr.Text;
-                            item["Address"] = txtAddress.Text;
-                            item["Description"] = txtDescription.Text;
-                            item["Latitude"] = txtLatitude.Text;
-                            item["Longitude"] = txtLongitude.Text;
-                            item["Status"] = status;
-                            if (fuVenueImage.HasFile)
-                            {
-                                SPAttachmentCollection ocollAttachments = item.Attachments;
-                                if (ocollAttachments.Count > 0)
+
+                                string status = string.Empty;
+                                if (rbActive.Checked)
                                 {
-                                    List<string> fileNames = new List<string>();
-
-                                    foreach (string fileName in item.Attachments)
+                                    status = "Active";
+                                }
+                                else
+                                {
+                                    status = "Inactive";
+                                }
+                                SPList oList = oWeb.Lists[VenueListName];
+                                SPListItem item = oList.GetItemById(itemID);
+                                item["Title"] = txtVenueEn.Text;
+                                item["TitleAr"] = txtVenueAr.Text;
+                                item["Address"] = txtAddress.Text;
+                                item["Description"] = txtDescription.Text;
+                                item["Latitude"] = txtLatitude.Text;
+                                item["Longitude"] = txtLongitude.Text;
+                                item["Status"] = status;
+                                if (fuVenueImage.HasFile)
+                                {
+                                    SPAttachmentCollection ocollAttachments = item.Attachments;
+                                    if (ocollAttachments.Count > 0)
                                     {
-                                        fileNames.Add(fileName);
+                                        List<string> fileNames = new List<string>();
+
+                                        foreach (string fileName in item.Attachments)
+                                        {
+                                            fileNames.Add(fileName);
+                                        }
+
+                                        foreach (string fileName in fileNames)
+                                        {
+                                            item.Attachments.Delete(fileName);
+                                        }
                                     }
-
-                                    foreach (string fileName in fileNames)
+                                    foreach (HttpPostedFile postedFile in fuVenueImage.PostedFiles)
                                     {
-                                        item.Attachments.Delete(fileName);
+                                        try
+                                        {
+                                            Stream fs = postedFile.InputStream;
+                                            byte[] fileContents = new byte[fs.Length];
+                                            fs.Read(fileContents, 0, (int)fs.Length);
+                                            fs.Close();
+                                            SPAttachmentCollection attach = item.Attachments;
+                                            string fileName = Path.GetFileName(postedFile.FileName);
+                                            attach.Add(fileName, fileContents);
+                                        }
+                                        catch
+                                        {
+                                            string sMessageError = "Image Already Exists!";
+                                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessageError + "');</script>", false);
+
+                                        }
+
                                     }
                                 }
-                                foreach (HttpPostedFile postedFile in fuVenueImage.PostedFiles)
-                                {
-                                    try
-                                    {
-                                        Stream fs = postedFile.InputStream;
-                                        byte[] fileContents = new byte[fs.Length];
-                                        fs.Read(fileContents, 0, (int)fs.Length);
-                                        fs.Close();
-                                        SPAttachmentCollection attach = item.Attachments;
-                                        string fileName = Path.GetFileName(postedFile.FileName);
-                                        attach.Add(fileName, fileContents);
-                                    }
-                                    catch
-                                    {
-                                        string sMessageError = "Image Already Exists!";
-                                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessageError + "');</script>", false);
+                                oWeb.AllowUnsafeUpdates = true;
+                                item.Update();
+                                oWeb.AllowUnsafeUpdates = false;
 
-                                    }
-
-                                }
                             }
-                            oWeb.AllowUnsafeUpdates = true;
-                            item.Update();
-                            oWeb.AllowUnsafeUpdates = false;
-
+                            string sMessage = "Venue updated successfully";
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
                         }
-                        string sMessage = "Venue updated successfully";
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
-                    }
-                });
+                    });
+                }
+                else
+                {
+                    string sMessage = "Insufficent data. Please try again.";
+                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ManageVenue.aspx';</script>", false);
+                  
+                }
             }
+           
             catch
             {
 

@@ -159,6 +159,9 @@ namespace SCDR.AdminForms.ViewCalendarEvents
                             {
                                 ScriptManager.RegisterStartupScript(Page, Page.GetType(), "displayalertmessage", "Showalert();", true);
                             }
+                            txtEventDate.Text = "";
+                            txtEventEndDate.Text = "";
+                            txtEventName.Text = "";
                         }
                     }
                 });
@@ -176,6 +179,8 @@ namespace SCDR.AdminForms.ViewCalendarEvents
             {
 
                 DataTable dt = new DataTable();
+                DataColumn dcID= new DataColumn("ID", typeof(string));
+                dt.Columns.Add(dcID);
                 DataColumn dcTitle = new DataColumn("Title", typeof(string));
                 dt.Columns.Add(dcTitle);
                 DataColumn dcEventVenue = new DataColumn("EventVenue", typeof(string));
@@ -190,6 +195,7 @@ namespace SCDR.AdminForms.ViewCalendarEvents
                 foreach (SPListItem li in oItems)
                 {
                     DataRow dr = dt.NewRow();
+                    dr["ID"] = li["ID"].ToString();
                     dr["Title"] = li["Title"].ToString();
                     dr["EventVenue"] = li["EventVenue"].ToString();
                     DateTime dtEventDate = Convert.ToDateTime(li["EventDate"]);
@@ -249,6 +255,7 @@ namespace SCDR.AdminForms.ViewCalendarEvents
                                 itemToDelete.Delete();
                                 oWeb.AllowUnsafeUpdates = false;
                                 BindEvents();
+                             
                             }
                             else if (e.CommandName == "editme")
                             {

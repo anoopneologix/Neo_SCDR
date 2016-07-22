@@ -352,85 +352,94 @@ namespace SCDR.AdminForms.EditCalendarEvents
         /// <param name="e"></param>
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            if (CheckForExixtingEvents())
+            if (txtEventName.Text != "" && txtEventStartTime.Text != "" && txtEventEndTime.Text != "" && txtEventDate.Text != "" && txtEventDescription.Text != "")
             {
-                try
+                if (CheckForExixtingEvents())
                 {
-                    SPSecurity.RunWithElevatedPrivileges(delegate()
+                    try
                     {
-                        using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                        SPSecurity.RunWithElevatedPrivileges(delegate()
                         {
-                            int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
-                            string subSiteName = Page.Request.QueryString["SiteName"].ToString();
-                            using (SPWeb oWeb = oSite.OpenWeb(subSiteName))
+                            using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                             {
-                                SPList list = oWeb.Lists[ListName];
-                                SPListItem item = list.GetItemById(itemID);
-                                //item["Title"] = txtEventName.Text;
-                                item["EventVenue"] = ddlEventVenue.SelectedItem.Text;
-                                item["EventDate"] = txtEventDate.Text;
-                                item["EventTime"] = txtEventStartTime.Text + " - " + txtEventEndTime.Text;
-                                item["Department"] = ddlDepartment.SelectedItem.Text;
-                                item["Description"] = txtEventDescription.Text;
-
-                                if (fuEventImage.HasFile)
+                                int itemID = Convert.ToInt32(Page.Request.QueryString["ItemID"]);
+                                string subSiteName = Page.Request.QueryString["SiteName"].ToString();
+                                using (SPWeb oWeb = oSite.OpenWeb(subSiteName))
                                 {
-                                    SPAttachmentCollection ocollAttachments = item.Attachments;
-                                    if (ocollAttachments.Count > 0)
+                                    SPList list = oWeb.Lists[ListName];
+                                    SPListItem item = list.GetItemById(itemID);
+                                    //item["Title"] = txtEventName.Text;
+                                    item["EventVenue"] = ddlEventVenue.SelectedItem.Text;
+                                    item["EventDate"] = txtEventDate.Text;
+                                    item["EventTime"] = txtEventStartTime.Text + " - " + txtEventEndTime.Text;
+                                    item["Department"] = ddlDepartment.SelectedItem.Text;
+                                    item["Description"] = txtEventDescription.Text;
+
+                                    if (fuEventImage.HasFile)
                                     {
-                                        List<string> fileNames = new List<string>();
-
-                                        foreach (string fileName in item.Attachments)
+                                        SPAttachmentCollection ocollAttachments = item.Attachments;
+                                        if (ocollAttachments.Count > 0)
                                         {
-                                            fileNames.Add(fileName);
+                                            List<string> fileNames = new List<string>();
+
+                                            foreach (string fileName in item.Attachments)
+                                            {
+                                                fileNames.Add(fileName);
+                                            }
+
+                                            foreach (string fileName in fileNames)
+                                            {
+                                                item.Attachments.Delete(fileName);
+                                            }
                                         }
-
-                                        foreach (string fileName in fileNames)
+                                        foreach (HttpPostedFile postedFile in fuEventImage.PostedFiles)
                                         {
-                                            item.Attachments.Delete(fileName);
+                                            try
+                                            {
+                                                Stream fs = postedFile.InputStream;
+                                                byte[] fileContents = new byte[fs.Length];
+                                                fs.Read(fileContents, 0, (int)fs.Length);
+                                                fs.Close();
+                                                SPAttachmentCollection attach = item.Attachments;
+                                                string fileName = Path.GetFileName(postedFile.FileName);
+                                                attach.Add(fileName, fileContents);
+                                            }
+                                            catch
+                                            {
+                                                string sMessage = "Image Already Exists!";
+                                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+
+                                            }
+
                                         }
                                     }
-                                    foreach (HttpPostedFile postedFile in fuEventImage.PostedFiles)
-                                    {
-                                        try
-                                        {
-                                            Stream fs = postedFile.InputStream;
-                                            byte[] fileContents = new byte[fs.Length];
-                                            fs.Read(fileContents, 0, (int)fs.Length);
-                                            fs.Close();
-                                            SPAttachmentCollection attach = item.Attachments;
-                                            string fileName = Path.GetFileName(postedFile.FileName);
-                                            attach.Add(fileName, fileContents);
-                                        }
-                                        catch
-                                        {
-                                            string sMessage = "Image Already Exists!";
-                                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                                    oWeb.AllowUnsafeUpdates = true;
+                                    item.Update();
+                                    oWeb.AllowUnsafeUpdates = false;
 
-                                        }
 
-                                    }
+                                    formClear();
+                                    string cMessage = "Event has been updated successfully";
+                                    ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + cMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
+
                                 }
-                                oWeb.AllowUnsafeUpdates = true;
-                                item.Update();
-                                oWeb.AllowUnsafeUpdates = false;
-
-
-                                formClear();
-                                string cMessage = "Event has been updated successfully";
-                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + cMessage + "');window.location='ViewCalendarEvents.aspx';</script>", false);
-
                             }
-                        }
-                    });
+                        });
 
 
 
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
                 }
-                catch (Exception ex)
-                {
+            }
+            else
+            {
+                string cMessage = "Insufficient data. Please try again.";
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + cMessage + "');</script>", false);
 
-                }
             }
 
         }

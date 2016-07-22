@@ -396,56 +396,85 @@ namespace SCDR.AdminForms.AddNews
                       }
                       if (rbBoth.Checked)
                       {
-                          SaveToEnglishNewsList(fileName, fileContent, newsId);
-                          SaveToArabicNewsList(fileName, fileContent, newsId);
-
-                          if (rbYes.Checked)
+                          if (txtNewsHeading.Text != "" && txtNewsdate.Text != "" && txtNewsLocation.Text != "" && hfNewsDescription.Value != "" && txtNewsHeadingAr.Text != "" && txtNewsDateAr.Text != "" && txtNewsLocationAr.Text != "" && hfNewsDescriptionAr.Value != "")
                           {
-                              BindEnglishThumbnailImages();
-                              ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                              SaveToEnglishNewsList(fileName, fileContent, newsId);
+                              SaveToArabicNewsList(fileName, fileContent, newsId);
 
+                              if (rbYes.Checked)
+                              {
+                                  BindEnglishThumbnailImages();
+                                  ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+
+                              }
+                              else if (rbNo.Checked)
+                              {
+                                  UpdateDefaultThumbnailToEnglishNewsList();
+                                  UpdateDefaultThumbnailToArabicNewsList();
+                                  formClear();
+                                  string sMessage = "successfully completed";
+                                  ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
+                              }
                           }
-                          else if (rbNo.Checked)
+                          else
                           {
-                              UpdateDefaultThumbnailToEnglishNewsList();
-                              UpdateDefaultThumbnailToArabicNewsList();
                               formClear();
-                              string sMessage = "successfully completed";
+                              string sMessage = "Insufficient data. Please try again.";
                               ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
                           }
                       }
                       else if(rbEnglish.Checked)
                       {
-                          SaveToEnglishNewsList(fileName, fileContent, newsId);
-                          if (rbYes.Checked)
+                          if (txtNewsHeading.Text != "" && txtNewsdate.Text != "" && txtNewsLocation.Text != "" && hfNewsDescription.Value != "")
                           {
-                              BindEnglishThumbnailImages();
-                              ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                              SaveToEnglishNewsList(fileName, fileContent, newsId);
+                              if (rbYes.Checked)
+                              {
+                                  BindEnglishThumbnailImages();
+                                  ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
+                              }
+                              else if (rbNo.Checked)
+                              {
+                                  UpdateDefaultThumbnailToEnglishNewsList();
+                                  formClear();
+                                  string sMessage = "successfully completed";
+                                  ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
+                              }
                           }
-                          else if (rbNo.Checked)
+                          else
                           {
-                              UpdateDefaultThumbnailToEnglishNewsList();
                               formClear();
-                              string sMessage = "successfully completed";
+                              string sMessage = "Insufficient data. Please try again.";
                               ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                       
                           }
                       }
                       else if (rbArabic.Checked)
                       {
-                          SaveToArabicNewsList(fileName, fileContent, newsId);
-                          if (rbYes.Checked)
+                          if (txtNewsHeadingAr.Text != "" && txtNewsDateAr.Text != "" && txtNewsLocationAr.Text != "" && hfNewsDescriptionAr.Value != "")
                           {
-                              BindArabicThumbnailImages();
-                              ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
+                              SaveToArabicNewsList(fileName, fileContent, newsId);
+                              if (rbYes.Checked)
+                              {
+                                  BindArabicThumbnailImages();
+                                  ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", "openModal();", true);
 
+                              }
+                              else if (rbNo.Checked)
+                              {
+                                  UpdateDefaultThumbnailToArabicNewsList();
+                                  formClear();
+                                  string sMessage = "successfully completed";
+                                  ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
+                              }
                           }
-                          else if (rbNo.Checked)
+                          else
                           {
-                              UpdateDefaultThumbnailToArabicNewsList();
                               formClear();
-                              string sMessage = "successfully completed";
+                              string sMessage = "Insufficient data. Please try again.";
                               ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                       
                           }
                       }
 
@@ -488,7 +517,7 @@ namespace SCDR.AdminForms.AddNews
 
                 formClear();
                 string sMessage = "successfully completed";
-                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');</script>", false);
+                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewNews.aspx';</script>", false);
 
 
             }

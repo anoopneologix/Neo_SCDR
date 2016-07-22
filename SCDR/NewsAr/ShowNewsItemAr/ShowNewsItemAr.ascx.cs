@@ -43,6 +43,20 @@ namespace SCDR.NewsAr.ShowNewsItemAr
             get { return listName; }
             set { listName = value; }
         }
+        private const string DefaultPageName = "Press-Releases.aspx";
+        private static string pageName = DefaultPageName;
+        [Category("Extended Settings"),
+        Personalizable(PersonalizationScope.Shared),
+        WebBrowsable(true),
+        DefaultValue(DefaultPageName),
+        WebDisplayName("Page Name:"),
+        WebDescription("Please Enter a valid Page Name")]
+        public string PageName
+        {
+            get { return pageName; }
+            set { pageName = value; }
+        }
+       
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -108,7 +122,7 @@ namespace SCDR.NewsAr.ShowNewsItemAr
                             }
                             else
                             {
-                                Page.Response.Redirect("Home.aspx");
+                                Page.Response.Redirect(PageName);
                             }
                         }
                       /*  using (SPWeb oWeb = oSite.OpenWeb())

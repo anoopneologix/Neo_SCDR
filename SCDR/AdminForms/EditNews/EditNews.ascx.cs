@@ -64,7 +64,7 @@ namespace SCDR.AdminForms.EditNews
         }
 
         /// <summary>
-        /// function for binding the venue to gridview based on langauage
+        /// function for binding the news to gridview based on langauage
         /// </summary>
         public void BindNews()
         {
@@ -121,7 +121,7 @@ namespace SCDR.AdminForms.EditNews
             }
         }
         /// <summary>
-        /// fires when the linkbutton 'lbAddVenue' gets clicked
+        /// fires when the linkbutton 'lbAddNews' gets clicked
         /// page redirect to AddVenue.aspx
         /// </summary>
         /// <param name="sender"></param>
@@ -129,10 +129,10 @@ namespace SCDR.AdminForms.EditNews
 
         protected void lbAddNews_Click(object sender, EventArgs e)
         {
-
+            Page.Response.Redirect("AddNews.aspx");
         }
         /// <summary>
-        /// binds the venue on gridview from Arabic list
+        /// binds the news on gridview from Arabic list
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -141,7 +141,7 @@ namespace SCDR.AdminForms.EditNews
             BindNews();
         }
         /// <summary>
-        /// binds the venue on gridview from english list
+        /// binds the news on gridview from english list
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
