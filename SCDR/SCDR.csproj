@@ -162,6 +162,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddNews.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\AddPublications\AddPublications.ascx.cs">
+      <DependentUpon>AddPublications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AddPublications\AddPublications.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AddPublications.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\AddVenue\AddVenue.ascx.cs">
       <DependentUpon>AddVenue.ascx</DependentUpon>
     </Compile>
@@ -595,6 +603,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>VideoGallery.ascx</DependentUpon>
     </Compile>
+    <Compile Include="ViewPublications\ViewPublications.ascx.cs">
+      <DependentUpon>ViewPublications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPublications\ViewPublications.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ViewPublications.ascx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="AdminForms\AddBanner\AddBanner.webpart" />
@@ -632,6 +648,10 @@
     <None Include="AdminForms\AddNews\AddNews.webpart" />
     <None Include="AdminForms\AddNews\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{53ebad47-3af2-4270-b075-ea25beb28d59}</SharePointProjectItemId>
+    </None>
+    <None Include="AdminForms\AddPublications\AddPublications.webpart" />
+    <None Include="AdminForms\AddPublications\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bbc25b79-0311-4fc1-9c88-78b00b78dc12}</SharePointProjectItemId>
     </None>
     <None Include="AdminForms\AddVenue\AddVenue.webpart" />
     <None Include="AdminForms\AddVenue\SharePointProjectItem.spdata">
@@ -865,6 +885,10 @@
       <SharePointProjectItemId>{aaf00cca-6b18-4c20-850c-69faa61dec01}</SharePointProjectItemId>
     </None>
     <None Include="VideoGallery\VideoGallery.webpart" />
+    <None Include="ViewPublications\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{acf7031c-026e-45fa-a581-6fa38cce70bb}</SharePointProjectItemId>
+    </None>
+    <None Include="ViewPublications\ViewPublications.webpart" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
@@ -915,6 +939,11 @@
       <LastGenOutput>AddNews.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\AddNews\Elements.xml" />
+    <Content Include="AdminForms\AddPublications\AddPublications.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AddPublications.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AddPublications\Elements.xml" />
     <Content Include="AdminForms\AddVenue\AddVenue.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>AddVenue.ascx.g.cs</LastGenOutput>
@@ -1206,6 +1235,11 @@
     <Content Include="VideoGallery\VideoGallery.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>VideoGallery.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="ViewPublications\Elements.xml" />
+    <Content Include="ViewPublications\ViewPublications.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ViewPublications.ascx.g.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

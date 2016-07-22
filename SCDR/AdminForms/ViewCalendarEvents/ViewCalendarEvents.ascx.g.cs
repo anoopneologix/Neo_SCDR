@@ -61,6 +61,10 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rq1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Label lblStartTime;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -74,6 +78,14 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtEventEndDate;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -181,6 +193,23 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlrq1() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.rq1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ValidationGroup = "srhChk";
+            @__ctrl.ID = "rq1";
+            @__ctrl.ErrorMessage = "please enter keyword";
+            @__ctrl.ControlToValidate = "txtEventName";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.Label @__BuildControllblStartTime() {
             global::System.Web.UI.WebControls.Label @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Label();
@@ -239,6 +268,42 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator1() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator1 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ValidationGroup = "srhChk";
+            @__ctrl.ID = "RequiredFieldValidator1";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ErrorMessage = "please enter start date";
+            @__ctrl.ControlToValidate = "txtEventDate";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator2() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator2 = @__ctrl;
+            @__ctrl.TemplateControl = this;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ValidationGroup = "srhChk";
+            @__ctrl.ID = "RequiredFieldValidator2";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ErrorMessage = "please enter end date";
+            @__ctrl.ControlToValidate = "txtEventEndDate";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.Button @__BuildControlbtnSearch() {
             global::System.Web.UI.WebControls.Button @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Button();
@@ -246,6 +311,7 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
             @__ctrl.TemplateControl = this;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSearch";
+            @__ctrl.ValidationGroup = "srhChk";
             @__ctrl.CssClass = "btn btn-default";
             @__ctrl.Text = "Search";
             @__ctrl.Click -= new System.EventHandler(this.btnSearch_Click);
@@ -656,36 +722,48 @@ namespace SCDR.AdminForms.ViewCalendarEvents {
             global::System.Web.UI.WebControls.TextBox @__ctrl4;
             @__ctrl4 = this.@__BuildControltxtEventName();
             @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n         </tr>\r\n         <tr>\r\n           <td>"));
-            global::System.Web.UI.WebControls.Label @__ctrl5;
-            @__ctrl5 = this.@__BuildControllblStartTime();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n             <td>"));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
+            @__ctrl5 = this.@__BuildControlrq1();
             @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n             <td>\r\n                 "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl6;
-            @__ctrl6 = this.@__BuildControltxtEventDate();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n         </tr>\r\n         <tr>\r\n           <td>"));
+            global::System.Web.UI.WebControls.Label @__ctrl6;
+            @__ctrl6 = this.@__BuildControllblStartTime();
             @__parser.AddParsedSubObject(@__ctrl6);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n            <td>&nbsp;</td>  <td>"));
-            global::System.Web.UI.WebControls.Label @__ctrl7;
-            @__ctrl7 = this.@__BuildControllblEndTime();
-            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n             <td>\r\n                 "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl8;
-            @__ctrl8 = this.@__BuildControltxtEventEndDate();
+            global::System.Web.UI.WebControls.TextBox @__ctrl7;
+            @__ctrl7 = this.@__BuildControltxtEventDate();
+            @__parser.AddParsedSubObject(@__ctrl7);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n            <td>&nbsp;</td>  <td>"));
+            global::System.Web.UI.WebControls.Label @__ctrl8;
+            @__ctrl8 = this.@__BuildControllblEndTime();
             @__parser.AddParsedSubObject(@__ctrl8);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n         </tr>\r\n         <tr>\r\n             <td>&nbsp;</td>\r\n         <td>" +
-                        "\r\n             "));
-            global::System.Web.UI.WebControls.Button @__ctrl9;
-            @__ctrl9 = this.@__BuildControlbtnSearch();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n             <td>\r\n                 "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl9;
+            @__ctrl9 = this.@__BuildControltxtEventEndDate();
             @__parser.AddParsedSubObject(@__ctrl9);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
-            global::System.Web.UI.WebControls.Button @__ctrl10;
-            @__ctrl10 = this.@__BuildControlbtnClear();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</td>\r\n      <td>"));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl10;
+            @__ctrl10 = this.@__BuildControlRequiredFieldValidator1();
             @__parser.AddParsedSubObject(@__ctrl10);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl11;
+            @__ctrl11 = this.@__BuildControlRequiredFieldValidator2();
+            @__parser.AddParsedSubObject(@__ctrl11);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      </td>   </tr>\r\n         <tr>\r\n             <td>&nbsp;</td>\r\n         <td>" +
+                        "\r\n             "));
+            global::System.Web.UI.WebControls.Button @__ctrl12;
+            @__ctrl12 = this.@__BuildControlbtnSearch();
+            @__parser.AddParsedSubObject(@__ctrl12);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                "));
+            global::System.Web.UI.WebControls.Button @__ctrl13;
+            @__ctrl13 = this.@__BuildControlbtnClear();
+            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n         </td>\r\n         </tr>\r\n   </table>\r\n      </div>\r\n    <div class=\"clea" +
                         "rfix\"></div>\r\n      <div class=\" col-md-12\"> \r\n          "));
-            global::System.Web.UI.WebControls.GridView @__ctrl11;
-            @__ctrl11 = this.@__BuildControlgdvEvents();
-            @__parser.AddParsedSubObject(@__ctrl11);
+            global::System.Web.UI.WebControls.GridView @__ctrl14;
+            @__ctrl14 = this.@__BuildControlgdvEvents();
+            @__parser.AddParsedSubObject(@__ctrl14);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          </div>\r\n            "));
         }
         

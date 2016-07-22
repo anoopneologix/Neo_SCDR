@@ -105,7 +105,7 @@
 <script type="text/javascript">
     function validateFormat(event) {
         if (Page_ClientValidate()) {
-            $('#lblGrpError').text(' ');
+         
             $('#lblRankError').text(' ');
             var ext = $("input[name$=fuVenueIcon]").get(0).files.length;
             if (ext > 0) {

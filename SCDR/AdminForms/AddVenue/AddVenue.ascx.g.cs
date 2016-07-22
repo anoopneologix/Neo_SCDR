@@ -551,37 +551,36 @@ namespace SCDR.AdminForms.AddVenue {
                         "     $(\"input[name$=fuVenueIcon]\").change(function () {\r\n            $(\'#lblImag" +
                         "eError\').hide();\r\n        });\r\n    });\r\n</script>\r\n<script type=\"text/javascript" +
                         "\">\r\n    function validateFormat(event) {\r\n        if (Page_ClientValidate()) {\r\n" +
-                        "            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankError\').text(\' " +
-                        "\');\r\n            var ext = $(\"input[name$=fuVenueIcon]\").get(0).files.length;\r\n " +
-                        "           if (ext > 0) {\r\n                var names = [];\r\n                for " +
-                        "(var i = 0; i < ext; ++i) {\r\n                    names.push($(\"input[name$=fuVen" +
-                        "ueIcon]\").get(0).files[i].name);\r\n                }\r\n                var x = 0;\r" +
-                        "\n                for (i = 0; i < names.length; i++) {\r\n                    var s" +
-                        "tr = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r\n                    if" +
-                        " (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n                   " +
-                        "     x = 1;\r\n                    }\r\n                    if (x == 1) {\r\n         " +
-                        "               $(\'#lblImageError\').show();\r\n                        $(\'#lblImage" +
-                        "Error\').text(\'Special characters except - and _ are not allowed in filename. Ple" +
-                        "ase select a valid image file of type .jpg,.jpeg,.png.\');\r\n                     " +
-                        "   // setTimeout();\r\n                        return false;\r\n                    " +
-                        "    break;\r\n                        event.preventDefault();\r\n                   " +
-                        " }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n                    va" +
-                        "r ext = [];\r\n                    for (i = 0; i < names.length; i++) {\r\n\r\n       " +
-                        "                 ext.push(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase" +
-                        "());\r\n\r\n                    }\r\n                    var valid_filetype = [\"jpg\", " +
-                        "\"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, result = " +
-                        "[];\r\n                    for (i = 0; i < valid_filetype.length; i++) {\r\n        " +
-                        "                for (j = 0; j < ext.length; j++) {\r\n                            " +
-                        "if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                                " +
-                        "result.push(ext[j]);\r\n                            }\r\n                        }\r\n" +
-                        "                    }\r\n\r\n                    if (result.length < ext.length) {\r\n" +
-                        "                        //   break;\r\n                        $(\'#lblImageError\')" +
-                        ".show();\r\n                        $(\'#lblImageError\').text(\'Invalid File Found. " +
-                        "Please select a valid image file of type .jpg,.jpeg,.png.\');\r\n                  " +
-                        "      // setTimeout();\r\n                        return false;\r\n                 " +
-                        "       event.preventDefault();\r\n                    }\r\n\r\n\r\n\r\n                }\r\n" +
-                        "\r\n            } else {\r\n               \r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</" +
-                        "script>"));
+                        "         \r\n            $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"i" +
+                        "nput[name$=fuVenueIcon]\").get(0).files.length;\r\n            if (ext > 0) {\r\n    " +
+                        "            var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n  " +
+                        "                  names.push($(\"input[name$=fuVenueIcon]\").get(0).files[i].name)" +
+                        ";\r\n                }\r\n                var x = 0;\r\n                for (i = 0; i " +
+                        "< names.length; i++) {\r\n                    var str = names[i];\r\n               " +
+                        "     //  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF " +
+                        "]+$/.test(str) == false) {\r\n\r\n                        x = 1;\r\n                  " +
+                        "  }\r\n                    if (x == 1) {\r\n                        $(\'#lblImageErro" +
+                        "r\').show();\r\n                        $(\'#lblImageError\').text(\'Special character" +
+                        "s except - and _ are not allowed in filename. Please select a valid image file o" +
+                        "f type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n          " +
+                        "              return false;\r\n                        break;\r\n                   " +
+                        "     event.preventDefault();\r\n                    }\r\n\r\n                }\r\n      " +
+                        "          if (x == 0) {\r\n\r\n                    var ext = [];\r\n                  " +
+                        "  for (i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names" +
+                        "[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n" +
+                        "                    var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"" +
+                        "JPG\"];\r\n\r\n                    var i, j, result = [];\r\n                    for (i" +
+                        " = 0; i < valid_filetype.length; i++) {\r\n                        for (j = 0; j <" +
+                        " ext.length; j++) {\r\n                            if (ext[j].indexOf(valid_filety" +
+                        "pe[i]) != -1) {\r\n                                result.push(ext[j]);\r\n         " +
+                        "                   }\r\n                        }\r\n                    }\r\n\r\n      " +
+                        "              if (result.length < ext.length) {\r\n                        //   br" +
+                        "eak;\r\n                        $(\'#lblImageError\').show();\r\n                     " +
+                        "   $(\'#lblImageError\').text(\'Invalid File Found. Please select a valid image fil" +
+                        "e of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n       " +
+                        "                 return false;\r\n                        event.preventDefault();\r" +
+                        "\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n       " +
+                        "        \r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

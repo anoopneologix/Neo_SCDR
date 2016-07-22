@@ -35,6 +35,7 @@
              <td><asp:Label ID="lblEventName" runat="server" Text="Event Name :"></asp:Label></td>
              <td>
                  <asp:TextBox ID="txtEventName" CssClass="form-control" runat="server"></asp:TextBox></td>
+             <td><asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="srhChk" ID="rq1" runat="server" ErrorMessage="please enter keyword" ControlToValidate="txtEventName"></asp:RequiredFieldValidator></td>
          </tr>
          <tr>
            <td><asp:Label ID="lblStartTime" runat="server" Text="Start Time : "></asp:Label></td>
@@ -43,11 +44,13 @@
             <td>&nbsp;</td>  <td><asp:Label ID="lblEndTime" runat="server" Text="End Time : "></asp:Label></td>
              <td>
                  <asp:TextBox ID="txtEventEndDate" ClientIDMode="Static" CssClass="form-control" runat="server"></asp:TextBox></td>
-         </tr>
+      <td><asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="srhChk" ID="RequiredFieldValidator1" Display="Dynamic" runat="server" ErrorMessage="please enter start date" ControlToValidate="txtEventDate"></asp:RequiredFieldValidator>
+          <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="srhChk" ID="RequiredFieldValidator2" Display="Dynamic" runat="server" ErrorMessage="please enter end date" ControlToValidate="txtEventEndDate"></asp:RequiredFieldValidator>
+      </td>   </tr>
          <tr>
              <td>&nbsp;</td>
          <td>
-             <asp:Button ID="btnSearch" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" />
+             <asp:Button ID="btnSearch" ValidationGroup="srhChk" CssClass="btn btn-default" runat="server" Text="Search" OnClick="btnSearch_Click" />
                 <asp:Button ID="btnClear" CssClass="btn btn-default" runat="server" Text="Clear Result" OnClick="btnClear_Click" />
          </td>
          </tr>
