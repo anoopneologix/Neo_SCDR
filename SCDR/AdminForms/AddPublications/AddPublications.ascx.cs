@@ -10,6 +10,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using System.IO;
 using System.Collections;
+using GhostscriptSharp;
 
 
 namespace SCDR.AdminForms.AddPublications
@@ -59,25 +60,48 @@ namespace SCDR.AdminForms.AddPublications
             {
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-
+                   
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
+                        Stream StreamImage = null;
+                        if (fuPublication.HasFile)
+                        {
+                            StreamImage = fuPublication.PostedFile.InputStream;
+                        }
                        
-                        using (SPWeb oWeb = oSite.OpenWeb())
+                        using (SPWeb oWeb = oSite.OpenWeb("en/"))
                         {
                             oWeb.AllowUnsafeUpdates = true;
                             SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
                             SPFileCollection files = documentLibrary.RootFolder.Files;
-                            Stream StreamImage = null;
-                            if (fuPublication.HasFile)
-                            {
-                                StreamImage = fuPublication.PostedFile.InputStream;
-                            }
+                           
                             SPFile oPic = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamImage, true);
                             SPList documentLibraryAsList = oWeb.Lists[ListName];
                             SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
                             itemJustAdded["Title"] = txtTitle.Text;
-                            itemJustAdded["TitleAr"] = txtTitleAr.Text;
+                           // itemJustAdded["TitleAr"] = txtTitleAr.Text;
+                            itemJustAdded.Update();
+                            if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
+                            {
+
+                                oPic.CheckIn("File uploaded Programmatically !", SPCheckinType.OverwriteCheckIn);
+                            }
+
+                            oWeb.AllowUnsafeUpdates = false;
+
+
+                        }
+                        using (SPWeb oWeb = oSite.OpenWeb("ar/"))
+                        {
+                            oWeb.AllowUnsafeUpdates = true;
+                            SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
+                            SPFileCollection files = documentLibrary.RootFolder.Files;
+
+                            SPFile oPic = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamImage, true);
+                            SPList documentLibraryAsList = oWeb.Lists[ListName];
+                            SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
+                            itemJustAdded["Title"] = txtTitleAr.Text;
+                            // itemJustAdded["TitleAr"] = txtTitleAr.Text;
                             itemJustAdded.Update();
                             if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
                             {

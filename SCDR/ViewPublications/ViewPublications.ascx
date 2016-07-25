@@ -12,13 +12,12 @@
   
     <ItemTemplate>
        <div class="col-md-4 col-xs-12 col-sm-6 gallery-image-thumb">
-                    <a class="fancybox fancybox-media" href='<%# Eval("PdfUrl") %>'>
-                        <iframe src='<%# Eval("IframeUrl") %>' frameborder="0" allowfullscreen></iframe>
+                    <a  class="embed" href='<%# Eval("PdfUrl") %>'>
                     </a>
                 </div>
         </ItemTemplate>
         </asp:Repeater>
         </div>
     
-    
+
 

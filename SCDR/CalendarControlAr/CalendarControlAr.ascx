@@ -482,6 +482,9 @@
 
     function downloadSelectedDiv(event) {
         var contents = $(event.target).closest(".event-view-wrapper");
+        $div = $(event.target).closest(".event-view-wrapper");
+        var textTitle = $div.children(".event-name").text();
+        var filename = textTitle + ".pdf";
         var scaleBy = 5;
         var w = 1000;
         var h = 1000;
@@ -503,7 +506,7 @@
 
                 doc.setFontSize(100);
                 doc.addImage(imgData, 'JPEG', 40, 40);
-                doc.save('testing.pdf');
+                doc.save(filename);
                 document.body.removeChild(canvas);
             }
         });

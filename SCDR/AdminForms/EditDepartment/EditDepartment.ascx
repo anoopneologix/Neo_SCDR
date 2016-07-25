@@ -51,8 +51,8 @@
                   <div class="form-group">
                          <label  class="col-sm-3 control-label">Do you want to update current image? : </label>
    <div class="col-sm-9">
-    <label><input id="chkYes" type="radio" name="chkImage" value="Yes"> Yes</label>
-    <label><input id="chkNo" type="radio" checked="checked" name="chkImage" value="No"> No</label>
+    <asp:RadioButton GroupName="chkImage" ClientIDMode="Static" Text="Yes"  ID="chkYes" runat="server" />
+                 <asp:RadioButton GroupName="chkImage" ClientIDMode="Static" Checked="true" Text="No" ID="chkNo" runat="server" />
        </div>
                       </div>
  <div class="form-group" id="divDepartmentPicture">
@@ -83,13 +83,43 @@
             </div>
     </div>
 
+<script type="text/javascript">
+    function HideFileUpload() {
+    
+            //Reference the FileUpload and get its Id and Name.
+            var fileUpload = $("[id*=fuDepartmentIcon]");
+            var id = fileUpload.attr("id");
+            var name = fileUpload.attr("name");
+
+            //Create a new FileUpload element.
+            var newFileUpload = $("<input type = 'file' />");
+
+            //Append it next to the original FileUpload.
+            fileUpload.after(newFileUpload);
+
+            //Remove the original FileUpload.
+            fileUpload.remove();
+
+            //Set the Id and Name to the new FileUpload.
+            newFileUpload.attr("id", id);
+            newFileUpload.attr("name", name);
+            return false;
+      
+    }
+</script>
+
 <script>
     $(document).ready(function () {
+
+  
+
+
         $("#divDepartmentPicture").hide();
-        $("input[name='chkImage']").click(function () {
+        $("input[name$=chkImage]").click(function () {
             if ($("#chkYes").is(":checked")) {
                 $("#divDepartmentPicture").show();
             } else {
+                HideFileUpload();
                 $("#divDepartmentPicture").hide();
             }
         });

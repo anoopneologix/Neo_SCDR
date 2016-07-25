@@ -54,13 +54,11 @@ namespace SCDR.ViewPublications {
             "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control3() {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl;
-            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(3, 2);
+            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(2, 1);
             @__ctrl.TemplateControl = this;
             @__ctrl.SetStaticString(0, "\r\n       <div class=\"col-md-4 col-xs-12 col-sm-6 gallery-image-thumb\">\r\n         " +
-                    "           <a class=\"fancybox fancybox-media\" href=\'");
-            @__ctrl.SetStaticString(1, "\'>\r\n                        <iframe src=\'");
-            @__ctrl.SetStaticString(2, "\' frameborder=\"0\" allowfullscreen></iframe>\r\n                    </a>\r\n          " +
-                    "      </div>\r\n        ");
+                    "           <a  class=\"embed\" href=\'");
+            @__ctrl.SetStaticString(1, "\'>\r\n                    </a>\r\n                </div>\r\n        ");
             @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control3);
             return @__ctrl;
         }
@@ -74,7 +72,6 @@ namespace SCDR.ViewPublications {
             target = ((System.Web.UI.DataBoundLiteralControl)(sender));
             Container = ((System.Web.UI.WebControls.RepeaterItem)(target.BindingContainer));
             target.SetDataBoundString(0, global::System.Convert.ToString(Eval("PdfUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
-            target.SetDataBoundString(1, global::System.Convert.ToString(Eval("IframeUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -108,7 +105,7 @@ namespace SCDR.ViewPublications {
             global::System.Web.UI.WebControls.Repeater @__ctrl1;
             @__ctrl1 = this.@__BuildControlrepPublication();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    \r\n    \r\n\r\n"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    \r\n\r\n\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

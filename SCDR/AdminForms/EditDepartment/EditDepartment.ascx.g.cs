@@ -81,6 +81,14 @@ namespace SCDR.AdminForms.EditDepartment {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RadioButton chkYes;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RadioButton chkNo;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.FileUpload fuDepartmentIcon;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -355,6 +363,37 @@ namespace SCDR.AdminForms.EditDepartment {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RadioButton @__BuildControlchkYes() {
+            global::System.Web.UI.WebControls.RadioButton @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
+            this.chkYes = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.GroupName = "chkImage";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Text = "Yes";
+            @__ctrl.ID = "chkYes";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RadioButton @__BuildControlchkNo() {
+            global::System.Web.UI.WebControls.RadioButton @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RadioButton();
+            this.chkNo = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.GroupName = "chkImage";
+            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
+            @__ctrl.Checked = true;
+            @__ctrl.Text = "No";
+            @__ctrl.ID = "chkNo";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.FileUpload @__BuildControlfuDepartmentIcon() {
             global::System.Web.UI.WebControls.FileUpload @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.FileUpload();
@@ -467,79 +506,93 @@ namespace SCDR.AdminForms.EditDepartment {
                   <div class=""form-group"">
                          <label  class=""col-sm-3 control-label"">Do you want to update current image? : </label>
    <div class=""col-sm-9"">
-    <label><input id=""chkYes"" type=""radio"" name=""chkImage"" value=""Yes""> Yes</label>
-    <label><input id=""chkNo"" type=""radio"" checked=""checked"" name=""chkImage"" value=""No""> No</label>
-       </div>
-                      </div>
- <div class=""form-group"" id=""divDepartmentPicture"">
-    <label class=""col-sm-3 control-label"">Choose an Image:</label>
-      <div class=""col-sm-6"">
-        "));
-            global::System.Web.UI.WebControls.FileUpload @__ctrl3;
-            @__ctrl3 = this.@__BuildControlfuDepartmentIcon();
+    "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl3;
+            @__ctrl3 = this.@__BuildControlchkYes();
             @__parser.AddParsedSubObject(@__ctrl3);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                 "));
+            global::System.Web.UI.WebControls.RadioButton @__ctrl4;
+            @__ctrl4 = this.@__BuildControlchkNo();
+            @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n                      </div>\r\n <div class=\"form-group\" id=\"divDe" +
+                        "partmentPicture\">\r\n    <label class=\"col-sm-3 control-label\">Choose an Image:</l" +
+                        "abel>\r\n      <div class=\"col-sm-6\">\r\n        "));
+            global::System.Web.UI.WebControls.FileUpload @__ctrl5;
+            @__ctrl5 = this.@__BuildControlfuDepartmentIcon();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n    <div class=\"col-sm-3\">\r\n         <span style=\"color:red\" id=\"lb" +
                         "lImageError\"></span>\r\n      "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl4;
-            @__ctrl4 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl4);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl6;
+            @__ctrl6 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n       <label  class=\"col-sm-3 " +
                         "control-label\">Status : </label>\r\n    <div class=\"col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl5;
-            @__ctrl5 = this.@__BuildControlrbActive();
-            @__parser.AddParsedSubObject(@__ctrl5);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl7;
+            @__ctrl7 = this.@__BuildControlrbActive();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n          "));
-            global::System.Web.UI.WebControls.RadioButton @__ctrl6;
-            @__ctrl6 = this.@__BuildControlrbInactive();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.RadioButton @__ctrl8;
+            @__ctrl8 = this.@__BuildControlrbInactive();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n<div class=\"form-group\">\r\n    <div class=\"col-sm-offset-3" +
                         " col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl7;
-            @__ctrl7 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.Button @__ctrl9;
+            @__ctrl9 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl9);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
-            global::System.Web.UI.WebControls.Button @__ctrl8;
-            @__ctrl8 = this.@__BuildControlbtnCancel();
-            @__parser.AddParsedSubObject(@__ctrl8);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n            </div>\r\n    </div>\r\n\r\n<script>\r\n    $(documen" +
-                        "t).ready(function () {\r\n        $(\"#divDepartmentPicture\").hide();\r\n        $(\"i" +
-                        "nput[name=\'chkImage\']\").click(function () {\r\n            if ($(\"#chkYes\").is(\":c" +
-                        "hecked\")) {\r\n                $(\"#divDepartmentPicture\").show();\r\n            } e" +
-                        "lse {\r\n                $(\"#divDepartmentPicture\").hide();\r\n            }\r\n      " +
-                        "  });\r\n        $(\'#lblImageError\').hide();\r\n        $(\"input[name$=fuDepartmentI" +
-                        "con]\").change(function () {\r\n            $(\'#lblImageError\').hide();\r\n        })" +
-                        ";\r\n    });\r\n</script>\r\n<script type=\"text/javascript\">\r\n    function validateFor" +
-                        "mat(event) {\r\n        if (Page_ClientValidate()) {\r\n            $(\'#lblGrpError\'" +
-                        ").text(\' \');\r\n            $(\'#lblRankError\').text(\' \');\r\n            var ext = $" +
-                        "(\"input[name$=fuDepartmentIcon]\").get(0).files.length;\r\n            if (ext > 0)" +
-                        " {\r\n                var names = [];\r\n                for (var i = 0; i < ext; ++" +
-                        "i) {\r\n                    names.push($(\"input[name$=fuDepartmentIcon]\").get(0).f" +
-                        "iles[i].name);\r\n                }\r\n                var x = 0;\r\n                f" +
-                        "or (i = 0; i < names.length; i++) {\r\n                    var str = names[i];\r\n  " +
-                        "                  //  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\" +
-                        "u0600-\\u06FF ]+$/.test(str) == false) {\r\n\r\n                        x = 1;\r\n     " +
-                        "               }\r\n                    if (x == 1) {\r\n                        $(\'" +
-                        "#lblImageError\').show();\r\n                        $(\'#lblImageError\').text(\'Spec" +
-                        "ial characters except - and _ are not allowed in filename. Please select a valid" +
-                        " image file of type .jpg,.jpeg,.png.\');\r\n                        // setTimeout()" +
-                        ";\r\n                        return false;\r\n                        break;\r\n      " +
-                        "                  event.preventDefault();\r\n                    }\r\n\r\n            " +
-                        "    }\r\n                if (x == 0) {\r\n\r\n                    var ext = [];\r\n     " +
-                        "               for (i = 0; i < names.length; i++) {\r\n\r\n                        e" +
-                        "xt.push(names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n          " +
-                        "          }\r\n                    var valid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PN" +
-                        "G\", \"JPEG\", \"JPG\"];\r\n\r\n                    var i, j, result = [];\r\n             " +
-                        "       for (i = 0; i < valid_filetype.length; i++) {\r\n                        fo" +
-                        "r (j = 0; j < ext.length; j++) {\r\n                            if (ext[j].indexOf" +
-                        "(valid_filetype[i]) != -1) {\r\n                                result.push(ext[j]" +
-                        ");\r\n                            }\r\n                        }\r\n                  " +
-                        "  }\r\n\r\n                    if (result.length < ext.length) {\r\n                  " +
-                        "      //   break;\r\n                        $(\'#lblImageError\').show();\r\n        " +
-                        "                $(\'#lblImageError\').text(\'Invalid File Found. Please select a va" +
-                        "lid image file of type .jpg,.jpeg,.png.\');\r\n                        // setTimeou" +
-                        "t();\r\n                        return false;\r\n                        event.preve" +
-                        "ntDefault();\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } el" +
-                        "se {\r\n               \r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</script>"));
+            global::System.Web.UI.WebControls.Button @__ctrl10;
+            @__ctrl10 = this.@__BuildControlbtnCancel();
+            @__parser.AddParsedSubObject(@__ctrl10);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n            </div>\r\n    </div>\r\n\r\n<script type=\"text/java" +
+                        "script\">\r\n    function HideFileUpload() {\r\n    \r\n            //Reference the Fil" +
+                        "eUpload and get its Id and Name.\r\n            var fileUpload = $(\"[id*=fuDepartm" +
+                        "entIcon]\");\r\n            var id = fileUpload.attr(\"id\");\r\n            var name =" +
+                        " fileUpload.attr(\"name\");\r\n\r\n            //Create a new FileUpload element.\r\n   " +
+                        "         var newFileUpload = $(\"<input type = \'file\' />\");\r\n\r\n            //Appe" +
+                        "nd it next to the original FileUpload.\r\n            fileUpload.after(newFileUplo" +
+                        "ad);\r\n\r\n            //Remove the original FileUpload.\r\n            fileUpload.re" +
+                        "move();\r\n\r\n            //Set the Id and Name to the new FileUpload.\r\n           " +
+                        " newFileUpload.attr(\"id\", id);\r\n            newFileUpload.attr(\"name\", name);\r\n " +
+                        "           return false;\r\n      \r\n    }\r\n</script>\r\n\r\n<script>\r\n    $(document)." +
+                        "ready(function () {\r\n\r\n  \r\n\r\n\r\n        $(\"#divDepartmentPicture\").hide();\r\n     " +
+                        "   $(\"input[name$=chkImage]\").click(function () {\r\n            if ($(\"#chkYes\")." +
+                        "is(\":checked\")) {\r\n                $(\"#divDepartmentPicture\").show();\r\n         " +
+                        "   } else {\r\n                HideFileUpload();\r\n                $(\"#divDepartmen" +
+                        "tPicture\").hide();\r\n            }\r\n        });\r\n        $(\'#lblImageError\').hide" +
+                        "();\r\n        $(\"input[name$=fuDepartmentIcon]\").change(function () {\r\n          " +
+                        "  $(\'#lblImageError\').hide();\r\n        });\r\n    });\r\n</script>\r\n<script type=\"te" +
+                        "xt/javascript\">\r\n    function validateFormat(event) {\r\n        if (Page_ClientVa" +
+                        "lidate()) {\r\n            $(\'#lblGrpError\').text(\' \');\r\n            $(\'#lblRankEr" +
+                        "ror\').text(\' \');\r\n            var ext = $(\"input[name$=fuDepartmentIcon]\").get(0" +
+                        ").files.length;\r\n            if (ext > 0) {\r\n                var names = [];\r\n  " +
+                        "              for (var i = 0; i < ext; ++i) {\r\n                    names.push($(" +
+                        "\"input[name$=fuDepartmentIcon]\").get(0).files[i].name);\r\n                }\r\n    " +
+                        "            var x = 0;\r\n                for (i = 0; i < names.length; i++) {\r\n  " +
+                        "                  var str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/\r" +
+                        "\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) {" +
+                        "\r\n\r\n                        x = 1;\r\n                    }\r\n                    i" +
+                        "f (x == 1) {\r\n                        $(\'#lblImageError\').show();\r\n             " +
+                        "           $(\'#lblImageError\').text(\'Special characters except - and _ are not a" +
+                        "llowed in filename. Please select a valid image file of type .jpg,.jpeg,.png.\');" +
+                        "\r\n                        // setTimeout();\r\n                        return false" +
+                        ";\r\n                        break;\r\n                        event.preventDefault(" +
+                        ");\r\n                    }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r" +
+                        "\n                    var ext = [];\r\n                    for (i = 0; i < names.le" +
+                        "ngth; i++) {\r\n\r\n                        ext.push(names[i].substr(names[i].indexO" +
+                        "f(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n                    var va" +
+                        "lid_filetype = [\"jpg\", \"jpeg\", \"png\", \"PNG\", \"JPEG\", \"JPG\"];\r\n\r\n                " +
+                        "    var i, j, result = [];\r\n                    for (i = 0; i < valid_filetype.l" +
+                        "ength; i++) {\r\n                        for (j = 0; j < ext.length; j++) {\r\n     " +
+                        "                       if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n         " +
+                        "                       result.push(ext[j]);\r\n                            }\r\n    " +
+                        "                    }\r\n                    }\r\n\r\n                    if (result.l" +
+                        "ength < ext.length) {\r\n                        //   break;\r\n                    " +
+                        "    $(\'#lblImageError\').show();\r\n                        $(\'#lblImageError\').tex" +
+                        "t(\'Invalid File Found. Please select a valid image file of type .jpg,.jpeg,.png." +
+                        "\');\r\n                        // setTimeout();\r\n                        return fa" +
+                        "lse;\r\n                        event.preventDefault();\r\n                    }\r\n\r\n" +
+                        "\r\n\r\n                }\r\n\r\n            } else {\r\n               \r\n            }\r\n\r" +
+                        "\n        }\r\n    }\r\n\r\n</script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

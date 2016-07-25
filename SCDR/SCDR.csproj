@@ -41,6 +41,10 @@
     <AssemblyOriginatorKeyFile>key.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GhostscriptSharp, Version=1.1.0.0, Culture=neutral, PublicKeyToken=9f90a94e965f1a6b, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Windows\Microsoft.NET\assembly\GAC_MSIL\GhostscriptSharp\v4.0_1.1.0.0__9f90a94e965f1a6b\GhostscriptSharp.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.IdentityModel, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.IdentityModel\3.5.0.0__31bf3856ad364e35\Microsoft.IdentityModel.dll</HintPath>
@@ -613,6 +617,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="36.pdf" />
     <None Include="AdminForms\AddBanner\AddBanner.webpart" />
     <None Include="AdminForms\AddBanner\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{8cd77937-affd-49e8-b493-db3935e321fc}</SharePointProjectItemId>
@@ -824,6 +829,7 @@
       <SharePointProjectItemId>{d392320e-bbe2-436d-9f83-a2884724b600}</SharePointProjectItemId>
     </None>
     <None Include="News\ShowNewsItem\ShowNewsItem.webpart" />
+    <None Include="packages.config" />
     <None Include="Package\Package.package">
       <PackageId>{d68f5bac-dedd-4089-925f-33f82249765b}</PackageId>
     </None>
@@ -1248,4 +1254,8 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\SharePointTools\Microsoft.VisualStudio.SharePoint.targets" Condition="'$(VSToolsPath)' != ''" />
+  <PropertyGroup>
+    <PostBuildEvent>
+PowerShell -NoProfile -ExecutionPolicy Bypass -Command "ls '$(SolutionDir)\packages\GhostScriptSharp.*\Tools\gsdll32.dll' | Sort -Descending | Select -First 1 | cp -Destination '$(TargetDir)'; exit 0"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

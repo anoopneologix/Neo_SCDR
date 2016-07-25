@@ -158,42 +158,45 @@ namespace SCDR.AdminForms.EditDepartment
                                 item["Title"] = txtDepartment.Text;
                                 item["TitleAr"] = txtDepartmentAr.Text;
                                 item["Status"] = status;
-                                if (fuDepartmentIcon.HasFile)
+                                if (chkYes.Checked)
                                 {
-                                    SPAttachmentCollection ocollAttachments = item.Attachments;
-                                    if (ocollAttachments.Count > 0)
+                                    if (fuDepartmentIcon.HasFile)
                                     {
-                                        List<string> fileNames = new List<string>();
-
-                                        foreach (string fileName in item.Attachments)
+                                        SPAttachmentCollection ocollAttachments = item.Attachments;
+                                        if (ocollAttachments.Count > 0)
                                         {
-                                            fileNames.Add(fileName);
-                                        }
+                                            List<string> fileNames = new List<string>();
 
-                                        foreach (string fileName in fileNames)
-                                        {
-                                            item.Attachments.Delete(fileName);
+                                            foreach (string fileName in item.Attachments)
+                                            {
+                                                fileNames.Add(fileName);
+                                            }
+
+                                            foreach (string fileName in fileNames)
+                                            {
+                                                item.Attachments.Delete(fileName);
+                                            }
                                         }
-                                    }
-                                    foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
-                                    {
-                                        try
+                                        foreach (HttpPostedFile postedFile in fuDepartmentIcon.PostedFiles)
                                         {
-                                            Stream fs = postedFile.InputStream;
-                                            byte[] fileContents = new byte[fs.Length];
-                                            fs.Read(fileContents, 0, (int)fs.Length);
-                                            fs.Close();
-                                            SPAttachmentCollection attach = item.Attachments;
-                                            string fileName = Path.GetFileName(postedFile.FileName);
-                                            attach.Add(fileName, fileContents);
-                                        }
-                                        catch
-                                        {
-                                            string sMessageError = "Image Already Exists!";
-                                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessageError + "');</script>", false);
+                                            try
+                                            {
+                                                Stream fs = postedFile.InputStream;
+                                                byte[] fileContents = new byte[fs.Length];
+                                                fs.Read(fileContents, 0, (int)fs.Length);
+                                                fs.Close();
+                                                SPAttachmentCollection attach = item.Attachments;
+                                                string fileName = Path.GetFileName(postedFile.FileName);
+                                                attach.Add(fileName, fileContents);
+                                            }
+                                            catch
+                                            {
+                                                string sMessageError = "Image Already Exists!";
+                                                ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessageError + "');</script>", false);
+
+                                            }
 
                                         }
-
                                     }
                                 }
                                 oWeb.AllowUnsafeUpdates = true;

@@ -24,6 +24,7 @@
                 <asp:Label ID="lblDepartmentAr" runat="server" Text='<%# Eval("TitleAr") %>'></asp:Label>
             </ItemTemplate>
         </asp:TemplateField>
+      
         <asp:TemplateField HeaderText="Status">
             <ItemTemplate>
                 <asp:Label ID="lblStatus" runat="server" Text='<%# Eval("Status") %>'></asp:Label>
