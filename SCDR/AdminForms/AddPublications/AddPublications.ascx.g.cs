@@ -77,6 +77,18 @@ namespace SCDR.AdminForms.AddPublications {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.FileUpload fuThumbnail;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator4;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
+        
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnSubmit;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -237,6 +249,52 @@ namespace SCDR.AdminForms.AddPublications {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.FileUpload @__BuildControlfuThumbnail() {
+            global::System.Web.UI.WebControls.FileUpload @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.FileUpload();
+            this.fuThumbnail = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "fuThumbnail";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RequiredFieldValidator @__BuildControlRequiredFieldValidator4() {
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RequiredFieldValidator();
+            this.RequiredFieldValidator4 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ValidationGroup = "chk";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            @__ctrl.ID = "RequiredFieldValidator4";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ControlToValidate = "fuThumbnail";
+            @__ctrl.ErrorMessage = "Required Field";
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
+        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator3() {
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
+            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
+            this.RegularExpressionValidator3 = @__ctrl;
+            @__ctrl.ApplyStyleSheetSkin(this.Page);
+            @__ctrl.ID = "RegularExpressionValidator3";
+            @__ctrl.ValidationExpression = "^.*\\.([pP][nN][gG])$";
+            @__ctrl.ControlToValidate = "fuThumbnail";
+            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
+            @__ctrl.ErrorMessage = "Please select a valid image file of type .png.";
+            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
+            return @__ctrl;
+        }
+        
+        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
+        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
+            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.Button @__BuildControlbtnSubmit() {
             global::System.Web.UI.WebControls.Button @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Button();
@@ -303,8 +361,8 @@ namespace SCDR.AdminForms.AddPublications {
             @__ctrl6 = this.@__BuildControlRegularExpressionValidator1();
             @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n       </div>\r\n   </div> \r\n              <div class=\"form-group\">\r\n       <labe" +
-                        "l  class=\"col-sm-3 control-label\">Choose file : </label>\r\n    <div class=\"col-sm" +
-                        "-6\">\r\n        "));
+                        "l  class=\"col-sm-3 control-label\">Select Document : </label>\r\n    <div class=\"co" +
+                        "l-sm-6\">\r\n        "));
             global::System.Web.UI.WebControls.FileUpload @__ctrl7;
             @__ctrl7 = this.@__BuildControlfuPublication();
             @__parser.AddParsedSubObject(@__ctrl7);
@@ -317,50 +375,95 @@ namespace SCDR.AdminForms.AddPublications {
             global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl9;
             @__ctrl9 = this.@__BuildControlRegularExpressionValidator2();
             @__parser.AddParsedSubObject(@__ctrl9);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n \r\n  </div>\r\n\r\n\r\n             <div class=\"form-group\">\r\n       <lab" +
+                        "el  class=\"col-sm-3 control-label\">Select Thumbnail : </label>\r\n    <div class=\"" +
+                        "col-sm-6\">\r\n        "));
+            global::System.Web.UI.WebControls.FileUpload @__ctrl10;
+            @__ctrl10 = this.@__BuildControlfuThumbnail();
+            @__parser.AddParsedSubObject(@__ctrl10);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n    <div class=\"col-sm-3\">\r\n    <span style=\"color:red\" id=\"lblThum" +
+                        "bnailError\"></span>\r\n          "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl11;
+            @__ctrl11 = this.@__BuildControlRequiredFieldValidator4();
+            @__parser.AddParsedSubObject(@__ctrl11);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n      "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl12;
+            @__ctrl12 = this.@__BuildControlRegularExpressionValidator3();
+            @__parser.AddParsedSubObject(@__ctrl12);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n \r\n  </div>\r\n\r\n              <div class=\"form-group\">\r\n    <div cla" +
                         "ss=\"col-sm-offset-3 col-sm-9\">\r\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl10;
-            @__ctrl10 = this.@__BuildControlbtnSubmit();
-            @__parser.AddParsedSubObject(@__ctrl10);
+            global::System.Web.UI.WebControls.Button @__ctrl13;
+            @__ctrl13 = this.@__BuildControlbtnSubmit();
+            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n             "));
-            global::System.Web.UI.WebControls.Button @__ctrl11;
-            @__ctrl11 = this.@__BuildControlbtnCancel();
-            @__parser.AddParsedSubObject(@__ctrl11);
+            global::System.Web.UI.WebControls.Button @__ctrl14;
+            @__ctrl14 = this.@__BuildControlbtnCancel();
+            @__parser.AddParsedSubObject(@__ctrl14);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n\r\n            </div>\r\n    </div>\r\n\r\n<script>\r\n    $(docum" +
                         "ent).ready(function () {\r\n        $(\'#lblImageError\').hide();\r\n        $(\"input[" +
                         "name$=fuPublication]\").change(function () {\r\n            $(\'#lblImageError\').hid" +
-                        "e();\r\n        });\r\n    });\r\n</script>\r\n<script type=\"text/javascript\">\r\n    func" +
-                        "tion validateFormat(event) {\r\n        if (Page_ClientValidate()) {\r\n         \r\n " +
-                        "           $(\'#lblRankError\').text(\' \');\r\n            var ext = $(\"input[name$=f" +
-                        "uPublication]\").get(0).files.length;\r\n            if (ext > 0) {\r\n              " +
-                        "  var names = [];\r\n                for (var i = 0; i < ext; ++i) {\r\n            " +
-                        "        names.push($(\"input[name$=fuPublication]\").get(0).files[i].name);\r\n     " +
-                        "           }\r\n                var x = 0;\r\n                for (i = 0; i < names." +
-                        "length; i++) {\r\n                    var str = names[i];\r\n                    // " +
-                        " /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.tes" +
-                        "t(str) == false) {\r\n\r\n                        x = 1;\r\n                    }\r\n   " +
-                        "                 if (x == 1) {\r\n                        $(\'#lblImageError\').show" +
-                        "();\r\n                        $(\'#lblImageError\').text(\'Special characters except" +
-                        " - and _ are not allowed in filename. Please select a valid image file of type ." +
-                        "jpg,.jpeg,.png.\');\r\n                        // setTimeout();\r\n                  " +
-                        "      return false;\r\n                        break;\r\n                        eve" +
-                        "nt.preventDefault();\r\n                    }\r\n\r\n                }\r\n              " +
-                        "  if (x == 0) {\r\n\r\n                    var ext = [];\r\n                    for (i" +
-                        " = 0; i < names.length; i++) {\r\n\r\n                        ext.push(names[i].subs" +
-                        "tr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                    }\r\n        " +
-                        "            var valid_filetype = [\"pdf\",\"PDF\"];\r\n\r\n                    var i, j," +
-                        " result = [];\r\n                    for (i = 0; i < valid_filetype.length; i++) {" +
-                        "\r\n                        for (j = 0; j < ext.length; j++) {\r\n                  " +
-                        "          if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n                      " +
-                        "          result.push(ext[j]);\r\n                            }\r\n                 " +
-                        "       }\r\n                    }\r\n\r\n                    if (result.length < ext.l" +
-                        "ength) {\r\n                        //   break;\r\n                        $(\'#lblIm" +
-                        "ageError\').show();\r\n                        $(\'#lblImageError\').text(\'Invalid Fi" +
-                        "le Found. Please select a valid image file of type .pdf.\');\r\n                   " +
-                        "     // setTimeout();\r\n                        return false;\r\n                  " +
-                        "      event.preventDefault();\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r" +
-                        "\n            } else {\r\n               \r\n            }\r\n\r\n        }\r\n    }\r\n\r\n</s" +
-                        "cript>"));
+                        "e();\r\n        });\r\n        $(\'#lblThumbnailError\').hide();\r\n        $(\"input[nam" +
+                        "e$=fuThumbnail]\").change(function () {\r\n            $(\'#lblThumbnailError\').hide" +
+                        "();\r\n        });\r\n    });\r\n</script>\r\n<script type=\"text/javascript\">\r\n    funct" +
+                        "ion validateFormat(event) {\r\n        if (Page_ClientValidate()) {\r\n         \r\n  " +
+                        "       //pdf checking  \r\n            var ext = $(\"input[name$=fuPublication]\").g" +
+                        "et(0).files.length;\r\n            if (ext > 0) {\r\n                var names = [];" +
+                        "\r\n                for (var i = 0; i < ext; ++i) {\r\n                    names.pus" +
+                        "h($(\"input[name$=fuPublication]\").get(0).files[i].name);\r\n                }\r\n   " +
+                        "             var x = 0;\r\n                for (i = 0; i < names.length; i++) {\r\n " +
+                        "                   var str = names[i];\r\n                    //  /^[-\\sa-zA-Z]+$/" +
+                        "\r\n                    if (/^[-_a-zA-Z0-9.\\u0600-\\u06FF ]+$/.test(str) == false) " +
+                        "{\r\n\r\n                        x = 1;\r\n                    }\r\n                    " +
+                        "if (x == 1) {\r\n                        $(\'#lblImageError\').show();\r\n            " +
+                        "            $(\'#lblImageError\').text(\'Special characters except - and _ are not " +
+                        "allowed in filename. Please select a valid image file of type .pdf.\');\r\n        " +
+                        "                // setTimeout();\r\n                        return false;\r\n       " +
+                        "                 break;\r\n                        event.preventDefault();\r\n      " +
+                        "              }\r\n\r\n                }\r\n                if (x == 0) {\r\n\r\n         " +
+                        "           var ext = [];\r\n                    for (i = 0; i < names.length; i++)" +
+                        " {\r\n\r\n                        ext.push(names[i].substr(names[i].indexOf(\".\") + 1" +
+                        ").toLowerCase());\r\n\r\n                    }\r\n                    var valid_filety" +
+                        "pe = [\"pdf\",\"PDF\"];\r\n\r\n                    var i, j, result = [];\r\n             " +
+                        "       for (i = 0; i < valid_filetype.length; i++) {\r\n                        fo" +
+                        "r (j = 0; j < ext.length; j++) {\r\n                            if (ext[j].indexOf" +
+                        "(valid_filetype[i]) != -1) {\r\n                                result.push(ext[j]" +
+                        ");\r\n                            }\r\n                        }\r\n                  " +
+                        "  }\r\n\r\n                    if (result.length < ext.length) {\r\n                  " +
+                        "      //   break;\r\n                        $(\'#lblImageError\').show();\r\n        " +
+                        "                $(\'#lblImageError\').text(\'Invalid File Found. Please select a va" +
+                        "lid image file of type .pdf.\');\r\n                        // setTimeout();\r\n     " +
+                        "                   return false;\r\n                        event.preventDefault()" +
+                        ";\r\n                    }\r\n\r\n\r\n\r\n                }\r\n\r\n            } else {\r\n     " +
+                        "          \r\n            }\r\n            // thumbnail checking\r\n            var ex" +
+                        "t = $(\"input[name$=fuThumbnail]\").get(0).files.length;\r\n            if (ext > 0)" +
+                        " {\r\n                var names = [];\r\n                for (var i = 0; i < ext; ++" +
+                        "i) {\r\n                    names.push($(\"input[name$=fuThumbnail]\").get(0).files[" +
+                        "i].name);\r\n                }\r\n                var x = 0;\r\n                for (i" +
+                        " = 0; i < names.length; i++) {\r\n                    var str = names[i];\r\n       " +
+                        "             //  /^[-\\sa-zA-Z]+$/\r\n                    if (/^[-_a-zA-Z0-9.\\u0600" +
+                        "-\\u06FF ]+$/.test(str) == false) {\r\n\r\n                        x = 1;\r\n          " +
+                        "          }\r\n                    if (x == 1) {\r\n                        $(\'#lblT" +
+                        "humbnailError\').show();\r\n                        $(\'#lblThumbnailError\').text(\'S" +
+                        "pecial characters except - and _ are not allowed in filename. Please select a va" +
+                        "lid image file of type .png.\');\r\n                        // setTimeout();\r\n     " +
+                        "                   return false;\r\n                        break;\r\n              " +
+                        "          event.preventDefault();\r\n                    }\r\n\r\n                }\r\n " +
+                        "               if (x == 0) {\r\n\r\n                    var ext = [];\r\n             " +
+                        "       for (i = 0; i < names.length; i++) {\r\n\r\n                        ext.push(" +
+                        "names[i].substr(names[i].indexOf(\".\") + 1).toLowerCase());\r\n\r\n                  " +
+                        "  }\r\n                    var valid_filetype = [\"png\", \"PNG\"];\r\n\r\n               " +
+                        "     var i, j, result = [];\r\n                    for (i = 0; i < valid_filetype." +
+                        "length; i++) {\r\n                        for (j = 0; j < ext.length; j++) {\r\n    " +
+                        "                        if (ext[j].indexOf(valid_filetype[i]) != -1) {\r\n        " +
+                        "                        result.push(ext[j]);\r\n                            }\r\n   " +
+                        "                     }\r\n                    }\r\n\r\n                    if (result." +
+                        "length < ext.length) {\r\n                        //   break;\r\n                   " +
+                        "     $(\'#lblThumbnailError\').show();\r\n                        $(\'#lblThumbnailEr" +
+                        "ror\').text(\'Invalid File Found. Please select a valid image file of type .png.\')" +
+                        ";\r\n                        // setTimeout();\r\n                        return fals" +
+                        "e;\r\n                        event.preventDefault();\r\n                    }\r\n\r\n\r\n" +
+                        "\r\n                }\r\n\r\n            } else {\r\n\r\n            }\r\n        }\r\n    }\r\n" +
+                        "\r\n</script>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

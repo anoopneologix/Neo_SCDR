@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="ViewPublicationsAr" List="113" Url="_catalogs/wp">
+    <File Path="ViewPublicationsAr\ViewPublicationsAr.webpart" Url="SCDR_ViewPublicationsAr.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

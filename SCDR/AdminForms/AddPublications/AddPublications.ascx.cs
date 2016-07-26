@@ -10,7 +10,7 @@ using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 using System.IO;
 using System.Collections;
-using GhostscriptSharp;
+
 
 
 namespace SCDR.AdminForms.AddPublications
@@ -42,6 +42,19 @@ namespace SCDR.AdminForms.AddPublications
             get { return listName; }
             set { listName = value; }
         }
+        private const string ThumbnailLibraryName = "PublicationThumbnailLibrary";
+        private static string thubnailListName = ThumbnailLibraryName;
+        [Category("Extended Settings"),
+        Personalizable(PersonalizationScope.Shared),
+        WebBrowsable(true),
+        DefaultValue(ThumbnailLibraryName),
+        WebDisplayName("Publication Thumbnail Library Name:"),
+        WebDescription("Please Enter a valid Publication Thumbnail Library Name")]
+        public string ThumbnailListName
+        {
+            get { return thubnailListName; }
+            set { thubnailListName = value; }
+        }
         #endregion
 
         protected void Page_Load(object sender, EventArgs e)
@@ -63,28 +76,48 @@ namespace SCDR.AdminForms.AddPublications
                    
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
+                        Stream StreamDocument = null;
                         Stream StreamImage = null;
                         if (fuPublication.HasFile)
                         {
-                            StreamImage = fuPublication.PostedFile.InputStream;
+                            StreamDocument = fuPublication.PostedFile.InputStream;
+                        }
+                        if (fuThumbnail.HasFile)
+                        {
+                            StreamImage = fuThumbnail.PostedFile.InputStream;
                         }
                        
                         using (SPWeb oWeb = oSite.OpenWeb("en/"))
                         {
                             oWeb.AllowUnsafeUpdates = true;
-                            SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
-                            SPFileCollection files = documentLibrary.RootFolder.Files;
-                           
-                            SPFile oPic = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamImage, true);
-                            SPList documentLibraryAsList = oWeb.Lists[ListName];
-                            SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
-                            itemJustAdded["Title"] = txtTitle.Text;
-                           // itemJustAdded["TitleAr"] = txtTitleAr.Text;
-                            itemJustAdded.Update();
+                            //add to picture library
+                            SPDocumentLibrary thumbnailLibrary = (SPDocumentLibrary)oWeb.Lists[ThumbnailListName];
+                            SPFileCollection thumbnailfiles = thumbnailLibrary.RootFolder.Files;
+                            SPFile oPic = thumbnailfiles.Add(thumbnailLibrary.RootFolder.Url + "/" + fuThumbnail.FileName, StreamImage, true);
+                            SPList thumbnailLibraryAsList = oWeb.Lists[ThumbnailListName];
+                            SPListItem thubnailJustAdded = thumbnailLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
+                            string thumbnailListUrl = oWeb.Url + "/" + ThumbnailListName + "/";
+
+
                             if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
                             {
 
                                 oPic.CheckIn("File uploaded Programmatically !", SPCheckinType.OverwriteCheckIn);
+                            }
+
+                            // add to document library
+                            SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
+                            SPFileCollection files = documentLibrary.RootFolder.Files;
+                            SPFile oDoc = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamDocument, true);
+                            SPList documentLibraryAsList = oWeb.Lists[ListName];
+                            SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oDoc.ListItemAllFields.ID);
+                            itemJustAdded["Title"] = txtTitle.Text;
+                            itemJustAdded["ThumbnailUrl"] = thumbnailListUrl + thubnailJustAdded["Name"];
+                            itemJustAdded.Update();
+                            if (oDoc.CheckOutType != SPFile.SPCheckOutType.None)
+                            {
+
+                                oDoc.CheckIn("File uploaded Programmatically !", SPCheckinType.OverwriteCheckIn);
                             }
 
                             oWeb.AllowUnsafeUpdates = false;
@@ -94,19 +127,36 @@ namespace SCDR.AdminForms.AddPublications
                         using (SPWeb oWeb = oSite.OpenWeb("ar/"))
                         {
                             oWeb.AllowUnsafeUpdates = true;
-                            SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
-                            SPFileCollection files = documentLibrary.RootFolder.Files;
+                            //add to picture library
+                            SPDocumentLibrary thumbnailLibrary = (SPDocumentLibrary)oWeb.Lists[ThumbnailListName];
+                            SPFileCollection thumbnailfiles = thumbnailLibrary.RootFolder.Files;
+                            SPFile oPic = thumbnailfiles.Add(thumbnailLibrary.RootFolder.Url + "/" + fuThumbnail.FileName, StreamImage, true);
+                            SPList thumbnailLibraryAsList = oWeb.Lists[ThumbnailListName];
+                            SPListItem thubnailJustAdded = thumbnailLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
+                            string thumbnailListUrl = oWeb.Url + "/" + ThumbnailListName + "/";
 
-                            SPFile oPic = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamImage, true);
-                            SPList documentLibraryAsList = oWeb.Lists[ListName];
-                            SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oPic.ListItemAllFields.ID);
-                            itemJustAdded["Title"] = txtTitleAr.Text;
-                            // itemJustAdded["TitleAr"] = txtTitleAr.Text;
-                            itemJustAdded.Update();
+
                             if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
                             {
 
                                 oPic.CheckIn("File uploaded Programmatically !", SPCheckinType.OverwriteCheckIn);
+                            }
+
+                            // add to document library
+
+                            SPDocumentLibrary documentLibrary = (SPDocumentLibrary)oWeb.Lists[ListName];
+                            SPFileCollection files = documentLibrary.RootFolder.Files;
+
+                            SPFile oDoc = files.Add(documentLibrary.RootFolder.Url + "/" + fuPublication.FileName, StreamDocument, true);
+                            SPList documentLibraryAsList = oWeb.Lists[ListName];
+                            SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oDoc.ListItemAllFields.ID);
+                            itemJustAdded["Title"] = txtTitleAr.Text;
+                            itemJustAdded["ThumbnailUrl"] = thumbnailListUrl + thubnailJustAdded["Name"];
+                            itemJustAdded.Update();
+                            if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
+                            {
+
+                                oDoc.CheckIn("File uploaded Programmatically !", SPCheckinType.OverwriteCheckIn);
                             }
 
                             oWeb.AllowUnsafeUpdates = false;

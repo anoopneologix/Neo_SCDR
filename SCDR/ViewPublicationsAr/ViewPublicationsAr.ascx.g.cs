@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SCDR.ViewPublications {
+namespace SCDR.ViewPublicationsAr {
     using System.Web.UI.WebControls.Expressions;
     using System.Web.UI.HtmlControls;
     using System.Collections;
@@ -37,14 +37,14 @@ namespace SCDR.ViewPublications {
     using System.CodeDom.Compiler;
     
     
-    public partial class ViewPublications {
+    public partial class ViewPublicationsAr {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Repeater repPublication;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
-        public static implicit operator global::System.Web.UI.TemplateControl(ViewPublications target) 
+        public static implicit operator global::System.Web.UI.TemplateControl(ViewPublicationsAr target) 
         {
             return target == null ? null : target.TemplateControl;
         }
@@ -106,13 +106,13 @@ namespace SCDR.ViewPublications {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControlTree(global::SCDR.ViewPublications.ViewPublications @__ctrl) {
+        private void @__BuildControlTree(global::SCDR.ViewPublicationsAr.ViewPublicationsAr @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n<div class=\"col-md-12\">\r\n    "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<div class=\"col-md-12\">\r\n    "));
             global::System.Web.UI.WebControls.Repeater @__ctrl1;
             @__ctrl1 = this.@__BuildControlrepPublication();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>\r\n    \r\n\r\n\r\n"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n        </div>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

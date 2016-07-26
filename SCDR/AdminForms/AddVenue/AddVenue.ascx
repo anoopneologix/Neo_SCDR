@@ -57,7 +57,7 @@
     <div class="col-sm-6">
       <asp:TextBox ID="txtAddress" TextMode="MultiLine" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
-     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtAddress" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator>       
+     <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="([a-z]|[A-Z]|[0-9]|[ ]|[-]|[,]|[.]|[_]|[\u0600-\u06FF])*" ControlToValidate="txtAddress" runat="server" ErrorMessage="Special characters not allowed"></asp:RegularExpressionValidator>       
   </div>
         </div>
             <div class="form-group">

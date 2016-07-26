@@ -32,7 +32,7 @@
        </div>
    </div> 
               <div class="form-group">
-       <label  class="col-sm-3 control-label">Choose file : </label>
+       <label  class="col-sm-3 control-label">Select Document : </label>
     <div class="col-sm-6">
         <asp:FileUpload ID="fuPublication" runat="server" />
     </div>
@@ -41,6 +41,22 @@
           <asp:RequiredFieldValidator ValidationGroup="chk"   Display="Dynamic" ID="RequiredFieldValidator3" ForeColor="Red"  ControlToValidate="fuPublication" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
       <asp:RegularExpressionValidator ID="RegularExpressionValidator2" ValidationExpression="^.*\.([pP][dD][fF])$"
     ControlToValidate="fuPublication"  runat="server" ForeColor="Red" ErrorMessage="Please select a valid image file of type .pdf."
+    Display="Dynamic" />
+    </div>
+ 
+  </div>
+
+
+             <div class="form-group">
+       <label  class="col-sm-3 control-label">Select Thumbnail : </label>
+    <div class="col-sm-6">
+        <asp:FileUpload ID="fuThumbnail" runat="server" />
+    </div>
+    <div class="col-sm-3">
+    <span style="color:red" id="lblThumbnailError"></span>
+          <asp:RequiredFieldValidator ValidationGroup="chk"   Display="Dynamic" ID="RequiredFieldValidator4" ForeColor="Red"  ControlToValidate="fuThumbnail" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ValidationExpression="^.*\.([pP][nN][gG])$"
+    ControlToValidate="fuThumbnail"  runat="server" ForeColor="Red" ErrorMessage="Please select a valid image file of type .png."
     Display="Dynamic" />
     </div>
  
@@ -62,13 +78,17 @@
         $("input[name$=fuPublication]").change(function () {
             $('#lblImageError').hide();
         });
+        $('#lblThumbnailError').hide();
+        $("input[name$=fuThumbnail]").change(function () {
+            $('#lblThumbnailError').hide();
+        });
     });
 </script>
 <script type="text/javascript">
     function validateFormat(event) {
         if (Page_ClientValidate()) {
          
-            $('#lblRankError').text(' ');
+         //pdf checking  
             var ext = $("input[name$=fuPublication]").get(0).files.length;
             if (ext > 0) {
                 var names = [];
@@ -85,7 +105,7 @@
                     }
                     if (x == 1) {
                         $('#lblImageError').show();
-                        $('#lblImageError').text('Special characters except - and _ are not allowed in filename. Please select a valid image file of type .jpg,.jpeg,.png.');
+                        $('#lblImageError').text('Special characters except - and _ are not allowed in filename. Please select a valid image file of type .pdf.');
                         // setTimeout();
                         return false;
                         break;
@@ -128,7 +148,66 @@
             } else {
                
             }
+            // thumbnail checking
+            var ext = $("input[name$=fuThumbnail]").get(0).files.length;
+            if (ext > 0) {
+                var names = [];
+                for (var i = 0; i < ext; ++i) {
+                    names.push($("input[name$=fuThumbnail]").get(0).files[i].name);
+                }
+                var x = 0;
+                for (i = 0; i < names.length; i++) {
+                    var str = names[i];
+                    //  /^[-\sa-zA-Z]+$/
+                    if (/^[-_a-zA-Z0-9.\u0600-\u06FF ]+$/.test(str) == false) {
 
+                        x = 1;
+                    }
+                    if (x == 1) {
+                        $('#lblThumbnailError').show();
+                        $('#lblThumbnailError').text('Special characters except - and _ are not allowed in filename. Please select a valid image file of type .png.');
+                        // setTimeout();
+                        return false;
+                        break;
+                        event.preventDefault();
+                    }
+
+                }
+                if (x == 0) {
+
+                    var ext = [];
+                    for (i = 0; i < names.length; i++) {
+
+                        ext.push(names[i].substr(names[i].indexOf(".") + 1).toLowerCase());
+
+                    }
+                    var valid_filetype = ["png", "PNG"];
+
+                    var i, j, result = [];
+                    for (i = 0; i < valid_filetype.length; i++) {
+                        for (j = 0; j < ext.length; j++) {
+                            if (ext[j].indexOf(valid_filetype[i]) != -1) {
+                                result.push(ext[j]);
+                            }
+                        }
+                    }
+
+                    if (result.length < ext.length) {
+                        //   break;
+                        $('#lblThumbnailError').show();
+                        $('#lblThumbnailError').text('Invalid File Found. Please select a valid image file of type .png.');
+                        // setTimeout();
+                        return false;
+                        event.preventDefault();
+                    }
+
+
+
+                }
+
+            } else {
+
+            }
         }
     }
 

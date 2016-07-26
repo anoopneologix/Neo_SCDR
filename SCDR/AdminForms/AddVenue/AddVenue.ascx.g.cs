@@ -312,7 +312,7 @@ namespace SCDR.AdminForms.AddVenue {
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ValidationExpression = "([a-z]|[A-Z]|[0-9]|[ ]|[-]|[_]|[\\u0600-\\u06FF])*";
+            @__ctrl.ValidationExpression = "([a-z]|[A-Z]|[0-9]|[ ]|[-]|[,]|[.]|[_]|[\\u0600-\\u06FF])*";
             @__ctrl.ControlToValidate = "txtAddress";
             @__ctrl.ErrorMessage = "Special characters not allowed";
             return @__ctrl;

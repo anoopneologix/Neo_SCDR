@@ -5,15 +5,12 @@ using Microsoft.SharePoint;
 using System.Data;
 using System.Web.UI;
 
-using System.Runtime.InteropServices;
-
-namespace SCDR.ViewPublications
+namespace SCDR.ViewPublicationsAr
 {
-  
     [ToolboxItemAttribute(false)]
-    public partial class ViewPublications : WebPart
+    public partial class ViewPublicationsAr : WebPart
     {
-         public ViewPublications()
+        public ViewPublicationsAr()
         {
         }
 
@@ -22,20 +19,6 @@ namespace SCDR.ViewPublications
             base.OnInit(e);
             InitializeControl();
         }
-     
-        /// <summary>
-        /// fires on page load
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
-            {
-                BindPublications();
-                }
-        }
-       
         /// <summary>
         ///  Following code is for enabling custom webpart property
         /// </summary>
@@ -54,16 +37,24 @@ namespace SCDR.ViewPublications
             set { listName = value; }
         }
         #endregion
-         
-   
-       /// <summary>
-       /// function for get all items from sharepoint Document library
-       /// </summary>
+
+        /// <summary>
+        /// fires on page load
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Page_Load(object sender, EventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// function for get all items from sharepoint Document library
+        /// </summary>
         public void BindPublications()
         {
             try
             {
-              SPSecurity.RunWithElevatedPrivileges(delegate()
+                SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
 
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
@@ -76,7 +67,7 @@ namespace SCDR.ViewPublications
                             DataTable dtPublications = ConvertSPListToDataTable(oItems, listUrl);
                             repPublication.DataSource = dtPublications;
                             repPublication.DataBind();
-                          
+
                         }
                     }
                 });
@@ -84,7 +75,7 @@ namespace SCDR.ViewPublications
             catch (Exception ex)
             { }
         }
-       
+
         /// <summary>
         ///  Function to convert SharePoint Document Library to DataTable 
         /// </summary>
@@ -93,13 +84,13 @@ namespace SCDR.ViewPublications
         /// <returns></returns>
         private static DataTable ConvertSPListToDataTable(SPListItemCollection spItemCollection, string listUrl)
         {
-         //   GhostscriptWrapper.GeneratePageThumb(@"D:\SCDR-PROJECT FILES\SCDR-Local\SCDR\36.pdf", "output.jpg", 1, 100, 100);
-             DataTable dtSPList = new DataTable();
-             DataTable dt = new DataTable();
+            //   GhostscriptWrapper.GeneratePageThumb(@"D:\SCDR-PROJECT FILES\SCDR-Local\SCDR\36.pdf", "output.jpg", 1, 100, 100);
+            DataTable dtSPList = new DataTable();
+            DataTable dt = new DataTable();
             try
             {
                 dtSPList = spItemCollection.GetDataTable();
-               
+
                 DataColumn dcTitle = new DataColumn("Title", typeof(string));
                 dt.Columns.Add(dcTitle);
                 DataColumn dcImageUrl = new DataColumn("ImageUrl", typeof(string));
@@ -108,7 +99,7 @@ namespace SCDR.ViewPublications
                 dt.Columns.Add(dcPdfUrl);
                 foreach (DataRow dr in dtSPList.Rows)
                 {
-                    
+
                     DataRow drNewRow = dt.NewRow();
                     string imgUrl = dr["ThumbnailUrl"].ToString();
                     int index = imgUrl.IndexOf(",");
@@ -122,8 +113,8 @@ namespace SCDR.ViewPublications
                     dt.Rows.Add(drNewRow);
                     imgUrl = "";
                     index = 0;
-                   
-                   
+
+
                 }
                 return (dt);
             }
