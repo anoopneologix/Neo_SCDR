@@ -113,6 +113,7 @@ namespace SCDR.AdminForms.AddPublications
                             SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oDoc.ListItemAllFields.ID);
                             itemJustAdded["Title"] = txtTitle.Text;
                             itemJustAdded["ThumbnailUrl"] = thumbnailListUrl + thubnailJustAdded["Name"];
+                            itemJustAdded["ThumbnailId"] = oPic.ListItemAllFields.ID;
                             itemJustAdded.Update();
                             if (oDoc.CheckOutType != SPFile.SPCheckOutType.None)
                             {
@@ -152,6 +153,7 @@ namespace SCDR.AdminForms.AddPublications
                             SPListItem itemJustAdded = documentLibraryAsList.GetItemById(oDoc.ListItemAllFields.ID);
                             itemJustAdded["Title"] = txtTitleAr.Text;
                             itemJustAdded["ThumbnailUrl"] = thumbnailListUrl + thubnailJustAdded["Name"];
+                            itemJustAdded["ThumbnailId"] = oPic.ListItemAllFields.ID;
                             itemJustAdded.Update();
                             if (oPic.CheckOutType != SPFile.SPCheckOutType.None)
                             {

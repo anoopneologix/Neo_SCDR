@@ -252,6 +252,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EditVenue.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\ManagePublications\ManagePublications.ascx.cs">
+      <DependentUpon>ManagePublications.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\ManagePublications\ManagePublications.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ManagePublications.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.ascx.cs">
       <DependentUpon>ViewCalendarEvents.ascx</DependentUpon>
     </Compile>
@@ -703,6 +711,10 @@
     <None Include="AdminForms\EditVenue\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{9bbe9218-cf34-47fd-acc7-769127653eef}</SharePointProjectItemId>
     </None>
+    <None Include="AdminForms\ManagePublications\ManagePublications.webpart" />
+    <None Include="AdminForms\ManagePublications\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d94669da-8294-4b48-a025-3d2c9f1e86c7}</SharePointProjectItemId>
+    </None>
     <None Include="AdminForms\ViewCalendarEvents\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{d2e5f5bc-c783-4d65-841e-b7bb6e4f83e8}</SharePointProjectItemId>
     </None>
@@ -1009,6 +1021,11 @@
       <LastGenOutput>EditVenue.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\EditVenue\Elements.xml" />
+    <Content Include="AdminForms\ManagePublications\Elements.xml" />
+    <Content Include="AdminForms\ManagePublications\ManagePublications.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>ManagePublications.ascx.g.cs</LastGenOutput>
+    </Content>
     <Content Include="AdminForms\ViewCalendarEvents\Elements.xml" />
     <Content Include="AdminForms\ViewCalendarEvents\ViewCalendarEvents.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>

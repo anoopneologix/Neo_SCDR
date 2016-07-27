@@ -198,7 +198,7 @@ namespace SCDR.LoginEn
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
 
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                    using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.OpenWeb())
                         {
@@ -233,9 +233,7 @@ namespace SCDR.LoginEn
                                 bool isBodyHtml = true;
                                 string to = txtForgotEmailId.Text.Trim();
                                 SendMail(subject, body, isBodyHtml, to);
-
-                             
-                                 ScriptManager.RegisterStartupScript(this, typeof(Page), "UserMsg", "<script>alert('Mail sent thank you...');if(alert){ window.location='contactus.aspx';}</script>", false);
+                               ScriptManager.RegisterStartupScript(this, typeof(Page), "UserMsg", "<script>alert('Mail sent thank you...');if(alert){ window.location='contactus.aspx';}</script>", false);
  
                                  }
                         }
@@ -260,19 +258,28 @@ namespace SCDR.LoginEn
                     {
                         using (SPWeb currentWeb = currentSite.OpenWeb(SPContext.Current.Web.ID))
                         {
-                           string From = currentWeb.Site.WebApplication.OutboundMailReplyToAddress.ToString();
+                            string From = currentWeb.Site.WebApplication.OutboundMailReplyToAddress.ToString();
 
                             using (MailMessage mailMessage = new MailMessage(From, To, Subject, Body))
                             {
                                 mailMessage.IsBodyHtml = IsBodyHtml;
                                 SmtpClient smtpClient = new SmtpClient();
                                 smtpClient.Host = currentWeb.Site.WebApplication.OutboundMailServiceInstance.Server.Address;
-
+                                smtpClient.UseDefaultCredentials = true;
+                                smtpClient.Port = 25;
                                 using (smtpClient as IDisposable)
                                 {
                                     smtpClient.Send(mailMessage);
                                 }
                             }
+
+                            //sharepoint Default
+                           // IsMailSent = SPUtility.SendEmail(currentWeb, true, true, To, Subject, Body);
+                            /* 
+                             * If you want to send HTML Content then use this method
+                             * IsMailSent = SPUtility.SendEmail(currentWeb, true, false, To, Subject, Body);
+                             */
+                           
 
                             IsMailSent = true;
                         }
