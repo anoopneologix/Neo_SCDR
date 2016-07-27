@@ -39,13 +39,13 @@
                             <asp:TextBox ID="pwd" TextMode="Password" runat="server" ClientIDMode="Static" class="form-control frm-pwd"></asp:TextBox>
                           
                     </div>
-                   <!-- <div class="checkbox clearfix">
-                        <label class="chklabel">
-                            <input type="checkbox">Remember me</label>
+                    <div class="checkbox clearfix">
+                      <!--  <label class="chklabel">
+                            <input type="checkbox">Remember me</label>-->
                         <a href="#" class="forgot">Forgot Password?</a>
-                    </div>-->
+                    </div>
                     <asp:Button ID="btnSignin" class="btn btn-default" runat="server" Text="Submit" OnClick="btnSignin_Click1" />
-                  
+                
                 </div>
             </span>
  
@@ -54,11 +54,11 @@
                     <div class="form-group custom-frm-group">
                         <label for="forgot-email">email address:</label>
                         <span class="email">
-                            <asp:TextBox ID="TextBox1" runat="server" TextMode="Email" ClientIDMode="Static" class="form-control frm-forgot-email"></asp:TextBox>
+                            <asp:TextBox ID="txtForgotEmailId" runat="server" TextMode="Email" ClientIDMode="Static" class="form-control frm-forgot-email"></asp:TextBox>
                           
                         </span>
                     </div>
-                   <asp:Button ID="btnForgotPassword" class="btn btn-default btn-theme btn-forgot-submit" Text="Submit" runat="server" />
+                   <asp:Button ID="btnForgotPassword" class="btn btn-default btn-theme btn-forgot-submit" Text="Submit" runat="server" OnClick="btnForgotPassword_Click" />
                 </div>
             </span>
           
