@@ -2,12 +2,12 @@
 <webParts>
   <webPart xmlns="http://schemas.microsoft.com/WebPart/v3">
     <metaData>
-      <type name="SCDR.UserManagement.CreateADUserAr.CreateADUserAr, $SharePoint.Project.AssemblyFullName$" />
+      <type name="SCDR.UserManagement.CreateAdUserAr.CreateAdUserAr, $SharePoint.Project.AssemblyFullName$" />
       <importErrorMessage>$Resources:core,ImportErrorMessage;</importErrorMessage>
     </metaData>
     <data>
       <properties>
-        <property name="Title" type="string">SCDR - CreateADUserAr</property>
+        <property name="Title" type="string">SCDR - CreateAdUserAr</property>
         <property name="Description" type="string">My Visual Web Part</property>
       </properties>
     </data>

@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ProjectItem Type="Microsoft.VisualStudio.SharePoint.WebPart" DefaultFile="CreateADUserAr.ascx" SupportedTrustLevels="All" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
+<ProjectItem Type="Microsoft.VisualStudio.SharePoint.WebPart" DefaultFile="CreateAdUserAr.ascx" SupportedTrustLevels="All" SupportedDeploymentScopes="Site" xmlns="http://schemas.microsoft.com/VisualStudio/2010/SharePointTools/SharePointProjectItemModel">
   <Files>
-    <ProjectItemFile Source="Elements.xml" Target="CreateADUserAr\" Type="ElementManifest" />
-    <ProjectItemFile Source="CreateADUserAr.webpart" Target="CreateADUserAr\" Type="ElementFile" />
+    <ProjectItemFile Source="Elements.xml" Target="CreateAdUserAr\" Type="ElementManifest" />
+    <ProjectItemFile Source="CreateAdUserAr.webpart" Target="CreateAdUserAr\" Type="ElementFile" />
   </Files>
   <SafeControls>
-    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="SCDR.UserManagement.CreateADUserAr" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
+    <SafeControl Name="SafeControlEntry1" Assembly="$SharePoint.Project.AssemblyFullName$" Namespace="SCDR.UserManagement.CreateAdUserAr" TypeName="*" IsSafe="true" IsSafeAgainstScript="false" />
   </SafeControls>
 </ProjectItem>

@@ -5,19 +5,13 @@ using System.Web.UI;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
 
-namespace SCDR.UserManagement.CreateADUserAr
+namespace SCDR.UserManagement.CreateAdUserAr
 {
     [ToolboxItemAttribute(false)]
-    public partial class CreateADUserAr : WebPart
+    public partial class CreateAdUserAr : WebPart
     {
-        public CreateADUserAr()
+        public CreateAdUserAr()
         {
-        }
-
-        protected override void OnInit(EventArgs e)
-        {
-            base.OnInit(e);
-            InitializeControl();
         }
 
         /// <summary>
@@ -53,15 +47,18 @@ namespace SCDR.UserManagement.CreateADUserAr
 
         #endregion
 
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
+            InitializeControl();
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             {
             }
-            
         }
-
-      
 
         protected void txtUsername_TextChanged(object sender, EventArgs e)
         {
@@ -187,7 +184,11 @@ namespace SCDR.UserManagement.CreateADUserAr
             {
                 /**/
             }
+        }
 
+        protected void btncancel_Click(object sender, EventArgs e)
+        {
+            formClear();
         }
         void formClear()
         {
@@ -200,10 +201,7 @@ namespace SCDR.UserManagement.CreateADUserAr
             txtUsername.Text = "";
             chkGetNotification.Checked = false;
         }
-
-        protected void btncancel_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
+
+

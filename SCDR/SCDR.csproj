@@ -573,13 +573,13 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchResultList.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx.cs">
-      <DependentUpon>CreateADUserAr.ascx</DependentUpon>
+    <Compile Include="UserManagement\CreateAdUserAr\CreateAdUserAr.ascx.cs">
+      <DependentUpon>CreateAdUserAr.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx.g.cs">
+    <Compile Include="UserManagement\CreateAdUserAr\CreateAdUserAr.ascx.g.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CreateADUserAr.ascx</DependentUpon>
+      <DependentUpon>CreateAdUserAr.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx.cs">
       <DependentUpon>CreateADUserEn.ascx</DependentUpon>
@@ -888,9 +888,9 @@
     <None Include="SharePointProjectItem.spdata">
       <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
     </None>
-    <None Include="UserManagement\CreateADUserAr\CreateADUserAr.webpart" />
-    <None Include="UserManagement\CreateADUserAr\SharePointProjectItem.spdata">
-      <SharePointProjectItemId>{51d577f4-1a82-4ec2-9487-34da8540b950}</SharePointProjectItemId>
+    <None Include="UserManagement\CreateAdUserAr\CreateAdUserAr.webpart" />
+    <None Include="UserManagement\CreateAdUserAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{14e5aa79-4f5e-4c9d-8eaa-d84bbfbed11f}</SharePointProjectItemId>
     </None>
     <None Include="UserManagement\CreateADUserEn\CreateADUserEn.webpart" />
     <None Include="UserManagement\CreateADUserEn\SharePointProjectItem.spdata">
@@ -1243,11 +1243,11 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchResultList.ascx.g.cs</LastGenOutput>
     </Content>
-    <Content Include="UserManagement\CreateADUserAr\CreateADUserAr.ascx">
+    <Content Include="UserManagement\CreateAdUserAr\CreateAdUserAr.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
-      <LastGenOutput>CreateADUserAr.ascx.g.cs</LastGenOutput>
+      <LastGenOutput>CreateAdUserAr.ascx.g.cs</LastGenOutput>
     </Content>
-    <Content Include="UserManagement\CreateADUserAr\Elements.xml" />
+    <Content Include="UserManagement\CreateAdUserAr\Elements.xml" />
     <Content Include="UserManagement\CreateADUserEn\CreateADUserEn.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>CreateADUserEn.ascx.g.cs</LastGenOutput>
