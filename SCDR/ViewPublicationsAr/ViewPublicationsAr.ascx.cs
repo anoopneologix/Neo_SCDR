@@ -45,6 +45,7 @@ namespace SCDR.ViewPublicationsAr
         /// <param name="e"></param>
         protected void Page_Load(object sender, EventArgs e)
         {
+            BindPublications();
         }
 
         /// <summary>

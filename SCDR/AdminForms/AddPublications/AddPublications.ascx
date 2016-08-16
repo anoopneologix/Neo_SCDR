@@ -15,7 +15,7 @@
       <asp:TextBox ID="txtTitleAr" MaxLength="250" style="direction:rtl !important;" ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
             <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator1" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtTitleAr" runat="server" ErrorMessage="Please enter title in Arabic"></asp:RequiredFieldValidator>
- <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[\u0621-\u064A0-9 ]+$"
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator5" ValidationExpression="^[-\u0621-\u064A0-9 ]+$"
     ControlToValidate="txtTitleAr" runat="server" ForeColor="Red" ErrorMessage="Only arabic Characters and numbers allowed."
     Display="Dynamic" />
        </div>
@@ -26,7 +26,7 @@
       <asp:TextBox ID="txtTitle" MaxLength="250"  ClientIDMode="Static" runat="server" class="form-control"></asp:TextBox>
   </div><div class="col-sm-3">
             <asp:RequiredFieldValidator  Display="Dynamic" ID="RequiredFieldValidator2" ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtTitle" runat="server" ErrorMessage="Please enter a title in English"></asp:RequiredFieldValidator>
- <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationExpression="^[0-9a-zA-Z ]+$" 
+ <asp:RegularExpressionValidator ID="RegularExpressionValidator1" ValidationExpression="^[-_a-zA-Z0-9'., ]{0,250}$" 
     ControlToValidate="txtTitle" runat="server" ForeColor="Red" ErrorMessage="Only english characters and numbers allowed."
     Display="Dynamic" />
        </div>
@@ -55,7 +55,7 @@
     <div class="col-sm-3">
     <span style="color:red" id="lblThumbnailError"></span>
           <asp:RequiredFieldValidator ValidationGroup="chk"   Display="Dynamic" ID="RequiredFieldValidator4" ForeColor="Red"  ControlToValidate="fuThumbnail" runat="server" ErrorMessage="Required Field"></asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ValidationExpression="^.*\.([pP][nN][gG])$"
+      <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ValidationExpression="^.*\.([jJ][pP][gG]|[jJ][pP][eE][gG]|[pP][nN][gG])$"
     ControlToValidate="fuThumbnail"  runat="server" ForeColor="Red" ErrorMessage="Please select a valid image file of type .png."
     Display="Dynamic" />
     </div>
@@ -181,7 +181,7 @@
                         ext.push(names[i].substr(names[i].indexOf(".") + 1).toLowerCase());
 
                     }
-                    var valid_filetype = ["png", "PNG"];
+                    var valid_filetype = ["png", "PNG","jpg","JPG","jpeg","JPEG"];
 
                     var i, j, result = [];
                     for (i = 0; i < valid_filetype.length; i++) {

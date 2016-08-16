@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ManagePublications.ascx.cs" Inherits="SCDR.AdminForms.ManagePublications.ManagePublications" %>
 <div class="col-md-12 col-sm-12 col-xs-12">
      <div class=" col-md-12"> 
-     <asp:LinkButton ID="lbAddPublications" runat="server" OnClick="lbAddPublications_Click"  ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Venue</asp:LinkButton>
+     <asp:LinkButton ID="lbAddPublications" runat="server" OnClick="lbAddPublications_Click"  ><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add New Publication</asp:LinkButton>
   </div>
      <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <Triggers>
