@@ -37,6 +37,7 @@ namespace SCDR.PartnerImageSlider
                 Control HeaderTemplate = repPartnerSlider.Controls[0].Controls[0];
                 Label lab = HeaderTemplate.FindControl("lblHeading") as Label;
                 lab.Text = PartnerImageSlider.headingName;
+                ViewStat();
             }
         }
 
@@ -69,6 +70,40 @@ namespace SCDR.PartnerImageSlider
             set { headingName = value; }
         }
         #endregion
+
+        //view count
+        public void ViewStat()
+        {
+             SPSecurity.RunWithElevatedPrivileges(delegate()
+                {
+
+                   using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
+                                {
+                                    using (SPWeb oWeb = oSite.OpenWeb())
+                                    {
+                                        
+                                        SPList oList = oWeb.Lists["Statistics"];
+                                        SPListItemCollection oItems = oList.GetItems();
+                                        SPListItem viewCount = oItems[0];
+                                        if (viewCount["Stat"] == null || viewCount["Stat"].ToString() == string.Empty)
+                                        {
+                                            viewCount["Stat"] = 1;
+                                        }
+                                        else
+                                        {
+                                            string statVal = viewCount["Stat"].ToString();
+                                            var count = int.Parse(statVal) + 1;
+                                            viewCount["Stat"] = count.ToString();
+                                            
+                                        }
+                                        oWeb.AllowUnsafeUpdates = true;
+                                        viewCount.Update();
+                                        oWeb.AllowUnsafeUpdates = false;
+                                    }
+                                }
+                            });
+                        
+        }
 
         // Function for binding images and their corresponding site url's to Repeater
         public void BindPartnerImagesToSlider()

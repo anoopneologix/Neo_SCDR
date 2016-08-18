@@ -64,7 +64,17 @@ namespace SCDR.AdminForms.AdminPanel
                 LblRate.Text = "No";
             }
 
-            //New service request
+            //Views
+            using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
+            {
+                using (SPWeb oWeb = oSite.OpenWeb())
+                {
+                    SPList oList = oWeb.Lists["Statistics"];
+                    SPListItemCollection oItems = oList.GetItems();
+                    SPListItem viewCount = oItems[0];
+                    lblViews.Text = viewCount["Stat"].ToString();
+                }
+            }
         }
     }
 }
