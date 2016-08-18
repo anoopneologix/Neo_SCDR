@@ -188,6 +188,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>AddVideoGallery.ascx</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\AdminPanel\AdminPanel.ascx.cs">
+      <DependentUpon>AdminPanel.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\AdminPanel\AdminPanel.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdminPanel.ascx</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.ascx.cs">
       <DependentUpon>DeleteCalendarEvents.ascx</DependentUpon>
     </Compile>
@@ -679,6 +687,10 @@
     <None Include="AdminForms\AddVideoGallery\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{ff2bbd39-0182-4074-89cb-8d798e06e274}</SharePointProjectItemId>
     </None>
+    <None Include="AdminForms\AdminPanel\AdminPanel.webpart" />
+    <None Include="AdminForms\AdminPanel\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{d5895374-60c4-4d41-8516-56ccdb017267}</SharePointProjectItemId>
+    </None>
     <None Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.webpart" />
     <None Include="AdminForms\DeleteCalendarEvents\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{592ec603-39ef-4211-942e-926686a4d033}</SharePointProjectItemId>
@@ -981,6 +993,11 @@
       <LastGenOutput>AddVideoGallery.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="AdminForms\AddVideoGallery\Elements.xml" />
+    <Content Include="AdminForms\AdminPanel\AdminPanel.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>AdminPanel.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="AdminForms\AdminPanel\Elements.xml" />
     <Content Include="AdminForms\DeleteCalendarEvents\DeleteCalendarEvents.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>DeleteCalendarEvents.ascx.g.cs</LastGenOutput>
