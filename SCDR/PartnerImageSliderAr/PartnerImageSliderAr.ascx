@@ -20,7 +20,7 @@
     </HeaderTemplate>
     <ItemTemplate>
         <div class="item font_resize">
-                        <a href='<%# Eval("SiteUrl") %>'>
+                        <a href='<%# Eval("SiteUrl") %>' target="_blank">
                             <img src='<%# Eval("ImageUrl") %>' />
                         </a>
                     </div>
