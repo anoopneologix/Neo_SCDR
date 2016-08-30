@@ -26,7 +26,7 @@
         
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm" style="display: block">
                 <div>
-                    <div class="form-group custom-frm-group">
+                    <%--<div class="form-group custom-frm-group">
                         <label for="email">User Name:</label>
                         <span class="email">
                             <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
@@ -38,14 +38,17 @@
                        
                             <asp:TextBox ID="pwd" TextMode="Password" runat="server" ClientIDMode="Static" class="form-control frm-pwd"></asp:TextBox>
                           
-                    </div>
-                    <div class="checkbox clearfix">
+                    </div>--%>
+                    <%--<div class="checkbox clearfix">
                       <!--  <label class="chklabel">
                             <input type="checkbox">Remember me</label>-->
                         <a href="#" class="forgot">Forgot Password?</a>
-                    </div>
-                    <asp:Button ID="btnSignin" class="btn btn-default" runat="server" Text="Submit" OnClick="btnSignin_Click1" />
-                
+                    </div>--%>
+                    <asp:Button ID="btnSignin" class="btn btn-default btn-theme btn-submit" runat="server" Text="Login" OnClick="btnSignin_Click1" />
+                    <asp:Button ID="btnSignUp" class="btn btn-primary btn-signup" runat="server" Text="Signup" OnClick="btnSignup_Click" />
+                    <%--<button type="button" class="btn btn-primary btn-signup"> Signup</button>--%>
+                //Link for internal users to log in using AD account
+                <%--<asp:LinkButton ID="lbInternalUsers" Text="Active Directory Login" runat="server" Font-Names="Calibri" Font-Size="Small" CssClass="ms-standardheader ms-inputformheader" Font-Bold="true" ForeColor="Wheat" OnClick="lbInternalUsers_OnClick" />--%>
                 </div>
             </span>
  

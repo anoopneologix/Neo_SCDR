@@ -14,10 +14,10 @@ using System.IdentityModel.Tokens;
 using Microsoft.SharePoint.Administration.Claims;
 using System.IdentityModel.Services;
 using Microsoft.SharePoint.Utilities;
-using System.Web.Security;
 using System.Security.Principal;
 using System.Net;
 using System.Net.Mail;
+using Microsoft.SharePoint.Administration;
 
 
 namespace SCDR.LoginEn
@@ -83,27 +83,28 @@ namespace SCDR.LoginEn
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        /// 
         protected void btnSignin_Click1(object sender, EventArgs e)
         {
+            Page.Response.Redirect("/_layouts/15/Sp.Login.Custom/Login.aspx?ReturnUrl=%2fsites%2fSCDR%2fen%2fSitePages%2fhome.aspx");
+            //if (Membership.ValidateUser(UserName.Text, pwd.Text))
+            //{
 
-            if (Membership.ValidateUser(UserName.Text, pwd.Text))
-            {
+            //    SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember", "LdapRole", UserName.Text, pwd.Text);
 
-                SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember", "LdapRole", UserName.Text, pwd.Text);
+            //    if (tk != null)
+            //    {
+            //        SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
+            //        fam.SetPrincipalAndWriteSessionToken(tk);
+            //        hfloginstatus.Value = "True";
 
-                if (tk != null)
-                {
-                    SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
-                    fam.SetPrincipalAndWriteSessionToken(tk);
-                    hfloginstatus.Value = "True";
-
-                    GetCurrentUserDetails();
+            //        GetCurrentUserDetails();
 
 
-                }
-            }
-            else
-            {
+            //    }
+            //}
+            //else
+            //{
                
                 /*  string domain = "scdr.gov.ae";
                   if(Authenticate(UserName.Text,pwd.Text,domain)==true)
@@ -123,13 +124,17 @@ namespace SCDR.LoginEn
                   }*/
 
 
-            }
+            //}
             
 
 
 
         }
-       
+
+        protected void btnSignup_Click(object sender, EventArgs e)
+        {
+            Page.Response.Redirect("/sites/SCDR/en/SitePages/SignupADUser.aspx");
+        }
         /// <summary>
         /// Function for retreiving User Details from SharePoint
         /// </summary>
@@ -177,6 +182,7 @@ namespace SCDR.LoginEn
                   }
                     else
                     {
+                        
                         HttpContext.Current.Response.Redirect("~/sites/SCDR/en/SitePages/Home.aspx");
                     }
                     oWeb.AllowUnsafeUpdates = false;
@@ -294,9 +300,56 @@ namespace SCDR.LoginEn
             }
         }
 
- 
 
 
+        protected void lbInternalUsers_OnClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if (null != SPContext.Current && null != SPContext.Current.Site)
+                {
+                    SPIisSettings iisSettings = SPContext.Current.Site.WebApplication.IisSettings[SPUrlZone.Default];
+                    if (null != iisSettings && iisSettings.UseWindowsClaimsAuthenticationProvider)
+                    {
+                        SPAuthenticationProvider provider = iisSettings.WindowsClaimsAuthenticationProvider;
+                        Redirect(provider);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
+        private void Redirect(SPAuthenticationProvider provider)
+        {
+            string comp = HttpContext.Current.Request.Url.GetComponents(UriComponents.Query, UriFormat.SafeUnescaped);
+            string url = provider.AuthenticationRedirectionUrl.ToString();
+            if (provider is SPWindowsAuthenticationProvider)
+            {
+                comp = EnsureUrl(comp, true);
+            }
+
+            SPUtility.Redirect(url, SPRedirectFlags.Default, this.Context, comp);
+        }
+
+        private string EnsureUrl(string url, bool urlIsQueryStringOnly)
+        {
+            if (!url.Contains("ReturnUrl="))
+            {
+                if (urlIsQueryStringOnly)
+                {
+                    url = url + (string.IsNullOrEmpty(url) ? "" : "&");
+                }
+                else
+                {
+                    url = url + ((url.IndexOf('?') == -1) ? "?" : "&");
+                }
+                url = url + "ReturnUrl=";
+            }
+            return url;
+        }
 
 
    /*     private bool Authenticate(string userName,string password, string domain)

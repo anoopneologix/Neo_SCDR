@@ -203,9 +203,18 @@ namespace SCDR.AdminForms.AdminPanel {
             global::System.Web.UI.WebControls.Label @__ctrl3;
             @__ctrl3 = this.@__BuildControllblViews();
             @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t\t<div class=\"desc\">\r\n\t\t\t\t\t\t\t\t Views\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t" +
-                        "</div>\r\n\t\t\t\t\t\t<a class=\"more\" href=\"#\">\r\n\t\t\t\t\t\tView more <i class=\"m-icon-swapri" +
-                        "ght m-icon-white\"></i>\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t</div>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
+							</div>
+							<div class=""desc"">
+								 Views
+							</div>
+						</div>
+						<a class=""more"" href=""/sites/SCDR/_layouts/15/Reporting.aspx?Category=AnalyticsSiteCollection"">
+						View more <i class=""m-icon-swapright m-icon-white""></i>
+						</a>
+					</div>
+				</div>
+			</div>"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

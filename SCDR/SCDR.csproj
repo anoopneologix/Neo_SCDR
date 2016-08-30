@@ -340,6 +340,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CalendarControl.ascx</DependentUpon>
     </Compile>
+    <Compile Include="CommonLogin\CommonLogin.ascx.cs">
+      <DependentUpon>CommonLogin.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="CommonLogin\CommonLogin.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CommonLogin.ascx</DependentUpon>
+    </Compile>
     <Compile Include="CurrentUserDetails\CurrentUserDetails.ascx.cs">
       <DependentUpon>CurrentUserDetails.ascx</DependentUpon>
     </Compile>
@@ -763,6 +771,10 @@
     <None Include="CalendarControl\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{a17a9d72-826f-40a8-9df6-751240200e72}</SharePointProjectItemId>
     </None>
+    <None Include="CommonLogin\CommonLogin.webpart" />
+    <None Include="CommonLogin\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{fb3cd9d4-3329-46aa-ae54-e7747c0a9899}</SharePointProjectItemId>
+    </None>
     <None Include="CurrentUserDetails\CurrentUserDetails.webpart" />
     <None Include="CurrentUserDetails\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{835aa08f-317d-4da1-beae-d10f0e930fc5}</SharePointProjectItemId>
@@ -1088,6 +1100,11 @@
       <LastGenOutput>CalendarControl.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="CalendarControl\Elements.xml" />
+    <Content Include="CommonLogin\CommonLogin.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>CommonLogin.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="CommonLogin\Elements.xml" />
     <Content Include="CurrentUserDetails\CurrentUserDetails.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>CurrentUserDetails.ascx.g.cs</LastGenOutput>

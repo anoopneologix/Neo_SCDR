@@ -194,7 +194,7 @@
 								 Views
 							</div>
 						</div>
-						<a class="more" href="#">
+						<a class="more" href="/sites/SCDR/_layouts/15/Reporting.aspx?Category=AnalyticsSiteCollection">
 						View more <i class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>

@@ -25,11 +25,12 @@ namespace SCDR.AdminForms.AdminPanel
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Rating
             decimal avgRating = Convert.ToDecimal(0);
             int rateCount = 0;
             using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
             {
-                //Rating
+                
                 using (SPWeb oWeb = oSite.OpenWeb("en/"))
                 {
                     SPList oList = oWeb.Lists["RatingAndFeedBack_List"];
@@ -73,6 +74,26 @@ namespace SCDR.AdminForms.AdminPanel
                     SPListItemCollection oItems = oList.GetItems();
                     SPListItem viewCount = oItems[0];
                     lblViews.Text = viewCount["Stat"].ToString();
+                }
+            }
+
+            //New Request
+            NewRequestCount();
+        }
+
+        public void NewRequestCount()
+        {
+            int totalCount = 0;
+            int englishCount=0;
+            using (SPSite oSite = new SPSite(SPContext.Current.Web.Site.Url))
+            {
+
+                using (SPWeb oWeb = oSite.OpenWeb("en/"))
+                {
+                    SPList oList = oWeb.Lists["RatingAndFeedBack_List"];
+                    SPListItemCollection oItems = oList.GetItems();
+                    SPQuery query = new SPQuery();
+                    query.Query = @"";            
                 }
             }
         }
