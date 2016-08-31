@@ -6,7 +6,7 @@
 <%@ Import Namespace="Microsoft.SharePoint" %> 
 <%@ Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" %>
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CreateADUserEn.ascx.cs" Inherits="SCDR.UserManagement.CreateADUserEn.CreateADUserEn" %>
-
+<link rel="stylesheet" href="/sites/SCDR/en/_catalogs/masterpage/css/signin-en.css">
 <section class="container resiazable">
       <asp:UpdatePanel ID="upUsername" runat="server">
             <Triggers>
@@ -95,12 +95,12 @@
   </div>
          <div id="messages"></div>
         <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-12 col-md-12">
   <asp:CheckBox ID="chkGetNotification" runat="server" Text="Get updates from SCDR" />
     </div>
   </div>
   <div class="form-group">
-    <div class="col-sm-offset-2 col-sm-10">
+    <div class="col-sm-12 col-md-12">
       <asp:Button ID="btnRegister" CssClass="btn btn-default" ValidationGroup="chk" runat="server" Text="Sign Up" OnClick="btnRegister_Click" />
          <asp:Button ID="btncancel" CssClass="btn btn-default" runat="server" Text="Cancel" OnClick="btncancel_Click" />
     </div>

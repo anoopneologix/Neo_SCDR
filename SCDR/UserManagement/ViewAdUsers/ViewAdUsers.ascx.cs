@@ -19,6 +19,7 @@ using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
 
 
+
 namespace SCDR.UserManagement.ViewAdUsers
 {
     [ToolboxItemAttribute(false)]
@@ -158,6 +159,7 @@ namespace SCDR.UserManagement.ViewAdUsers
                                 oWeb.AllowUnsafeUpdates = false;
                                 string sMessage = "successfully completed";
                                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewADUsers.aspx';</script>", false);
+                                AddUserToAGroup(userName, "SCDR Wearhouse Users");
                                 BindADUserDetails();
                             }
                             else
@@ -173,14 +175,58 @@ namespace SCDR.UserManagement.ViewAdUsers
             });
         }
 
+        /// <summary>
+        /// Add a user to a Sharepoint group
+        /// </summary>
+        /// <param name="userLoginName">Login name of the user to add</param>
+        /// <param name="userGroupName">Group name to add</param>
+        private void AddUserToAGroup(string userLoginName, string userGroupName)
+        {
+            //Executes this method with Full Control rights even if the user does not otherwise have Full Control
+            SPSecurity.RunWithElevatedPrivileges(delegate
+            {
+                //Don't use context to create the spSite object since it won't create the object with elevated privileges but with the privileges of the user who execute the this code, which may casues an exception
+                using (SPSite spSite = new SPSite(Page.Request.Url.ToString()))
+                {
+                    using (SPWeb spWeb = spSite.OpenWeb())
+                    {
+                        try
+                        {
+                            //Allow updating of some sharepoint lists, (here spUsers, spGroups etc...)
+                            spWeb.AllowUnsafeUpdates = true;
+
+                            SPUser spUser = spWeb.EnsureUser(userLoginName);
+
+                            if (spUser != null)
+                            {
+                                SPGroup spGroup = spWeb.Groups[userGroupName];
+
+                                if (spGroup != null)
+                                    spGroup.AddUser(spUser);
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            //Error handling logic should go here
+                        }
+                        finally
+                        {
+                            spWeb.AllowUnsafeUpdates = false;
+                        }
+                    }
+                }
+
+            });
+        }
+
         public bool CreateUserAccount(string userName, string userPassword, string userFirstName, string userLastName, string userEmailID, string userPhoneNumber)
         {
             try
             {
-                string ldapPath = "extscdr.gov.ae/CN=Users,DC=EXTSCDR,DC=GOV,DC=AE";
+                string ldapPath = "ext-scdr.scdr.gov.ae/CN=Users,DC=EXT-SCDR,DC=SCDR,DC=GOV,DC=AE";
                string oGUID = string.Empty;
                 string connectionPrefix = "LDAP://" + ldapPath;
-                DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix, @"extscdr1\scdradmin", @"P@ss123", AuthenticationTypes.Secure);
+                DirectoryEntry dirEntry = new DirectoryEntry(connectionPrefix, @"ext-scdr\scdradmin", @"Pass123", AuthenticationTypes.Secure);
                 DirectoryEntry newUser = dirEntry.Children.Add("CN=" + userName, "user");
                 newUser.Properties["samAccountName"].Value = userName;
                 newUser.Properties["givenName"].Value = userFirstName;
@@ -189,12 +235,27 @@ namespace SCDR.UserManagement.ViewAdUsers
                 newUser.Properties["mail"].Value = userEmailID;
                 newUser.Properties["telephoneNumber"].Value = userPhoneNumber;
                 newUser.Properties["userPrincipalName"].Value = userName + "@extscdr.gov.ae";
+                //newUser.Properties["unicodePwd"].Value = userPassword;
                 newUser.CommitChanges();
-                oGUID = newUser.Guid.ToString();
-                newUser.Invoke("SetPassword", new object[] { userPassword });
-                newUser.CommitChanges();
-                dirEntry.Close();
+                //oGUID = newUser.Guid.ToString();
                 newUser.Close();
+                PrincipalContext principalContext = new PrincipalContext(ContextType.Domain, "ext-scdr", "DC=EXT-SCDR,DC=SCDR,DC=GOV,DC=AE", @"ext-scdr\Administrator", @"P@ssw0rd");
+                UserPrincipal user = UserPrincipal.FindByIdentity(principalContext, userName);
+                if (user == null) 
+                    return false;
+                user.SetPassword(userPassword);
+                //ldapPath = "ext-scdr.scdr.gov.ae/CN=" + userName + "OU=Users,DC=EXT-SCDR,DC=SCDR,DC=GOV,DC=AE";
+                //connectionPrefix = "LDAP://" + ldapPath;
+                ////dirEntry = new DirectoryEntry(connectionPrefix, @"ext-scdr\scdradmin", @"Pass123", AuthenticationTypes.Secure);
+                //newUser = new DirectoryEntry(connectionPrefix, @"ext-scdr\Administrator", @"P@ssw0rd", AuthenticationTypes.Secure);
+                //newUser.Invoke("SetPassword", new object[] { userPassword });
+                //newUser.Properties["LockOutTime"].Value = 0;
+                ////newUser.Properties["userAccountControl"][0] = 0x0200;
+                //newUser.CommitChanges();
+                ////dirEntry.CommitChanges();
+                ////dirEntry.Close();
+                //newUser.Close();
+                dirEntry.Close();
                 return true;
             }
             catch (System.DirectoryServices.DirectoryServicesCOMException E)

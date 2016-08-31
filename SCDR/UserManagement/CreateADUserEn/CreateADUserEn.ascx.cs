@@ -125,7 +125,8 @@ namespace SCDR.UserManagement.CreateADUserEn
         /// <param name="e"></param>
         protected void btncancel_Click(object sender, EventArgs e)
         {
-
+            
+            Page.Response.Redirect("/sites/SCDR/en/SitePages/Home.aspx");
         }
 
         protected void txtUsername_TextChanged(object sender, EventArgs e)

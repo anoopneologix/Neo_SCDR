@@ -718,12 +718,12 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl23 = this.@__BuildControlCompareValidator1();
             @__parser.AddParsedSubObject(@__ctrl23);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n               </div>\r\n  </div>\r\n         <div id=\"messages\"></div>\r\n        <d" +
-                        "iv class=\"form-group\">\r\n    <div class=\"col-sm-offset-2 col-sm-10\">\r\n  "));
+                        "iv class=\"form-group\">\r\n    <div class=\"col-sm-12 col-md-12\">\r\n  "));
             global::System.Web.UI.WebControls.CheckBox @__ctrl24;
             @__ctrl24 = this.@__BuildControlchkGetNotification();
             @__parser.AddParsedSubObject(@__ctrl24);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-offset" +
-                        "-2 col-sm-10\">\r\n      "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-12 col" +
+                        "-md-12\">\r\n      "));
             global::System.Web.UI.WebControls.Button @__ctrl25;
             @__ctrl25 = this.@__BuildControlbtnRegister();
             @__parser.AddParsedSubObject(@__ctrl25);
@@ -799,7 +799,8 @@ namespace SCDR.UserManagement.CreateADUserEn {
             "artCodeGenerator", "12.0.0.0")]
         private void @__BuildControlTree(global::SCDR.UserManagement.CreateADUserEn.CreateADUserEn @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n\r\n<section class=\"container resiazable\">\r\n      "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<link rel=\"stylesheet\" href=\"/sites/SCDR/en/_catalogs/masterpage/css/signin-en." +
+                        "css\">\r\n<section class=\"container resiazable\">\r\n      "));
             global::System.Web.UI.UpdatePanel @__ctrl1;
             @__ctrl1 = this.@__BuildControlupUsername();
             @__parser.AddParsedSubObject(@__ctrl1);

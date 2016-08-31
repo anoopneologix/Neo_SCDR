@@ -188,7 +188,8 @@ namespace SCDR.UserManagement.CreateAdUserAr
 
         protected void btncancel_Click(object sender, EventArgs e)
         {
-            formClear();
+            
+            Page.Response.Redirect("/sites/SCDR/ar/SitePages/Home.aspx");
         }
         void formClear()
         {

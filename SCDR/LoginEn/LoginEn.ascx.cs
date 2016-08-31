@@ -86,8 +86,10 @@ namespace SCDR.LoginEn
         /// 
         protected void btnSignin_Click1(object sender, EventArgs e)
         {
-            Page.Response.Redirect("/_layouts/15/Sp.Login.Custom/Login.aspx?ReturnUrl=%2fsites%2fSCDR%2fen%2fSitePages%2fhome.aspx");
+            Page.Response.Redirect("/_layouts/15/Sp.Login.Custom/Login.aspx?ReturnUrl=%2fsites%2fSCDR%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Fen%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Fen%2FSitePages%2FHome%2Easpx");
             //if (Membership.ValidateUser(UserName.Text, pwd.Text))
+
+            
             //{
 
             //    SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember", "LdapRole", UserName.Text, pwd.Text);

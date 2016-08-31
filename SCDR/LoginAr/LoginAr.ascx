@@ -12,14 +12,14 @@
         <i class="fa"></i>
         <span class="login_form_outer">
 
-            <div class="overlayConfirm">
+           <%--<%-- <div class="overlayConfirm">
                 <div class="confirmation_signout">
                     <p>تأكيد الخروج</p>
                      <asp:Button ID="btnOk" runat="server" class="btn btn-default btn-theme btn-theme-ok" Text="موافق" />
                   
                     <button class="btn btn-default btn-theme btn-theme-cancel">إلغاء</button>
                 </div>
-            </div>
+            </div>--%>
 
             <div class="alert alert-custom"></div>
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm" style="display: block">

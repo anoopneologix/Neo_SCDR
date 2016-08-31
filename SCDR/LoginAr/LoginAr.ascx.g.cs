@@ -45,10 +45,6 @@ namespace SCDR.LoginAr {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnOk;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnSignin;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -86,20 +82,6 @@ namespace SCDR.LoginAr {
             this.hfloginstatus = @__ctrl;
             @__ctrl.ID = "hfloginstatus";
             @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnOk() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnOk = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnOk";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-theme-ok");
-            @__ctrl.Text = "موافق";
             return @__ctrl;
         }
         
@@ -206,18 +188,7 @@ namespace SCDR.LoginAr {
         <i class=""fa""></i>
         <span class=""login_form_outer"">
 
-            <div class=""overlayConfirm"">
-                <div class=""confirmation_signout"">
-                    <p>تأكيد الخروج</p>
-                     "));
-            global::System.Web.UI.WebControls.Button @__ctrl2;
-            @__ctrl2 = this.@__BuildControlbtnOk();
-            @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-                  
-                    <button class=""btn btn-default btn-theme btn-theme-cancel"">إلغاء</button>
-                </div>
-            </div>
+           
 
             <div class=""alert alert-custom""></div>
             <span class=""col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm"" style=""display: block"">
@@ -225,13 +196,13 @@ namespace SCDR.LoginAr {
                    
                   
                         "));
-            global::System.Web.UI.WebControls.Button @__ctrl3;
-            @__ctrl3 = this.@__BuildControlbtnSignin();
-            @__parser.AddParsedSubObject(@__ctrl3);
+            global::System.Web.UI.WebControls.Button @__ctrl2;
+            @__ctrl2 = this.@__BuildControlbtnSignin();
+            @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                    "));
-            global::System.Web.UI.WebControls.Button @__ctrl4;
-            @__ctrl4 = this.@__BuildControlbtnSignUp();
-            @__parser.AddParsedSubObject(@__ctrl4);
+            global::System.Web.UI.WebControls.Button @__ctrl3;
+            @__ctrl3 = this.@__BuildControlbtnSignUp();
+            @__parser.AddParsedSubObject(@__ctrl3);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
                    
                 </div>
@@ -246,25 +217,25 @@ namespace SCDR.LoginAr {
                             عنوان البريد:</label>
                         <span class=""email"">
                                "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl5;
-            @__ctrl5 = this.@__BuildControlTextBox1();
-            @__parser.AddParsedSubObject(@__ctrl5);
+            global::System.Web.UI.WebControls.TextBox @__ctrl4;
+            @__ctrl4 = this.@__BuildControlTextBox1();
+            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                        </span>\n                    </div>\n                     " +
                         " "));
-            global::System.Web.UI.WebControls.Button @__ctrl6;
-            @__ctrl6 = this.@__BuildControlbtnForgotPassword();
-            @__parser.AddParsedSubObject(@__ctrl6);
+            global::System.Web.UI.WebControls.Button @__ctrl5;
+            @__ctrl5 = this.@__BuildControlbtnForgotPassword();
+            @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                 \n                </div>\n            </span>\n\n            <span " +
                         "class=\"col-md-12 col-sm-12 col-xs-12 tab-frm after-signin\">\n\n                <di" +
                         "v class=\"welcome_user\">\n                    <b>مرحبًا بك</b>\n                   " +
                         "  <span>"));
-            global::System.Web.UI.WebControls.Label @__ctrl7;
-            @__ctrl7 = this.@__BuildControllblUsername();
-            @__parser.AddParsedSubObject(@__ctrl7);
+            global::System.Web.UI.WebControls.Label @__ctrl6;
+            @__ctrl6 = this.@__BuildControllblUsername();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</span>\n                </div>\n               \n "));
-            global::System.Web.UI.WebControls.Button @__ctrl8;
-            @__ctrl8 = this.@__BuildControlbtnSignOut();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.Button @__ctrl7;
+            @__ctrl7 = this.@__BuildControlbtnSignOut();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
             </span>
 

@@ -93,7 +93,7 @@ namespace SCDR.LoginAr
         }
         protected void btnSignin_Click1(object sender, EventArgs e)
         {
-            Page.Response.Redirect("/_layouts/15/Sp.Login.Custom/Login.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2fSitePages%2fhome.aspx");
+            Page.Response.Redirect("/_layouts/15/Sp.Login.Custom/Login.aspx?ReturnUrl=%2fsites%2fSCDR%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easpx");
             //if (Membership.ValidateUser(UserName.Text, pwd.Text))
             //{
 
@@ -140,7 +140,7 @@ namespace SCDR.LoginAr
 
         protected void btnSignup_Click(object sender, EventArgs e)
         {
-            Page.Response.Redirect("/sites/SCDR/en/SitePages/SignupADUser.aspx");
+            Page.Response.Redirect("/sites/SCDR/ar/SitePages/SignupADUser.aspx");
         }
     }
 }
