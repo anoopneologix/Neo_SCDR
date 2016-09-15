@@ -77,15 +77,15 @@ namespace SCDR.UserManagement.CreateADUserEn
                 
                 SPSecurity.RunWithElevatedPrivileges(delegate()
                 {
-                    string getNotification = string.Empty;
-                    if(chkGetNotification.Checked)
-                    {
-                        getNotification = "True";
-                    }
-                    else
-                    {
-                        getNotification = "False";
-                    }
+                    //string getNotification = string.Empty;
+                    //if(chkGetNotification.Checked)
+                    //{
+                    //    getNotification = "True";
+                    //}
+                    //else
+                    //{
+                    //    getNotification = "False";
+                    //}
                     using (SPSite oSite = new SPSite(SPContext.Current.Site.Url))
                     {
                         using (SPWeb oWeb = oSite.OpenWeb())
@@ -100,7 +100,7 @@ namespace SCDR.UserManagement.CreateADUserEn
                             item["PhoneNumber"] = txtPhoneNumber.Text;
                             item["GroupName"] = GroupName;
                             item["Status"] = "Pending";
-                            item["GetNotification"] = getNotification;
+                            item["GetNotification"] = false;
                             oWeb.AllowUnsafeUpdates = true;
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;

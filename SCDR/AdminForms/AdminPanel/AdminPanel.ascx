@@ -151,7 +151,7 @@
 						</div>
 						<div class="details">
 							<div class="number">
-                                <asp:Label ID="LblReqNum" runat="server" Text="Label">123</asp:Label>
+                                <asp:Label ID="LblReqNum" runat="server" Text="Label"></asp:Label>
 							</div>
 							<div class="desc">
 								 New Request

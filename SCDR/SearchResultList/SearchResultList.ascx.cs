@@ -160,6 +160,14 @@ namespace SCDR.SearchResultList
                                 rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
                             }
+                            if (dtSearchResult.Rows.Count <= 0)
+                            {
+                                DataRow drow = dtSearchResult.NewRow();
+                                drow["Title"] = "No results found";
+                                dtSearchResult.Rows.Add(drow);
+                                rptrSearchResult.DataSource = dtSearchResult;
+                                rptrSearchResult.DataBind();
+                            }
                             
                         }
                     }

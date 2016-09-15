@@ -133,10 +133,6 @@ namespace SCDR.UserManagement.CreateADUserEn {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.CheckBox chkGetNotification;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Button btnRegister;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -560,20 +556,6 @@ namespace SCDR.UserManagement.CreateADUserEn {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.CheckBox @__BuildControlchkGetNotification() {
-            global::System.Web.UI.WebControls.CheckBox @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.CheckBox();
-            this.chkGetNotification = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "chkGetNotification";
-            @__ctrl.Text = "Get updates from SCDR";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.Button @__BuildControlbtnRegister() {
             global::System.Web.UI.WebControls.Button @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Button();
@@ -718,19 +700,16 @@ namespace SCDR.UserManagement.CreateADUserEn {
             @__ctrl23 = this.@__BuildControlCompareValidator1();
             @__parser.AddParsedSubObject(@__ctrl23);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n               </div>\r\n  </div>\r\n         <div id=\"messages\"></div>\r\n        <d" +
-                        "iv class=\"form-group\">\r\n    <div class=\"col-sm-12 col-md-12\">\r\n  "));
-            global::System.Web.UI.WebControls.CheckBox @__ctrl24;
-            @__ctrl24 = this.@__BuildControlchkGetNotification();
+                        "iv class=\"form-group\">\r\n    <div class=\"col-sm-12 col-md-12\">\r\n  \r\n    </div>\r\n " +
+                        " </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-12 col-md-12\">\r\n    " +
+                        "  "));
+            global::System.Web.UI.WebControls.Button @__ctrl24;
+            @__ctrl24 = this.@__BuildControlbtnRegister();
             @__parser.AddParsedSubObject(@__ctrl24);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n  <div class=\"form-group\">\r\n    <div class=\"col-sm-12 col" +
-                        "-md-12\">\r\n      "));
-            global::System.Web.UI.WebControls.Button @__ctrl25;
-            @__ctrl25 = this.@__BuildControlbtnRegister();
-            @__parser.AddParsedSubObject(@__ctrl25);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n         "));
-            global::System.Web.UI.WebControls.Button @__ctrl26;
-            @__ctrl26 = this.@__BuildControlbtncancel();
-            @__parser.AddParsedSubObject(@__ctrl26);
+            global::System.Web.UI.WebControls.Button @__ctrl25;
+            @__ctrl25 = this.@__BuildControlbtncancel();
+            @__parser.AddParsedSubObject(@__ctrl25);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n    </div>\r\n  </div>\r\n</div>\r\n    </div>\r\n                \r\n                "));
         }
         

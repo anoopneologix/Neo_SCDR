@@ -187,7 +187,7 @@ namespace SCDR.LoginEn {
             this.btnSignOut = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSignOut";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default");
+            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-theme btn-default");
             @__ctrl.Text = "Signout";
             @__ctrl.Click -= new System.EventHandler(this.btnSignOut_Click);
             @__ctrl.Click += new System.EventHandler(this.btnSignOut_Click);

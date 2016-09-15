@@ -96,7 +96,7 @@
          <div id="messages"></div>
         <div class="form-group">
     <div class="col-sm-offset-2 col-sm-10">
-  <asp:CheckBox ID="chkGetNotification" runat="server" Text="Get updates from SCDR" />
+  <%--<asp:CheckBox ID="chkGetNotification" runat="server" Text="Get updates from SCDR" />--%>
     </div>
   </div>
   <div class="form-group">

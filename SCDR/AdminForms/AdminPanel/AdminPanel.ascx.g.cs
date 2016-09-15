@@ -67,8 +67,6 @@ namespace SCDR.AdminForms.AdminPanel {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "LblReqNum";
             @__ctrl.Text = "Label";
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("123"));
             return @__ctrl;
         }
         

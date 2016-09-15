@@ -74,7 +74,7 @@
                      <span><asp:Label ID="lblUsername" runat="server"></asp:Label></span>
                 </div>
                
- <asp:Button ID="btnSignOut" class="btn btn-default btn-theme btn-signout" Text="الخروج" runat="server" OnClick="btnSignOut_Click"/>
+ <asp:Button ID="btnSignOut" class="btn btn-default btn-theme btn-signout " Text="الخروج" runat="server" OnClick="btnSignOut_Click"/>
             </span>
 
 
