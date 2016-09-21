@@ -16,7 +16,7 @@
         class="col-md-12 col-sm-12 col-xs-12">
         <asp:LinkButton ID="btnSearch" runat="server" OnClick="btnSearch_Click"><i class="fa fa-search"></i></asp:LinkButton>
        
-   <asp:TextBox ID="txtSearch" ClientIDMode="Static" CssClass="form-control" runat="server" placeholder="Search" ></asp:TextBox>
+   <asp:TextBox ID="txtSearch" ClientIDMode="Static" CssClass="form-control" runat="server" placeholder="Search" onkeydown = "return (event.keyCode!=13);"></asp:TextBox>
        </span> </span>
 </div>
 <!--Code Ends-->
