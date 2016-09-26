@@ -41,10 +41,6 @@ namespace SCDR.AdminForms.AdminPanel {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Label LblReqNum;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.Label LblRate;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
@@ -55,19 +51,6 @@ namespace SCDR.AdminForms.AdminPanel {
         public static implicit operator global::System.Web.UI.TemplateControl(AdminPanel target) 
         {
             return target == null ? null : target.TemplateControl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Label @__BuildControlLblReqNum() {
-            global::System.Web.UI.WebControls.Label @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Label();
-            this.LblReqNum = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "LblReqNum";
-            @__ctrl.Text = "Label";
-            return @__ctrl;
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
@@ -152,32 +135,17 @@ namespace SCDR.AdminForms.AdminPanel {
                         "style>\r\n<div class=\"row\">\r\n\t\t\t\t<div class=\"col-lg-3 col-md-3 col-sm-6 col-xs-12\"" +
                         ">\r\n\t\t\t\t\t<div class=\"dashboard-stat blue-madison\">\r\n\t\t\t\t\t\t<div class=\"visual\">\r\n\t" +
                         "\t\t\t\t\t\t<i class=\"fa fa-comments\"></i>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t<div class=\"details\">\r" +
-                        "\n\t\t\t\t\t\t\t<div class=\"number\">\r\n                                "));
+                        "\n\t\t\t\t\t\t\t<div class=\"number\">\r\n                                \r\n\t\t\t\t\t\t\t</div>\r\n\t" +
+                        "\t\t\t\t\t\t<div class=\"desc\">\r\n\t\t\t\t\t\t\t\t New Request\r\n\t\t\t\t\t\t\t</div>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t" +
+                        "\t\t\t<a class=\"more\" href=\"#\">\r\n\t\t\t\t\t\tView more <i class=\"m-icon-swapright m-icon-" +
+                        "white\"></i>\r\n\t\t\t\t\t\t</a>\r\n\t\t\t\t\t</div>\r\n\t\t\t\t</div>\r\n\t\t\t\t<div class=\"col-lg-3 col-m" +
+                        "d-3 col-sm-6 col-xs-12\">\r\n\t\t\t\t\t<div class=\"dashboard-stat red-intense\">\r\n\t\t\t\t\t\t<" +
+                        "div class=\"visual\">\r\n\t\t\t\t\t\t\t<i class=\"fa fa-bar-chart-o\"></i>\r\n\t\t\t\t\t\t</div>\r\n\t\t\t" +
+                        "\t\t\t<div class=\"details\">\r\n\t\t\t\t\t\t\t<div class=\"number\">\r\n                         " +
+                        "       "));
             global::System.Web.UI.WebControls.Label @__ctrl1;
-            @__ctrl1 = this.@__BuildControlLblReqNum();
+            @__ctrl1 = this.@__BuildControlLblRate();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-							</div>
-							<div class=""desc"">
-								 New Request
-							</div>
-						</div>
-						<a class=""more"" href=""#"">
-						View more <i class=""m-icon-swapright m-icon-white""></i>
-						</a>
-					</div>
-				</div>
-				<div class=""col-lg-3 col-md-3 col-sm-6 col-xs-12"">
-					<div class=""dashboard-stat red-intense"">
-						<div class=""visual"">
-							<i class=""fa fa-bar-chart-o""></i>
-						</div>
-						<div class=""details"">
-							<div class=""number"">
-                                "));
-            global::System.Web.UI.WebControls.Label @__ctrl2;
-            @__ctrl2 = this.@__BuildControlLblRate();
-            @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@" Stars
 							</div>
 							<div class=""desc"">
@@ -198,9 +166,9 @@ namespace SCDR.AdminForms.AdminPanel {
 						<div class=""details"">
 							<div class=""number"">
                                 "));
-            global::System.Web.UI.WebControls.Label @__ctrl3;
-            @__ctrl3 = this.@__BuildControllblViews();
-            @__parser.AddParsedSubObject(@__ctrl3);
+            global::System.Web.UI.WebControls.Label @__ctrl2;
+            @__ctrl2 = this.@__BuildControllblViews();
+            @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
 							</div>
 							<div class=""desc"">

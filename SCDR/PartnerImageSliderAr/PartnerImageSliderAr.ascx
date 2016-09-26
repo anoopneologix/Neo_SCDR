@@ -15,7 +15,7 @@
 
             <div class="outerpartner">
                 <div class="head_out">
-                <h3 class="news_heading font_resize"> <asp:Label ID="lblHeading" runat="server" ></asp:Label></h3></div>
+                <h3 class="news_heading"> <asp:Label ID="lblHeading" runat="server" ></asp:Label></h3></div>
                 <div class="partner_carousel">
     </HeaderTemplate>
     <ItemTemplate>

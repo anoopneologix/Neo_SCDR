@@ -13,7 +13,7 @@
  
                 <span class="radius font_resize slider1 ovreflow_hidden">
              
-<h3 class="news_heading font_resize"><asp:Label ID="lblHeading" runat="server" ></asp:Label></h3>
+<h3 class="news_heading"><asp:Label ID="lblHeading" runat="server" ></asp:Label></h3>
 <div class="owl_carosal1">
     </HeaderTemplate>
     <ItemTemplate>

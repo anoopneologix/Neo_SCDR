@@ -111,7 +111,7 @@ namespace SCDR.News.PressReleasesList
                         {
                             SPList oList = oWeb.Lists[ListName];
                             SPQuery query = new SPQuery();
-                            query.Query = @"<OrderBy><FieldRef Name='Modified' Ascending='False' /></OrderBy>";
+                            query.Query = @"<OrderBy><FieldRef Name='Date' Ascending='False' /></OrderBy>";
                             SPListItemCollection oItems = oList.GetItems(query);
                             if (oItems.Count > 0)
                             {

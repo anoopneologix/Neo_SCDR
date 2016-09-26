@@ -49,19 +49,11 @@ namespace SCDR.UserManagement.CreateAdUserAr {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExp1;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
@@ -186,25 +178,6 @@ namespace SCDR.UserManagement.CreateAdUserAr {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegExp1() {
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
-            this.RegExp1 = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "RegExp1";
-            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
-            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ValidationExpression = "^[a-zA-Z]{0,50}$";
-            @__ctrl.ControlToValidate = "txtFirstName";
-            @__ctrl.ErrorMessage = "أقصى 50 الأحرف المسموح، أي أحرف خاصة وأرقام سمحت";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.WebControls.TextBox @__BuildControltxtLastName() {
             global::System.Web.UI.WebControls.TextBox @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.TextBox();
@@ -233,25 +206,6 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl.ControlToValidate = "txtLastName";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ErrorMessage = "يرجى إدخال اسم العائلة";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.RegularExpressionValidator @__BuildControlRegularExpressionValidator3() {
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.RegularExpressionValidator();
-            this.RegularExpressionValidator3 = @__ctrl;
-            @__ctrl.TemplateControl = this;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "RegularExpressionValidator3";
-            @__ctrl.ForeColor = global::System.Drawing.Color.Red;
-            @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
-            @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ValidationExpression = "^[a-zA-Z]{0,50}$";
-            @__ctrl.ControlToValidate = "txtLastName";
-            @__ctrl.ErrorMessage = "أقصى 50 الأحرف المسموح، أي أحرف خاصة وأرقام سمحت";
             return @__ctrl;
         }
         
@@ -303,7 +257,8 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl.ID = "RegularExpressionValidator1";
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ControlToValidate = "txtPhoneNumber";
-            @__ctrl.ValidationExpression = "^\\s*\\+?[0-9]\\d?[- .]?(\\([2-9]\\d{2}\\)|[2-9]\\d{2})[- .]?\\d{3}[- .]?\\d{4}$";
+            @__ctrl.ValidationExpression = "^((\\+\\d{1,3}(-| )?\\(?\\d\\)?(-| )?\\d{1,5})|(\\(?\\d{2,6}\\)?))(-| )?(\\d{3,4})(-| )?(\\d" +
+                "{4})(( x| ext)\\d{1,5}){0,1}$";
             @__ctrl.ErrorMessage = "يرجى إدخال رقم الهاتف الصحيح.";
             return @__ctrl;
         }
@@ -440,9 +395,9 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ValidationGroup = "chk";
-            @__ctrl.ValidationExpression = "^[a-zA-Z0-9]{8,20}$";
+            @__ctrl.ValidationExpression = "^[a-zA-Z0-9]{2,20}$";
             @__ctrl.ControlToValidate = "txtUsername";
-            @__ctrl.ErrorMessage = "الحد الأدنى من 8 أحرف، بحد أقصى 20 حرفا المسموح به، لا يسمح أحرف خاصة";
+            @__ctrl.ErrorMessage = "الحد الأدنى من 2 أحرف، بحد أقصى 20 حرفا المسموح به، لا يسمح أحرف خاصة";
             return @__ctrl;
         }
         
@@ -493,8 +448,8 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl.Display = global::System.Web.UI.WebControls.ValidatorDisplay.Dynamic;
             @__ctrl.ID = "Regex2";
             @__ctrl.ControlToValidate = "txtPassword";
-            @__ctrl.ValidationExpression = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,}$";
-            @__ctrl.ErrorMessage = "الحد الأدنى من 8 أحرف على الأقل 1 الأبجدية و1 عدد و1 حرف خاص";
+            @__ctrl.ValidationExpression = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{6,}$";
+            @__ctrl.ErrorMessage = "الحد الأدنى من 6 أحرف على الأقل 1 الأبجدية و1 عدد و1 حرف خاص";
             @__ctrl.ForeColor = global::System.Drawing.Color.Red;
             return @__ctrl;
         }
@@ -581,7 +536,7 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btncancel";
             @__ctrl.CssClass = "btn btn-default";
-            @__ctrl.Text = "ألغى";
+            @__ctrl.Text = "إلغاء";
             @__ctrl.Click -= new System.EventHandler(this.btncancel_Click);
             @__ctrl.Click += new System.EventHandler(this.btncancel_Click);
             return @__ctrl;
@@ -602,112 +557,105 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl2;
             @__ctrl2 = this.@__BuildControlRequiredFieldValidator1();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n      "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl3;
-            @__ctrl3 = this.@__BuildControlRegExp1();
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n      \n           </div>\n  </div>\n         <div class=\"form-group\">\n    <label  " +
+                        "class=\"col-sm-2 control-label\">اسم العائلة</label>\n    <div class=\"col-sm-5\">\n  " +
+                        "   "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl3;
+            @__ctrl3 = this.@__BuildControltxtLastName();
             @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n           </div>\n  </div>\n         <div class=\"form-group\">\n    <label  class=\"" +
-                        "col-sm-2 control-label\">اسم العائلة</label>\n    <div class=\"col-sm-5\">\n     "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl4;
-            @__ctrl4 = this.@__BuildControltxtLastName();
-            @__parser.AddParsedSubObject(@__ctrl4);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n               <div class=\"col-sm-5\">\n                   "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl5;
-            @__ctrl5 = this.@__BuildControlRequiredFieldValidator2();
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl4;
+            @__ctrl4 = this.@__BuildControlRequiredFieldValidator2();
+            @__parser.AddParsedSubObject(@__ctrl4);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n              \n                     </div>\n  </div>\n        <div class=\"form-gro" +
+                        "up\">\n    <label  class=\"col-sm-2 control-label\">رقم الهاتف</label>\n    <div clas" +
+                        "s=\"col-sm-5\">\n     "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl5;
+            @__ctrl5 = this.@__BuildControltxtPhoneNumber();
             @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n              "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl6;
-            @__ctrl6 = this.@__BuildControlRegularExpressionValidator3();
-            @__parser.AddParsedSubObject(@__ctrl6);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                     </div>\n  </div>\n        <div class=\"form-group\">\n    <label" +
-                        "  class=\"col-sm-2 control-label\">رقم الهاتف</label>\n    <div class=\"col-sm-5\">\n " +
-                        "    "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl7;
-            @__ctrl7 = this.@__BuildControltxtPhoneNumber();
-            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n              <div class=\"col-sm-5\">\n                  "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl8;
-            @__ctrl8 = this.@__BuildControlRequiredFieldValidator3();
-            @__parser.AddParsedSubObject(@__ctrl8);
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl6;
+            @__ctrl6 = this.@__BuildControlRequiredFieldValidator3();
+            @__parser.AddParsedSubObject(@__ctrl6);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                  "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl9;
-            @__ctrl9 = this.@__BuildControlRegularExpressionValidator1();
-            @__parser.AddParsedSubObject(@__ctrl9);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl7;
+            @__ctrl7 = this.@__BuildControlRegularExpressionValidator1();
+            @__parser.AddParsedSubObject(@__ctrl7);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("       \n                   </div>\n  </div>\n       \n    <div class=\"form-group\">\n " +
-                        "   <label  class=\"col-sm-2 control-label\">عنوان الايميل</label>\n    <div class=\"" +
-                        "col-sm-5\">\n     "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl10;
-            @__ctrl10 = this.@__BuildControltxtEmail();
-            @__parser.AddParsedSubObject(@__ctrl10);
+                        "   <label  class=\"col-sm-2 control-label\">عنوان البريد الإلكتروني</label>\n    <d" +
+                        "iv class=\"col-sm-5\">\n     "));
+            global::System.Web.UI.WebControls.TextBox @__ctrl8;
+            @__ctrl8 = this.@__BuildControltxtEmail();
+            @__parser.AddParsedSubObject(@__ctrl8);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n         <div class=\"col-sm-5\">\n             "));
-            global::System.Web.UI.WebControls.Label @__ctrl11;
-            @__ctrl11 = this.@__BuildControllblEmailError();
+            global::System.Web.UI.WebControls.Label @__ctrl9;
+            @__ctrl9 = this.@__BuildControllblEmailError();
+            @__parser.AddParsedSubObject(@__ctrl9);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n             "));
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl10;
+            @__ctrl10 = this.@__BuildControlRequiredFieldValidator4();
+            @__parser.AddParsedSubObject(@__ctrl10);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n             "));
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl11;
+            @__ctrl11 = this.@__BuildControlRegularExpressionValidator2();
             @__parser.AddParsedSubObject(@__ctrl11);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n             "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl12;
-            @__ctrl12 = this.@__BuildControlRequiredFieldValidator4();
-            @__parser.AddParsedSubObject(@__ctrl12);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n             "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl13;
-            @__ctrl13 = this.@__BuildControlRegularExpressionValidator2();
-            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(" \n             \n              </div>\n  </div>\n    <div class=\"form-group\">\n    <l" +
                         "abel  class=\"col-sm-2 control-label\">اسم المستخدم</label>\n    <div class=\"col-sm" +
                         "-5\">\n     "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl14;
-            @__ctrl14 = this.@__BuildControltxtUsername();
-            @__parser.AddParsedSubObject(@__ctrl14);
+            global::System.Web.UI.WebControls.TextBox @__ctrl12;
+            @__ctrl12 = this.@__BuildControltxtUsername();
+            @__parser.AddParsedSubObject(@__ctrl12);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n               <div class=\"col-sm-5\">\n                   "));
-            global::System.Web.UI.WebControls.Label @__ctrl15;
-            @__ctrl15 = this.@__BuildControllblUserError();
-            @__parser.AddParsedSubObject(@__ctrl15);
+            global::System.Web.UI.WebControls.Label @__ctrl13;
+            @__ctrl13 = this.@__BuildControllblUserError();
+            @__parser.AddParsedSubObject(@__ctrl13);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                   "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl16;
-            @__ctrl16 = this.@__BuildControlRequiredFieldValidator5();
-            @__parser.AddParsedSubObject(@__ctrl16);
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl14;
+            @__ctrl14 = this.@__BuildControlRequiredFieldValidator5();
+            @__parser.AddParsedSubObject(@__ctrl14);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                    "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl17;
-            @__ctrl17 = this.@__BuildControlRegularExpressionValidator4();
-            @__parser.AddParsedSubObject(@__ctrl17);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl15;
+            @__ctrl15 = this.@__BuildControlRegularExpressionValidator4();
+            @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                    </div>\n  </div>\n        <div class=\"form-group\">\n    <label " +
                         " class=\"col-sm-2 control-label\">كلمه السر</label>\n    <div class=\"col-sm-5\">\n   " +
                         "  "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl18;
-            @__ctrl18 = this.@__BuildControltxtPassword();
-            @__parser.AddParsedSubObject(@__ctrl18);
+            global::System.Web.UI.WebControls.TextBox @__ctrl16;
+            @__ctrl16 = this.@__BuildControltxtPassword();
+            @__parser.AddParsedSubObject(@__ctrl16);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n              <div class=\"col-sm-5\">\n                  "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl19;
-            @__ctrl19 = this.@__BuildControlRequiredFieldValidator6();
-            @__parser.AddParsedSubObject(@__ctrl19);
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl17;
+            @__ctrl17 = this.@__BuildControlRequiredFieldValidator6();
+            @__parser.AddParsedSubObject(@__ctrl17);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n             "));
-            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl20;
-            @__ctrl20 = this.@__BuildControlRegex2();
-            @__parser.AddParsedSubObject(@__ctrl20);
+            global::System.Web.UI.WebControls.RegularExpressionValidator @__ctrl18;
+            @__ctrl18 = this.@__BuildControlRegex2();
+            @__parser.AddParsedSubObject(@__ctrl18);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                   </div>\n  </div>\n         <div class=\"form-group\">\n    <label " +
                         " class=\"col-sm-2 control-label\">تأكيد كلمة المرور</label>\n    <div class=\"col-sm" +
                         "-5\">\n     "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl21;
-            @__ctrl21 = this.@__BuildControltxtCpassword();
-            @__parser.AddParsedSubObject(@__ctrl21);
+            global::System.Web.UI.WebControls.TextBox @__ctrl19;
+            @__ctrl19 = this.@__BuildControltxtCpassword();
+            @__parser.AddParsedSubObject(@__ctrl19);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n               <div class=\"col-sm-5\">\n                   "));
-            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl22;
-            @__ctrl22 = this.@__BuildControlRequiredFieldValidator7();
-            @__parser.AddParsedSubObject(@__ctrl22);
+            global::System.Web.UI.WebControls.RequiredFieldValidator @__ctrl20;
+            @__ctrl20 = this.@__BuildControlRequiredFieldValidator7();
+            @__parser.AddParsedSubObject(@__ctrl20);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                   "));
-            global::System.Web.UI.WebControls.CompareValidator @__ctrl23;
-            @__ctrl23 = this.@__BuildControlCompareValidator1();
-            @__parser.AddParsedSubObject(@__ctrl23);
+            global::System.Web.UI.WebControls.CompareValidator @__ctrl21;
+            @__ctrl21 = this.@__BuildControlCompareValidator1();
+            @__parser.AddParsedSubObject(@__ctrl21);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n               </div>\n  </div>\n         <div id=\"messages\"></div>\n        <div c" +
                         "lass=\"form-group\">\n    <div class=\"col-sm-offset-2 col-sm-10\">\n  \n    </div>\n  <" +
                         "/div>\n  <div class=\"form-group\">\n    <div class=\"col-sm-offset-2 col-sm-10\">\n   " +
                         "   "));
-            global::System.Web.UI.WebControls.Button @__ctrl24;
-            @__ctrl24 = this.@__BuildControlbtnRegister();
-            @__parser.AddParsedSubObject(@__ctrl24);
+            global::System.Web.UI.WebControls.Button @__ctrl22;
+            @__ctrl22 = this.@__BuildControlbtnRegister();
+            @__parser.AddParsedSubObject(@__ctrl22);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n         "));
-            global::System.Web.UI.WebControls.Button @__ctrl25;
-            @__ctrl25 = this.@__BuildControlbtncancel();
-            @__parser.AddParsedSubObject(@__ctrl25);
+            global::System.Web.UI.WebControls.Button @__ctrl23;
+            @__ctrl23 = this.@__BuildControlbtncancel();
+            @__parser.AddParsedSubObject(@__ctrl23);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n    </div>\n  </div>\n</div>\n    </div>\n                \n                "));
         }
         

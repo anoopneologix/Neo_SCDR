@@ -24,7 +24,7 @@
     </div>
       <div class="col-sm-5">
           <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ID="RequiredFieldValidator1" Display="Dynamic" ControlToValidate="txtFirstName" runat="server" ErrorMessage="Please enter your first name"></asp:RequiredFieldValidator>
-      <asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z]{0,50}$" ControlToValidate="txtFirstName" runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>
+      <%--<asp:RegularExpressionValidator ID="RegExp1" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z]{0,50}$" ControlToValidate="txtFirstName" runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>--%>
            </div>
   </div>
          <div class="form-group">
@@ -34,7 +34,7 @@
     </div>
                <div class="col-sm-5">
                    <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ID="RequiredFieldValidator2" ControlToValidate="txtLastName" Display="Dynamic" runat="server" ErrorMessage="Please enter your last name"></asp:RequiredFieldValidator>
-              <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z]{0,50}$" ControlToValidate="txtLastName"  runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>
+             <%-- <asp:RegularExpressionValidator ID="RegularExpressionValidator3" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="[^a-zA-Z0-9\s]{0,50}$" ControlToValidate="txtLastName"  runat="server" ErrorMessage="Maximum 50 characters allowed.Special characters and numbers are not allowed"></asp:RegularExpressionValidator>--%>
                      </div>
   </div>
         <div class="form-group">
@@ -44,7 +44,7 @@
     </div>
               <div class="col-sm-5">
                   <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" Display="Dynamic" ControlToValidate="txtPhoneNumber"  ID="RequiredFieldValidator3" runat="server" ErrorMessage="Please enter phone number"></asp:RequiredFieldValidator>
-                  <asp:RegularExpressionValidator ForeColor="Red" ValidationGroup="chk" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ControlToValidate="txtPhoneNumber" ValidationExpression="^\s*\+?[0-9]\d?[- .]?(\([2-9]\d{2}\)|[2-9]\d{2})[- .]?\d{3}[- .]?\d{4}$"   ErrorMessage="please enter a valid phone number"></asp:RegularExpressionValidator>       
+                  <asp:RegularExpressionValidator ForeColor="Red" ValidationGroup="chk" ID="RegularExpressionValidator1" Display="Dynamic" runat="server" ControlToValidate="txtPhoneNumber" ValidationExpression="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"   ErrorMessage="please enter a valid phone number"></asp:RegularExpressionValidator>       
                    </div>
   </div>
        
@@ -68,7 +68,7 @@
                <div class="col-sm-5">
                    <asp:Label ID="lblUserError" runat="server"></asp:Label>
                    <asp:RequiredFieldValidator ForeColor="Red" ValidationGroup="chk" ControlToValidate="txtUsername" Display="Dynamic" ID="RequiredFieldValidator5" runat="server" ErrorMessage="Please enter a username"></asp:RequiredFieldValidator>
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z0-9]{8,20}$" ControlToValidate="txtUsername"  runat="server" ErrorMessage="Minimum 8 characters, Maximum 20 characters allowed.Special characters are not allowed"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" ForeColor="Red" Display="Dynamic" ValidationGroup="chk" ValidationExpression="^[a-zA-Z0-9]{2,20}$" ControlToValidate="txtUsername"  runat="server" ErrorMessage="Minimum 2 characters, Maximum 20 characters allowed.Special characters are not allowed"></asp:RegularExpressionValidator>
                     </div>
   </div>
         <div class="form-group">
@@ -79,8 +79,8 @@
               <div class="col-sm-5">
                   <asp:RequiredFieldValidator ForeColor="Red" ControlToValidate="txtPassword" ValidationGroup="chk" Display="Dynamic" ID="RequiredFieldValidator6" runat="server" ErrorMessage="Please enter your password"></asp:RequiredFieldValidator>
              <asp:RegularExpressionValidator Display="Dynamic" ID="Regex2" runat="server" ControlToValidate="txtPassword"
-    ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$"
-    ErrorMessage="Minimum 8 characters atleast 1 Alphabet, 1 Number and 1 Special Character" ForeColor="Red" ></asp:RegularExpressionValidator>
+    ValidationExpression="^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{6,}$"
+    ErrorMessage="Minimum 6 characters atleast 1 Alphabet, 1 Number and 1 Special Character" ForeColor="Red" ></asp:RegularExpressionValidator>
                    </div>
   </div>
          <div class="form-group">

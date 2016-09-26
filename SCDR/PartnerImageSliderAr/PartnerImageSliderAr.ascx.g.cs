@@ -67,7 +67,7 @@ namespace SCDR.PartnerImageSliderAr {
         private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n \r\n\r\n            <div class=\"outerpartner\">\r\n                <div class=\"head_o" +
-                        "ut\">\r\n                <h3 class=\"news_heading font_resize\"> "));
+                        "ut\">\r\n                <h3 class=\"news_heading\"> "));
             global::System.Web.UI.WebControls.Label @__ctrl1;
             @__ctrl1 = this.@__BuildControl__control3();
             @__parser.AddParsedSubObject(@__ctrl1);

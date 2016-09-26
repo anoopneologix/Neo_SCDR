@@ -8,7 +8,7 @@
 <%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LatestNews.ascx.cs" Inherits="SCDR.News.LatestNews.LatestNews" %>
 
            <div class="left_side_container radius font_resize"> 
-                <h3 class="news_heading font_resize"><asp:Label ID="lblHeading" runat="server" ></asp:Label> </h3>
+                <h3 class="news_heading"><asp:Label ID="lblHeading" runat="server" ></asp:Label> </h3>
                 <div class="news_carousel" id="divNews" runat="server" >
                    
                     </div>

@@ -9,7 +9,7 @@
 <asp:Repeater ID="repOurInitiativesSlider" runat="server" OnItemDataBound="repOurInitiativesSlider_ItemDataBound"  >
   <HeaderTemplate>
       <div class="right_side_container font_resize initiatives-block">
-       <h3 class="news_heading font_resize">
+       <h3 class="news_heading">
            <asp:Label ID="lblHeading" runat="server" ></asp:Label></h3>
                 <div class="owl_carosal">
   </HeaderTemplate>

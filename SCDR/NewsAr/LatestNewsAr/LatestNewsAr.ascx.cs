@@ -86,7 +86,7 @@ namespace SCDR.NewsAr.LatestNewsAr
                             SPQuery query = new SPQuery();
                             DateTime utcTime = DateTime.UtcNow;
                             string dtToday = SPUtility.CreateISO8601DateTimeFromSystemDateTime(utcTime.Date);
-                            query.Query = @"<Where><Leq><FieldRef Name='Modified' /><Value IncludeTimeValue='FALSE' Type='DateTime'>" + dtToday + "</Value></Leq></Where><OrderBy><FieldRef Name='Modified' Ascending='False' /></OrderBy>";
+                            query.Query = @"<Where><Leq><FieldRef Name='Modified' /><Value IncludeTimeValue='FALSE' Type='DateTime'>" + dtToday + "</Value></Leq></Where><OrderBy><FieldRef Name='Date' Ascending='False' /></OrderBy>";
                             query.RowLimit = 9;
                             SPListItemCollection oItems = oList.GetItems(query);
                             string listUrl = oWeb.Url + "/" + ListName + "/";
