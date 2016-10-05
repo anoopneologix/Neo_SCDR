@@ -4,6 +4,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
+using Microsoft.SharePoint.Workflow;
 
 namespace SCDR.UserManagement.CreateAdUserAr
 {
@@ -173,10 +174,26 @@ namespace SCDR.UserManagement.CreateAdUserAr
                             oWeb.AllowUnsafeUpdates = true;
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
+
+                            //Guid workflowId = GetRelatedWorkFlowId(Web);
+
+                            foreach (SPWorkflowAssociation workflow in list.WorkflowAssociations)
+                            {
+                                if (workflow.Name == "NewExtUser")
+                                {
+                                        oWeb.AllowUnsafeUpdates = true;
+                                        //SPSecurity.RunWithElevatedPrivileges(delegate()
+                                        //{
+                                            oSite.WorkflowManager.StartWorkflow(item, workflow, workflow.AssociationData);
+                                        //});
+                                    
+                                }
+                            }
+                            string sMessage = "تم التسجيل بنجاح";
+                            //   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
                         }
-                        string sMessage = "مكتملة بنجاح";
-                        //   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
+                       
                     }
                 });
             }

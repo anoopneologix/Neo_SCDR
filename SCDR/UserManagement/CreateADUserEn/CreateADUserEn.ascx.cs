@@ -4,6 +4,7 @@ using System.Web.UI.WebControls.WebParts;
 using System.Web.UI;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.Utilities;
+using Microsoft.SharePoint.Workflow;
 
 namespace SCDR.UserManagement.CreateADUserEn
 {
@@ -104,11 +105,25 @@ namespace SCDR.UserManagement.CreateADUserEn
                             oWeb.AllowUnsafeUpdates = true;
                             item.Update();
                             oWeb.AllowUnsafeUpdates = false;
+
+                            foreach (SPWorkflowAssociation workflow in list.WorkflowAssociations)
+                            {
+                                if (workflow.Name == "NewExtUser")
+                                {
+                                    oWeb.AllowUnsafeUpdates = true;
+                                    //SPSecurity.RunWithElevatedPrivileges(delegate()
+                                    //{
+                                        oSite.WorkflowManager.StartWorkflow(item, workflow, workflow.AssociationData);
+                                    //});
+
+                                }
+                            }
+                            string sMessage = "Successfully Registred.";
+                            //   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
+                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
+                    
                         }
-                        string sMessage = "Successfully Completed.";
-                     //   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
-                        ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
-                    }
+                      }
                 });
             }
             catch

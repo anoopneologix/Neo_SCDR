@@ -95,7 +95,7 @@ namespace SCDR.LoginAr {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSignin";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-submit");
-            @__ctrl.Text = "ارسال";
+            @__ctrl.Text = "تسجيل الدخول";
             @__ctrl.Click -= new System.EventHandler(this.btnSignin_Click1);
             @__ctrl.Click += new System.EventHandler(this.btnSignin_Click1);
             return @__ctrl;
@@ -111,7 +111,7 @@ namespace SCDR.LoginAr {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSignUp";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-primary btn-signup");
-            @__ctrl.Text = "تسجيل";
+            @__ctrl.Text = "التسجيل";
             @__ctrl.Click -= new System.EventHandler(this.btnSignup_Click);
             @__ctrl.Click += new System.EventHandler(this.btnSignup_Click);
             return @__ctrl;
@@ -168,7 +168,7 @@ namespace SCDR.LoginAr {
             @__ctrl.ApplyStyleSheetSkin(this.Page);
             @__ctrl.ID = "btnSignOut";
             ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-signout ");
-            @__ctrl.Text = "الخروج";
+            @__ctrl.Text = "تسجيل الخروج";
             @__ctrl.Click -= new System.EventHandler(this.btnSignOut_Click);
             @__ctrl.Click += new System.EventHandler(this.btnSignOut_Click);
             return @__ctrl;
@@ -227,7 +227,7 @@ namespace SCDR.LoginAr {
             @__parser.AddParsedSubObject(@__ctrl5);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                 \n                </div>\n            </span>\n\n            <span " +
                         "class=\"col-md-12 col-sm-12 col-xs-12 tab-frm after-signin\">\n\n                <di" +
-                        "v class=\"welcome_user\">\n                    <b>مرحبًا بك</b>\n                   " +
+                        "v class=\"welcome_user\">\n                    <b>مرحباً بك</b>\n                   " +
                         "  <span>"));
             global::System.Web.UI.WebControls.Label @__ctrl6;
             @__ctrl6 = this.@__BuildControllblUsername();

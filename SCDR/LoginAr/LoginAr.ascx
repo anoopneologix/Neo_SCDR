@@ -44,8 +44,8 @@
                         <a href="#" class="forgot">هل نسيت كلمة السر؟</a>
                     </div>--%>
                   
-                        <asp:Button ID="btnSignin" class="btn btn-default btn-theme btn-submit" runat="server" Text="ارسال"  OnClick="btnSignin_Click1" />
-                    <asp:Button ID="btnSignUp" class="btn btn-primary btn-signup" runat="server" Text="تسجيل" OnClick="btnSignup_Click" />
+                        <asp:Button ID="btnSignin" class="btn btn-default btn-theme btn-submit" runat="server" Text="تسجيل الدخول"  OnClick="btnSignin_Click1" />
+                    <asp:Button ID="btnSignUp" class="btn btn-primary btn-signup" runat="server" Text="التسجيل" OnClick="btnSignup_Click" />
                    <%-- <button type="button" class="btn btn-primary btn-signup">
                                         تسجيل</button>--%>
                 </div>
@@ -70,11 +70,11 @@
             <span class="col-md-12 col-sm-12 col-xs-12 tab-frm after-signin">
 
                 <div class="welcome_user">
-                    <b>مرحبًا بك</b>
+                    <b>مرحباً بك</b>
                      <span><asp:Label ID="lblUsername" runat="server"></asp:Label></span>
                 </div>
                
- <asp:Button ID="btnSignOut" class="btn btn-default btn-theme btn-signout " Text="الخروج" runat="server" OnClick="btnSignOut_Click"/>
+ <asp:Button ID="btnSignOut" class="btn btn-default btn-theme btn-signout " Text="تسجيل الخروج" runat="server" OnClick="btnSignOut_Click"/>
             </span>
 
 

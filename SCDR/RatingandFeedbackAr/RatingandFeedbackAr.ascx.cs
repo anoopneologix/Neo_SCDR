@@ -41,7 +41,7 @@ namespace SCDR.RatingandFeedbackAr
             get { return listName; }
             set { listName = value; }
         }
-        private const string DefaultTitle = "التقييم";
+        private const string DefaultTitle = "قيّمنا";
         private static string titleName = DefaultTitle;
         [Category("Extended Settings"),
         Personalizable(PersonalizationScope.Shared),

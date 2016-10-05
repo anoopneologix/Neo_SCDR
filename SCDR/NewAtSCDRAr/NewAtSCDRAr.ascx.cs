@@ -42,7 +42,7 @@ namespace SCDR.NewAtSCDRAr
             get { return listName; }
             set { listName = value; }
         }
-        private const string DefaultHeading = "جديد المركز";
+        private const string DefaultHeading = "جديد الهيئة";
         private static string headingName = DefaultHeading;
         [Category("Extended Settings"),
         Personalizable(PersonalizationScope.Shared),
