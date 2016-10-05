@@ -92,7 +92,8 @@
                 <div class="event-expand-details">
                     <div class="event-details-container">
                         <div class="event-img-wrapper">
-                            <img src='<%# Eval("ImageUrl") %>'>
+                            <a class="fancybox" href='<%# Eval("ImageUrl") %>' ><img src='<%# Eval("ImageUrl") %>' ></a>
+                            
                         </div>
                         <div class="event-info-wrapper">
                             <div class="event-info"><asp:Literal ID="ltEventVenue" runat="server"></asp:Literal><span><%# Eval("EventVenue") %></span>
@@ -476,8 +477,8 @@
         var textTitle = $div.children(".event-name").text();
         var filename = textTitle + ".pdf";
         var scaleBy = 5;
-        var w = 1000;
-        var h = 1000;
+        var w = 2750;
+        var h = 2750;
         var canvas = document.createElement('canvas');
         canvas.width = w * scaleBy;
         canvas.height = h * scaleBy;
@@ -495,7 +496,7 @@
                 var doc = new jsPDF();
 
                 doc.setFontSize(100);
-                doc.addImage(imgData, 'JPEG', 40, 40);
+                doc.addImage(imgData, 'PNG', 40, 40);
                 doc.save(filename);
                 document.body.removeChild(canvas);
             }

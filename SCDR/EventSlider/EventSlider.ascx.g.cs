@@ -207,7 +207,7 @@ namespace SCDR.EventSlider {
             @__ctrl2 = this.@__BuildControlrepEventPop();
             @__parser.AddParsedSubObject(@__ctrl2);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                   \r\n                </ul>\r\n\r\n            </div>\r\n        </div" +
-                        ">\r\n    </div>\r\n    <!--2 column popup END-->"));
+                        ">\r\n    </div>\r\n    <!--2 column popup END-->\r\n\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
