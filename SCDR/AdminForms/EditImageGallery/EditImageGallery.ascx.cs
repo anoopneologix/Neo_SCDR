@@ -77,7 +77,10 @@ namespace SCDR.AdminForms.EditImageGallery
                         using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
                             SPList oList = oWeb.Lists[ListName];
-                            SPListItemCollection oItems = oList.GetItems();
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<OrderBy><FieldRef Name='Rank' Ascending='False' /></OrderBy>";
+                            SPListItemCollection oItems = oList.GetItems(query);
+                            //SPListItemCollection oItems = oList.GetItems();
                             DataTable dtImageGallery = ConvertSPListToDataTable(oItems);
                             ddlCategoryName.DataSource = dtImageGallery;
                             ddlCategoryName.Items.Clear();

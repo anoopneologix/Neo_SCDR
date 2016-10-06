@@ -80,7 +80,7 @@ namespace SCDR.ImageGallery
                         {
                             SPList oList = oWeb.Lists[ListName];
                             SPQuery query = new SPQuery();
-                            query.Query = @"<OrderBy><FieldRef Name='Rank' Ascending='True' /><FieldRef Name='Modified' Ascending='False' /></OrderBy>";
+                            query.Query = @"<OrderBy><FieldRef Name='Rank' Ascending='False' /></OrderBy>";
                             SPListItemCollection oItems = oList.GetItems(query);
                             if (oItems.Count > 0)
                             {

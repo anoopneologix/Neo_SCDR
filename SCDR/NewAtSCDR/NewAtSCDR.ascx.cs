@@ -43,7 +43,7 @@ namespace SCDR.NewAtSCDR
             get { return listName; }
             set { listName = value; }
         }
-        private const string DefaultHeading = "New At SCDR";
+        private const string DefaultHeading = "New At SDAA";
         private static string headingName = DefaultHeading;
         [Category("Extended Settings"),
         Personalizable(PersonalizationScope.Shared),

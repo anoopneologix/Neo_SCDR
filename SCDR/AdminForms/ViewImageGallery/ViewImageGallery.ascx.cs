@@ -75,7 +75,10 @@ namespace SCDR.AdminForms.ViewImageGallery
                         using (SPWeb oWeb = oSite.OpenWeb(subsiteName))
                         {
                             SPList oList = oWeb.Lists[VenueListName];
-                            SPListItemCollection oItems = oList.GetItems();
+                            //SPListItemCollection oItems = oList.GetItems();
+                            SPQuery query = new SPQuery();
+                            query.Query = @"<OrderBy><FieldRef Name='Rank' Ascending='False' /></OrderBy>";
+                            SPListItemCollection oItems = oList.GetItems(query);
                             DataTable dtDepartment = ConvertSPListToDataTable(oItems);
                             gdvImageGallery.DataSource = dtDepartment;
                             gdvImageGallery.DataBind();

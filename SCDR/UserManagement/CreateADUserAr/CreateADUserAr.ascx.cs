@@ -189,9 +189,10 @@ namespace SCDR.UserManagement.CreateAdUserAr
                                     
                                 }
                             }
-                            string sMessage = "تم التسجيل بنجاح";
-                            //   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
-                            ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
+                            Page.Response.Redirect("/sites/SCDR/ar/SitePages/RegSuccess.aspx");
+                            //string sMessage = "تم التسجيل بنجاح";
+                            ////   ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "alert('" + sMessage + "');", false);
+                            //ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>var ourLocation = document.URL;alert('" + sMessage + "');window.location.href=ourLocation;</script>", false);
                         }
                        
                     }
