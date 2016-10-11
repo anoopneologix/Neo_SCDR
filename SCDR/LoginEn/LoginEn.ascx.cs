@@ -19,6 +19,8 @@ using System.Net;
 using System.Net.Mail;
 using Microsoft.SharePoint.Administration;
 
+using Microsoft.Office.Server.UserProfiles;
+
 
 namespace SCDR.LoginEn
 {
@@ -144,19 +146,43 @@ namespace SCDR.LoginEn
         {
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
 
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
                         using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPUser currentUser = oWeb.CurrentUser;
-                            lblUsername.Text = currentUser.Name;
-                       
+                            //SPServiceContext serverContext = SPServiceContext.GetContext(oSite);
+                            //UserProfileManager profileManager = new UserProfileManager(serverContext);
+                            //UserProfile profile = profileManager.GetUserProfile(currentUser.LoginName);
+                            //string firstName = profile["FirstName"].Value.ToString();
+                            //string LastName = profile["LastName"].Value.ToString();
+                            //string usName = this.Context.User.Identity.Name;
+                            string usName = currentUser.Name;
+                            string resolvedName = usName;
+                            if (resolvedName.LastIndexOf('|') > 0)
+                            {
+                                resolvedName = resolvedName.Substring(usName.LastIndexOf('|') + 1);
+                            }
+                            if (resolvedName.LastIndexOf('\\') > 0)
+                            {
+                                resolvedName = resolvedName.Substring(resolvedName.LastIndexOf('\\') + 1);
+                            }
+                            if (resolvedName.LastIndexOf('.') > 0)
+                            {
+                                resolvedName = resolvedName.Substring(1, resolvedName.LastIndexOf('.'));
+                            }
+                            if (resolvedName.LastIndexOf('@') > 0)
+                            {
+                                resolvedName = resolvedName.Substring(1, resolvedName.LastIndexOf('@'));
+                            }
+                            lblUsername.Text = usName;
+
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             { }

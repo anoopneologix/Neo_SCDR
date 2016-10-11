@@ -1,4 +1,5 @@
 ﻿using Microsoft.IdentityModel.Web;
+using Microsoft.Office.Server.UserProfiles;
 using Microsoft.SharePoint;
 using Microsoft.SharePoint.IdentityModel;
 using System;
@@ -48,15 +49,21 @@ namespace SCDR.LoginAr
         {
             try
             {
-                SPSecurity.RunWithElevatedPrivileges(delegate()
-                {
+                //SPSecurity.RunWithElevatedPrivileges(delegate()
+                //{
 
                     using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
                     {
                         using (SPWeb oWeb = oSite.OpenWeb())
                         {
                             SPUser currentUser = oWeb.CurrentUser;
-                            string usName = this.Context.User.Identity.Name;
+                            //SPServiceContext serverContext = SPServiceContext.GetContext(oSite);
+                            //UserProfileManager profileManager = new UserProfileManager(serverContext);
+                            //UserProfile profile = profileManager.GetUserProfile(currentUser.LoginName);
+                            //string firstName = profile["FirstName"].Value.ToString();
+                            //string LastName = profile["LastName"].Value.ToString();
+                            //string usName = this.Context.User.Identity.Name;
+                            string usName = currentUser.Name;
                             string resolvedName = usName;
                             if (resolvedName.LastIndexOf('|') > 0)
                             {
@@ -74,11 +81,11 @@ namespace SCDR.LoginAr
                             {
                                 resolvedName = resolvedName.Substring(1, resolvedName.LastIndexOf('@'));
                             }
-                            lblUsername.Text = resolvedName;
+                            lblUsername.Text = usName;
 
                         }
                     }
-                });
+                //});
             }
             catch (Exception ex)
             { }
