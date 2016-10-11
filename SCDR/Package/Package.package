@@ -2,6 +2,7 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="d68f5bac-dedd-4089-925f-33f82249765b" solutionId="d68f5bac-dedd-4089-925f-33f82249765b" resetWebServer="false" sharePointProductVersion="15.0" name="SCDR" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <features>
     <featureReference itemId="c5ea1ba6-225f-42a2-b21b-168ce636440f" />
+    <featureReference itemId="0dd3242d-6616-473c-8d39-5099e3695c33" />
   </features>
   <projectItems>
     <projectItemReference itemId="a18fb6fe-c84f-434d-b057-241419505682" />

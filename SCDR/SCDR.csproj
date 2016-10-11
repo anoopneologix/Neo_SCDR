@@ -590,6 +590,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SearchResultList.ascx</DependentUpon>
     </Compile>
+    <Compile Include="SubscribeAr\SubscribeAr.ascx.cs">
+      <DependentUpon>SubscribeAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribeAr\SubscribeAr.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeAr.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribeEn\SubscribeEn.ascx.cs">
+      <DependentUpon>SubscribeEn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="SubscribeEn\SubscribeEn.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SubscribeEn.ascx</DependentUpon>
+    </Compile>
     <Compile Include="UserManagement\CreateAdUserAr\CreateAdUserAr.ascx.cs">
       <DependentUpon>CreateAdUserAr.ascx</DependentUpon>
     </Compile>
@@ -788,6 +804,9 @@
     <None Include="EventSlider\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{c5c4d2a5-9d3e-464e-951f-753ca0b75053}</SharePointProjectItemId>
     </None>
+    <None Include="Features\Feature1\Feature1.feature">
+      <FeatureId>{0dd3242d-6616-473c-8d39-5099e3695c33}</FeatureId>
+    </None>
     <None Include="Features\SCDR\SCDR.feature">
       <FeatureId>{c5ea1ba6-225f-42a2-b21b-168ce636440f}</FeatureId>
     </None>
@@ -913,6 +932,14 @@
     <None Include="SharePointProjectItem.spdata">
       <SharePointProjectItemId>{31abc82b-e389-448d-85cd-c4e5598d3547}</SharePointProjectItemId>
     </None>
+    <None Include="SubscribeAr\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{151e68ed-c969-4c6c-8a55-749bd8ecb8af}</SharePointProjectItemId>
+    </None>
+    <None Include="SubscribeAr\SubscribeAr.webpart" />
+    <None Include="SubscribeEn\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{11aab54a-d8aa-41b2-88aa-ed082cf80d73}</SharePointProjectItemId>
+    </None>
+    <None Include="SubscribeEn\SubscribeEn.webpart" />
     <None Include="UserManagement\CreateAdUserAr\CreateAdUserAr.webpart" />
     <None Include="UserManagement\CreateAdUserAr\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{14e5aa79-4f5e-4c9d-8eaa-d84bbfbed11f}</SharePointProjectItemId>
@@ -1122,6 +1149,9 @@
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>EventSlider.ascx.g.cs</LastGenOutput>
     </Content>
+    <Content Include="Features\Feature1\Feature1.Template.xml">
+      <DependentUpon>Feature1.feature</DependentUpon>
+    </Content>
     <Content Include="Features\SCDR\SCDR.Template.xml">
       <DependentUpon>SCDR.feature</DependentUpon>
     </Content>
@@ -1277,6 +1307,16 @@
     <Content Include="SearchResultList\SearchResultList.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>SearchResultList.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeAr\Elements.xml" />
+    <Content Include="SubscribeAr\SubscribeAr.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SubscribeAr.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="SubscribeEn\Elements.xml" />
+    <Content Include="SubscribeEn\SubscribeEn.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>SubscribeEn.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="UserManagement\CreateAdUserAr\CreateAdUserAr.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>

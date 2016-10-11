@@ -17,6 +17,7 @@ using System.Globalization;
 using System.DirectoryServices;
 using System.DirectoryServices.ActiveDirectory;
 using System.DirectoryServices.AccountManagement;
+using Microsoft.SharePoint.Workflow;
 
 
 
@@ -133,6 +134,19 @@ namespace SCDR.UserManagement.ViewAdUsers
                             itemToUpdate["Status"] = "Rejected";
                             itemToUpdate.Update();
                             oWeb.AllowUnsafeUpdates = false;
+
+                            foreach (SPWorkflowAssociation workflow in oList.WorkflowAssociations)
+                            {
+                                if (workflow.Name == "AppRejExtUser")
+                                {
+                                    oWeb.AllowUnsafeUpdates = true;
+                                    //SPSecurity.RunWithElevatedPrivileges(delegate()
+                                    //{
+                                    oSite.WorkflowManager.StartWorkflow(itemToUpdate, workflow, workflow.AssociationData);
+                                    //});
+
+                                }
+                            }
                            
                         }
                         else if (e.CommandName == "approveme")
@@ -161,6 +175,18 @@ namespace SCDR.UserManagement.ViewAdUsers
                                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewADUsers.aspx';</script>", false);
                                 AddUserToAGroup(userName, "SCDR Wearhouse Users");
                                 BindADUserDetails();
+                                foreach (SPWorkflowAssociation workflow in oList.WorkflowAssociations)
+                                {
+                                    if (workflow.Name == "AppRejExtUser")
+                                    {
+                                        oWeb.AllowUnsafeUpdates = true;
+                                        //SPSecurity.RunWithElevatedPrivileges(delegate()
+                                        //{
+                                        oSite.WorkflowManager.StartWorkflow(itemToUpdate, workflow, workflow.AssociationData);
+                                        //});
+
+                                    }
+                                }
                             }
                             else
                             {
