@@ -169,11 +169,11 @@ namespace SCDR.UserManagement.ViewAdUsers
                                 {
                                     itemToUpdate["Status"] = "Approved";
                                     itemToUpdate.Update();
+                                    AddUserToAGroup(userName, "SCDR Wearhouse Users");
                                 }
                                 oWeb.AllowUnsafeUpdates = false;
                                 string sMessage = "successfully completed";
                                 ScriptManager.RegisterStartupScript(this, typeof(Page), "Alert", "<script>alert('" + sMessage + "');window.location='ViewADUsers.aspx';</script>", false);
-                                AddUserToAGroup(userName, "SCDR Wearhouse Users");
                                 BindADUserDetails();
                                 foreach (SPWorkflowAssociation workflow in oList.WorkflowAssociations)
                                 {
@@ -281,6 +281,9 @@ namespace SCDR.UserManagement.ViewAdUsers
                 ////dirEntry.CommitChanges();
                 ////dirEntry.Close();
                 //newUser.Close();
+                user.Enabled = true;
+                user.PasswordNeverExpires = true;
+                user.Save();
                 dirEntry.Close();
                 return true;
             }

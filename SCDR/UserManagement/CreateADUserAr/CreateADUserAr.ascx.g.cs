@@ -618,8 +618,8 @@ namespace SCDR.UserManagement.CreateAdUserAr {
             @__ctrl15 = this.@__BuildControlRegularExpressionValidator4();
             @__parser.AddParsedSubObject(@__ctrl15);
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n                    </div>\n  </div>\n        <div class=\"form-group\">\n    <label " +
-                        " class=\"col-sm-2 control-label\">كلمه السر</label>\n    <div class=\"col-sm-5\">\n   " +
-                        "  "));
+                        " class=\"col-sm-2 control-label\">كلمة المرور</label>\n    <div class=\"col-sm-5\">\n " +
+                        "    "));
             global::System.Web.UI.WebControls.TextBox @__ctrl16;
             @__ctrl16 = this.@__BuildControltxtPassword();
             @__parser.AddParsedSubObject(@__ctrl16);

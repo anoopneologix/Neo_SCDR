@@ -72,7 +72,7 @@
                     </div>
   </div>
         <div class="form-group">
-    <label  class="col-sm-2 control-label">كلمه السر</label>
+    <label  class="col-sm-2 control-label">كلمة المرور</label>
     <div class="col-sm-5">
      <asp:TextBox ID="txtPassword" CausesValidation="true" TextMode="Password" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
     </div>
