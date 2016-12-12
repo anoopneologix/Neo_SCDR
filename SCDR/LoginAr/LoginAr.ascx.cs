@@ -31,153 +31,60 @@ namespace SCDR.LoginAr
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
-            {
-                if (SPContext.Current.Web.CurrentUser != null)
-                {
-                    hfloginstatus.Value = "True";
-                    GetCurrentUserDetails();
-                }
-                else
-                {
-                    hfloginstatus.Value = "False";
-                }
-            }
-        }
-
-        public void GetCurrentUserDetails()
-        {
-            try
-            {
-                //SPSecurity.RunWithElevatedPrivileges(delegate()
-                //{
-
-                    using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
-                    {
-                        using (SPWeb oWeb = oSite.OpenWeb())
-                        {
-                            SPUser currentUser = oWeb.CurrentUser;
-                            //SPServiceContext serverContext = SPServiceContext.GetContext(oSite);
-                            //UserProfileManager profileManager = new UserProfileManager(serverContext);
-                            //UserProfile profile = profileManager.GetUserProfile(currentUser.LoginName);
-                            //string firstName = profile["FirstName"].Value.ToString();
-                            //string LastName = profile["LastName"].Value.ToString();
-                            //string usName = this.Context.User.Identity.Name;
-                            string usName = currentUser.Name;
-                            string resolvedName = usName;
-                            if (resolvedName.LastIndexOf('|') > 0)
-                            {
-                                resolvedName = resolvedName.Substring(usName.LastIndexOf('|') + 1);
-                            }
-                            if (resolvedName.LastIndexOf('\\') > 0)
-                            { 
-                            resolvedName = resolvedName.Substring(resolvedName.LastIndexOf('\\')+1);
-                            }
-                            if (resolvedName.LastIndexOf('.') > 0)
-                            {
-                                resolvedName = resolvedName.Substring(1, resolvedName.LastIndexOf('.'));
-                            }
-                            if (resolvedName.LastIndexOf('@') > 0)
-                            {
-                                resolvedName = resolvedName.Substring(1, resolvedName.LastIndexOf('@'));
-                            }
-                            lblUsername.Text = usName;
-
-                        }
-                    }
-                //});
-            }
-            catch (Exception ex)
-            { }
-
-        }
-
-        protected void btnSignOut_Click(object sender, EventArgs e)
-        {
-            FederatedAuthentication.SessionAuthenticationModule.SignOut();
-            FormsAuthentication.SignOut();
-            //if (HttpContext.Current == null)
-            //    HttpContext.Current.Response.Redirect("/_login/default.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easp", false);
-            HttpContext.Current.Response.Redirect("/sites/scdr/ar/SitePages/Sign_out.aspx", false);
-
-            //using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+            //if (!((Page)System.Web.HttpContext.Current.CurrentHandler).IsPostBack)
             //{
-            //    using (SPWeb oWeb = oSite.OpenWeb())
+            //    if (SPContext.Current.Web.CurrentUser != null)
             //    {
-
-
-            //        oWeb.AllowUnsafeUpdates = true;
-            //        //if (HttpContext.Current.User.Identity.AuthenticationType.ToUpper() != "FORMS")
-            //        //{
-            //            WSFederationAuthenticationModule authModule = FederatedAuthentication.WSFederationAuthenticationModule;
-            //            //string signoutUrl = (WSFederationAuthenticationModule.GetFederationPassiveSignOutUrl(authModule.Issuer, authModule.Realm, null));
-            //           // WSFederationAuthenticationModule.FederatedSignOut(new Uri(SPContext.Current.Site.Url + "/_login/default.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easp"), new Uri(SPContext.Current.Site.Url + "/_login/default.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easp"));
-            //            FormsAuthentication.SignOut();
-            //            //Page.Response.Redirect("/_login/default.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easp");
-            //            SPFederationAuthenticationModule.FederatedSignOut(new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"), null);
-            //            //HttpContext.Current.Response.Redirect("/_layouts/closeConnection.aspx?loginasanotheruser=true");
-            //        //}
-            //        //else
-            //        //{
-
-            //        //    HttpContext.Current.Response.Redirect("/_layouts/closeConnection.aspx?loginasanotheruser=true");
-            //        //}
-            //        oWeb.AllowUnsafeUpdates = false;
-               // }
-
-
-           // }
-        }
-        protected void btnSignin_Click1(object sender, EventArgs e)
-        {
-            Page.Response.Redirect("/_login/default.aspx?ReturnUrl=%2fsites%2fSCDR%2far%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Far%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Far%2FSitePages%2FHome%2Easp");
-            //if (Membership.ValidateUser(UserName.Text, pwd.Text))
-            //{
-
-            //    SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMember", "LdapRole", UserName.Text, pwd.Text);
-
-            //    if (tk != null)
-            //    {
-            //        SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
-            //        fam.SetPrincipalAndWriteSessionToken(tk);
             //        hfloginstatus.Value = "True";
-
             //        GetCurrentUserDetails();
-
-
+            //    }
+            //    else
+            //    {
+            //        hfloginstatus.Value = "False";
             //    }
             //}
-            //else
-            //{
-
-            /*  string domain = "scdr.gov.ae";
-              if(Authenticate(UserName.Text,pwd.Text,domain)==true)
-              {
-                  SecurityToken tk = SPSecurityContext.SecurityTokenForFormsAuthentication(new Uri(SPContext.Current.Web.Url), "LdapMemberSCDR", "LdapRoleSCDR", UserName.Text, pwd.Text);
-
-                  if (tk != null)
-                  {
-                      SPFederationAuthenticationModule fam = SPFederationAuthenticationModule.Current;
-                      fam.SetPrincipalAndWriteSessionToken(tk);
-                      hfloginstatus.Value = "True";
-
-                      GetCurrentUserDetails();
-
-
-                  }
-              }*/
-
-
-            //}
-
-
-
-
         }
 
-        protected void btnSignup_Click(object sender, EventArgs e)
+      
+        protected void btnSignin_Click1(object sender, EventArgs e)
         {
-            Page.Response.Redirect("/sites/SCDR/ar/SitePages/SignupADUser.aspx");
+            bool val1 = (System.Web.HttpContext.Current.User != null) && System.Web.HttpContext.Current.User.Identity.IsAuthenticated;
+            if (val1)
+            {
+                //Page.Response.Redirect("/sites/SCDR/ar/_layouts/15/SignOut.aspx");
+                using (SPSite oSite = new SPSite(SPContext.Current.Web.Url))
+                {
+                    using (SPWeb oWeb = oSite.OpenWeb())
+                    {
+
+
+                        oWeb.AllowUnsafeUpdates = true;
+                        if (HttpContext.Current.User.Identity.AuthenticationType.ToUpper() != "FORMS")
+                        {
+                            FormsAuthentication.SignOut();
+                            SPFederationAuthenticationModule.FederatedSignOut(new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"), new Uri(SPContext.Current.Web.Url + "/SitePages/Home.aspx"));
+                        }
+                        else
+                        {
+
+                            HttpContext.Current.Response.Redirect("~/sites/SCDR/ar/SitePages/Home.aspx");
+                        }
+                        oWeb.AllowUnsafeUpdates = false;
+                    }
+
+
+                }
+            }
+            else
+            {
+                string path = HttpContext.Current.Request.Url.AbsolutePath;
+                Page.Response.Redirect("/sites/SCDR/ar/_layouts/15/Authenticate.aspx?Source=" + path);
+                //Page.Response.Redirect(@"/sites/SCDR/_layouts/15/Authenticate.aspx?Source==%2fsites%2fSCDR%2fen%2f_layouts%2f15%2fAuthenticate.aspx%3fSource%3d%252Fsites%252FSCDR%252Fen%252FSitePages%252FHome%252Easpx&Source=%2Fsites%2FSCDR%2Fen%2FSitePages%2FHome%2Easp");
+            }
+
+
         }
+
+
     }
 }

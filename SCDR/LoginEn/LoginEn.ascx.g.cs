@@ -43,34 +43,6 @@ namespace SCDR.LoginEn {
             "artCodeGenerator", "12.0.0.0")]
         protected global::System.Web.UI.WebControls.HiddenField hfloginstatus;
         
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnOk;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnSignin;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnSignUp;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.TextBox txtForgotEmailId;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnForgotPassword;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Label lblUsername;
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.Button btnSignOut;
-        
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
         public static implicit operator global::System.Web.UI.TemplateControl(LoginEn target) 
         {
@@ -92,105 +64,12 @@ namespace SCDR.LoginEn {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnOk() {
+        private global::System.Web.UI.WebControls.Button @__BuildControl__control2() {
             global::System.Web.UI.WebControls.Button @__ctrl;
             @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnOk = @__ctrl;
             @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnOk";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-theme-ok");
-            @__ctrl.Text = "OK";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnSignin() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnSignin = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnSignin";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-submit");
-            @__ctrl.Text = "Login";
             @__ctrl.Click -= new System.EventHandler(this.btnSignin_Click1);
             @__ctrl.Click += new System.EventHandler(this.btnSignin_Click1);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnSignUp() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnSignUp = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnSignUp";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-primary btn-signup");
-            @__ctrl.Text = "Signup";
-            @__ctrl.Click -= new System.EventHandler(this.btnSignup_Click);
-            @__ctrl.Click += new System.EventHandler(this.btnSignup_Click);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.TextBox @__BuildControltxtForgotEmailId() {
-            global::System.Web.UI.WebControls.TextBox @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.TextBox();
-            this.txtForgotEmailId = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "txtForgotEmailId";
-            @__ctrl.TextMode = global::System.Web.UI.WebControls.TextBoxMode.Email;
-            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "form-control frm-forgot-email");
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnForgotPassword() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnForgotPassword = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnForgotPassword";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-default btn-theme btn-forgot-submit");
-            @__ctrl.Text = "Submit";
-            @__ctrl.Click -= new System.EventHandler(this.btnForgotPassword_Click);
-            @__ctrl.Click += new System.EventHandler(this.btnForgotPassword_Click);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Label @__BuildControllblUsername() {
-            global::System.Web.UI.WebControls.Label @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Label();
-            this.lblUsername = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "lblUsername";
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControlbtnSignOut() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            this.btnSignOut = @__ctrl;
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.ID = "btnSignOut";
-            ((System.Web.UI.IAttributeAccessor)(@__ctrl)).SetAttribute("class", "btn btn-theme btn-default");
-            @__ctrl.Text = "Signout";
-            @__ctrl.Click -= new System.EventHandler(this.btnSignOut_Click);
-            @__ctrl.Click += new System.EventHandler(this.btnSignOut_Click);
             return @__ctrl;
         }
         
@@ -203,92 +82,11 @@ namespace SCDR.LoginEn {
             global::System.Web.UI.WebControls.HiddenField @__ctrl1;
             @__ctrl1 = this.@__BuildControlhfloginstatus();
             @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-<div class=""login"">
-    <div class=""login_btn"">
-        <i class=""fa""></i>
-        <span class=""login_form_outer"">
-
-            <div class=""overlayConfirm"">
-                <div class=""confirmation_signout"">
-                    <p>Are you sure, want to sign out from the site?</p>
-                    "));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n<div class=\"login\">\r\n     <div class=\"login_btn\">\r\n    "));
             global::System.Web.UI.WebControls.Button @__ctrl2;
-            @__ctrl2 = this.@__BuildControlbtnOk();
+            @__ctrl2 = this.@__BuildControl__control2();
             @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-                    <button class=""btn btn-default btn-theme btn-theme-cancel"">CANCEL</button>
-                </div>
-            </div>
-
-            <div class=""alert alert-custom""></div>
-        
-            <span class=""col-md-12 col-sm-12 col-xs-12 tab-frm signin-frm"" style=""display: block"">
-                <div>
-                    
-                    
-                    "));
-            global::System.Web.UI.WebControls.Button @__ctrl3;
-            @__ctrl3 = this.@__BuildControlbtnSignin();
-            @__parser.AddParsedSubObject(@__ctrl3);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                    "));
-            global::System.Web.UI.WebControls.Button @__ctrl4;
-            @__ctrl4 = this.@__BuildControlbtnSignUp();
-            @__parser.AddParsedSubObject(@__ctrl4);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-                    
-                //Link for internal users to log in using AD account
-                
-                </div>
-            </span>
- 
-            <span class=""col-md-12 col-sm-12 col-xs-12 tab-frm forgot-frm"">
-                <div>
-                    <div class=""form-group custom-frm-group"">
-                        <label for=""forgot-email"">email address:</label>
-                        <span class=""email"">
-                            "));
-            global::System.Web.UI.WebControls.TextBox @__ctrl5;
-            @__ctrl5 = this.@__BuildControltxtForgotEmailId();
-            @__parser.AddParsedSubObject(@__ctrl5);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                          \r\n                        </span>\r\n                  " +
-                        "  </div>\r\n                   "));
-            global::System.Web.UI.WebControls.Button @__ctrl6;
-            @__ctrl6 = this.@__BuildControlbtnForgotPassword();
-            @__parser.AddParsedSubObject(@__ctrl6);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n                </div>\r\n            </span>\r\n          \r\n            <span clas" +
-                        "s=\"col-md-12 col-sm-12 col-xs-12 tab-frm after-signin\">\r\n\r\n                <div " +
-                        "class=\"welcome_user\">\r\n                    <b>Welcome</b>\r\n                    <" +
-                        "span>"));
-            global::System.Web.UI.WebControls.Label @__ctrl7;
-            @__ctrl7 = this.@__BuildControllblUsername();
-            @__parser.AddParsedSubObject(@__ctrl7);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("</span>\r\n                </div>\r\n                \r\n                  "));
-            global::System.Web.UI.WebControls.Button @__ctrl8;
-            @__ctrl8 = this.@__BuildControlbtnSignOut();
-            @__parser.AddParsedSubObject(@__ctrl8);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl(@"
-            </span>
-
-        </span>
-    </div>
-</div>
-
-<script>
-
-        var loginStatus = $(""#hfloginstatus"").val();
-        if (loginStatus == ""True"")
-        {
-            $("".login_form_outer"").removeClass(""expand_height"");
-            $("".tab-frm"").hide();
-            $("".tab-frm.after-signin"").fadeIn();
-        }
-        else
-        {
-
-        }
-  
-</script>"));
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n</div>\r\n</div>\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

@@ -95,6 +95,7 @@ namespace SCDR.SubscribeAr {
             global::System.Web.UI.WebControls.Button @__ctrl2;
             @__ctrl2 = this.@__BuildControlbtnSub();
             @__parser.AddParsedSubObject(@__ctrl2);
+            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\r\n"));
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

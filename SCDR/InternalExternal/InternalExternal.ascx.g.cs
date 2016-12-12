@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SCDR.LoginAr {
+namespace SCDR.InternalExternal {
     using System.Web.UI.WebControls.Expressions;
     using System.Web.UI.HtmlControls;
     using System.Collections;
@@ -37,14 +37,10 @@ namespace SCDR.LoginAr {
     using System.CodeDom.Compiler;
     
     
-    public partial class LoginAr {
-        
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        protected global::System.Web.UI.WebControls.HiddenField hfloginstatus;
+    public partial class InternalExternal {
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebPartCodeGenerator", "12.0.0.0")]
-        public static implicit operator global::System.Web.UI.TemplateControl(LoginAr target) 
+        public static implicit operator global::System.Web.UI.TemplateControl(InternalExternal target) 
         {
             return target == null ? null : target.TemplateControl;
         }
@@ -52,40 +48,7 @@ namespace SCDR.LoginAr {
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
             "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.HiddenField @__BuildControlhfloginstatus() {
-            global::System.Web.UI.WebControls.HiddenField @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.HiddenField();
-            this.hfloginstatus = @__ctrl;
-            @__ctrl.ID = "hfloginstatus";
-            @__ctrl.ClientIDMode = global::System.Web.UI.ClientIDMode.Static;
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private global::System.Web.UI.WebControls.Button @__BuildControl__control2() {
-            global::System.Web.UI.WebControls.Button @__ctrl;
-            @__ctrl = new global::System.Web.UI.WebControls.Button();
-            @__ctrl.ApplyStyleSheetSkin(this.Page);
-            @__ctrl.Click -= new System.EventHandler(this.btnSignin_Click1);
-            @__ctrl.Click += new System.EventHandler(this.btnSignin_Click1);
-            return @__ctrl;
-        }
-        
-        [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]
-        [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +
-            "artCodeGenerator", "12.0.0.0")]
-        private void @__BuildControlTree(global::SCDR.LoginAr.LoginAr @__ctrl) {
-            global::System.Web.UI.WebControls.HiddenField @__ctrl1;
-            @__ctrl1 = this.@__BuildControlhfloginstatus();
-            System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
-            @__parser.AddParsedSubObject(@__ctrl1);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n<div class=\"login\">\n    <div class=\"login_btn\">\n        "));
-            global::System.Web.UI.WebControls.Button @__ctrl2;
-            @__ctrl2 = this.@__BuildControl__control2();
-            @__parser.AddParsedSubObject(@__ctrl2);
-            @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n\n    </div>\n</div>\n\n"));
+        private void @__BuildControlTree(global::SCDR.InternalExternal.InternalExternal @__ctrl) {
         }
         
         [GeneratedCodeAttribute("Microsoft.VisualStudio.SharePoint.ProjectExtensions.CodeGenerators.SharePointWebP" +

@@ -18,7 +18,7 @@
 <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="form-horizontal">
   <div class="form-group">
-    <label  class="col-sm-2 control-label">الاسم الاول</label>
+    <label  class="col-sm-2 control-label">الاسم الأول</label>
     <div class="col-sm-5">
       <asp:TextBox ID="txtFirstName" CausesValidation="true" CssClass="form-control" ClientIDMode="Static" runat="server"></asp:TextBox>
     </div>

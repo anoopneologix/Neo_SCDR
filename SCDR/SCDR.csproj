@@ -84,6 +84,7 @@
     <Reference Include="System.IdentityModel" />
     <Reference Include="System.identitymodel.services" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -421,6 +422,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>InitiativesSlider.ascx</DependentUpon>
     </Compile>
+    <Compile Include="InternalExternal\InternalExternal.ascx.cs">
+      <DependentUpon>InternalExternal.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="InternalExternal\InternalExternal.ascx.g.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InternalExternal.ascx</DependentUpon>
+    </Compile>
     <Compile Include="LoginAr\LoginAr.ascx.cs">
       <DependentUpon>LoginAr.ascx</DependentUpon>
     </Compile>
@@ -622,6 +631,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CreateADUserEn.ascx</DependentUpon>
     </Compile>
+    <Compile Include="UserManagement\ViewAdUsers\MembershipCreateStatus.cs" />
     <Compile Include="UserManagement\ViewAdUsers\ViewAdUsers.ascx.cs">
       <DependentUpon>ViewAdUsers.ascx</DependentUpon>
     </Compile>
@@ -833,6 +843,10 @@
     <None Include="InitiativesSlider\InitiativesSlider.webpart" />
     <None Include="InitiativesSlider\SharePointProjectItem.spdata">
       <SharePointProjectItemId>{6f3c339f-03b2-406d-aa00-657690b0c957}</SharePointProjectItemId>
+    </None>
+    <None Include="InternalExternal\InternalExternal.webpart" />
+    <None Include="InternalExternal\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{b6318651-57b0-4520-b964-350d1cf59abf}</SharePointProjectItemId>
     </None>
     <None Include="key.snk" />
     <None Include="Layouts\SharePointProjectItem.spdata">
@@ -1184,6 +1198,11 @@
     <Content Include="InitiativesSlider\InitiativesSlider.ascx">
       <Generator>SharePointWebPartCodeGenerator</Generator>
       <LastGenOutput>InitiativesSlider.ascx.g.cs</LastGenOutput>
+    </Content>
+    <Content Include="InternalExternal\Elements.xml" />
+    <Content Include="InternalExternal\InternalExternal.ascx">
+      <Generator>SharePointWebPartCodeGenerator</Generator>
+      <LastGenOutput>InternalExternal.ascx.g.cs</LastGenOutput>
     </Content>
     <Content Include="Layouts\SCDR\css\bootstrap-datetimepicker.css" />
     <Content Include="Layouts\SCDR\css\datepicker.min.css" />

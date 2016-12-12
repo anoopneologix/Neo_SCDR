@@ -106,8 +106,8 @@ namespace SCDR.SubscribeAr
                 
             else 
             {
-                txtemail.ForeColor = Color.Red;
-                txtemail.Text = "يرجى إدخال عنوان البريد الإلكتروني";
+                //txtemail.ForeColor = Color.Red;
+                //txtemail.Text = "يرجى إدخال عنوان البريد الإلكتروني";
             }
         }
     }

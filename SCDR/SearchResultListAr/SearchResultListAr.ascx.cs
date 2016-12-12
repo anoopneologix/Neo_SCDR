@@ -129,6 +129,8 @@ namespace SCDR.SearchResultListAr
                             dtSearchResult.Columns.Add(dcPageID);
                             DataColumn dcDescription = new DataColumn("Content", typeof(string));
                             dtSearchResult.Columns.Add(dcDescription);
+                            DataColumn dcDisp = new DataColumn("disp", typeof(string));
+                            dtSearchResult.Columns.Add(dcDisp);
                             if (dtNews != null)
                             {
                                 //merging first data table into second data table  
@@ -162,6 +164,7 @@ namespace SCDR.SearchResultListAr
                             {
                                 DataRow drow = dtSearchResult.NewRow();
                                 drow["Title"] = "No results found";
+                                drow["disp"] = "display: none";
                                 dtSearchResult.Rows.Add(drow);
                                 rptrSearchResult.DataSource = dtSearchResult;
                                 rptrSearchResult.DataBind();
@@ -205,6 +208,8 @@ namespace SCDR.SearchResultListAr
                     dtNewsList.Columns.Add(dcPageID);
                     DataColumn dcDescription = new DataColumn("Content", typeof(string));
                     dtNewsList.Columns.Add(dcDescription);
+                    DataColumn dcDisp = new DataColumn("disp", typeof(string));
+                    dtNewsList.Columns.Add(dcDisp);
                     foreach (DataRow dr in dtSPList.Rows)
                     {
                         DataRow drow = dtNewsList.NewRow();
@@ -212,6 +217,7 @@ namespace SCDR.SearchResultListAr
                         drow["PageUrl"] = siteUrl + "/SitePages/News-Content.aspx?NewsID=" + dr["NewsID"];
                         string content = ExtractSentence(searchKeyword, dr["Description"].ToString());
                         drow["Content"] = content;
+                        drow["disp"] = "display: inherit";
                         dtNewsList.Rows.Add(drow);
                     }
                     return (dtNewsList);
@@ -258,13 +264,15 @@ namespace SCDR.SearchResultListAr
                     dtNewsList.Columns.Add(dcPageID);
                     DataColumn dcDescription = new DataColumn("Content", typeof(string));
                     dtNewsList.Columns.Add(dcDescription);
-
+                    DataColumn dcDisp = new DataColumn("disp", typeof(string));
+                    dtNewsList.Columns.Add(dcDisp);
                     foreach (DataRow dr in dtSPList.Rows)
                     {
                         DataRow drow = dtNewsList.NewRow();
                         drow["Title"] = dr["Title"];
                         drow["PageUrl"] = siteUrl + "/SitePages/Image-Gallery.aspx";
                         drow["Content"] = string.Empty;
+                        drow["disp"] = "display: inherit";
                         dtNewsList.Rows.Add(drow);
                     }
                     return (dtNewsList);
@@ -320,13 +328,15 @@ namespace SCDR.SearchResultListAr
                                 dtSitePagesList.Columns.Add(dcPageID);
                                 DataColumn dcDescription = new DataColumn("Content", typeof(string));
                                 dtSitePagesList.Columns.Add(dcDescription);
+                                DataColumn dcDisp = new DataColumn("disp", typeof(string));
+                                dtSitePagesList.Columns.Add(dcDisp);
                                 foreach (DataRow dr in dtResult.Rows)
                                 {
                                     DataRow drow = dtSitePagesList.NewRow();
                                    drow["Title"] = dr["HitHighlightedSummary"];
                                     drow["PageUrl"] = dr["Path"];
                                     drow["Content"] = string.Empty;
-                                    
+                                    drow["disp"] = "display: inherit";
                                     dtSitePagesList.Rows.Add(drow);
                                 }
                                 return (dtSitePagesList);
@@ -407,13 +417,15 @@ namespace SCDR.SearchResultListAr
                     dtNewsList.Columns.Add(dcPageID);
                     DataColumn dcDescription = new DataColumn("Content", typeof(string));
                     dtNewsList.Columns.Add(dcDescription);
-
+                    DataColumn dcDisp = new DataColumn("disp", typeof(string));
+                    dtNewsList.Columns.Add(dcDisp);
                     foreach (DataRow dr in dtSPList.Rows)
                     {
                         DataRow drow = dtNewsList.NewRow();
                         drow["Title"] = dr["LinkFilename"];
                         drow["PageUrl"] = siteUrl + "/" + publicationListName + "/" + dr["LinkFilename"];
                         drow["Content"] = string.Empty;
+                        drow["disp"] = "display: inherit";
                         dtNewsList.Rows.Add(drow);
                     }
                     return (dtNewsList);

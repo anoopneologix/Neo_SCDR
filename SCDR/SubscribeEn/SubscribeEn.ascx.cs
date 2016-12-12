@@ -114,8 +114,8 @@ namespace SCDR.SubscribeEn
             }
             else
             {
-                txtemail.ForeColor = Color.Red;
-                txtemail.Text = "Please enter a email.";
+                //txtemail.ForeColor = Color.Red;
+                //txtemail.Text = "Please enter a email.";
             }
         }
     }

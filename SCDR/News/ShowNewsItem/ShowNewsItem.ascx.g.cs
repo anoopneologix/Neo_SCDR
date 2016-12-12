@@ -202,7 +202,7 @@ namespace SCDR.News.ShowNewsItem {
                                 <a class=""addthis_button_email"" target=""_blank"" title=""Email"" href=""#""><i class=""fa fa-envelope""></i> </a>
                                 <a class=""addthis_button_google_plusone_share at300b"" target=""_blank"" title=""Google+"" href=""#""><i class=""fa fa-google-plus""></i></a>
                                 <a class=""addthis_button_print at300b"" title=""Print"" href=""#""><i class=""fa fa-print""></i></a>
-                                <span><a class=""addthis_button_print at300b"" href=""#""><i class=""fa fa-download""></i></a></span>
+                                <span><a class=""addthis_button_print at300b"" title=""Download""  href=""#""><i class=""fa fa-download""></i></a></span>
                             </div>
                         </div>
 <!--news page content ends-->"));

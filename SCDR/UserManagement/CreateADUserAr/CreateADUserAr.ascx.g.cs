@@ -548,7 +548,7 @@ namespace SCDR.UserManagement.CreateAdUserAr {
         private void @__BuildControl__control2(System.Web.UI.Control @__ctrl) {
             System.Web.UI.IParserAccessor @__parser = ((System.Web.UI.IParserAccessor)(@__ctrl));
             @__parser.AddParsedSubObject(new System.Web.UI.LiteralControl("\n<div class=\"col-md-12 col-sm-12 col-xs-12\">\n    <div class=\"form-horizontal\">\n  " +
-                        "<div class=\"form-group\">\n    <label  class=\"col-sm-2 control-label\">الاسم الاول<" +
+                        "<div class=\"form-group\">\n    <label  class=\"col-sm-2 control-label\">الاسم الأول<" +
                         "/label>\n    <div class=\"col-sm-5\">\n      "));
             global::System.Web.UI.WebControls.TextBox @__ctrl1;
             @__ctrl1 = this.@__BuildControltxtFirstName();

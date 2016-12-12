@@ -54,14 +54,15 @@ namespace SCDR.SearchResultList {
             "artCodeGenerator", "12.0.0.0")]
         private global::System.Web.UI.DataBoundLiteralControl @__BuildControl__control3() {
             global::System.Web.UI.DataBoundLiteralControl @__ctrl;
-            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(5, 4);
+            @__ctrl = new global::System.Web.UI.DataBoundLiteralControl(6, 5);
             @__ctrl.TemplateControl = this;
             @__ctrl.SetStaticString(0, "\r\n           <div class=\"newsrelease search-results\">\r\n                  <h4 clas" +
                     "s=\"inti_subhead font_resize\"><a href=\'");
             @__ctrl.SetStaticString(1, "\'>");
             @__ctrl.SetStaticString(2, "</a></h4>\r\n            <p class=\"releasecontent font_resize\">");
             @__ctrl.SetStaticString(3, " </p>\r\n    <a  href=\'");
-            @__ctrl.SetStaticString(4, "\' class=\"newsread font_resize\">read more</a>\r\n       </div> \r\n    \r\n        ");
+            @__ctrl.SetStaticString(4, "\' class=\"newsread font_resize\" style=\'");
+            @__ctrl.SetStaticString(5, "\' >read more</a>\r\n       </div> \r\n    \r\n        ");
             @__ctrl.DataBinding += new System.EventHandler(this.@__DataBind__control3);
             return @__ctrl;
         }
@@ -78,6 +79,7 @@ namespace SCDR.SearchResultList {
             target.SetDataBoundString(1, global::System.Convert.ToString(Eval("Title"), global::System.Globalization.CultureInfo.CurrentCulture));
             target.SetDataBoundString(2, global::System.Convert.ToString(Eval("Content"), global::System.Globalization.CultureInfo.CurrentCulture));
             target.SetDataBoundString(3, global::System.Convert.ToString(Eval("PageUrl"), global::System.Globalization.CultureInfo.CurrentCulture));
+            target.SetDataBoundString(4, global::System.Convert.ToString(Eval("disp"), global::System.Globalization.CultureInfo.CurrentCulture));
         }
         
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Never)]

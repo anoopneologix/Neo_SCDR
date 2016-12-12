@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Elements xmlns="http://schemas.microsoft.com/sharepoint/" >
+  <Module Name="InternalExternal" List="113" Url="_catalogs/wp">
+    <File Path="InternalExternal\InternalExternal.webpart" Url="SCDR_InternalExternal.webpart" Type="GhostableInLibrary" >
+      <Property Name="Group" Value="Custom" />
+    </File>
+  </Module>
+</Elements>

@@ -15,7 +15,7 @@
     <img class="img-thumbnail" src='<%# Eval("ImageUrl") %>' />
     <p class="newsdate font_resize"> <i class="fa fa-calendar-check-o"></i> التاريخ: <%# Eval("Date", "{0:d}") %></p>
     <p class="font_resize boldText"><%# Eval("Location") %> :</p>
-    <p class="releasecontent font_resize"> <div class="content_limit"> <%# Eval("Description") %> </div> </p>
+    <p class="releasecontent font_resize"> <div class="content_limit fontresizer"> <%# Eval("Description") %> </div> </p>
     <a  href='<%# Eval("PageID") %>' class="newsread font_resize">اقرأ المزيد</a>
        </div>     
         </ItemTemplate>
