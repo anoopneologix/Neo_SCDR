@@ -157,7 +157,7 @@
 								 New Request
 							</div>
 						</div>
-						<a class="more" href="#">
+						<a class="more" href="/sites/scdr/SitePages/Services_Menu.aspx">
 						View more <i class="m-icon-swapright m-icon-white"></i>
 						</a>
 					</div>

@@ -266,7 +266,7 @@ if (user != null)
                             //Allow updating of some sharepoint lists, (here spUsers, spGroups etc...)
                             spWeb.AllowUnsafeUpdates = true;
 
-                            string userName = "i:0#.f|FBAMembershipProvider|" + userLoginName; // also try with full email address as per your configuration
+                            string userName = "i:0#.f|FBAMemberShip|" + userLoginName; // also try with full email address as per your configuration
                             spWeb.SiteUsers.Add(userName, emailAdd, firstName + " " + lastName, "");
 
                             SPUser user = spWeb.SiteUsers[userName];
@@ -306,7 +306,7 @@ if (user != null)
                             //Allow updating of some sharepoint lists, (here spUsers, spGroups etc...)
                             spWeb.AllowUnsafeUpdates = true;
 
-                            string userName = "i:0#.f|FBAMembershipProvider|" + userLoginName; // also try with full email address as per your configuration
+                            string userName = "i:0#.f|FBAMemberShip|" + userLoginName; // also try with full email address as per your configuration
                             spWeb.SiteUsers.Add(userName, emailAdd, firstName + " " + lastName, "");
 
                             SPUser user = spWeb.SiteUsers[userName];
